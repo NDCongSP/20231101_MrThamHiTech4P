@@ -1,0 +1,59 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "GiamSat.APIClient/1.0.0": {
+        "dependencies": {
+          "NSwag.MSBuild": "13.10.8",
+          "System.ComponentModel.Annotations": "5.0.0",
+          "System.Text.Json": "5.0.2"
+        },
+        "runtime": {
+          "GiamSat.APIClient.dll": {}
+        }
+      },
+      "NSwag.MSBuild/13.10.8": {},
+      "System.ComponentModel.Annotations/5.0.0": {},
+      "System.Text.Json/5.0.2": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.521.16609"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GiamSat.APIClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NSwag.MSBuild/13.10.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tzYrUCOIYPNwU8NqfOSJxdUkfcZGvzGQzAw8j22Trpi4glcX65veyaLoQMWtZaoMKhg240Hk2sk9eDurKMAi2w==",
+      "path": "nswag.msbuild/13.10.8",
+      "hashPath": "nswag.msbuild.13.10.8.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
+      "path": "system.componentmodel.annotations/5.0.0",
+      "hashPath": "system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I47dVIGiV6SfAyppphxqupertT/5oZkYLDCX6vC3HpOI4ZLjyoKAreUoem2ie6G0RbRuFrlqz/PcTQjfb2DOfQ==",
+      "path": "system.text.json/5.0.2",
+      "hashPath": "system.text.json.5.0.2.nupkg.sha512"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\bin\Debug\net5.0\GiamSat.Models.deps.json
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\bin\Debug\net5.0\GiamSat.Models.dll
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\bin\Debug\net5.0\ref\GiamSat.Models.dll
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\bin\Debug\net5.0\GiamSat.Models.pdb
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\obj\Debug\net5.0\GiamSat.Models.csproj.AssemblyReference.cache
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\obj\Debug\net5.0\GiamSat.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\obj\Debug\net5.0\GiamSat.Models.AssemblyInfoInputs.cache
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\obj\Debug\net5.0\GiamSat.Models.AssemblyInfo.cs
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\obj\Debug\net5.0\GiamSat.Models.csproj.CoreCompileInputs.cache
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\obj\Debug\net5.0\GiamSat.Models.dll
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\obj\Debug\net5.0\ref\GiamSat.Models.dll
+D:\MyCompany\8.SourceCode\3.Projects\20231105_MrThamTraiHeoTinhVinhPhuc\sourceCode\GiamSat.API\GiamSat.Models\obj\Debug\net5.0\GiamSat.Models.pdb
