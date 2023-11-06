@@ -1,0 +1,37 @@
+﻿@page "/login"
+@layout LoginLayout
+
+
+
+<h3>Login</h3>
+
+<button @onclick="SignIn">Login</button>
+
+<h3>@token</h3>
+
+
+@code {
+    APIClient.LoginResult login;
+    private string token;
+
+
+    private async Task SignIn()
+    {
+        var success = await _authSerivce.LoginAsync(new APIClient.LoginModel()
+        {
+            Username = "admin",
+            Password = "123@123"
+        });
+
+        if (success != null)
+        {
+            token = success.Token;
+            login = success;
+            await InvokeAsync(StateHasChanged);
+            // StateHasChanged();
+            // _navigation.NavigateTo("/");
+        }
+
+        //  await _authSerivce.LogoutAsync();
+    }
+}
