@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project filever="1.0">
+<AddrInfo ScrnNo="0" HasNoPlcAddr="0">
+
+<PLCAddr>
+<BitAddr>
+<Add Addr="0_X_000000" Len="1" Fast="0"/>
+<Add Addr="0_X_000001" Len="1" Fast="0"/>
+<Add Addr="0_X_000002" Len="1" Fast="0"/>
+<Add Addr="0_X_000003" Len="1" Fast="0"/>
+<Add Addr="0_X_000004" Len="1" Fast="0"/></BitAddr>
+<WordAddr>
+<Add Addr="4_W_000100" Len="1" Fast="0"/>
+<Add Addr="4_W_000101" Len="1" Fast="0"/>
+<Add Addr="4_W_000102" Len="1" Fast="0"/>
+<Add Addr="4_W_000103" Len="1" Fast="0"/>
+<Add Addr="4_W_000104" Len="1" Fast="0"/>
+<Add Addr="4_W_000105" Len="1" Fast="0"/>
+<Add Addr="4_W_000106" Len="1" Fast="0"/>
+<Add Addr="4_W_000107" Len="1" Fast="0"/></WordAddr></PLCAddr></AddrInfo></project>
