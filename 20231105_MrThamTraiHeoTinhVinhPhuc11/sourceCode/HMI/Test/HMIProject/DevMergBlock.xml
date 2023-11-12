@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project filever="1.0">
+	<MergBlockInfo Total="1">
+		<Connection No="1" MaxBufSize="1">
+			<BitBlock>
+				<Block No="0" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_X_1:2:0:0:0:25600" Len="1" Fast="0" ScnNo="0" />
+				<Block No="1" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_X_1:2:0:11:0:25600" Len="1" Fast="0" ScnNo="0" />
+			</BitBlock>
+			<ByteBlock />
+			<WordBlock />
+			<DWordBlock />
+		</Connection>
+	</MergBlockInfo>
+</project>
