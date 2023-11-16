@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <G_Picture G_PictureVer="2.0">
-	<G_bmplib FileType="1" AllBmpTotal="132" CurBmpTotal="39">
+	<G_bmplib FileType="1" CurBmpTotal="47" AllBmpTotal="140">
 		<G_bmp Default="1" nId="1" nTotalStatus="2">
 			<MulStatus szFilename="Bmp1_0.dat" dwMID="0" />
 			<MulStatus szFilename="Bmp1_1.dat" dwMID="1" />
@@ -71,7 +71,7 @@
 			<MulStatus dwMID="0" szFilename="Bmp125_0.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
 			<MulStatus dwMID="1" szFilename="Bmp125_1.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
 		</G_bmp>
-		<G_bmp szFilename="Bmp127_0.dat" nId="127" nTotalStatus="1" nNewTotalStatus="0" />
+		<G_bmp nId="127" szFilename="Bmp127_0.dat" nTotalStatus="1" nNewTotalStatus="0" bSavePng="0" bTransparent="0" cTransColor="0" />
 		<G_bmp nId="128" szFilename="Bmp128" nTotalStatus="2" nNewTotalStatus="0">
 			<MulStatus dwMID="0" szFilename="Bmp128_0.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
 		</G_bmp>
@@ -89,5 +89,16 @@
 			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan9-4.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
 			<MulStatus dwMID="3" IsVector="1" szPath="Fan" szFilename="Fan9-3.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
 		</G_bmp>
+		<G_bmp nId="133" szFilename="Bmp133" nTotalStatus="2" nNewTotalStatus="0">
+			<MulStatus dwMID="0" IsVector="1" szPath="Flat Style" szFilename="Flat Style31-2.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+			<MulStatus dwMID="1" IsVector="1" szPath="Flat Style" szFilename="Flat Style31-1.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+		</G_bmp>
+		<G_bmp IsVector="1" szPath="Icon" szFilename="Icon0022.svg" nId="134" nTotalStatus="1" nNewTotalStatus="0" />
+		<G_bmp IsVector="1" szPath="Icon" szFilename="Icon0015.svg" nId="135" nTotalStatus="1" nNewTotalStatus="0" />
+		<G_bmp IsVector="1" szPath="Icon" szFilename="Icon2325.svg" nId="136" nTotalStatus="1" nNewTotalStatus="0" />
+		<G_bmp IsVector="1" szPath="Icon" szFilename="Icon2301.svg" nId="137" nTotalStatus="1" nNewTotalStatus="0" />
+		<G_bmp IsVector="1" szPath="Icon" szFilename="Icon2313.svg" nId="138" nTotalStatus="1" nNewTotalStatus="0" />
+		<G_bmp nId="139" szFilename="Bmp139_0.dat" nTotalStatus="1" nNewTotalStatus="0" bSavePng="0" bTransparent="0" cTransColor="0" />
+		<G_bmp IsVector="1" szPath="Icon" szFilename="Icon2330.svg" nId="140" nTotalStatus="1" nNewTotalStatus="0" />
 	</G_bmplib>
 </G_Picture>
