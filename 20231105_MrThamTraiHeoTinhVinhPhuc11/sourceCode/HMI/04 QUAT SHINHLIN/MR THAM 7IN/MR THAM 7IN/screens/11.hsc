@@ -138,7 +138,7 @@
 		<Lock Lockmate="0" UnDrawLock="0" LockMode="0" IsShowGrayScale="0" />
 		<PartPwd IsUesPartPassword="0" IsSetLowerLev="0" PartPasswordLev="0" />
 		<ClickPopTrig />
-		<UserAuthority IsUseUserAuthority="1" IsPopUserLoginWin="1" UserGroupIdSet="0" PopType="0" IsHidePart="0" LogText="" />
+		<UserAuthority IsUseUserAuthority="0" IsPopUserLoginWin="0" UserGroupIdSet="0" PopType="0" IsHidePart="0" LogText="" />
 		<SVGColor Status="0" svgfile="Icon\Icon0015.svg" dark="0x0 0" light="0xff6600 0" hlight="0x0 0" shadow="0x0 0" shape="0xffffff 0" gstartcolor="0xffccaa 0" gmidcolor="0x0 0" gendcolor="0xff6600 0" />
 		<SVGColor Status="1" svgfile="" dark="0x0 0" light="0x0 0" hlight="0x0 0" shadow="0x0 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
 		<Label Status="0" Bold="0" CharSize="1616161616161616" LaFrnColor="0xff0000 -1" />

@@ -1,182 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project filever="1.0">
-	<AddrInfo ScrnNo="11" HasNoPlcAddr="1">
-		<HMIAddr />
-		<Add Addr="HAW_W_0000007" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000006" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000004" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000005" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000001" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000002" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000010" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000011" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000009" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000008" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000003" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000007" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000006" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000004" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000005" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000001" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000002" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000010" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000011" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000009" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000008" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000003" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000228" Len="1" Fast="0" />
-		<Add Addr="HDW_W_0000030" Len="1" Fast="0" />
-		<Add Addr="HDW_W_0000026" Len="1" Fast="0" />
-		<Add Addr="HDW_W_0000027" Len="1" Fast="0" />
-		<Add Addr="HDW_W_0001000" Len="1" Fast="0" />
-		<Add Addr="HDW_W_0001001" Len="1" Fast="0" />
-		<Add Addr="HDW_W_0001002" Len="1" Fast="0" />
-		<Add Addr="HDW_W_0001003" Len="1" Fast="0" />
-		<Add Addr="HDW_W_0000032" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000024" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000023" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000021" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000022" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000018" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000019" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000020" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000027" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000028" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000026" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000025" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000228" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000175" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000174" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000172" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000173" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000169" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000170" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000171" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000178" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000179" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000177" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000176" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000237" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000024" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000023" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000021" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000022" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000018" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000019" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000020" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000027" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000028" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000026" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000025" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000229" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000041" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000040" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000038" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000039" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000035" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000036" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000037" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000044" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000045" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000043" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000042" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000230" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000058" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000057" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000055" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000056" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000052" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000053" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000054" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000061" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000062" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000060" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000059" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000231" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000075" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000074" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000072" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000073" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000069" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000070" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000071" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000078" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000079" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000077" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000076" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000232" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000092" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000091" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000089" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000090" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000086" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000087" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000088" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000095" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000096" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000094" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000093" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000233" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000109" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000108" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000106" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000107" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000103" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000104" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000105" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000112" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000113" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000111" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000110" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000234" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000141" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000140" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000138" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000139" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000135" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000136" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000137" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000144" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000145" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000143" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000142" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000235" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000158" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000157" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000155" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000156" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000152" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000153" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000154" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000161" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000162" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000160" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000159" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000236" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000000" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000121" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000007" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000006" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000004" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000005" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000001" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000002" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000010" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000011" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000009" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000008" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000003" Len="1" Fast="0" />
-		<Add Addr="HAW_W_0000228" Len="1" Fast="0" />
-	</AddrInfo>
-	<AddrInfo ScrnNo="16" HasNoPlcAddr="1">
-		<HMIAddr />
-	</AddrInfo>
 	<AddrInfo ScrnNo="15" HasNoPlcAddr="1">
-		<HMIAddr />
-	</AddrInfo>
-	<AddrInfo ScrnNo="0" HasNoPlcAddr="1">
 		<HMIAddr />
 	</AddrInfo>
 	<AddrInfo ScrnNo="13" HasNoPlcAddr="1">
@@ -210,6 +34,12 @@
 		<HMIAddr />
 	</AddrInfo>
 	<AddrInfo ScrnNo="1" HasNoPlcAddr="1">
+		<HMIAddr />
+	</AddrInfo>
+	<AddrInfo ScrnNo="0" HasNoPlcAddr="1">
+		<HMIAddr />
+	</AddrInfo>
+	<AddrInfo ScrnNo="11" HasNoPlcAddr="1">
 		<HMIAddr />
 	</AddrInfo>
 </project>

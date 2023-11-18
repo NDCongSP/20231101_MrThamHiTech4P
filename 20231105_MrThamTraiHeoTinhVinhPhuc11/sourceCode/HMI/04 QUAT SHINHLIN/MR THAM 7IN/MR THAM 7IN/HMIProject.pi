@@ -65,14 +65,51 @@
 		<TrigAction>
 			<Trigger Action="1" BitAddr="HDX40.0">'moc 1 ( cua giai doan 1)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW228 + @W_HAW0 then
-@B_HDX10.0=1
-endif
-if @W_HDW26&lt; @w_HAW228 - @W_HAW0 then
-@B_HDX10.0=0
+'initial
+if @B_HDX400.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+
+	'reset cac bien initial cua cac moc con lai
+	@b_hdx400.0=1
+	@b_hdx401.0=0 
+	@b_hdx402.0=0
+	@b_hdx403.0=0
+	@b_hdx404.0=0
+	@b_hdx405.0=0
+	@b_hdx406.0=0
+	@b_hdx407.0=0
+	@b_hdx408.0=0
+	@b_hdx409.0=0
 endif
 
-'reset ca moc con lai
+if @W_HDW26&gt;= @W_HAW228 + @W_HAW0 then 'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33'@W_HSW33 thanh ghi Minite HMI
+		@W_HDW303=1
+	endif
+
+	if @W_HSW33 &gt;= @W_HDW302 then 'dem thoi gian chay
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+
+	if @W_HDW304 &lt; @W_HAW226 then 'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+		@B_HDX10.0=1'bat dan mat
+	else 'het thoi gian chay thi tat dan mat
+		@B_HDX10.0=0'tat dan mat
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then 'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @w_HAW228 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
+endif
+
+'reset cac moc con lai
 @B_HDX200.0=1
 @B_HDX201.0=0
 @B_HDX202.0=0
@@ -85,77 +122,77 @@ endif
 @B_HDX209.0=0
 
 if @W_HAW3=0  then ' so quat chay co dinh la 0
-@B_HDX41.0=0
-@B_HDX42.0=0
-@B_HDX43.0=0
-@B_HDX44.0=0
-@B_HDX51.0=1
+	@B_HDX41.0=0
+	@B_HDX42.0=0
+	@B_HDX43.0=0
+	@B_HDX44.0=0
+	@B_HDX51.0=1
 else
-@B_HDX51.0=0
+	@B_HDX51.0=0
 endif
 
 if @W_HAW3=1  then ' so quat chay co dinh la 1
-@B_HDX41.0=1
-@B_HDX42.0=0
-@B_HDX43.0=0
-@B_HDX44.0=0
-@B_HDX51.0=0
+	@B_HDX41.0=1
+	@B_HDX42.0=0
+	@B_HDX43.0=0
+	@B_HDX44.0=0
+	@B_HDX51.0=0
 else
-@B_HDX41.0=0
+	@B_HDX41.0=0
 endif
 
 if @W_HAW3=2  then  ' so quat chay co dinh la 2
-@B_HDX41.0=0
-@B_HDX42.0=1
-@B_HDX43.0=0
-@B_HDX44.0=0
-@B_HDX51.0=0
+	@B_HDX41.0=0
+	@B_HDX42.0=1
+	@B_HDX43.0=0
+	@B_HDX44.0=0
+	@B_HDX51.0=0
 else
-@B_HDX42.0=0
+	@B_HDX42.0=0
 endif
 
 if @W_HAW3=3  then   ' so quat chay co dinh la 3
-@B_HDX41.0=0
-@B_HDX42.0=0
-@B_HDX43.0=1
-@B_HDX44.0=0
-@B_HDX51.0=0
+	@B_HDX41.0=0
+	@B_HDX42.0=0
+	@B_HDX43.0=1
+	@B_HDX44.0=0
+	@B_HDX51.0=0
 else
-@B_HDX43.0=0
+	@B_HDX43.0=0
 endif
 
 if @W_HAW3=4 then  ' so quat chay co dinh la 4
-@B_HDX41.0=0
-@B_HDX42.0=0
-@B_HDX43.0=0
-@B_HDX44.0=1
-@B_HDX51.0=0
+	@B_HDX41.0=0
+	@B_HDX42.0=0
+	@B_HDX43.0=0
+	@B_HDX44.0=1
+	@B_HDX51.0=0
 else
-@B_HDX44.0=0
+	@B_HDX44.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX41.0">'trigger ddieu khien quat theo nhiet do cua giai doan 1, co 1 quat chay co dinh
 @B_HDX0.0=1 'quat 1 on
 
 if @W_HDW26&gt;= @w_HAW9 + @W_HAW0 then 'quat 2 on
-@B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW9 - @W_HAW0 then
-@B_HDX1.0=0
+	@B_HDX1.0=1
+else
+'if @W_HDW26&lt; @w_HAW9 - @W_HAW0 then
+	@B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW10 + @W_HAW0 then 'quat 3 on
-@B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW10 - @W_HAW0 then
-@B_HDX2.0=0
+	@B_HDX2.0=1
+else
+'if @W_HDW26&lt; @w_HAW10 - @W_HAW0 then
+	@B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW11 + @W_HAW0 then 'quat 4 on
-@B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW11 - @W_HAW0 then
-@B_HDX3.0=0
+	@B_HDX3.0=1
+else
+'if @W_HDW26&lt; @w_HAW11 - @W_HAW0 then
+	@B_HDX3.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX14.0">'reset lai ngayve lai ban dau
@@ -167,17 +204,17 @@ endif
 @B_HDX1.0=1 'quat 1, 2 on
 
 if @W_HDW26&gt;= @w_HAW10 + @W_HAW0 then 'quat 3 on
-@B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW10 - @W_HAW0 then
-@B_HDX2.0=0
+	@B_HDX2.0=1
+else
+'if @W_HDW26&lt; @w_HAW10 - @W_HAW0 then
+	@B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW11 + @W_HAW0 then 'quat 4 on
-@B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW11 - @W_HAW0 then
-@B_HDX3.0=0
+	@B_HDX3.0=1
+else
+'if @W_HDW26&lt; @w_HAW11 - @W_HAW0 then
+	@B_HDX3.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX43.0">'trigger ddieu khien quat theo nhiet do cua giai doan 1
@@ -187,10 +224,10 @@ endif
 @B_HDX2.0=1 'quat 1, 2, 3 on
 
 if @W_HDW26&gt;= @w_HAW11 + @W_HAW0 then 'quat 4 on
-@B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW11 - @W_HAW0 then
-@B_HDX3.0=0
+	@B_HDX3.0=1
+else
+'if @W_HDW26&lt; @w_HAW11 - @W_HAW0 then
+	@B_HDX3.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX44.0">'trigger ddieu khien quat theo nhiet do  cua giai doan 1
@@ -202,73 +239,103 @@ endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX60.0">'moc 2 (giai doan 2)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW229 + @W_HAW0 then
-@B_HDX10.0=1
-endif
-if @W_HDW26&lt; @w_HAW229 - @W_HAW0 then
-@B_HDX10.0=0
+'initial
+if @B_HDX401.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=1 
+	@b_hdx402.0=0
+	@b_hdx403.0=0
+	@b_hdx404.0=0
+	@b_hdx405.0=0
+	@b_hdx406.0=0
+	@b_hdx407.0=0
+	@b_hdx408.0=0
+	@b_hdx409.0=0
 endif
 
-'reset
-@B_HDX200.0=0
-@B_HDX201.0=1
-@B_HDX202.0=0
-@B_HDX203.0=0
-@B_HDX204.0=0
-@B_HDX205.0=0
-@B_HDX206.0=0
-@B_HDX207.0=0
-@B_HDX208.0=0
-@B_HDX209.0=0
+if @W_HDW26&gt;= @W_HAW229 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @w_HAW229 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
+endif
 
 if @W_HAW20=0  then ' so quat chay co dinh la 1
-@B_HDX61.0=0
-@B_HDX62.0=0
-@B_HDX63.0=0
-@B_HDX64.0=0
-@B_HDX71.0=1
+	@B_HDX61.0=0
+	@B_HDX62.0=0
+	@B_HDX63.0=0
+	@B_HDX64.0=0
+	@B_HDX71.0=1
 else
-@B_HDX71.0=0
+	@B_HDX71.0=0
 endif
 
 if @W_HAW20=1  then ' so quat chay co dinh la 1
-@B_HDX61.0=1
-@B_HDX62.0=0
-@B_HDX63.0=0
-@B_HDX64.0=0
-@B_HDX71.0=0
+	@B_HDX61.0=1
+	@B_HDX62.0=0
+	@B_HDX63.0=0
+	@B_HDX64.0=0
+	@B_HDX71.0=0
 else
-@B_HDX61.0=0
+	@B_HDX61.0=0
 endif
 
 if @W_HAW20=2  then  ' so quat chay co dinh la 2
-@B_HDX61.0=0
-@B_HDX62.0=1
-@B_HDX63.0=0
-@B_HDX64.0=0
-@B_HDX71.0=0
+	@B_HDX61.0=0
+	@B_HDX62.0=1
+	@B_HDX63.0=0
+	@B_HDX64.0=0
+	@B_HDX71.0=0
 else
-@B_HDX62.0=0
+	@B_HDX62.0=0
 endif
 
 if @W_HAW20=3  then   ' so quat chay co dinh la 3
-@B_HDX61.0=0
-@B_HDX62.0=0
-@B_HDX63.0=1
-@B_HDX64.0=0
-@B_HDX71.0=0
+	@B_HDX61.0=0
+	@B_HDX62.0=0
+	@B_HDX63.0=1
+	@B_HDX64.0=0
+	@B_HDX71.0=0
 else
-@B_HDX63.0=0
+	@B_HDX63.0=0
 endif
 
 if @W_HAW20=4 then  ' so quat chay co dinh la 4
-@B_HDX61.0=0
-@B_HDX62.0=0
-@B_HDX63.0=0
-@B_HDX64.0=1
-@B_HDX71.0=0
+	@B_HDX61.0=0
+	@B_HDX62.0=0
+	@B_HDX63.0=0
+	@B_HDX64.0=1
+	@B_HDX71.0=0
 else
-@B_HDX64.0=0
+	@B_HDX64.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX61.0">'trigger ddieu khien quat theo nhiet do cua giai doan 2
@@ -276,53 +343,53 @@ endif
 @B_HDX0.0=1 'quat 1 on
 
 if @W_HDW26&gt;= @w_HAW26 + @W_HAW0 then 'quat 2 on
-@B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW26 - @W_HAW0 then
-@B_HDX1.0=0
+	@B_HDX1.0=1
+else
+'if @W_HDW26&lt; @w_HAW26 - @W_HAW0 then
+	@B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW27 + @W_HAW0 then 'quat 3 on
-@B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW27 - @W_HAW0 then
-@B_HDX2.0=0
+	@B_HDX2.0=1
+else
+'if @W_HDW26&lt; @w_HAW27 - @W_HAW0 then
+	@B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW28 + @W_HAW0 then 'quat 4 on
-@B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW28 - @W_HAW0 then
-@B_HDX3.0=0
+	@B_HDX3.0=1
+else
+'if @W_HDW26&lt; @w_HAW28 - @W_HAW0 then
+	@B_HDX3.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX51.0">'trigger ddieu khien quat theo nhiet do  cua giai doan 1. khong co quat chay co dinh
 
 if @W_HDW26&gt;= @w_HAW8 + @W_HAW0 then 'quat 2 on
 @B_HDX0.0=1
-endif
-if @W_HDW26&lt; @w_HAW8 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW8 - @W_HAW0 then
 @B_HDX0.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW9 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW9 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW9 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW10 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW10 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW10 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW11 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW11 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW11 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -330,29 +397,29 @@ endif
 '0 quat chay co dinh
 if @W_HDW26&gt;= @w_HAW25 + @W_HAW0 then 'quat 2 on
 @B_HDX0.0=1
-endif
-if @W_HDW26&lt; @w_HAW25 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW25 - @W_HAW0 then
 @B_HDX0.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW26 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW26 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW26 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW27 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW27 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW27 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW28 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW28 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW28 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -363,15 +430,15 @@ endif
 
 if @W_HDW26&gt;= @w_HAW27 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW27 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW27 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW28 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW28 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW28 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -383,8 +450,8 @@ endif
 
 if @W_HDW26&gt;= @w_HAW28 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW28 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW28 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -397,11 +464,54 @@ endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX80.0">'moc 3 (giai doan 3)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW230 + @W_HAW0 then
-@B_HDX10.0=1
+'initial
+if @B_HDX402.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=0 
+	@b_hdx402.0=1
+	@b_hdx403.0=0
+	@b_hdx404.0=0
+	@b_hdx405.0=0
+	@b_hdx406.0=0
+	@b_hdx407.0=0
+	@b_hdx408.0=0
+	@b_hdx409.0=0
 endif
-if @W_HDW26&lt; @w_HAW230 - @W_HAW0 then
-@B_HDX10.0=0
+
+@W_HDW300=@W_HSW33'doc minute tu HMI
+if @W_HDW26&gt;= @W_HAW230 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @W_HAW230 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
 endif
 
 'reset
@@ -417,53 +527,53 @@ endif
 @B_HDX209.0=0
 
 if @W_HAW37=0  then ' so quat chay co dinh la 1
-@B_HDX81.0=0
-@B_HDX82.0=0
-@B_HDX83.0=0
-@B_HDX84.0=0
-@B_HDX91.0=1
+	@B_HDX81.0=0
+	@B_HDX82.0=0
+	@B_HDX83.0=0
+	@B_HDX84.0=0
+	@B_HDX91.0=1
 else
-@B_HDX91.0=0
+	@B_HDX91.0=0
 endif
 
 if @W_HAW37=1  then ' so quat chay co dinh la 1
-@B_HDX81.0=1
-@B_HDX82.0=0
-@B_HDX83.0=0
-@B_HDX84.0=0
-@B_HDX91.0=0
+	@B_HDX81.0=1
+	@B_HDX82.0=0
+	@B_HDX83.0=0
+	@B_HDX84.0=0
+	@B_HDX91.0=0
 else
-@B_HDX81.0=0
+	@B_HDX81.0=0
 endif
 
 if @W_HAW37=2  then  ' so quat chay co dinh la 2
-@B_HDX81.0=0
-@B_HDX82.0=1
-@B_HDX83.0=0
-@B_HDX84.0=0
-@B_HDX91.0=0
+	@B_HDX81.0=0
+	@B_HDX82.0=1
+	@B_HDX83.0=0
+	@B_HDX84.0=0
+	@B_HDX91.0=0
 else
-@B_HDX82.0=0
+	@B_HDX82.0=0
 endif
 
 if @W_HAW37=3  then   ' so quat chay co dinh la 3
-@B_HDX81.0=0
-@B_HDX82.0=0
-@B_HDX83.0=1
-@B_HDX84.0=0
-@B_HDX91.0=0
+	@B_HDX81.0=0
+	@B_HDX82.0=0
+	@B_HDX83.0=1
+	@B_HDX84.0=0
+	@B_HDX91.0=0
 else
-@B_HDX83.0=0
+	@B_HDX83.0=0
 endif
 
 if @W_HAW37=4 then  ' so quat chay co dinh la 4
-@B_HDX81.0=0
-@B_HDX82.0=0
-@B_HDX83.0=0
-@B_HDX84.0=1
-@B_HDX91.0=0
+	@B_HDX81.0=0
+	@B_HDX82.0=0
+	@B_HDX83.0=0
+	@B_HDX84.0=1
+	@B_HDX91.0=0
 else
-@B_HDX84.0=0
+	@B_HDX84.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX81.0">'trigger ddieu khien quat theo nhiet do cua giai doan 3
@@ -472,22 +582,22 @@ endif
 
 if @W_HDW26&gt;= @w_HAW43 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW43 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW43 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW44 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW44 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW44 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW45 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW45 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW45 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -498,15 +608,15 @@ endif
 
 if @W_HDW26&gt;= @w_HAW44 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW44 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW44 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW45 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW45 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW45 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -517,8 +627,8 @@ endif
 
 if @W_HDW26&gt;= @w_HAW45 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW45 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW45 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -533,29 +643,29 @@ endif
 '0 quat chay co dinh
 if @W_HDW26&gt;= @w_HAW42 + @W_HAW0 then 'quat 2 on
 @B_HDX0.0=1
-endif
-if @W_HDW26&lt; @w_HAW42 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW42 - @W_HAW0 then
 @B_HDX0.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW43 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW43 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW43 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW44 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW44 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW44 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW45 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW45 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW45 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -662,7 +772,7 @@ endif
 @W_HDW237=0
 @W_HDW238=0
 @W_HDW239=0
-@W_HDW230=0
+@W_HDW240=0
 @W_HDW241=0
 'moc10
 @W_HDW250=0
@@ -675,7 +785,7 @@ endif
 @W_HDW257=0
 @W_HDW258=0
 @W_HDW259=0
-@W_HDW250=0
+@W_HDW260=0
 @W_HDW261=0
 
 @B_HDX200.0=0
@@ -783,7 +893,7 @@ endif
 @W_HDW237=0
 @W_HDW238=0
 @W_HDW239=0
-@W_HDW230=0
+@W_HDW240=0
 @W_HDW241=0
 'moc10
 @W_HDW250=0
@@ -796,7 +906,7 @@ endif
 @W_HDW257=0
 @W_HDW258=0
 @W_HDW259=0
-@W_HDW250=0
+@W_HDW260=0
 @W_HDW261=0
 
 @B_HDX201.0=0
@@ -903,7 +1013,7 @@ endif
 @W_HDW237=0
 @W_HDW238=0
 @W_HDW239=0
-@W_HDW230=0
+@W_HDW240=0
 @W_HDW241=0
 'moc10
 @W_HDW250=0
@@ -916,7 +1026,7 @@ endif
 @W_HDW257=0
 @W_HDW258=0
 @W_HDW259=0
-@W_HDW250=0
+@W_HDW260=0
 @W_HDW261=0
 
 @B_HDX202.0=0
@@ -1023,7 +1133,7 @@ endif
 @W_HDW237=0
 @W_HDW238=0
 @W_HDW239=0
-@W_HDW230=0
+@W_HDW240=0
 @W_HDW241=0
 'moc10
 @W_HDW250=0
@@ -1036,7 +1146,7 @@ endif
 @W_HDW257=0
 @W_HDW258=0
 @W_HDW259=0
-@W_HDW250=0
+@W_HDW260=0
 @W_HDW261=0
 
 @B_HDX203.0=0
@@ -1143,7 +1253,7 @@ endif
 @W_HDW237=0
 @W_HDW238=0
 @W_HDW239=0
-@W_HDW230=0
+@W_HDW240=0
 @W_HDW241=0
 'moc10
 @W_HDW250=0
@@ -1156,7 +1266,7 @@ endif
 @W_HDW257=0
 @W_HDW258=0
 @W_HDW259=0
-@W_HDW250=0
+@W_HDW260=0
 @W_HDW261=0
 
 @B_HDX204.0=0
@@ -1263,7 +1373,7 @@ endif
 @W_HDW237=0
 @W_HDW238=0
 @W_HDW239=0
-@W_HDW230=0
+@W_HDW240=0
 @W_HDW241=0
 'moc10
 @W_HDW250=0
@@ -1276,7 +1386,7 @@ endif
 @W_HDW257=0
 @W_HDW258=0
 @W_HDW259=0
-@W_HDW250=0
+@W_HDW260=0
 @W_HDW261=0
 
 @B_HDX205.0=0
@@ -1383,7 +1493,7 @@ endif
 @W_HDW237=0
 @W_HDW238=0
 @W_HDW239=0
-@W_HDW230=0
+@W_HDW240=0
 @W_HDW241=0
 'moc10
 @W_HDW250=0
@@ -1396,18 +1506,61 @@ endif
 @W_HDW257=0
 @W_HDW258=0
 @W_HDW259=0
-@W_HDW250=0
+@W_HDW260=0
 @W_HDW261=0
 
 @B_HDX206.0=0
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX100.0">'moc 4 (giai doan 4)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW231 + @W_HAW0 then
-@B_HDX10.0=1
+'initial
+if @B_HDX403.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=0 
+	@b_hdx402.0=0
+	@b_hdx403.0=1
+	@b_hdx404.0=0
+	@b_hdx405.0=0
+	@b_hdx406.0=0
+	@b_hdx407.0=0
+	@b_hdx408.0=0
+	@b_hdx409.0=0
 endif
-if @W_HDW26&lt; @w_HAW231 - @W_HAW0 then
-@B_HDX10.0=0
+
+@W_HDW300=@W_HSW33'doc minute tu HMI
+if @W_HDW26&gt;= @W_HAW231 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @W_HAW231 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
 endif
 
 'reset
@@ -1478,22 +1631,22 @@ endif
 
 if @W_HDW26&gt;= @w_HAW60 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW60 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW60 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW61 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW61 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW61 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW62 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW62 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW62 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1504,15 +1657,15 @@ endif
 
 if @W_HDW26&gt;= @w_HAW61 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW61 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW61 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW62 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW62 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW62 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1524,8 +1677,8 @@ endif
 
 if @W_HDW26&gt;= @w_HAW62 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW62 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW62 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1540,39 +1693,82 @@ endif
 'khong quat chay co dinh
 if @W_HDW26&gt;= @w_HAW59 + @W_HAW0 then 'quat 2 on
 @B_HDX0.0=1
-endif
-if @W_HDW26&lt; @w_HAW59 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW59 - @W_HAW0 then
 @B_HDX0.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW60 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW60 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW60 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW61 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW61 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW61 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW62 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW62 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW62 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX120.0">'moc 5 (giai doan 5)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW232 + @W_HAW0 then
-@B_HDX10.0=1
+'initial
+if @B_HDX404.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=0 
+	@b_hdx402.0=0
+	@b_hdx403.0=0
+	@b_hdx404.0=1
+	@b_hdx405.0=0
+	@b_hdx406.0=0
+	@b_hdx407.0=0
+	@b_hdx408.0=0
+	@b_hdx409.0=0
 endif
-if @W_HDW26&lt; @w_HAW232 - @W_HAW0 then
-@B_HDX10.0=0
+
+@W_HDW300=@W_HSW33'doc minute tu HMI
+if @W_HDW26&gt;= @W_HAW232 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @W_HAW232 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
 endif
 
 'reset
@@ -1643,22 +1839,22 @@ endif
 
 if @W_HDW26&gt;= @w_HAW77 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW77 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW77 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW78 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW78 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW78 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW79 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW79 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW79 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1669,15 +1865,15 @@ endif
 
 if @W_HDW26&gt;= @w_HAW78 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW78 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW78 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW79 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW79 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW79 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1689,8 +1885,8 @@ endif
 
 if @W_HDW26&gt;= @w_HAW79 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW79 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW79 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1705,39 +1901,82 @@ endif
 '0 quat chay co dinh
 if @W_HDW26&gt;= @w_HAW76 + @W_HAW0 then 'quat 1 on
 @B_HDX0.0=1
-endif
-if @W_HDW26&lt; @w_HAW76 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW76 - @W_HAW0 then
 @B_HDX0.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW77 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW77 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW77 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW78 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW78 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW78 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW79 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW79 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW79 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX140.0">'moc 6 (giai doan 6)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW233 + @W_HAW0 then
-@B_HDX10.0=1
+'initial
+if @B_HDX405.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=0 
+	@b_hdx402.0=0
+	@b_hdx403.0=0
+	@b_hdx404.0=0
+	@b_hdx405.0=1
+	@b_hdx406.0=0
+	@b_hdx407.0=0
+	@b_hdx408.0=0
+	@b_hdx409.0=0
 endif
-if @W_HDW26&lt; @w_HAW233 - @W_HAW0 then
-@B_HDX10.0=0
+
+@W_HDW300=@W_HSW33'doc minute tu HMI
+if @W_HDW26&gt;= @W_HAW233 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @W_HAW233 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
 endif
 
 'reset
@@ -1808,22 +2047,22 @@ endif
 
 if @W_HDW26&gt;= @w_HAW94 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW94 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW94 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW95 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW95 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW95 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW96 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW96 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW96 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1832,17 +2071,17 @@ endif
 @B_HDX0.0=1
 @B_HDX1.0=1
 
-if @W_HDW26&gt; @w_HAW95 + @W_HAW0 then 'quat 3 on
+if @W_HDW26&gt;= @w_HAW95 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW95 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW95 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
-if @W_HDW26&gt; @w_HAW96 + @W_HAW0 then 'quat 4 on
+if @W_HDW26&gt;= @w_HAW96 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW96 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW96 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1854,8 +2093,8 @@ endif
 
 if @W_HDW26&gt;= @w_HAW96 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW96 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW96 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1870,39 +2109,82 @@ endif
 '0 quat chay co dinh
 if @W_HDW26&gt;= @w_HAW93 + @W_HAW0 then 'quat 1 on
 @B_HDX0.0=1
-endif
-if @W_HDW26&lt; @w_HAW93 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW93 - @W_HAW0 then
 @B_HDX0.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW94 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW94 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW94 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW95 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW95 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW95 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW96 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW96 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW96 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX160.0">'moc 7 (giai doan 7)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW234 + @W_HAW0 then
-@B_HDX10.0=1
+'initial
+if @B_HDX406.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=0 
+	@b_hdx402.0=0
+	@b_hdx403.0=0
+	@b_hdx404.0=0
+	@b_hdx405.0=0
+	@b_hdx406.0=1
+	@b_hdx407.0=0
+	@b_hdx408.0=0
+	@b_hdx409.0=0
 endif
-if @W_HDW26&lt; @w_HAW234 - @W_HAW0 then
-@B_HDX10.0=0
+
+@W_HDW300=@W_HSW33'doc minute tu HMI
+if @W_HDW26&gt;= @W_HAW234 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @W_HAW234 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
 endif
 
 'reset
@@ -1973,22 +2255,22 @@ endif
 
 if @W_HDW26&gt;= @w_HAW111 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW111 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW111 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW112 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW112 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW112 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW113 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW113 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW113 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -1999,15 +2281,15 @@ endif
 
 if @W_HDW26&gt;= @w_HAW112 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW112 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW112 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW113 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW113 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW113 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -2019,8 +2301,8 @@ endif
 
 if @W_HDW26&gt;= @w_HAW113 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW113 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW113 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -2037,29 +2319,29 @@ endif
 
 if @W_HDW26&gt;= @w_HAW110 + @W_HAW0 then 'quat 1 on
 @B_HDX0.0=1
-endif
-if @W_HDW26&lt; @w_HAW110 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW110 - @W_HAW0 then
 @B_HDX0.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW111 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW111 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW111 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW112 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW112 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW112 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW113 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW113 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW113 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -2067,218 +2349,218 @@ endif
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW5 THEN
-@W_HDW31=@W_HAW7 * 2
+	@W_HDW31=@W_HAW7 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW4 THEN
-@W_HDW31=@W_HAW6 * 2
+	@W_HDW31=@W_HAW6 * 2
 ENDIF
 
 IF @W_HDW26&gt;@W_HAW5 AND @W_HDW26&lt;@W_HAW4 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW4-@W_HAW5'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW6-@W_HAW7'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW5 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
-@W_HDW31=(@W_HAW7+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW4-@W_HAW5'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW6-@W_HAW7'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW5 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
+	@W_HDW31=(@W_HAW7+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX211.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 2
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW22 THEN
-@W_HDW31=@W_HAW24 * 2
+	@W_HDW31=@W_HAW24 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW21 THEN
-@W_HDW31=@W_HAW23 * 2
+	@W_HDW31=@W_HAW23 * 2
 ENDIF
 
 IF @W_HDW26&gt;@W_HAW22 AND @W_HDW26&lt;@W_HAW21 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW21-@W_HAW22'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW23-@W_HAW24'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW22
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW31=(@W_HAW24+(@W_HDW252 * @W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW21-@W_HAW22'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW23-@W_HAW24'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW22
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW31=(@W_HAW24+(@W_HDW272 * @W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX212.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 3
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW39 THEN
-@W_HDW31=@W_HAW41 * 2
+	@W_HDW31=@W_HAW41 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW38 THEN
-@W_HDW31=@W_HAW40 * 2
+	@W_HDW31=@W_HAW40 * 2
 ENDIF
 
 IF @W_HDW26&gt;@W_HAW39 AND @W_HDW26&lt;@W_HAW38 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW38-@W_HAW39'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW40-@W_HAW41'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW39
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW31=(@W_HAW41+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW38-@W_HAW39'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW40-@W_HAW41'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW39
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW31=(@W_HAW41+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX213.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 4
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW56 THEN
-@W_HDW31=@W_HAW58 * 2
+	@W_HDW31=@W_HAW58 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW55 THEN
-@W_HDW31=@W_HAW57 * 2
+	@W_HDW31=@W_HAW57 * 2
 ENDIF
 
 IF @W_HDW26&gt;@W_HAW56 AND @W_HDW26&lt;@W_HAW55 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW55-@W_HAW56'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW57-@W_HAW58'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW56
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW31=(@W_HAW58+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW55-@W_HAW56'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW57-@W_HAW58'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW56
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW31=(@W_HAW58+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX214.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 5
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW73 THEN
-@W_HDW31=@W_HAW75 * 2
+	@W_HDW31=@W_HAW75 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW72 THEN
-@W_HDW31=@W_HAW74 * 2
+	@W_HDW31=@W_HAW74 * 2
 ENDIF
 
 IF @W_HDW26&gt;@W_HAW73 AND @W_HDW26&lt;@W_HAW72 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW72-@W_HAW73'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW74-@W_HAW75'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW73 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
-@W_HDW31=(@W_HAW75+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW72-@W_HAW73'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW74-@W_HAW75'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW73 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
+	@W_HDW31=(@W_HAW75+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX215.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 6
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW90 THEN
-@W_HDW31=@W_HAW92 * 2
+	@W_HDW31=@W_HAW92 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW89 THEN
-@W_HDW31=@W_HAW91 * 2
+	@W_HDW31=@W_HAW91 * 2
 ENDIF
 
 IF @W_HDW26&gt;@W_HAW90 AND @W_HDW26&lt;@W_HAW89 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW89-@W_HAW90'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW91-@W_HAW92'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW90 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
-@W_HDW31=(@W_HAW92+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW89-@W_HAW90'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW91-@W_HAW92'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW90 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
+	@W_HDW31=(@W_HAW92+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX216.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 7
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW107 THEN
-@W_HDW31=@W_HAW109 * 2
+	@W_HDW31=@W_HAW109 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW106 THEN
-@W_HDW31=@W_HAW108 * 2
+	@W_HDW31=@W_HAW108 * 2
 ENDIF
 
 IF @W_HDW26&gt;@W_HAW107 AND @W_HDW26&lt;@W_HAW106 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW106-@W_HAW107'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW108-@W_HAW109'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW107 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
-@W_HDW31=(@W_HAW109+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW106-@W_HAW107'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW108-@W_HAW109'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW107 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
+	@W_HDW31=(@W_HAW109+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX217.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 8
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW139 THEN'neu nhiet do nho hon hoac bang nhiet do nguong thap, thi chinh bang tan so thap
-@W_HDW31=@W_HAW141 * 2
+	@W_HDW31=@W_HAW141 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW138 THEN'neu nhiet do lon hon hoac bang nhiet do nguong cao, thi chinh bang tan so cao
-@W_HDW31=@W_HAW140 * 2
+	@W_HDW31=@W_HAW140 * 2
 ENDIF
 
 'nhiet do trong khoang nguong thap va nguong cao, thi tinh tan so theo nhiet do do duoc
 IF @W_HDW26&gt;@W_HAW139 AND @W_HDW26&lt;@W_HAW138 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW138-@W_HAW139'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW140-@W_HAW141'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW139 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
-@W_HDW31=(@W_HAW141+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW138-@W_HAW139'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW140-@W_HAW141'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW139 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
+	@W_HDW31=(@W_HAW141+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX218.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 9
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW156 THEN'neu nhiet do nho hon hoac bang nhiet do nguong thap, thi chinh bang tan so thap
-@W_HDW31=@W_HAW158 * 2
+	@W_HDW31=@W_HAW158 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW155 THEN'neu nhiet do lon hon hoac bang nhiet do nguong cao, thi chinh bang tan so cao
-@W_HDW31=@W_HAW157 * 2
+	@W_HDW31=@W_HAW157 * 2
 ENDIF
 
 'nhiet do trong khoang nguong thap va nguong cao, thi tinh tan so theo nhiet do do duoc
 IF @W_HDW26&gt;@W_HAW156 AND @W_HDW26&lt;@W_HAW155 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW155-@W_HAW156'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW157-@W_HAW158'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW156 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
-@W_HDW31=(@W_HAW158+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE = Tan so nguong thap + Tan so theo cong them.
-'phai nhan doi len, vi fomat cua bien tan no nhu vay
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW155-@W_HAW156'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW157-@W_HAW158'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW156 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
+	@W_HDW31=(@W_HAW158+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE = Tan so nguong thap + Tan so theo cong them.
+	'phai nhan doi len, vi fomat cua bien tan no nhu vay
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX219.0">'TRIGGER tinh toan tan so theo nhiet do de ghi xuong bien tan MOC 10
 
 'GHI GIA TRI TAN SO CAI DAT XUONG BIEN TAN
 IF @W_HDW26&lt;=@W_HAW173 THEN'neu nhiet do nho hon hoac bang nhiet do nguong thap, thi chinh bang tan so thap
-@W_HDW31=@W_HAW175 * 2
+	@W_HDW31=@W_HAW175 * 2
 ENDIF
 
 IF @W_HDW26&gt;=@W_HAW172 THEN'neu nhiet do lon hon hoac bang nhiet do nguong cao, thi chinh bang tan so cao
-@W_HDW31=@W_HAW174 * 2
+	@W_HDW31=@W_HAW174 * 2
 ENDIF
 
 'nhiet do trong khoang nguong thap va nguong cao, thi tinh tan so theo nhiet do do duoc
 IF @W_HDW26&gt;@W_HAW173 AND @W_HDW26&lt;@W_HAW172 THEN
-'tan so chay theo nhiet do moc 1
-@W_HDW250=@W_HAW172-@W_HAW173'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW251=@W_HAW174-@W_HAW175'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
-@W_HDW252=@W_HDW251/@W_HDW250' LAY TY LE TAN SO / NHIET DO
-'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
-@W_HDW253=@W_HDW26-@W_HAW156 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
-@W_HDW31=(@W_HAW175+(@W_HDW252*@W_HDW253)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE = Tan so nguong thap + Tan so theo cong them.
-'phai nhan doi len, vi fomat cua bien tan no nhu vay
+	'tan so chay theo nhiet do moc 1
+	@W_HDW270=@W_HAW172-@W_HAW173'LAY RA KHOANG NHIET DO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW271=@W_HAW174-@W_HAW175'LAY RA KHOANG TAN SO DAO DONG TU NGUONG CAO VA NGUONG THAP
+	@W_HDW272=@W_HDW271/@W_HDW270' LAY TY LE TAN SO / NHIET DO
+	'TINH DUOC TAN SO CAI DAT DAU VAO TY LE TINH O TREN VA NHIET DO THUC TE
+	@W_HDW273=@W_HDW26-@W_HAW156 'TINH RA KHOANG NHIET DO THUC SO VOI NGUONG THAP
+	@W_HDW31=(@W_HAW175+(@W_HDW272*@W_HDW273)) * 2'TAN SO CAI DAT THEO NHIET DO THUC TE = Tan so nguong thap + Tan so theo cong them.
+	'phai nhan doi len, vi fomat cua bien tan no nhu vay
 ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX207.0">'reset cac trang thai cua cac moc khi dang o moc 8
@@ -2647,11 +2929,54 @@ ENDIF
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX180.0">'moc 8 (giai doan 8)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW235 + @W_HAW0 then
-@B_HDX10.0=1
+'initial
+if @B_HDX407.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=0 
+	@b_hdx402.0=0
+	@b_hdx403.0=0
+	@b_hdx404.0=0
+	@b_hdx405.0=0
+	@b_hdx406.0=0
+	@b_hdx407.0=1
+	@b_hdx408.0=0
+	@b_hdx409.0=0
 endif
-if @W_HDW26&lt; @w_HAW235 - @W_HAW0 then
-@B_HDX10.0=0
+
+@W_HDW300=@W_HSW33'doc minute tu HMI
+if @W_HDW26&gt;= @W_HAW235 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @W_HAW235 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
 endif
 
 'reset
@@ -2718,13 +3043,51 @@ endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX230.0">'moc 9 (giai doan 9)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW236 + @W_HAW0 then
-@B_HDX10.0=1
+'initial
+if @B_HDX408.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=0 
+	@b_hdx402.0=0
+	@b_hdx403.0=0
+	@b_hdx404.0=0
+	@b_hdx405.0=0
+	@b_hdx406.0=0
+	@b_hdx407.0=0
+	@b_hdx408.0=1
+	@b_hdx409.0=0
 endif
-if @W_HDW26&lt; @w_HAW236 - @W_HAW0 then
-@B_HDX10.0=0
+@W_HDW300=@W_HSW33'doc minute tu HMI
+if @W_HDW26&gt;= @W_HAW236 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+else
+	if @W_HDW26&lt; @W_HAW236 - @W_HAW0 then
+		@B_HDX10.0=0
+		@W_HDW303=0
+	endif
 endif
-
 'reset
 @B_HDX200.0=0 'MOC 1
 @B_HDX201.0=0 'MOC 2
@@ -2736,64 +3099,99 @@ endif
 @B_HDX207.0=0'MOC8
 @B_HDX208.0=1'MOC9
 @B_HDX209.0=0'MOC10
-
 if @W_HAW154=0  then ' so quat chay co dinh la 0
-@B_HDX230.0=0
-@B_HDX231.0=0
-@B_HDX232.0=0
-@B_HDX233.0=0
-@B_HDX241.0=1
+	@B_HDX231.0=0
+	@B_HDX232.0=0
+	@B_HDX233.0=0
+	@B_HDX234.0=0
+	@B_HDX241.0=1
 else
-@B_HDX241.0=0
+	@B_HDX241.0=0
 endif
-
 if @W_HAW154=1  then ' so quat chay co dinh la 1
-@B_HDX231.0=1
-@B_HDX232.0=0
-@B_HDX233.0=0
-@B_HDX234.0=0
-@B_HDX241.0=0
+	@B_HDX231.0=1
+	@B_HDX232.0=0
+	@B_HDX233.0=0
+	@B_HDX234.0=0
+	@B_HDX241.0=0
 else
-@B_HDX231.0=0
+	@B_HDX231.0=0
 endif
-
 if @W_HAW154=2  then  ' so quat chay co dinh la 2
-@B_HDX231.0=0
-@B_HDX232.0=1
-@B_HDX233.0=0
-@B_HDX234.0=0
-@B_HDX241.0=0
+	@B_HDX231.0=0
+	@B_HDX232.0=1
+	@B_HDX233.0=0
+	@B_HDX234.0=0
+	@B_HDX241.0=0
 else
-@B_HDX232.0=0
+	@B_HDX232.0=0
 endif
 
 if @W_HAW154=3  then   ' so quat chay co dinh la 3
-@B_HDX231.0=0
-@B_HDX232.0=0
-@B_HDX233.0=1
-@B_HDX234.0=0
-@B_HDX241.0=0
+	@B_HDX231.0=0
+	@B_HDX232.0=0
+	@B_HDX233.0=1
+	@B_HDX234.0=0
+	@B_HDX241.0=0
 else
-@B_HDX233.0=0
+	@B_HDX233.0=0
 endif
 
 if @W_HAW154=4 then  ' so quat chay co dinh la 4
-@B_HDX231.0=0
-@B_HDX232.0=0
-@B_HDX233.0=0
-@B_HDX234.0=1
-@B_HDX241.0=0
+	@B_HDX231.0=0
+	@B_HDX232.0=0
+	@B_HDX233.0=0
+	@B_HDX234.0=1
+	@B_HDX241.0=0
 else
-@B_HDX234.0=0
+	@B_HDX234.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX250.0">'moc 10 (giai doan 10)
 'bat dan mat
-if @W_HDW26&gt;= @w_HAW237 + @W_HAW0 then
-@B_HDX10.0=1
+'initial
+if @B_HDX409.0 = 0 then
+	@W_HDW303=0'reset bien de vao chot lai thoi gian chay dan mat
+	'reset cac bien initial cau cac moc con lai
+	@b_hdx400.0=0
+	@b_hdx401.0=0 
+	@b_hdx402.0=0
+	@b_hdx403.0=0
+	@b_hdx404.0=0
+	@b_hdx405.0=0
+	@b_hdx406.0=0
+	@b_hdx407.0=0
+	@b_hdx408.0=0
+	@b_hdx409.0=1
 endif
-if @W_HDW26&lt; @w_HAW237 - @W_HAW0 then
-@B_HDX10.0=0
+@W_HDW300=@W_HSW33'doc minute tu HMI
+if @W_HDW26&gt;= @W_HAW237 + @W_HAW0 then
+	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
+	if @W_HDW303=0 then 
+		@W_HDW302 = @W_HSW33
+		@W_HDW303=1
+	endif
+	'dem thoi gian chay
+	if @W_HSW33 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW33 - @W_HDW302
+	else
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+	endif
+	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
+	if @W_HDW304 &lt; @W_HAW226 then
+		@B_HDX10.0=1'bat dan mat
+	'het thoi gian chay thi tat dan mat
+	else
+		@B_HDX10.0=0'tat dan mat
+		'kiem tra het thoi gian tat dan mat, thi cho dan mat chay lai
+		if @W_HDW304 - @W_HAW226 &gt;= @W_HAW227 then
+			@W_HDW303=0
+		endif
+	endif
+endif
+if @W_HDW26&lt; @W_HAW237 - @W_HAW0 then
+	@B_HDX10.0=0
+	@W_HDW303=0
 endif
 'reset
 @B_HDX200.0=0 'MOC 1
@@ -2806,55 +3204,50 @@ endif
 @B_HDX207.0=0'MOC8
 @B_HDX208.0=0'MOC9
 @B_HDX209.0=1'MOC10
-
 if @W_HAW171=0  then ' so quat chay co dinh la 0
-@B_HDX250.0=0
-@B_HDX251.0=0
-@B_HDX252.0=0
-@B_HDX253.0=0
-@B_HDX251.0=1
+	@B_HDX251.0=0
+	@B_HDX252.0=0
+	@B_HDX253.0=0
+	@B_HDX254.0=0
+	@B_HDX261.0=1
 else
-@B_HDX251.0=0
+	@B_HDX261.0=0
 endif
-
 if @W_HAW171=1  then ' so quat chay co dinh la 1
-@B_HDX251.0=1
-@B_HDX252.0=0
-@B_HDX253.0=0
-@B_HDX254.0=0
-@B_HDX251.0=0
+	@B_HDX251.0=1
+	@B_HDX252.0=0
+	@B_HDX253.0=0
+	@B_HDX254.0=0
+	@B_HDX261.0=0
 else
-@B_HDX251.0=0
+	@B_HDX251.0=0
 endif
-
 if @W_HAW171=2  then  ' so quat chay co dinh la 2
-@B_HDX251.0=0
-@B_HDX252.0=1
-@B_HDX253.0=0
-@B_HDX254.0=0
-@B_HDX251.0=0
+	@B_HDX251.0=0
+	@B_HDX252.0=1
+	@B_HDX253.0=0
+	@B_HDX254.0=0
+	@B_HDX261.0=0
 else
-@B_HDX252.0=0
+	@B_HDX252.0=0
 endif
-
 if @W_HAW171=3  then   ' so quat chay co dinh la 3
-@B_HDX251.0=0
-@B_HDX252.0=0
-@B_HDX253.0=1
-@B_HDX254.0=0
-@B_HDX251.0=0
+	@B_HDX251.0=0
+	@B_HDX252.0=0
+	@B_HDX253.0=1
+	@B_HDX254.0=0
+	@B_HDX261.0=0
 else
 @B_HDX253.0=0
 endif
-
 if @W_HAW171=4 then  ' so quat chay co dinh la 4
-@B_HDX251.0=0
-@B_HDX252.0=0
-@B_HDX253.0=0
-@B_HDX254.0=1
-@B_HDX251.0=0
+	@B_HDX251.0=0
+	@B_HDX252.0=0
+	@B_HDX253.0=0
+	@B_HDX254.0=1
+	@B_HDX261.0=0
 else
-@B_HDX254.0=0
+	@B_HDX254.0=0
 endif
 </Trigger>
 			<Trigger Action="1" BitAddr="HDX181.0">'trigger ddieu khien quat theo nhiet do cua giai doan 8
@@ -2863,22 +3256,22 @@ endif
 
 if @W_HDW26&gt;= @w_HAW143 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW143 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW143 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW144 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW144 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW144 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW145 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW145 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW145 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -2889,15 +3282,15 @@ endif
 
 if @W_HDW26&gt;= @w_HAW144 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW144 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW144 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW145 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW145 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW145 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -2909,8 +3302,8 @@ endif
 
 if @W_HDW26&gt;= @w_HAW145 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW145 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW145 - @W_HAW0 then
 @B_HDX3.0=0
 endif
 </Trigger>
@@ -2926,272 +3319,473 @@ endif
 
 if @W_HDW26&gt;= @w_HAW142 + @W_HAW0 then 'quat 2 on
 @B_HDX0.0=1
-endif
-if @W_HDW26&lt; @w_HAW142 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW142 - @W_HAW0 then
 @B_HDX0.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW143 + @W_HAW0 then 'quat 2 on
 @B_HDX1.0=1
-endif
-if @W_HDW26&lt; @w_HAW143 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW143 - @W_HAW0 then
 @B_HDX1.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW144 + @W_HAW0 then 'quat 3 on
 @B_HDX2.0=1
-endif
-if @W_HDW26&lt; @w_HAW144 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW144 - @W_HAW0 then
 @B_HDX2.0=0
 endif
 
 if @W_HDW26&gt;= @w_HAW145 + @W_HAW0 then 'quat 4 on
 @B_HDX3.0=1
-endif
-if @W_HDW26&lt; @w_HAW145 - @W_HAW0 then
+else
+'if @W_HDW26&lt; @w_HAW145 - @W_HAW0 then
 @B_HDX3.0=0
+endif
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX231.0">'trigger ddieu khien quat theo nhiet do cua giai doan 9
+'1 quat chay co dinh
+@B_HDX0.0=1
+
+if @W_HDW26&gt;= @w_HAW160 + @W_HAW0 then 'quat 2 on
+@B_HDX1.0=1
+endif
+if @W_HDW26&lt; @w_HAW160 - @W_HAW0 then
+@B_HDX1.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW161 + @W_HAW0 then 'quat 3 on
+@B_HDX2.0=1
+endif
+if @W_HDW26&lt; @w_HAW161 - @W_HAW0 then
+@B_HDX2.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW162 + @W_HAW0 then 'quat 4 on
+@B_HDX3.0=1
+endif
+if @W_HDW26&lt; @w_HAW162 - @W_HAW0 then
+@B_HDX3.0=0
+endif
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX232.0">'trigger ddieu khien quat theo nhiet do cua giai doan 9
+'2 quat chay co dinh
+@B_HDX0.0=1
+@B_HDX1.0=1
+
+if @W_HDW26&gt;= @w_HAW161 + @W_HAW0 then 'quat 3 on
+@B_HDX2.0=1
+endif
+if @W_HDW26&lt; @w_HAW161 - @W_HAW0 then
+@B_HDX2.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW162 + @W_HAW0 then 'quat 4 on
+@B_HDX3.0=1
+endif
+if @W_HDW26&lt; @w_HAW162 - @W_HAW0 then
+@B_HDX3.0=0
+endif
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX233.0">'trigger ddieu khien quat theo nhiet do cua giai doan 9
+'3 quat chay co dinh
+@B_HDX0.0=1
+@B_HDX1.0=1
+@B_HDX2.0=1
+
+if @W_HDW26&gt;= @w_HAW162 + @W_HAW0 then 'quat 4 on
+@B_HDX3.0=1
+endif
+if @W_HDW26&lt; @w_HAW162 - @W_HAW0 then
+@B_HDX3.0=0
+endif
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX234.0">'trigger ddieu khien quat theo nhiet do cua giai doan 9
+'4 quat chay co dinh
+@B_HDX0.0=1
+@B_HDX1.0=1
+@B_HDX2.0=1
+@B_HDX3.0=1
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX241.0">'trigger ddieu khien quat theo nhiet do cua giai doan 9
+'0 quat chay co dinh
+
+if @W_HDW26&gt;= @w_HAW159 + @W_HAW0 then 'quat 2 on
+@B_HDX0.0=1
+endif
+if @W_HDW26&lt; @w_HAW159 - @W_HAW0 then
+@B_HDX0.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW160 + @W_HAW0 then 'quat 2 on
+@B_HDX1.0=1
+endif
+if @W_HDW26&lt; @w_HAW160 - @W_HAW0 then
+@B_HDX1.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW161 + @W_HAW0 then 'quat 3 on
+@B_HDX2.0=1
+endif
+if @W_HDW26&lt; @w_HAW161 - @W_HAW0 then
+@B_HDX2.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW162 + @W_HAW0 then 'quat 4 on
+@B_HDX3.0=1
+endif
+if @W_HDW26&lt; @w_HAW162 - @W_HAW0 then
+@B_HDX3.0=0
+endif
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX251.0">'trigger ddieu khien quat theo nhiet do cua giai doan 10
+'1 quat chay co dinh
+@B_HDX0.0=1'ON QUAT1
+
+if @W_HDW26&gt;= @w_HAW177 + @W_HAW0 then 'quat 2 on
+	@B_HDX1.0=1
+else
+'if @W_HDW26&lt; @w_HAW177 - @W_HAW0 then
+	@B_HDX1.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW178 + @W_HAW0 then 'quat 3 on
+	@B_HDX2.0=1
+else
+'if @W_HDW26&lt; @w_HAW178 - @W_HAW0 then
+	@B_HDX2.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW179+ @W_HAW0 then 'quat 4 on
+	@B_HDX3.0=1
+else
+'if @W_HDW26&lt; @w_HAW179 - @W_HAW0 then
+	@B_HDX3.0=0
+endif
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX252.0">'trigger ddieu khien quat theo nhiet do cua giai doan 10
+'2 quat chay co dinh
+@B_HDX0.0=1'ON QUAT1
+@B_HDX1.0=1
+
+if @W_HDW26&gt;= @w_HAW178 + @W_HAW0 then 'quat 3 on
+	@B_HDX2.0=1
+else
+'if @W_HDW26&lt; @w_HAW178 - @W_HAW0 then
+	@B_HDX2.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW179+ @W_HAW0 then 'quat 4 on
+	@B_HDX3.0=1
+else
+'if @W_HDW26&lt; @w_HAW179 - @W_HAW0 then
+	@B_HDX3.0=0
+endif
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX253.0">'trigger ddieu khien quat theo nhiet do cua giai doan 10
+'3 quat chay co dinh
+@B_HDX0.0=1'ON QUAT1
+@B_HDX1.0=1
+@B_HDX2.0=1
+
+if @W_HDW26&gt;= @w_HAW179+ @W_HAW0 then 'quat 4 on
+	@B_HDX3.0=1
+else
+'if @W_HDW26&lt; @w_HAW179 - @W_HAW0 then
+	@B_HDX3.0=0
+endif
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX254.0">'trigger ddieu khien quat theo nhiet do cua giai doan 10
+'4 quat chay co dinh
+@B_HDX0.0=1
+@B_HDX1.0=1
+@B_HDX2.0=1
+@B_HDX3.0=1
+</Trigger>
+			<Trigger Action="1" BitAddr="HDX261.0">'trigger ddieu khien quat theo nhiet do cua giai doan 10
+'0 quat chay co dinh
+
+if @W_HDW26&gt;= @w_HAW176 + @W_HAW0 then 'quat 2 on
+	@B_HDX0.0=1
+else
+'if @W_HDW26&lt; @w_HAW176 - @W_HAW0 then
+	@B_HDX0.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW177 + @W_HAW0 then 'quat 2 on
+	@B_HDX1.0=1
+else
+'if @W_HDW26&lt; @w_HAW177 - @W_HAW0 then
+	@B_HDX1.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW178 + @W_HAW0 then 'quat 3 on
+	@B_HDX2.0=1
+else
+'if @W_HDW26&lt; @w_HAW178 - @W_HAW0 then
+	@B_HDX2.0=0
+endif
+
+if @W_HDW26&gt;= @w_HAW179+ @W_HAW0 then 'quat 4 on
+	@B_HDX3.0=1
+else
+'if @W_HDW26&lt; @w_HAW179 - @W_HAW0 then
+	@B_HDX3.0=0
 endif
 </Trigger>
 		</TrigAction>
 		<TimerAction>
-			<Timer Interval="10">'if @W_HDW300 = @W_HAW122 then 'so sanh neu quangay thi cong ngay hien tai len 1
+			<Timer Interval="100" AliasName="">'if @W_HDW300 = @W_HAW122 then 'so sanh neu quangay thi cong ngay hien tai len 1
+@W_HDW300=@W_HSW33'doc minute tu HMI
+@W_HDW301=@W_HSW32'doc second tu HMI
+
 if @W_HSW30 = @W_HAW122 then 'so sanh neu quangay thi cong ngay hien tai len 1
 else
-@W_HAW120= @W_HAW120+1
-@W_HAW122=@W_HSW30 '@W_HSW30 DAI CHI CUA NGAY hmi
+	@W_HAW120= @W_HAW120+1
+	@W_HAW122=@W_HSW30 '@W_HSW30 DAI CHI CUA NGAY hmi
 Endif
+if @w_haw120 &gt; @w_haw170 then
+	@b_hdx0.0=0
+	@b_hdx1.0=0
+	@b_hdx2.0=0
+	@b_hdx3.0=0
+	@b_hdx10.0=0
+	goto gotolabel	
+endif
 
 'che do auto
 IF @B_HDX11.0=1 THEN
-if @W_HAW120&lt;=@W_HAW2 and @W_HAW120&gt;=@W_HAW1 then 'moc 1
-@W_HDW32=1'hien thi gia doan hien tai
-'bat trigger de so sanh nhiet do bat quat
-@B_HDX40.0=1'moc 1
-@B_HDX210.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX40.0=0
-@B_HDX210.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW19 and @W_HAW120&gt;=@W_HAW18 then 'moc 2
-@W_HDW32=2
-@B_HDX60.0=1'moc 2
-@B_HDX211.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX60.0=0
-@B_HDX211.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW36 and @W_HAW120&gt;=@W_HAW35 then 'moc 3
-@W_HDW32=3
-@B_HDX80.0=1'moc 3
-@B_HDX212.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX80.0=0
-@B_HDX212.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW53 and @W_HAW120&gt;=@W_HAW52 then 'moc 4
-@W_HDW32=4
-@B_HDX100.0=1'moc4
-@B_HDX213.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX100.0=0
-@B_HDX213.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW70 and @W_HAW120&gt;=@W_HAW69 then 'moc 5
-@W_HDW32=5
-@B_HDX120.0=1'moc5
-@B_HDX214.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX120.0=0
-@B_HDX214.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW87 and @W_HAW120&gt;=@W_HAW86 then 'moc 6
-@W_HDW32=6
-@B_HDX140.0=1'moc6
-@B_HDX215.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX140.0=0
-@B_HDX215.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW104 and @W_HAW120&gt;=@W_HAW103 then 'moc 7
-@W_HDW32=7
-@B_HDX160.0=1'moc7
-@B_HDX216.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX160.0=0
-@B_HDX216.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW136 and @W_HAW120&gt;=@W_HAW135 then 'moc 8
-@W_HDW32=8'hien thi dang o giai doan 8
-@B_HDX180.0=1'moc8
-@B_HDX217.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX180.0=0
-@B_HDX217.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW153 and @W_HAW120&gt;=@W_HAW152 then 'moc 9
-@W_HDW32=9
-@B_HDX230.0=1'moc 8
-@B_HDX218.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX230.0=0
-@B_HDX218.0=0
-Endif
-
-if @W_HAW120&lt;=@W_HAW170 and @W_HAW120&gt;=@W_HAW169 then 'moc 10
-@W_HDW32=10
-@B_HDX150.0=1'moc7
-@B_HDX219.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
-else
-@B_HDX150.0=0
-@B_HDX219.0=0
-Endif
+	if @W_HAW120&lt;=@W_HAW2 and @W_HAW120&gt;=@W_HAW1 then 'moc 1
+		@W_HDW32=1'hien thi gia doan hien tai
+		@B_HDX40.0=1'bat trigger de so sanh nhiet do bat quat
+		@B_HDX210.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET Do
+	else
+		@B_HDX40.0=0
+		@B_HDX210.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW19 and @W_HAW120&gt;=@W_HAW18 then 'moc 2
+		@W_HDW32=2
+		@B_HDX60.0=1'moc 2
+		@B_HDX211.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX60.0=0
+		@B_HDX211.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW36 and @W_HAW120&gt;=@W_HAW35 then 'moc 3
+		@W_HDW32=3
+		@B_HDX80.0=1'moc 3
+		@B_HDX212.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX80.0=0
+		@B_HDX212.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW53 and @W_HAW120&gt;=@W_HAW52 then 'moc 4
+		@W_HDW32=4
+		@B_HDX100.0=1'moc4
+		@B_HDX213.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX100.0=0
+		@B_HDX213.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW70 and @W_HAW120&gt;=@W_HAW69 then 'moc 5
+		@W_HDW32=5
+		@B_HDX120.0=1'moc5
+		@B_HDX214.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX120.0=0
+		@B_HDX214.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW87 and @W_HAW120&gt;=@W_HAW86 then 'moc 6
+		@W_HDW32=6
+		@B_HDX140.0=1'moc6
+		@B_HDX215.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX140.0=0
+		@B_HDX215.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW104 and @W_HAW120&gt;=@W_HAW103 then 'moc 7
+		@W_HDW32=7
+		@B_HDX160.0=1'moc7
+		@B_HDX216.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX160.0=0
+		@B_HDX216.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW136 and @W_HAW120&gt;=@W_HAW135 then 'moc 8
+		@W_HDW32=8'hien thi dang o giai doan 8
+		@B_HDX180.0=1'moc8
+		@B_HDX217.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX180.0=0
+		@B_HDX217.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW153 and @W_HAW120&gt;=@W_HAW152 then 'moc 9
+		@W_HDW32=9
+		@B_HDX230.0=1'moc 8
+		@B_HDX218.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX230.0=0
+		@B_HDX218.0=0
+	endif
+	
+	if @W_HAW120&lt;=@W_HAW170 and @W_HAW120&gt;=@W_HAW169 then 'moc 10
+		@W_HDW32=10
+		@B_HDX250.0=1'moc7
+		@B_HDX219.0=1'BAT TRIGGER DE TINH TAN SO CAI DAT THEO NHIET DO
+	else
+		@B_HDX250.0=0
+		@B_HDX219.0=0
+	endif
 ELSE 'CHE DO MANUAL
-'che do manual, reset lai trrang thai cac moc khi o che do manual, de ko cho dieu khien nhiet do tan so tu dong
-'moc1
-@W_HDW40=0
-@W_HDW41=0
-@W_HDW42=0
-@W_HDW43=0
-@W_HDW44=0
-@W_HDW45=0
-@W_HDW46=0
-@W_HDW47=0
-@W_HDW48=0
-@W_HDW49=0
-@W_HDW50=0
-@W_HDW51=0
-'moc2
-@W_HDW60=0
-@W_HDW61=0
-@W_HDW62=0
-@W_HDW63=0
-@W_HDW64=0
-@W_HDW65=0
-@W_HDW66=0
-@W_HDW67=0
-@W_HDW68=0
-@W_HDW69=0
-@W_HDW70=0
-@W_HDW71=0
-'moc3
-@W_HDW80=0
-@W_HDW81=0
-@W_HDW82=0
-@W_HDW83=0
-@W_HDW84=0
-@W_HDW85=0
-@W_HDW86=0
-@W_HDW87=0
-@W_HDW88=0
-@W_HDW89=0
-@W_HDW90=0
-@W_HDW91=0
-'moc4
-@W_HDW100=0
-@W_HDW101=0
-@W_HDW102=0
-@W_HDW103=0
-@W_HDW104=0
-@W_HDW105=0
-@W_HDW106=0
-@W_HDW107=0
-@W_HDW108=0
-@W_HDW109=0
-@W_HDW110=0
-@W_HDW111=0
-'moc5
-@W_HDW120=0
-@W_HDW121=0
-@W_HDW122=0
-@W_HDW123=0
-@W_HDW124=0
-@W_HDW125=0
-@W_HDW126=0
-@W_HDW127=0
-@W_HDW128=0
-@W_HDW129=0
-@W_HDW130=0
-@W_HDW131=0
-'moc6
-@W_HDW140=0
-@W_HDW141=0
-@W_HDW142=0
-@W_HDW143=0
-@W_HDW144=0
-@W_HDW145=0
-@W_HDW146=0
-@W_HDW147=0
-@W_HDW148=0
-@W_HDW149=0
-@W_HDW150=0
-@W_HDW151=0
-'moc7
-@W_HDW160=0
-@W_HDW161=0
-@W_HDW162=0
-@W_HDW163=0
-@W_HDW164=0
-@W_HDW165=0
-@W_HDW166=0
-@W_HDW167=0
-@W_HDW168=0
-@W_HDW169=0
-@W_HDW170=0
-@W_HDW171=0
-'moc8
-@W_HDW180=0
-@W_HDW181=0
-@W_HDW182=0
-@W_HDW183=0
-@W_HDW184=0
-@W_HDW185=0
-@W_HDW186=0
-@W_HDW187=0
-@W_HDW188=0
-@W_HDW189=0
-@W_HDW190=0
-@W_HDW191=0
-'moc9
-@W_HDW230=0
-@W_HDW231=0
-@W_HDW232=0
-@W_HDW233=0
-@W_HDW234=0
-@W_HDW235=0
-@W_HDW236=0
-@W_HDW237=0
-@W_HDW238=0
-@W_HDW239=0
-@W_HDW230=0
-@W_HDW241=0
-'moc10
-@W_HDW250=0
-@W_HDW251=0
-@W_HDW252=0
-@W_HDW253=0
-@W_HDW254=0
-@W_HDW255=0
-@W_HDW256=0
-@W_HDW257=0
-@W_HDW258=0
-@W_HDW259=0
-@W_HDW250=0
-@W_HDW261=0
+	'che do manual, reset lai trrang thai cac moc khi o che do manual, de ko cho dieu khien nhiet do tan so tu dong
+	'moc1
+gotolabel:
+	@W_HDW40=0
+	@W_HDW41=0
+	@W_HDW42=0
+	@W_HDW43=0
+	@W_HDW44=0
+	@W_HDW45=0
+	@W_HDW46=0
+	@W_HDW47=0
+	@W_HDW48=0
+	@W_HDW49=0
+	@W_HDW50=0
+	@W_HDW51=0
+	'moc2
+	@W_HDW60=0
+	@W_HDW61=0
+	@W_HDW62=0
+	@W_HDW63=0
+	@W_HDW64=0
+	@W_HDW65=0
+	@W_HDW66=0
+	@W_HDW67=0
+	@W_HDW68=0
+	@W_HDW69=0
+	@W_HDW70=0
+	@W_HDW71=0
+	'moc3
+	@W_HDW80=0
+	@W_HDW81=0
+	@W_HDW82=0
+	@W_HDW83=0
+	@W_HDW84=0
+	@W_HDW85=0
+	@W_HDW86=0
+	@W_HDW87=0
+	@W_HDW88=0
+	@W_HDW89=0
+	@W_HDW90=0
+	@W_HDW91=0
+	'moc4
+	@W_HDW100=0
+	@W_HDW101=0
+	@W_HDW102=0
+	@W_HDW103=0
+	@W_HDW104=0
+	@W_HDW105=0
+	@W_HDW106=0
+	@W_HDW107=0
+	@W_HDW108=0
+	@W_HDW109=0
+	@W_HDW110=0
+	@W_HDW111=0
+	'moc5
+	@W_HDW120=0
+	@W_HDW121=0
+	@W_HDW122=0
+	@W_HDW123=0
+	@W_HDW124=0
+	@W_HDW125=0
+	@W_HDW126=0
+	@W_HDW127=0
+	@W_HDW128=0
+	@W_HDW129=0
+	@W_HDW130=0
+	@W_HDW131=0
+	'moc6
+	@W_HDW140=0
+	@W_HDW141=0
+	@W_HDW142=0
+	@W_HDW143=0
+	@W_HDW144=0
+	@W_HDW145=0
+	@W_HDW146=0
+	@W_HDW147=0
+	@W_HDW148=0
+	@W_HDW149=0
+	@W_HDW150=0
+	@W_HDW151=0
+	'moc7
+	@W_HDW160=0
+	@W_HDW161=0
+	@W_HDW162=0
+	@W_HDW163=0
+	@W_HDW164=0
+	@W_HDW165=0
+	@W_HDW166=0
+	@W_HDW167=0
+	@W_HDW168=0
+	@W_HDW169=0
+	@W_HDW170=0
+	@W_HDW171=0
+	'moc8
+	@W_HDW180=0
+	@W_HDW181=0
+	@W_HDW182=0
+	@W_HDW183=0
+	@W_HDW184=0
+	@W_HDW185=0
+	@W_HDW186=0
+	@W_HDW187=0
+	@W_HDW188=0
+	@W_HDW189=0
+	@W_HDW190=0
+	@W_HDW191=0
+	'moc9
+	@W_HDW230=0
+	@W_HDW231=0
+	@W_HDW232=0
+	@W_HDW233=0
+	@W_HDW234=0
+	@W_HDW235=0
+	@W_HDW236=0
+	@W_HDW237=0
+	@W_HDW238=0
+	@W_HDW239=0
+	@W_HDW240=0
+	@W_HDW241=0
+	'moc10
+	@W_HDW250=0
+	@W_HDW251=0
+	@W_HDW252=0
+	@W_HDW253=0
+	@W_HDW254=0
+	@W_HDW255=0
+	@W_HDW256=0
+	@W_HDW257=0
+	@W_HDW258=0
+	@W_HDW259=0
+	@W_HDW260=0
+	@W_HDW261=0
 ENDIF
 </Timer>
 		</TimerAction>
 		<InitialAction>@W_HDW1000=100
 @W_HAW0=0
 
-@W_HDW31=3000
+'@W_HDW31=3000
 
 'NGAY BAT DAU VA KET THUC
 @W_HAW1=0
@@ -3216,30 +3810,32 @@ ENDIF
 @W_HAW170=19
 
 'gan thoi gian on va off cua dan mat 
-@W_HAW226=2
-@W_HAW227=1
+@W_HAW226=10
+@W_HAW227=5
+
+@W_HDW303=0
 
 'gan gia tri ban dau cho moc 1
-@W_HAW3=1
-@W_HAW4=300
-@W_HAW5=100
-@W_HAW6=5000
-@W_HAW7=1000
-@W_HAW8=200
-@W_HAW9=210
-@W_HAW10=220
-@W_HAW11=230
-@W_HAW12=240
-@W_HAW13=250
-@W_HAW14=260
-@W_HAW15=270
-@W_HAW16=280
-@W_HAW17=290
+@W_HAW3=1'SO QUAT CHAY CO DINH
+@W_HAW4=300'nhiet do cao
+@W_HAW5=100'nhiet do thap
+@W_HAW6=5000'tan so cao
+@W_HAW7=1000'tan so thap
+@W_HAW8=200'nhiet do bat quat 1
+@W_HAW9=210'nhiet do bat quat 2
+@W_HAW10=220'nhiet do bat quat 3
+@W_HAW11=230'nhiet do bat quat 4
+@W_HAW12=240'nhiet do bat quat 5
+@W_HAW13=250'nhiet do bat quat 6
+@W_HAW14=260'nhiet do bat quat 7
+@W_HAW15=270'nhiet do bat quat 8
+@W_HAW16=280'nhiet do bat quat 9
+@W_HAW17=290'nhiet do bat quat 10
 @W_HAW186=1'QuatCoDinh1
 @W_HAW187=2'QuatCoDinh2
 @W_HAW188=3'QuatCoDinh3
 @W_HAW189=4'QuatCoDinh4
-@W_HAW228=280
+@W_HAW228=210'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 2
 @W_HAW20=2
@@ -3261,6 +3857,7 @@ ENDIF
 @W_HAW191=2'QuatCoDinh2
 @W_HAW192=3'QuatCoDinh3
 @W_HAW193=4'QuatCoDinh4
+@W_HAW229=220'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 3
 @W_HAW37=3
@@ -3282,6 +3879,7 @@ ENDIF
 @W_HAW195=2'QuatCoDinh2
 @W_HAW196=3'QuatCoDinh3
 @W_HAW197=4'QuatCoDinh4
+@W_HAW230=220'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 4
 @W_HAW54=4
@@ -3303,6 +3901,7 @@ ENDIF
 @W_HAW199=2'QuatCoDinh2
 @W_HAW200=3'QuatCoDinh3
 @W_HAW201=4'QuatCoDinh4
+@W_HAW231=230'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 5
 @W_HAW71=4
@@ -3324,6 +3923,7 @@ ENDIF
 @W_HAW203=2'QuatCoDinh2
 @W_HAW204=3'QuatCoDinh3
 @W_HAW205=4'QuatCoDinh4
+@W_HAW232=240'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 6
 @W_HAW88=3
@@ -3345,6 +3945,7 @@ ENDIF
 @W_HAW207=2'QuatCoDinh2
 @W_HAW208=3'QuatCoDinh3
 @W_HAW209=4'QuatCoDinh4
+@W_HAW233=250'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 7
 @W_HAW105=2
@@ -3366,6 +3967,7 @@ ENDIF
 @W_HAW211=2'QuatCoDinh2
 @W_HAW212=3'QuatCoDinh3
 @W_HAW213=4'QuatCoDinh4
+@W_HAW234=260'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 8
 @W_HAW137=2
@@ -3387,6 +3989,7 @@ ENDIF
 @W_HAW215=2'QuatCoDinh2
 @W_HAW216=3'QuatCoDinh3
 @W_HAW217=4'QuatCoDinh4
+@W_HAW235=270'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 9
 @W_HAW154=2
@@ -3408,6 +4011,7 @@ ENDIF
 @W_HAW219=2'QuatCoDinh2
 @W_HAW220=3'QuatCoDinh3
 @W_HAW221=4'QuatCoDinh4
+@W_HAW236=280'NHIET DDO BAT DAN MAT
 
 'gan gia tri ban dau cho moc 10
 @W_HAW171=2
@@ -3429,6 +4033,7 @@ ENDIF
 @W_HAW223=2'QuatCoDinh2
 @W_HAW224=3'QuatCoDinh3
 @W_HAW225=4'QuatCoDinh4
+@W_HAW237=290'NHIET DDO BAT DAN MAT
 </InitialAction>
 	</Script>
 </project>

@@ -1,77 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <G_Picture G_PictureVer="2.0">
 	<G_bmplib FileType="1" AllBmpTotal="132" CurBmpTotal="39">
 		<G_bmp Default="1" nId="1" nTotalStatus="2">
-			<MulStatus szFilename="Bmp1_0.dat" dwMID="0"/>
-			<MulStatus szFilename="Bmp1_1.dat" dwMID="1"/></G_bmp>
-		<G_bmp Default="1" szFilename="Bmp2_0.dat" nId="2" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp3_0.dat" nId="3" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp4_0.dat" nId="4" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp5_0.dat" nId="5" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp6_0.dat" nId="6" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp7_0.dat" nId="7" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp8_0.dat" nId="8" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp9_0.dat" nId="9" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp10_0.dat" nId="10" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp11_0.dat" nId="11" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp12_0.dat" nId="12" nTotalStatus="1"/>
-		<G_bmp Default="1" szFilename="Bmp13_0.dat" nId="13" nTotalStatus="1"/>
+			<MulStatus szFilename="Bmp1_0.dat" dwMID="0" />
+			<MulStatus szFilename="Bmp1_1.dat" dwMID="1" />
+		</G_bmp>
+		<G_bmp Default="1" szFilename="Bmp2_0.dat" nId="2" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp3_0.dat" nId="3" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp4_0.dat" nId="4" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp5_0.dat" nId="5" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp6_0.dat" nId="6" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp7_0.dat" nId="7" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp8_0.dat" nId="8" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp9_0.dat" nId="9" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp10_0.dat" nId="10" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp11_0.dat" nId="11" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp12_0.dat" nId="12" nTotalStatus="1" />
+		<G_bmp Default="1" szFilename="Bmp13_0.dat" nId="13" nTotalStatus="1" />
 		<G_bmp Default="1" nId="14" nTotalStatus="2">
-			<MulStatus szFilename="Bmp14_0.dat" dwMID="0"/>
-			<MulStatus szFilename="Bmp14_1.dat" dwMID="1"/></G_bmp>
-		<G_bmp szFilename="Bmp101_0.dat" nId="101" nTotalStatus="1"/>
-		<G_bmp IsVector="1" szPath="Rectangle" szFilename="Rectangle0105.svg" nId="102" nTotalStatus="1"/>
-		<G_bmp szFilename="Bmp104_0.dat" nId="104" nTotalStatus="1"/>
-		<G_bmp IsVector="1" szPath="Rectangle" szFilename="Rectangle0504.svg" nId="105" nTotalStatus="1"/>
-		<G_bmp IsVector="1" szPath="Lamp" szFilename="Lamp0022.svg" nId="106" nTotalStatus="1"/>
-		<G_bmp szFilename="Bmp107_0.dat" nId="107" nTotalStatus="1"/>
+			<MulStatus szFilename="Bmp14_0.dat" dwMID="0" />
+			<MulStatus szFilename="Bmp14_1.dat" dwMID="1" />
+		</G_bmp>
+		<G_bmp szFilename="Bmp101_0.dat" nId="101" nTotalStatus="1" />
+		<G_bmp IsVector="1" szPath="Rectangle" szFilename="Rectangle0105.svg" nId="102" nTotalStatus="1" />
+		<G_bmp szFilename="Bmp104_0.dat" nId="104" nTotalStatus="1" />
+		<G_bmp IsVector="1" szPath="Rectangle" szFilename="Rectangle0504.svg" nId="105" nTotalStatus="1" />
+		<G_bmp IsVector="1" szPath="Lamp" szFilename="Lamp0022.svg" nId="106" nTotalStatus="1" />
+		<G_bmp szFilename="Bmp107_0.dat" nId="107" nTotalStatus="1" />
 		<G_bmp nId="108" nTotalStatus="2">
-			<MulStatus szFilename="Bmp108_0.dat" dwMID="0"/>
-			<MulStatus szFilename="Bmp108_1.dat" dwMID="1"/></G_bmp>
+			<MulStatus szFilename="Bmp108_0.dat" dwMID="0" />
+			<MulStatus szFilename="Bmp108_1.dat" dwMID="1" />
+		</G_bmp>
 		<G_bmp nId="109" nTotalStatus="3">
-			<MulStatus dwMID="0" IsVector="1" szPath="Fan" szFilename="Fan4-1.svg"/>
-			<MulStatus dwMID="1" IsVector="1" szPath="Fan" szFilename="Fan4-2.svg"/>
-			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan4-3.svg"/></G_bmp>
+			<MulStatus dwMID="0" IsVector="1" szPath="Fan" szFilename="Fan4-1.svg" />
+			<MulStatus dwMID="1" IsVector="1" szPath="Fan" szFilename="Fan4-2.svg" />
+			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan4-3.svg" />
+		</G_bmp>
 		<G_bmp nId="110" nTotalStatus="4">
-			<MulStatus dwMID="0" IsVector="1" szPath="Fan" szFilename="Fan8-1.svg"/>
-			<MulStatus dwMID="1" IsVector="1" szPath="Fan" szFilename="Fan8-2.svg"/>
-			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan8-2.svg"/>
-			<MulStatus dwMID="3" IsVector="1" szPath="Fan" szFilename="Fan8-4.svg"/></G_bmp>
-		<G_bmp szFilename="Bmp111_0.dat" nId="111" nTotalStatus="1"/>
+			<MulStatus dwMID="0" IsVector="1" szPath="Fan" szFilename="Fan8-1.svg" />
+			<MulStatus dwMID="1" IsVector="1" szPath="Fan" szFilename="Fan8-2.svg" />
+			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan8-2.svg" />
+			<MulStatus dwMID="3" IsVector="1" szPath="Fan" szFilename="Fan8-4.svg" />
+		</G_bmp>
+		<G_bmp szFilename="Bmp111_0.dat" nId="111" nTotalStatus="1" />
 		<G_bmp nId="112" nTotalStatus="3">
-			<MulStatus dwMID="0" IsVector="1" szPath="Fan" szFilename="Fan4-1.svg"/>
-			<MulStatus dwMID="1" IsVector="1" szPath="Fan" szFilename="Fan4-2.svg"/>
-			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan4-3.svg"/></G_bmp>
+			<MulStatus dwMID="0" IsVector="1" szPath="Fan" szFilename="Fan4-1.svg" />
+			<MulStatus dwMID="1" IsVector="1" szPath="Fan" szFilename="Fan4-2.svg" />
+			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan4-3.svg" />
+		</G_bmp>
 		<G_bmp nId="113" nTotalStatus="2">
-			<MulStatus szFilename="Bmp113_0.dat" dwMID="0"/>
-			<MulStatus szFilename="Bmp113_1.dat" dwMID="1"/></G_bmp>
-		<G_bmp szFilename="Bmp114_0.dat" nId="114" nTotalStatus="1"/>
-		<G_bmp szFilename="Bmp115_0.dat" nId="115" nTotalStatus="1"/>
-		<G_bmp szFilename="Bmp116_0.dat" nId="116" nTotalStatus="1"/>
-		<G_bmp szFilename="Bmp117_0.dat" nId="117" nTotalStatus="1"/>
+			<MulStatus szFilename="Bmp113_0.dat" dwMID="0" />
+			<MulStatus szFilename="Bmp113_1.dat" dwMID="1" />
+		</G_bmp>
+		<G_bmp szFilename="Bmp114_0.dat" nId="114" nTotalStatus="1" />
+		<G_bmp szFilename="Bmp115_0.dat" nId="115" nTotalStatus="1" />
+		<G_bmp szFilename="Bmp116_0.dat" nId="116" nTotalStatus="1" />
+		<G_bmp szFilename="Bmp117_0.dat" nId="117" nTotalStatus="1" />
 		<G_bmp nId="118" szFilename="Bmp118" nTotalStatus="2" nNewTotalStatus="0">
-			<MulStatus dwMID="0" szFilename="Bmp118_0.dat" bSavePng="0" bTransparent="0" cTransColor="0"/>
-			<MulStatus dwMID="1" szFilename="Bmp118_1.dat" bSavePng="0" bTransparent="0" cTransColor="0"/></G_bmp>
+			<MulStatus dwMID="0" szFilename="Bmp118_0.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
+			<MulStatus dwMID="1" szFilename="Bmp118_1.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
+		</G_bmp>
 		<G_bmp nId="119" nTotalStatus="2">
-			<MulStatus szFilename="Bmp119_0.dat" dwMID="0"/>
-			<MulStatus szFilename="Bmp119_1.dat" dwMID="1"/></G_bmp>
+			<MulStatus szFilename="Bmp119_0.dat" dwMID="0" />
+			<MulStatus szFilename="Bmp119_1.dat" dwMID="1" />
+		</G_bmp>
 		<G_bmp nId="120" szFilename="Bmp120" nTotalStatus="2" nNewTotalStatus="0">
-			<MulStatus dwMID="0" szFilename="Bmp120_0.dat" bSavePng="0" bTransparent="0" cTransColor="0"/></G_bmp>
+			<MulStatus dwMID="0" szFilename="Bmp120_0.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
+		</G_bmp>
 		<G_bmp nId="125" szFilename="Bmp125" nTotalStatus="2" nNewTotalStatus="0">
-			<MulStatus dwMID="0" szFilename="Bmp125_0.dat" bSavePng="0" bTransparent="0" cTransColor="0"/>
-			<MulStatus dwMID="1" szFilename="Bmp125_1.dat" bSavePng="0" bTransparent="0" cTransColor="0"/></G_bmp>
-		<G_bmp szFilename="Bmp127_0.dat" nId="127" nTotalStatus="1" nNewTotalStatus="0"/>
+			<MulStatus dwMID="0" szFilename="Bmp125_0.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
+			<MulStatus dwMID="1" szFilename="Bmp125_1.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
+		</G_bmp>
+		<G_bmp szFilename="Bmp127_0.dat" nId="127" nTotalStatus="1" nNewTotalStatus="0" />
 		<G_bmp nId="128" szFilename="Bmp128" nTotalStatus="2" nNewTotalStatus="0">
-			<MulStatus dwMID="0" szFilename="Bmp128_0.dat" bSavePng="0" bTransparent="0" cTransColor="0"/></G_bmp>
+			<MulStatus dwMID="0" szFilename="Bmp128_0.dat" bSavePng="0" bTransparent="0" cTransColor="0" />
+		</G_bmp>
 		<G_bmp nId="129" szFilename="Bmp129" nTotalStatus="2" nNewTotalStatus="0">
-			<MulStatus dwMID="0" IsVector="1" szPath="Circle" szFilename="Circle1709.svg" bSavePng="0" bTransparent="0" cTransColor="0"/>
-			<MulStatus dwMID="1" IsVector="1" szPath="Circle" szFilename="Circle1704.svg" bSavePng="0" bTransparent="0" cTransColor="0"/></G_bmp>
+			<MulStatus dwMID="0" IsVector="1" szPath="Circle" szFilename="Circle1709.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+			<MulStatus dwMID="1" IsVector="1" szPath="Circle" szFilename="Circle1704.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+		</G_bmp>
 		<G_bmp nId="130" szFilename="Bmp130" nTotalStatus="2" nNewTotalStatus="0">
-			<MulStatus dwMID="0" IsVector="1" szPath="Circle" szFilename="Circle1704.svg" bSavePng="0" bTransparent="0" cTransColor="0"/>
-			<MulStatus dwMID="1" IsVector="1" szPath="Circle" szFilename="Circle1709.svg" bSavePng="0" bTransparent="0" cTransColor="0"/></G_bmp>
+			<MulStatus dwMID="0" IsVector="1" szPath="Circle" szFilename="Circle1704.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+			<MulStatus dwMID="1" IsVector="1" szPath="Circle" szFilename="Circle1709.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+		</G_bmp>
 		<G_bmp nId="132" szFilename="Bmp132" nTotalStatus="4" nNewTotalStatus="0">
-			<MulStatus dwMID="0" IsVector="1" szPath="Fan" szFilename="Fan9-2.svg" bSavePng="0" bTransparent="0" cTransColor="0"/>
-			<MulStatus dwMID="1" IsVector="1" szPath="Fan" szFilename="Fan9-1.svg" bSavePng="0" bTransparent="0" cTransColor="0"/>
-			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan9-4.svg" bSavePng="0" bTransparent="0" cTransColor="0"/>
-			<MulStatus dwMID="3" IsVector="1" szPath="Fan" szFilename="Fan9-3.svg" bSavePng="0" bTransparent="0" cTransColor="0"/></G_bmp></G_bmplib>
+			<MulStatus dwMID="0" IsVector="1" szPath="Fan" szFilename="Fan9-2.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+			<MulStatus dwMID="1" IsVector="1" szPath="Fan" szFilename="Fan9-1.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+			<MulStatus dwMID="2" IsVector="1" szPath="Fan" szFilename="Fan9-4.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+			<MulStatus dwMID="3" IsVector="1" szPath="Fan" szFilename="Fan9-3.svg" bSavePng="0" bTransparent="0" cTransColor="0" />
+		</G_bmp>
+	</G_bmplib>
 </G_Picture>
