@@ -60,7 +60,7 @@
 		<General TextContent="Offset Nhiệt Độ" LaFrnColor="0x8000 -1" IsBackColor="0" BgColor="0xfdf0c4 0" CharSize="1914141414141414" Bold="0" StartPt="412 253" Width="136" Height="21" Area="412 253 545 274" InAlign="1" Locking="0" IsEnableStringTable="0" IsDynamic="0" />
 	</PartInfo>
 	<PartInfo PartType="BitSwitch" PartName="BS_1" PartClassifyType="Switch" PartID="8_BS_1">
-		<General Desc="BS_1" Area="144 143 297 205" OperateAddr="HDX14.0" Fast="0" BitFunc="2" ResetDelay="1" Monitor="1" MonitorAddr="HDX14.0" FigureFile="" BorderColor="0xf7e7ad 0" BmpIndex="113" LaStartPt="76 31" BitShowReverse="0" IsIndirectR="0" IsIndirectW="0" MinClickTime="0" TextAlign="0" TextArea="0 0" Locking="0" />
+		<General Desc="BS_1" Area="160 135 282 221" OperateAddr="HDX15.0" Fast="0" BitFunc="2" ResetDelay="1" Monitor="1" MonitorAddr="HDX15.0" FigureFile="" BorderColor="0xf7e7ad 0" BmpIndex="113" LaStartPt="61 43" BitShowReverse="0" IsIndirectR="0" IsIndirectW="0" MinClickTime="0" TextAlign="0" TextArea="0 0" Locking="0" />
 		<Extension TouchState="1" Buzzer="1" IsCheck="0" AckTime="0" />
 		<MoveZoom DataFormatMZ="0" MutipleMZ="1.000000000000000" />
 		<TrigHide UseShowHide="0" HideType="0" IsHideAllTime="0" />

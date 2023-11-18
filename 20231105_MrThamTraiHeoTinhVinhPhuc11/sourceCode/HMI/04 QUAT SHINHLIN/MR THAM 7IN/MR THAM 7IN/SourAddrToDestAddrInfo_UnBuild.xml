@@ -13,50 +13,49 @@
 			<Add PLCAddr="3#2:08" PLCAddr1="" DstAddr="HDX8.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
 			<Add PLCAddr="3#2:09" PLCAddr1="" DstAddr="HDX9.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
 			<Add PLCAddr="3#2:010" PLCAddr1="" DstAddr="HDX10.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="3#2:011" PLCAddr1="" DstAddr="HDX11.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="3#2:013" PLCAddr1="" DstAddr="HDX12.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:014" PLCAddr1="" DstAddr="HDX13.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="HDX0.0" PLCAddr1="" DstAddr="2#00" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX1.0" PLCAddr1="" DstAddr="2#01" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX2.0" PLCAddr1="" DstAddr="2#02" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX3.0" PLCAddr1="" DstAddr="2#03" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX4.0" PLCAddr1="" DstAddr="2#04" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX5.0" PLCAddr1="" DstAddr="2#05" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX6.0" PLCAddr1="" DstAddr="2#06" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX7.0" PLCAddr1="" DstAddr="2#07" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX8.0" PLCAddr1="" DstAddr="2#08" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX9.0" PLCAddr1="" DstAddr="2#09" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX10.0" PLCAddr1="" DstAddr="2#010" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX11.0" PLCAddr1="" DstAddr="2#011" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX12.0" PLCAddr1="" DstAddr="2#012" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX13.0" PLCAddr1="" DstAddr="2#013" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX15.0" PLCAddr1="" DstAddr="2#014" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX16.0" PLCAddr1="" DstAddr="2#015" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX17.0" PLCAddr1="" DstAddr="2#016" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX18.0" PLCAddr1="" DstAddr="2#017" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX19.0" PLCAddr1="" DstAddr="2#018" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX20.0" PLCAddr1="" DstAddr="2#019" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX21.0" PLCAddr1="" DstAddr="2#020" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX22.0" PLCAddr1="" DstAddr="2#021" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX23.0" PLCAddr1="" DstAddr="2#022" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX24.0" PLCAddr1="" DstAddr="2#023" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
-			<Add PLCAddr="HDX25.0" PLCAddr1="" DstAddr="2#024" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" />
+			<Add PLCAddr="3#2:011" PLCAddr1="" DstAddr="HDX11.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:012" PLCAddr1="" DstAddr="HDX12.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:013" PLCAddr1="" DstAddr="HDX13.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:014" PLCAddr1="" DstAddr="HDX14.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:026" PLCAddr1="" DstAddr="HDX16.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:027" PLCAddr1="" DstAddr="HDX17.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:028" PLCAddr1="" DstAddr="HDX18.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:029" PLCAddr1="" DstAddr="HDX19.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:030" PLCAddr1="" DstAddr="HDX20.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:031" PLCAddr1="" DstAddr="HDX21.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:032" PLCAddr1="" DstAddr="HDX22.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:033" PLCAddr1="" DstAddr="HDX23.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:034" PLCAddr1="" DstAddr="HDX24.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:035" PLCAddr1="" DstAddr="HDX25.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX0.0" PLCAddr1="" DstAddr="2#00" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX1.0" PLCAddr1="" DstAddr="2#01" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX2.0" PLCAddr1="" DstAddr="2#02" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX3.0" PLCAddr1="" DstAddr="2#03" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX4.0" PLCAddr1="" DstAddr="2#04" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX5.0" PLCAddr1="" DstAddr="2#05" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX6.0" PLCAddr1="" DstAddr="2#06" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX7.0" PLCAddr1="" DstAddr="2#07" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX8.0" PLCAddr1="" DstAddr="2#08" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX9.0" PLCAddr1="" DstAddr="2#09" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX10.0" PLCAddr1="" DstAddr="2#010" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX11.0" PLCAddr1="" DstAddr="2#011" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX12.0" PLCAddr1="" DstAddr="2#012" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX13.0" PLCAddr1="" DstAddr="2#013" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
 			<Add PLCAddr="HDX14.0" PLCAddr1="" DstAddr="2#014" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:026" PLCAddr1="" DstAddr="HDX15.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:027" PLCAddr1="" DstAddr="HDX16.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:028" PLCAddr1="" DstAddr="HDX17.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:029" PLCAddr1="" DstAddr="HDX18.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:030" PLCAddr1="" DstAddr="HDX19.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:031" PLCAddr1="" DstAddr="HDX20.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:032" PLCAddr1="" DstAddr="HDX21.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:033" PLCAddr1="" DstAddr="HDX22.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:034" PLCAddr1="" DstAddr="HDX23.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:035" PLCAddr1="" DstAddr="HDX24.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:036" PLCAddr1="" DstAddr="HDX25.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="3#2:012" PLCAddr1="" DstAddr="HDX26.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="HDX130.0" PLCAddr1="" DstAddr="2#026" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="HDX131.0" PLCAddr1="" DstAddr="2#027" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
-			<Add PLCAddr="HDX132.0" PLCAddr1="" DstAddr="2#028" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX15.0" PLCAddr1="" DstAddr="2#015" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX16.0" PLCAddr1="" DstAddr="2#016" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX17.0" PLCAddr1="" DstAddr="2#017" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX18.0" PLCAddr1="" DstAddr="2#018" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX19.0" PLCAddr1="" DstAddr="2#019" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX20.0" PLCAddr1="" DstAddr="2#020" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX21.0" PLCAddr1="" DstAddr="2#021" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX22.0" PLCAddr1="" DstAddr="2#022" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX23.0" PLCAddr1="" DstAddr="2#023" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX24.0" PLCAddr1="" DstAddr="2#024" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX25.0" PLCAddr1="" DstAddr="2#025" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX26.0" PLCAddr1="" DstAddr="2#026" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="HDX290.0" PLCAddr1="" DstAddr="2#027" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
+			<Add PLCAddr="3#2:036" PLCAddr1="" DstAddr="HDX26.0" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" />
 		</BitAddr>
 		<WordAddr ContralAddr="" ConType="0">
 			<Add PLCAddr="3#2:410" PLCAddr1="" DstAddr="HDW26" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" DWord="0" DWordL="0" DWordR="0" DataFormatL="105" DataFormatR="2" DataFormat="105" DigitCount="5 0" HighToLowL="0" HighToLowR="0" HighToLow="0" />

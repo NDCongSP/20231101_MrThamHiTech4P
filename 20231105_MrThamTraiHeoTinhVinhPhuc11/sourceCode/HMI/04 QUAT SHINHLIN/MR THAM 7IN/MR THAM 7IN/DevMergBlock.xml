@@ -15,8 +15,7 @@
 		</Connection>
 		<Connection No="2" MaxBufSize="242">
 			<BitBlock>
-				<Block No="0" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_X_2:0:0:0:0:25600" Len="25" Fast="0" ScnNo="-1" />
-				<Block No="1" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_X_2:0:0:26:0:25600" Len="3" Fast="0" ScnNo="-1" />
+				<Block No="0" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_X_2:0:0:0:0:25600" Len="28" Fast="0" ScnNo="-1" />
 			</BitBlock>
 			<ByteBlock />
 			<WordBlock>

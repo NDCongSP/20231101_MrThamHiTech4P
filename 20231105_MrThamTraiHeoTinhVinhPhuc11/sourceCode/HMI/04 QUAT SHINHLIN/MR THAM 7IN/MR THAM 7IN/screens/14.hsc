@@ -24,25 +24,24 @@
 		<MoveZoom DataFormatMZ="0" MutipleMZ="1.000000000000000" />
 	</PartInfo>
 	<PartInfo PartType="Text" PartName="TXT_1" PartClassifyType="OtherClassType" PartID="14_TXT_1">
-		<General TextContent="Tên công ty:
-   Công Ty Cổ Phần Công Nghệ Cao 4P
+		<General TextContent="Công Ty Cổ Phần Công Nghệ Cao 4P
 Địa Chỉ: 
    Trung Dương, Xã Kiêu Kỵ, Huyện Gia Lâm,
    Thành phố Hà Nội
 Điện thoại:
    Đoàn Công Thám - 0984 043 389
-   Công - 0909 167 655" LaFrnColor="0x0 0" IsBackColor="0" BgColor="0xfdf0c4 0" CharSize="2414141414141414" Bold="0" StartPt="16 74" Width="0" Height="0" Area="16 74 773 425" InAlign="1" Locking="0" IsEnableStringTable="0" GroupNames="ID:-01" IsDynamic="0" StaticTextId="-1" />
+   Công - 0909 167 655" LaFrnColor="0x0 0" IsBackColor="0" BgColor="0xfdf0c4 0" CharSize="2414141414141414" Bold="0" StartPt="16 75" Width="0" Height="0" Area="16 75 773 382" InAlign="1" Locking="0" IsEnableStringTable="0" GroupNames="ID:-01" IsDynamic="0" StaticTextId="-1" />
 	</PartInfo>
 	<PartInfo PartType="FunctionSwitch" PartName="FS_0" PartClassifyType="Switch" PartID="14_FS_0">
-		<General Desc="FS_0" Area="698 398 794 474" ScrSwitch="0" FuncFunc="3" ScreenNo="11" ScreenNo2="-1" PointPos="0 0" PopupScreenType="0" PopupCloseWithParent="0" OperateDataType="0" FigureFile="" BorderColor="0xf7e7ad 0" Pattern="0" FrnColor="0x0 0" BgColor="0x0 0" BmpIndex="140" Align="3" LaStartPt="13 11" DelayTime="0" FunAllTerminal="0" EnableTryAddr="0" TextAlign="0" TextArea="0 0" Locking="0" />
+		<General Desc="FS_0" Area="698 398 794 474" ScrSwitch="0" FuncFunc="3" ScreenNo="0" ScreenNo2="-1" PointPos="0 0" PopupScreenType="0" PopupCloseWithParent="0" OperateDataType="0" FigureFile="" BorderColor="0xf7e7ad 0" Pattern="0" FrnColor="0x0 0" BgColor="0x0 0" BmpIndex="137" Align="3" LaStartPt="25 28" DelayTime="0" FunAllTerminal="0" EnableTryAddr="0" TextAlign="0" TextArea="0 0" Locking="0" />
 		<Extension TouchState="1" Buzzer="1" />
-		<MoveZoom DataFormatMZ="4" MutipleMZ="1.000000000000000" />
+		<MoveZoom DataFormatMZ="0" MutipleMZ="1.000000000000000" />
 		<TrigHide UseShowHide="0" HideType="0" IsHideAllTime="0" />
 		<Lock Lockmate="0" UnDrawLock="0" LockMode="0" IsShowGrayScale="0" />
 		<PartPwd IsUesPartPassword="0" IsSetLowerLev="0" PartPasswordLev="0" />
 		<ClickPopTrig />
-		<UserAuthority IsUseUserAuthority="0" IsPopUserLoginWin="0" PopType="0" IsHidePart="0" />
-		<SVGColor Status="0" svgfile="Icon\Icon2330.svg" dark="0x886500 0" light="0x0 0" hlight="0x0 0" shadow="0x0 0" shape="0x0 0" gstartcolor="0xfffac9 0" gmidcolor="0x0 0" gendcolor="0xffffff 0" />
+		<UserAuthority IsUseUserAuthority="0" IsPopUserLoginWin="0" UserGroupIdSet="0" UserLogInfo="TERTERTERT" PopType="0" IsHidePart="0" LogText="TERTERTERT" />
+		<SVGColor Status="0" svgfile="Icon\Icon2301.svg" dark="0x886500 0" light="0xffffff 0" hlight="0x0 0" shadow="0x0 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
 		<SVGColor Status="1" svgfile="" dark="0x0 0" light="0x0 0" hlight="0x0 0" shadow="0x0 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
 		<Label Status="0" Bold="0" CharSize="1616161616161616" LaFrnColor="0xff0000 -1" />
 	</PartInfo>
