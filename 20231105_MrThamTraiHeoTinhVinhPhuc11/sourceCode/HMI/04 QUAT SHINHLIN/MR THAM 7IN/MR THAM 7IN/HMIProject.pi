@@ -89,14 +89,14 @@ endif
 
 if @W_HDW26&gt;= @W_HAW228 + @W_HAW0 then 'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33'@W_HSW33 thanh ghi Minite HMI
+		@W_HDW302 = @W_HSW32 'thanh ghi Minite HMI
 		@W_HDW303=1
 	endif
 
-	if @W_HSW33 &gt;= @W_HDW302 then 'dem thoi gian chay
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then 'dem thoi gian chay
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 
 	if @W_HDW304 &lt; @W_HAW226 then 'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
@@ -270,15 +270,15 @@ endif
 if @W_HDW26&gt;= @W_HAW229 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
@@ -497,19 +497,18 @@ if @B_HDX402.0 = 0 then
 	@B_HDX283.0= 0 'quat 1, 2, 3, 4 off
 endif
 
-@W_HDW300=@W_HSW33'doc minute tu HMI
 if @W_HDW26&gt;= @W_HAW230 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
@@ -1552,19 +1551,18 @@ if @B_HDX403.0 = 0 then
 	@B_HDX283.0= 0 'quat 1, 2, 3, 4 off
 endif
 
-@W_HDW300=@W_HSW33'doc minute tu HMI
 if @W_HDW26&gt;= @W_HAW231 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
@@ -1765,19 +1763,18 @@ if @B_HDX404.0 = 0 then
 	@B_HDX283.0= 0 'quat 1, 2, 3, 4 off
 endif
 
-@W_HDW300=@W_HSW33'doc minute tu HMI
 if @W_HDW26&gt;= @W_HAW232 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
@@ -1978,19 +1975,18 @@ if @B_HDX405.0 = 0 then
 	@B_HDX283.0= 0 'quat 1, 2, 3, 4 off
 endif
 
-@W_HDW300=@W_HSW33'doc minute tu HMI
 if @W_HDW26&gt;= @W_HAW233 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
@@ -2191,19 +2187,18 @@ if @B_HDX406.0 = 0 then
 	@B_HDX283.0= 0 'quat 1, 2, 3, 4 off
 endif
 
-@W_HDW300=@W_HSW33'doc minute tu HMI
 if @W_HDW26&gt;= @W_HAW234 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
@@ -2987,19 +2982,18 @@ if @B_HDX407.0 = 0 then
 	@B_HDX283.0= 0 'quat 1, 2, 3, 4 off
 endif
 
-@W_HDW300=@W_HSW33'doc minute tu HMI
 if @W_HDW26&gt;= @W_HAW235 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
@@ -3104,18 +3098,18 @@ if @B_HDX408.0 = 0 then
 	@B_HDX282.0= 0
 	@B_HDX283.0= 0 'quat 1, 2, 3, 4 off
 endif
-@W_HDW300=@W_HSW33'doc minute tu HMI
+
 if @W_HDW26&gt;= @W_HAW236 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
 	if @W_HDW304 &lt; @W_HAW226 then
@@ -3215,18 +3209,18 @@ if @B_HDX409.0 = 0 then
 	@B_HDX282.0= 0
 	@B_HDX283.0= 0 'quat 1, 2, 3, 4 off
 endif
-@W_HDW300=@W_HSW33'doc minute tu HMI
+
 if @W_HDW26&gt;= @W_HAW237 + @W_HAW0 then
 	'kiem tra dieu khien on/off theo thoi gian da cai chay:HAW226; dung:HAW227
 	if @W_HDW303=0 then 
-		@W_HDW302 = @W_HSW33
+		@W_HDW302 = @W_HSW32
 		@W_HDW303=1
 	endif
 	'dem thoi gian chay
-	if @W_HSW33 &gt;= @W_HDW302 then
-		@W_HDW304 = @W_HSW33 - @W_HDW302
+	if @W_HSW32 &gt;= @W_HDW302 then
+		@W_HDW304 = @W_HSW32 - @W_HDW302
 	else
-		@W_HDW304 = (60 - @W_HDW302) + @W_HSW33
+		@W_HDW304 = (60 - @W_HDW302) + @W_HSW32
 	endif
 	'kiem tra chay chua du thoi gian cai dat thi tiep tuc cho chay
 	if @W_HDW304 &lt; @W_HAW226 then
@@ -3656,18 +3650,39 @@ else
 	endif
 endif
 </Trigger>
-			<Trigger Action="3" BitAddr="HDX290.0">@b_hdx280.0=0
-@b_hdx281.0=0
-@b_hdx282.0=0
-@b_hdx283.0=0
+			<Trigger Action="3" BitAddr="HDX290.0">if @b_hdx280.0=0 then
+	@b_hdx280.0=1
+else
+	@b_hdx280.0=0
+endif
+
+if @b_hdx281.0=0 then
+	@b_hdx281.0=1
+else
+	@b_hdx281.0=0
+endif
+
+if @b_hdx282.0=0 then
+	@b_hdx282.0=1
+else
+	@b_hdx282.0=0
+endif
+
+if @b_hdx283.0=0 then
+	@b_hdx283.0=1
+else
+	@b_hdx283.0=0
+endif
+
+SleepA(2000)
 
 @b_hdx290.0=0
 </Trigger>
 		</TrigAction>
 		<TimerAction>
 			<Timer Interval="100" AliasName="">'if @W_HDW300 = @W_HAW122 then 'so sanh neu quangay thi cong ngay hien tai len 1
-@W_HDW300=@W_HSW33'doc minute tu HMI
-@W_HDW301=@W_HSW32'doc second tu HMI
+@W_HDW300=@W_HSW32'doc minute tu HMI
+@W_HDW301=@W_HSW33'doc second tu HMI
 
 if @W_HSW30 = @W_HAW122 then 'so sanh neu quangay thi cong ngay hien tai len 1
 else
@@ -3683,8 +3698,9 @@ if @w_haw120 &gt; @w_haw170 then
 	goto gotolabel	
 endif
 
-'che do auto
-IF @B_HDX11.0=1 and @b_hdx2920.0=0 THEN
+'che do auto va bit chot thay doi thu tu quat cho cac ngo ra quat = =0 thi moi vao chay
+'con dang thay doi thu tu quat thi phai doi trigger thay doi thu tu quat quat chay xong
+IF @B_HDX11.0=1 and @b_hdx290.0=0 THEN
 	if @W_HAW120&lt;=@W_HAW2 and @W_HAW120&gt;=@W_HAW1 then 'moc 1
 		@W_HDW32=1'hien thi gia doan hien tai
 		@B_HDX40.0=1'bat trigger de so sanh nhiet do bat quat
@@ -3927,218 +3943,217 @@ endif
 'reset bien de vao tinh thoi gian chay luan phien dan mat
 @W_HDW303=0
 
-'khi nao chay thuc te thi comment cac dong phia duoi lai het
-'NGAY BAT DAU VA KET THUC
-@W_HAW1=0
-@W_HAW2=1
-@W_HAW18=2
-@W_HAW19=3
-@W_HAW35=4
-@W_HAW36=5
-@W_HAW52=6
-@W_HAW53=7
-@W_HAW69=8
-@W_HAW70=9
-@W_HAW86=10
-@W_HAW87=11
-@W_HAW103=12
-@W_HAW104=13
-@W_HAW135=14'moc 8
-@W_HAW136=15
-@W_HAW152=16'moc 9
-@W_HAW153=17
-@W_HAW169=18'moc 10
-@W_HAW170=19
-
-'gan thoi gian on va off cua dan mat 
-@W_HAW226=10
-@W_HAW227=5
-
-'vi tri cua quat
-'@w_haw186=4'quat 1
-'@w_haw187=3'quat 2
-'@w_haw188=2'quat 3
-'@w_haw189=1'quat 4
-
-'gan gia tri ban dau cho moc 1
-@W_HAW3=1'SO QUAT CHAY CO DINH
-@W_HAW4=300'nhiet do cao
-@W_HAW5=100'nhiet do thap
-@W_HAW6=5000'tan so cao
-@W_HAW7=1000'tan so thap
-@W_HAW8=200'nhiet do bat quat 1
-@W_HAW9=210'nhiet do bat quat 2
-@W_HAW10=220'nhiet do bat quat 3
-@W_HAW11=230'nhiet do bat quat 4
-@W_HAW12=240'nhiet do bat quat 5
-@W_HAW13=250'nhiet do bat quat 6
-@W_HAW14=260'nhiet do bat quat 7
-@W_HAW15=270'nhiet do bat quat 8
-@W_HAW16=280'nhiet do bat quat 9
-@W_HAW17=290'nhiet do bat quat 10
-@W_HAW228=210'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 2
-@W_HAW20=2
-@W_HAW21=300
-@W_HAW22=100
-@W_HAW23=5000
-@W_HAW24=1000
-@W_HAW25=200
-@W_HAW26=210
-@W_HAW27=220
-@W_HAW28=230
-@W_HAW29=240
-@W_HAW30=250
-@W_HAW31=260
-@W_HAW32=270
-@W_HAW33=280
-@W_HAW34=290
-@W_HAW229=220'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 3
-@W_HAW37=3
-@W_HAW38=300
-@W_HAW39=100
-@W_HAW40=5000
-@W_HAW41=1000
-@W_HAW42=200
-@W_HAW43=210
-@W_HAW44=220
-@W_HAW45=230
-@W_HAW46=240
-@W_HAW47=250
-@W_HAW48=260
-@W_HAW49=270
-@W_HAW50=280
-@W_HAW51=290
-@W_HAW230=220'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 4
-@W_HAW54=4
-@W_HAW55=300
-@W_HAW56=100
-@W_HAW57=5000
-@W_HAW58=1000
-@W_HAW59=200
-@W_HAW60=210
-@W_HAW61=220
-@W_HAW62=230
-@W_HAW63=240
-@W_HAW64=250
-@W_HAW65=260
-@W_HAW66=270
-@W_HAW67=280
-@W_HAW68=290
-@W_HAW231=230'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 5
-@W_HAW71=4
-@W_HAW72=300
-@W_HAW73=100
-@W_HAW74=5000
-@W_HAW75=1000
-@W_HAW76=200
-@W_HAW77=210
-@W_HAW78=220
-@W_HAW79=230
-@W_HAW80=240
-@W_HAW81=250
-@W_HAW82=260
-@W_HAW83=270
-@W_HAW84=280
-@W_HAW85=290
-@W_HAW232=240'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 6
-@W_HAW88=3
-@W_HAW89=300
-@W_HAW90=100
-@W_HAW91=5000
-@W_HAW92=1000
-@W_HAW93=200
-@W_HAW94=210
-@W_HAW95=220
-@W_HAW96=230
-@W_HAW97=240
-@W_HAW98=250
-@W_HAW99=260
-@W_HAW100=270
-@W_HAW101=280
-@W_HAW102=290
-@W_HAW233=250'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 7
-@W_HAW105=2
-@W_HAW106=300
-@W_HAW107=100
-@W_HAW108=5000
-@W_HAW109=1000
-@W_HAW110=200
-@W_HAW111=210
-@W_HAW112=220
-@W_HAW113=230
-@W_HAW114=240
-@W_HAW115=250
-@W_HAW116=260
-@W_HAW117=270
-@W_HAW118=280
-@W_HAW119=290
-@W_HAW234=260'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 8
-@W_HAW137=2
-@W_HAW138=300
-@W_HAW139=100
-@W_HAW140=5000
-@W_HAW141=1000
-@W_HAW142=200
-@W_HAW143=210
-@W_HAW144=220
-@W_HAW145=230
-@W_HAW146=240
-@W_HAW147=250
-@W_HAW148=260
-@W_HAW149=270
-@W_HAW150=280
-@W_HAW151=290
-@W_HAW235=270'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 9
-@W_HAW154=2
-@W_HAW155=300
-@W_HAW156=100
-@W_HAW157=5000
-@W_HAW158=1000
-@W_HAW159=200
-@W_HAW160=210
-@W_HAW161=220
-@W_HAW162=230
-@W_HAW163=240
-@W_HAW164=250
-@W_HAW165=260
-@W_HAW166=270
-@W_HAW167=280
-@W_HAW168=290
-@W_HAW236=280'NHIET DDO BAT DAN MAT
-
-'gan gia tri ban dau cho moc 10
-@W_HAW171=2
-@W_HAW172=300
-@W_HAW173=100
-@W_HAW174=5000
-@W_HAW175=1000
-@W_HAW176=200
-@W_HAW177=210
-@W_HAW178=220
-@W_HAW179=230
-@W_HAW180=240
-@W_HAW181=250
-@W_HAW182=260
-@W_HAW183=270
-@W_HAW184=280
-@W_HAW185=290
-@W_HAW237=290'NHIET DDO BAT DAN MAT
+'neu HMI duoc chay lan dau tien thi vao gan cac gia tri ban dau cho cac giai doan hoat dong, roi sau do khoa lai ko vao thuc hien lai thao tac
+'nay cho cac lan khoi dong sau, cac lan sau su dung thong so cu nguoi su dung cai dat
+if @b_hax238.0=0 then
+	@b_hax238.0=1 'bat bit nay len de khoa cac lan saau HMI khoi dong ko vao day
+	'khi nao chay thuc te thi comment cac dong phia duoi lai het
+	'NGAY BAT DAU VA KET THUC
+	@W_HAW1=0
+	@W_HAW2=1
+	@W_HAW18=2
+	@W_HAW19=3
+	@W_HAW35=4
+	@W_HAW36=5
+	@W_HAW52=6
+	@W_HAW53=7
+	@W_HAW69=8
+	@W_HAW70=9
+	@W_HAW86=10
+	@W_HAW87=11
+	@W_HAW103=12
+	@W_HAW104=13
+	@W_HAW135=14'moc 8
+	@W_HAW136=15
+	@W_HAW152=16'moc 9
+	@W_HAW153=17
+	@W_HAW169=18'moc 10
+	@W_HAW170=19
+	
+	'gan thoi gian on va off cua dan mat don vi phut
+	@W_HAW226=2
+	@W_HAW227=1
+	
+	'gan gia tri ban dau cho moc 1
+	@W_HAW3=1'SO QUAT CHAY CO DINH
+	@W_HAW4=300'nhiet do cao
+	@W_HAW5=100'nhiet do thap
+	@W_HAW6=5000'tan so cao
+	@W_HAW7=1000'tan so thap
+	@W_HAW8=200'nhiet do bat quat 1
+	@W_HAW9=210'nhiet do bat quat 2
+	@W_HAW10=220'nhiet do bat quat 3
+	@W_HAW11=230'nhiet do bat quat 4
+	@W_HAW12=240'nhiet do bat quat 5
+	@W_HAW13=250'nhiet do bat quat 6
+	@W_HAW14=260'nhiet do bat quat 7
+	@W_HAW15=270'nhiet do bat quat 8
+	@W_HAW16=280'nhiet do bat quat 9
+	@W_HAW17=290'nhiet do bat quat 10
+	@W_HAW228=210'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 2
+	@W_HAW20=2
+	@W_HAW21=300
+	@W_HAW22=100
+	@W_HAW23=5000
+	@W_HAW24=1000
+	@W_HAW25=200
+	@W_HAW26=210
+	@W_HAW27=220
+	@W_HAW28=230
+	@W_HAW29=240
+	@W_HAW30=250
+	@W_HAW31=260
+	@W_HAW32=270
+	@W_HAW33=280
+	@W_HAW34=290
+	@W_HAW229=220'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 3
+	@W_HAW37=3
+	@W_HAW38=300
+	@W_HAW39=100
+	@W_HAW40=5000
+	@W_HAW41=1000
+	@W_HAW42=200
+	@W_HAW43=210
+	@W_HAW44=220
+	@W_HAW45=230
+	@W_HAW46=240
+	@W_HAW47=250
+	@W_HAW48=260
+	@W_HAW49=270
+	@W_HAW50=280
+	@W_HAW51=290
+	@W_HAW230=220'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 4
+	@W_HAW54=4
+	@W_HAW55=300
+	@W_HAW56=100
+	@W_HAW57=5000
+	@W_HAW58=1000
+	@W_HAW59=200
+	@W_HAW60=210
+	@W_HAW61=220
+	@W_HAW62=230
+	@W_HAW63=240
+	@W_HAW64=250
+	@W_HAW65=260
+	@W_HAW66=270
+	@W_HAW67=280
+	@W_HAW68=290
+	@W_HAW231=230'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 5
+	@W_HAW71=4
+	@W_HAW72=300
+	@W_HAW73=100
+	@W_HAW74=5000
+	@W_HAW75=1000
+	@W_HAW76=200
+	@W_HAW77=210
+	@W_HAW78=220
+	@W_HAW79=230
+	@W_HAW80=240
+	@W_HAW81=250
+	@W_HAW82=260
+	@W_HAW83=270
+	@W_HAW84=280
+	@W_HAW85=290
+	@W_HAW232=240'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 6
+	@W_HAW88=3
+	@W_HAW89=300
+	@W_HAW90=100
+	@W_HAW91=5000
+	@W_HAW92=1000
+	@W_HAW93=200
+	@W_HAW94=210
+	@W_HAW95=220
+	@W_HAW96=230
+	@W_HAW97=240
+	@W_HAW98=250
+	@W_HAW99=260
+	@W_HAW100=270
+	@W_HAW101=280
+	@W_HAW102=290
+	@W_HAW233=250'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 7
+	@W_HAW105=2
+	@W_HAW106=300
+	@W_HAW107=100
+	@W_HAW108=5000
+	@W_HAW109=1000
+	@W_HAW110=200
+	@W_HAW111=210
+	@W_HAW112=220
+	@W_HAW113=230
+	@W_HAW114=240
+	@W_HAW115=250
+	@W_HAW116=260
+	@W_HAW117=270
+	@W_HAW118=280
+	@W_HAW119=290
+	@W_HAW234=260'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 8
+	@W_HAW137=2
+	@W_HAW138=300
+	@W_HAW139=100
+	@W_HAW140=5000
+	@W_HAW141=1000
+	@W_HAW142=200
+	@W_HAW143=210
+	@W_HAW144=220
+	@W_HAW145=230
+	@W_HAW146=240
+	@W_HAW147=250
+	@W_HAW148=260
+	@W_HAW149=270
+	@W_HAW150=280
+	@W_HAW151=290
+	@W_HAW235=270'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 9
+	@W_HAW154=2
+	@W_HAW155=300
+	@W_HAW156=100
+	@W_HAW157=5000
+	@W_HAW158=1000
+	@W_HAW159=200
+	@W_HAW160=210
+	@W_HAW161=220
+	@W_HAW162=230
+	@W_HAW163=240
+	@W_HAW164=250
+	@W_HAW165=260
+	@W_HAW166=270
+	@W_HAW167=280
+	@W_HAW168=290
+	@W_HAW236=280'NHIET DDO BAT DAN MAT
+	
+	'gan gia tri ban dau cho moc 10
+	@W_HAW171=2
+	@W_HAW172=300
+	@W_HAW173=100
+	@W_HAW174=5000
+	@W_HAW175=1000
+	@W_HAW176=200
+	@W_HAW177=210
+	@W_HAW178=220
+	@W_HAW179=230
+	@W_HAW180=240
+	@W_HAW181=250
+	@W_HAW182=260
+	@W_HAW183=270
+	@W_HAW184=280
+	@W_HAW185=290
+	@W_HAW237=290'NHIET DDO BAT DAN MAT
+endif
 </InitialAction>
 	</Script>
 </project>

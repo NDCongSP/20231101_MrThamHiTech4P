@@ -314,6 +314,38 @@
 		<Add Addr="HAW_W_0000000" Len="1" Fast="0" />
 		<Add Addr="HAW_W_0000121" Len="1" Fast="0" />
 		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000030" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000026" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000027" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000032" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000280" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000281" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000283" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000282" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000290" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000000" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000121" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000030" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000026" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000027" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000032" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000280" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000281" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000283" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000282" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000290" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000291" Len="1" Fast="0" />
 	</AddrInfo>
 	<AddrInfo ScrnNo="14" HasNoPlcAddr="1">
 		<HMIAddr />
@@ -351,10 +383,10 @@
 	<AddrInfo ScrnNo="13" HasNoPlcAddr="1">
 		<HMIAddr />
 	</AddrInfo>
-	<AddrInfo ScrnNo="0" HasNoPlcAddr="1">
+	<AddrInfo ScrnNo="8" HasNoPlcAddr="1">
 		<HMIAddr />
 	</AddrInfo>
-	<AddrInfo ScrnNo="8" HasNoPlcAddr="1">
+	<AddrInfo ScrnNo="0" HasNoPlcAddr="1">
 		<HMIAddr />
 	</AddrInfo>
 </project>
