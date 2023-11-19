@@ -138,7 +138,7 @@
 		<Lock Lockmate="0" UnDrawLock="0" LockMode="0" IsShowGrayScale="0" />
 		<PartPwd IsUesPartPassword="0" IsSetLowerLev="0" PartPasswordLev="0" />
 		<ClickPopTrig />
-		<UserAuthority IsUseUserAuthority="0" IsPopUserLoginWin="0" UserGroupIdSet="0" PopType="0" IsHidePart="0" LogText="" />
+		<UserAuthority IsUseUserAuthority="1" IsPopUserLoginWin="1" UserGroupIdSet="0" UserLogInfo="Login" PopType="0" IsHidePart="0" LogText="Login" />
 		<SVGColor Status="0" svgfile="Icon\Icon0015.svg" dark="0x0 0" light="0xff6600 0" hlight="0x0 0" shadow="0x0 0" shape="0xffffff 0" gstartcolor="0xffccaa 0" gmidcolor="0x0 0" gendcolor="0xff6600 0" />
 		<SVGColor Status="1" svgfile="" dark="0x0 0" light="0x0 0" hlight="0x0 0" shadow="0x0 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
 		<Label Status="0" Bold="0" CharSize="1616161616161616" LaFrnColor="0xff0000 -1" />
@@ -192,5 +192,18 @@
 		<SVGColor Status="1" svgfile="Button\Button0305.svg" dark="0xf5fa7d 0" light="0xffcc00 0" hlight="0x0 0" shadow="0xff5904 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
 		<Label Status="0" Bold="0" LaIndexID="QUẠT CHẠY
 CỐ ĐỊNH" CharSize="1616161616161616" LaFrnColor="0xff0000 -1" />
+	</PartInfo>
+	<PartInfo PartType="FunctionSwitch" PartName="FS_13" PartClassifyType="Switch" PartID="11_FS_13">
+		<General Desc="FS_0" Area="178 383 317 455" ScrSwitch="0" FuncFunc="3" ScreenNo="17" ScreenNo2="-1" PointPos="0 0" PopupScreenType="0" PopupCloseWithParent="0" OperateDataType="0" FigureFile="" BorderColor="0xf7e7ad 0" Pattern="0" FrnColor="0x0 0" BgColor="0x0 0" BmpIndex="-1" Align="3" LaStartPt="3 24" DelayTime="0" FunAllTerminal="0" EnableTryAddr="0" TextAlign="0" TextArea="133 24" Locking="0" />
+		<Extension TouchState="1" Buzzer="1" />
+		<MoveZoom DataFormatMZ="0" MutipleMZ="1.000000000000000" />
+		<TrigHide UseShowHide="0" HideType="0" IsHideAllTime="0" />
+		<Lock Lockmate="0" UnDrawLock="0" LockMode="0" IsShowGrayScale="0" />
+		<PartPwd IsUesPartPassword="0" IsSetLowerLev="0" PartPasswordLev="0" />
+		<ClickPopTrig />
+		<UserAuthority IsUseUserAuthority="0" IsPopUserLoginWin="0" PopType="0" IsHidePart="0" />
+		<SVGColor Status="0" svgfile="Button\Button0305.svg" dark="0xf5fa7d 0" light="0xffcc00 0" hlight="0x0 0" shadow="0xff5904 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
+		<SVGColor Status="1" svgfile="Button\Button0305.svg" dark="0xf5fa7d 0" light="0xffcc00 0" hlight="0x0 0" shadow="0xff5904 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
+		<Label Status="0" Bold="0" LaIndexID="Thông tin HMI" CharSize="1616161616161616" LaFrnColor="0xff0000 -1" />
 	</PartInfo>
 </ScrInfo>

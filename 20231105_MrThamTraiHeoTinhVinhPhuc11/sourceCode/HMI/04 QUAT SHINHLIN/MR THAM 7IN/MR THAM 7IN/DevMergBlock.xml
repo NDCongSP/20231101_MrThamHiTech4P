@@ -9,7 +9,8 @@
 			<ByteBlock />
 			<WordBlock>
 				<Block No="0" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_W_3:2:4:2:0:25600" Len="5" Fast="0" ScnNo="-1" />
-				<Block No="1" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_W_3:2:4:10:0:25600" Len="2" Fast="0" ScnNo="-1" />
+				<Block No="1" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_W_3:2:4:5:0:25600" Len="1" Fast="0" ScnNo="17" />
+				<Block No="2" Addr="Conn:Stat:Reg:Addr:ByOrder:JZ_W_3:2:4:10:0:25600" Len="2" Fast="0" ScnNo="-1" />
 			</WordBlock>
 			<DWordBlock />
 		</Connection>

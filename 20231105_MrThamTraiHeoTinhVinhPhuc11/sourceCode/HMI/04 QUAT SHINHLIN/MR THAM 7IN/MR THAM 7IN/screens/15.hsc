@@ -132,4 +132,20 @@
 		<SVGColor Status="1" svgfile="" dark="0x0 0" light="0x0 0" hlight="0x0 0" shadow="0x0 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
 		<Label Status="0" Bold="0" CharSize="1616161616161616" LaFrnColor="0xff0000 -1" />
 	</PartInfo>
+	<PartInfo PartType="BitSwitch" PartName="BS_0" PartClassifyType="Switch" PartID="15_BS_0">
+		<General Desc="BS_1" Area="654 154 776 240" OperateAddr="HDX290.0" Fast="0" BitFunc="1" Monitor="1" MonitorAddr="HDX290.0" FigureFile="" BorderColor="0xf7e7ad 0" BmpIndex="113" LaStartPt="61 43" BitShowReverse="0" IsIndirectR="0" IsIndirectW="0" MinClickTime="0" TextAlign="0" TextArea="0 0" Locking="0" />
+		<Extension TouchState="1" Buzzer="1" IsCheck="0" AckTime="0" />
+		<MoveZoom DataFormatMZ="0" MutipleMZ="1.000000000000000" />
+		<TrigHide UseShowHide="0" HideType="0" IsHideAllTime="0" />
+		<Glint UseGlint="0" Glintfrq="0" />
+		<Lock Lockmate="0" UnDrawLock="0" LockMode="0" IsShowGrayScale="0" />
+		<PartPwd IsUesPartPassword="0" IsSetLowerLev="0" PartPasswordLev="0" />
+		<ClickPopTrig />
+		<UserAuthority IsUseUserAuthority="0" IsPopUserLoginWin="0" UserGroupIdSet="0" PopType="0" IsHidePart="0" />
+		<Label Status="0" Pattern="1" FrnColor="0xfdf0c4 0" BgColor="0xfdf0c4 0" Bold="0" CharSize="2222222222222222" LaFrnColor="0x0 0" svgfile="" dark="0x0 0" light="0x0 0" hlight="0x0 0" shadow="0x0 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
+		<Label Status="1" Pattern="1" FrnColor="0xfdf0c4 0" BgColor="0xfdf0c4 0" Bold="0" CharSize="2222222222222222" LaFrnColor="0x0 0" svgfile="" dark="0x0 0" light="0x0 0" hlight="0x0 0" shadow="0x0 0" shape="0x0 0" gstartcolor="0x0 0" gmidcolor="0x0 0" gendcolor="0x0 0" />
+	</PartInfo>
+	<PartInfo PartType="Text" PartName="TXT_9" PartClassifyType="OtherClassType" PartID="15_TXT_9">
+		<General TextContent="Xác nhận" LaFrnColor="0x8000 -1" IsBackColor="0" BgColor="0xfdf0c4 0" CharSize="1914141414141414" Bold="0" StartPt="675 134" Width="117" Height="43" Area="675 134 755 155" InAlign="1" Locking="0" IsEnableStringTable="0" GroupNames="ID:-01" IsDynamic="0" StaticTextId="-1" />
+	</PartInfo>
 </ScrInfo>
