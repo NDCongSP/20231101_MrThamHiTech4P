@@ -35,6 +35,7 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-f2PgoftqEkKRuuiAk6S1MHygOuqZBHzB0HOB3vR93TU=",
       "Microsoft.JSInterop.dll": "sha256-pr6L2mjcqc8D0q4a8E717JbHBm5iEM4PFAo1DBJmaUg=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-wm\/PyT01CAndytn\/B\/egrjENN3gkDMsMDaFon1TwCHA=",
+      "MudBlazor.dll": "sha256-kAmyWizka\/0a5GOD22Fr6MOAGcby8ZgoX9lwDnfwewc=",
       "System.IO.Pipelines.dll": "sha256-\/C5xhI+m3Aqrcjxy\/TauLyqv\/\/5l8WEW3rXFtVlNhy8=",
       "Microsoft.CSharp.dll": "sha256-PpkoBrb5GDDzBCVjEGJ15VkONpHLxk8ZZ3uc0eDYPaY=",
       "Microsoft.VisualBasic.Core.dll": "sha256-SyyaBBG5sBtJEfy89ATtHrxESu8\/SyNLYJXV1OaHYG0=",
@@ -201,15 +202,15 @@
       "mscorlib.dll": "sha256-zMI\/dXK7DoZZ9Qm9U9\/jRN4iQ9Ss3w8\/rwQQxC6SW9Y=",
       "netstandard.dll": "sha256-W3q3PN+lpRB+tRJEIhtMgYOGFv0pauEeeCS9iIRkKAM=",
       "System.Private.CoreLib.dll": "sha256-9rUJv1mXEQdGt\/kWiJ1ITPPzp3cAi3lSmqHVTisp7w0=",
-      "GiamSat.APIClient.dll": "sha256-HiMfY+KqWhIFmLW5PlNZTDs\/BwIW20DHaLwTj1vVCR4=",
-      "GiamSat.Models.dll": "sha256-FCnSbd3Ta0Fjqj3GA2MgIEdxe2miWj8y5TF2\/lE75xE=",
-      "GiamSat.Interface.dll": "sha256-w9sPnejwfSgSXmlc3aqYP0Adh3CcM\/5DRNpXaCadqMM="
+      "GiamSat.APIClient.dll": "sha256-7Tq2p8DtjlzCXdnEgEN9abc5IkFr4wSXelpNJXn7CSc=",
+      "GiamSat.Models.dll": "sha256-ylgTHALQgQJe69rkoW6fHNCM\/yOA8PXsGTcqJ0Y0N3c=",
+      "GiamSat.Interface.dll": "sha256-IHV0\/9gb2PSI7wdmE+yegq1Wj5ZW1Olh9kjVwxRMBzE="
     },
     "lazyAssembly": null,
     "pdb": {
-      "GiamSat.APIClient.pdb": "sha256-Y+telXlo4Yu9k7oJKHN+3kiZh\/4M+0Tx3Q0Ofs3hB\/M=",
-      "GiamSat.Models.pdb": "sha256-6t0P46tW8Vx6jL76bILenhvQZYfRZ8Ge\/HZ+7YIjiA8=",
-      "GiamSat.Interface.pdb": "sha256-atRnEEghbYszpltqXonopbVFA2qc+VNRcK8lmZGVCfA="
+      "GiamSat.APIClient.pdb": "sha256-nP9YCYEiUr7XAE+vqC1zJmb8FDubmgQcAiGLtxoiPeo=",
+      "GiamSat.Models.pdb": "sha256-3zV4XDwXtZ0xGVcRMqXF0ljDsOwNVFXLK8rRtJWCY6k=",
+      "GiamSat.Interface.pdb": "sha256-y1SEYzAhONJF6w6TKjzR4WM\/OLDS4yDIBJdN5wcv0js="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-8oJip361m8OrfLRJOuIeswWKaoxtT27\/wINCxhn+s4c=",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj": {}
+    "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj": {}
   },
   "projects": {
-    "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj": {
+    "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj",
+        "projectUniqueName": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj",
         "projectName": "GiamSat.Models",
-        "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj",
+        "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj",
         "packagesPath": "C:\\Users\\ndcon\\.nuget\\packages\\",
-        "outputPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Models\\obj\\",
+        "outputPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages",
@@ -34,6 +34,7 @@
           "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "D:\\MyCompany\\8.SourceCode\\3.Projects\\20211201EasyScada\\packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -67,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.415\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
         }
       }
     }

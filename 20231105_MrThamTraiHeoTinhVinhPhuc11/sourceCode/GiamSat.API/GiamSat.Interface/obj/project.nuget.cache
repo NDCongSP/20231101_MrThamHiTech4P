@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bH8cosdaDfNfNmOXzQUaZ56as3WwNF+XdSTh0fRUmerYYGzqHYpJtrX2SqZieDZFRLXc11tk/G2QsMyM5JpMZg==",
+  "dgSpecHash": "3CiDhhObK9hJPpeJeGNdSA5cS+YdCz+Nj580nSWZEVr6mX1nhKZvyKxS1ITPZOKzEVAfpHfVdNOQOwVvUPaf9Q==",
   "success": true,
-  "projectFilePath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Interface\\GiamSat.Interface.csproj",
+  "projectFilePath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Interface\\GiamSat.Interface.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ndcon\\.nuget\\packages\\blazored.localstorage\\3.0.0\\blazored.localstorage.3.0.0.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.17\\microsoft.aspnetcore.authorization.5.0.17.nupkg.sha512",
@@ -32,6 +32,7 @@
     "C:\\Users\\ndcon\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\microsoft.jsinterop\\5.0.17\\microsoft.jsinterop.5.0.17.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\microsoft.jsinterop.webassembly\\5.0.17\\microsoft.jsinterop.webassembly.5.0.17.nupkg.sha512",
+    "C:\\Users\\ndcon\\.nuget\\packages\\mudblazor\\5.2.5\\mudblazor.5.2.5.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",

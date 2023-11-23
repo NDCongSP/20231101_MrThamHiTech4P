@@ -17,6 +17,8 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using MudBlazor;
+using MudBlazor.Services;
 
 namespace GiamSat.Interface
 {
@@ -28,6 +30,8 @@ namespace GiamSat.Interface
             builder.RootComponents.Add<App>("#app");
 
             var config = builder.Configuration;
+
+            builder.Services.AddMudServices();
 
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AutoRegisterInterfaces<IApiService>();

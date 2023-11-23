@@ -15,7 +15,7 @@ namespace GiamSat.API
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<DataModel>();
+            builder.Entity<DataLogModel>();
         }
     }
 }

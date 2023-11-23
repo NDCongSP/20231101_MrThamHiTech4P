@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rDomfP0r7LcaJ3QlRW7dhF6zQo8G6SmdilVtMXF7L6qYZ//OM0lzinJRaoPUKKMLaHI93sfN/NlmP4SvNXmeVA==",
+  "dgSpecHash": "egXSLevG81woFXS11j1696Elz2oaf9YCbxhpdSPNcrugB8GGEwGryax8EruuzHQwGfbwOwWfEG11mA7QWgjLtA==",
   "success": true,
-  "projectFilePath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.API\\GiamSat.API.csproj",
+  "projectFilePath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.API\\GiamSat.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ndcon\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.17\\microsoft.aspnetcore.authentication.jwtbearer.5.0.17.nupkg.sha512",

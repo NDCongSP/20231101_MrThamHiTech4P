@@ -348,6 +348,25 @@
           "lib/net5.0/Microsoft.JSInterop.WebAssembly.dll": {}
         }
       },
+      "MudBlazor/5.2.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.13",
+          "Microsoft.AspNetCore.Components.Web": "5.0.13"
+        },
+        "compile": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "System.ComponentModel.Annotations/5.0.0": {
         "type": "package",
         "compile": {
@@ -754,6 +773,25 @@
         },
         "runtime": {
           "lib/net5.0/Microsoft.JSInterop.WebAssembly.dll": {}
+        }
+      },
+      "MudBlazor/5.2.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.13",
+          "Microsoft.AspNetCore.Components.Web": "5.0.13"
+        },
+        "compile": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
         }
       },
       "System.ComponentModel.Annotations/5.0.0": {
@@ -1360,6 +1398,28 @@
         "microsoft.jsinterop.webassembly.nuspec"
       ]
     },
+    "MudBlazor/5.2.5": {
+      "sha512": "9dfrY4pyczr2dhqhs6bmR9Xef+6Evp/JLiXh0I99uQ/oFAWVW6BLDJ8aPMq7ttV3W6YXAPzE/fJm0Aj/VnLoAw==",
+      "type": "package",
+      "path": "mudblazor/5.2.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "Nuget.png",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/MudBlazor.props",
+        "buildMultiTargeting/MudBlazor.props",
+        "buildTransitive/MudBlazor.props",
+        "lib/net5.0/MudBlazor.dll",
+        "lib/net5.0/MudBlazor.xml",
+        "mudblazor.5.2.5.nupkg.sha512",
+        "mudblazor.nuspec",
+        "staticwebassets/MudBlazor.css",
+        "staticwebassets/MudBlazor.min.css",
+        "staticwebassets/MudBlazor.min.js"
+      ]
+    },
     "System.ComponentModel.Annotations/5.0.0": {
       "sha512": "dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
       "type": "package",
@@ -1541,6 +1601,7 @@
       "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 5.0.17",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.17",
       "Microsoft.Extensions.Http >= 5.0.0",
+      "MudBlazor >= 5.2.5",
       "System.Net.Http.Json >= 5.0.0"
     ]
   },
@@ -1554,11 +1615,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Interface\\GiamSat.Interface.csproj",
+      "projectUniqueName": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Interface\\GiamSat.Interface.csproj",
       "projectName": "GiamSat.Interface",
-      "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Interface\\GiamSat.Interface.csproj",
+      "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Interface\\GiamSat.Interface.csproj",
       "packagesPath": "C:\\Users\\ndcon\\.nuget\\packages\\",
-      "outputPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Interface\\obj\\",
+      "outputPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Interface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages",
@@ -1581,6 +1642,7 @@
         "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "D:\\MyCompany\\8.SourceCode\\3.Projects\\20211201EasyScada\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -1588,11 +1650,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.APIClient\\GiamSat.APIClient.csproj": {
-              "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.APIClient\\GiamSat.APIClient.csproj"
+            "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.APIClient\\GiamSat.APIClient.csproj": {
+              "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.APIClient\\GiamSat.APIClient.csproj"
             },
-            "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj": {
-              "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231105_MrThamTraiHeoTinhVinhPhuc\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj"
+            "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj": {
+              "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Models\\GiamSat.Models.csproj"
             }
           }
         }
@@ -1632,6 +1694,10 @@
             "target": "Package",
             "version": "[5.0.0, )"
           },
+          "MudBlazor": {
+            "target": "Package",
+            "version": "[5.2.5, )"
+          },
           "System.Net.Http.Json": {
             "target": "Package",
             "version": "[5.0.0, )"
@@ -1658,7 +1724,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.415\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

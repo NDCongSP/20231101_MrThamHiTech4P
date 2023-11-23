@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiamSat.API", "GiamSat.API\GiamSat.API.csproj", "{60F76239-4766-419B-9377-1F8A4490B282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiamSat.API", "GiamSat.API\GiamSat.API.csproj", "{60F76239-4766-419B-9377-1F8A4490B282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiamSat.Models", "GiamSat.Models\GiamSat.Models.csproj", "{BCD2BFEA-4B8E-41C2-B297-FA5F39BD38B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiamSat.Models", "GiamSat.Models\GiamSat.Models.csproj", "{BCD2BFEA-4B8E-41C2-B297-FA5F39BD38B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiamSat.Interface", "GiamSat.Interface\GiamSat.Interface.csproj", "{8ADC453A-8C29-431A-B117-E45743773E79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiamSat.Interface", "GiamSat.Interface\GiamSat.Interface.csproj", "{8ADC453A-8C29-431A-B117-E45743773E79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiamSat.APIClient", "GiamSat.APIClient\GiamSat.APIClient.csproj", "{96BEE5CC-797E-4177-B258-F319E5F0226F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiamSat.APIClient", "GiamSat.APIClient\GiamSat.APIClient.csproj", "{96BEE5CC-797E-4177-B258-F319E5F0226F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiamSat.Scada", "GiamSat.Scada\GiamSat.Scada.csproj", "{366818F3-FE70-4B7D-94C0-67233F486C9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{96BEE5CC-797E-4177-B258-F319E5F0226F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96BEE5CC-797E-4177-B258-F319E5F0226F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96BEE5CC-797E-4177-B258-F319E5F0226F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366818F3-FE70-4B7D-94C0-67233F486C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366818F3-FE70-4B7D-94C0-67233F486C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366818F3-FE70-4B7D-94C0-67233F486C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366818F3-FE70-4B7D-94C0-67233F486C9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

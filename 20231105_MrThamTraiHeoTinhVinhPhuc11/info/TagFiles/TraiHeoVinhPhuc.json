@@ -11,7 +11,7 @@
   "IsReadOnly": true,
   "Enabled": true,
   "CreatedDate": "2023-11-13T22:41:33.894578+07:00",
-  "ModifiedDate": "2023-11-19T21:11:41.370958+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
@@ -31,12 +31,12 @@
   "IsReadOnly": false,
   "Enabled": true,
   "CreatedDate": "2023-11-13T22:42:19.301981+07:00",
-  "ModifiedDate": "2023-11-19T21:08:47.2954699+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
   "Parameters": {
-    "IpAddress": "192.168.1.200",
+    "IpAddress": "192.168.1.254",
     "Port": "502",
     "DelayBetweenPool": "5",
     "ScanRate": "100"
@@ -51,7 +51,7 @@
   "IsReadOnly": false,
   "Enabled": true,
   "CreatedDate": "2023-11-16T13:04:08.0684852+07:00",
-  "ModifiedDate": "2023-11-19T21:08:47.2954699+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
@@ -6454,7 +6454,7 @@
   "IsReadOnly": false,
   "Enabled": true,
   "CreatedDate": "2023-11-19T21:09:10.7438336+07:00",
-  "ModifiedDate": "2023-11-19T21:11:41.370958+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
@@ -6474,7 +6474,7 @@
   "IsReadOnly": false,
   "Enabled": true,
   "CreatedDate": "2023-11-19T21:09:20.5283724+07:00",
-  "ModifiedDate": "2023-11-19T21:11:41.370958+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
@@ -12877,7 +12877,7 @@
   "IsReadOnly": false,
   "Enabled": true,
   "CreatedDate": "2023-11-19T21:10:26.2038442+07:00",
-  "ModifiedDate": "2023-11-19T21:11:41.370958+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
@@ -12897,7 +12897,7 @@
   "IsReadOnly": false,
   "Enabled": true,
   "CreatedDate": "2023-11-19T21:10:32.0809367+07:00",
-  "ModifiedDate": "2023-11-19T21:11:41.370958+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
@@ -19300,7 +19300,7 @@
   "IsReadOnly": false,
   "Enabled": true,
   "CreatedDate": "2023-11-19T21:11:14.6173767+07:00",
-  "ModifiedDate": "2023-11-19T21:11:41.370958+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
@@ -19320,7 +19320,7 @@
   "IsReadOnly": false,
   "Enabled": true,
   "CreatedDate": "2023-11-19T21:11:19.4592672+07:00",
-  "ModifiedDate": "2023-11-19T21:11:41.370958+07:00",
+  "ModifiedDate": "2023-11-23T08:17:05.8489971+07:00",
   "ParameterContainer": {
   "DisplayName": null,
   "DisplayParameters": null,
