@@ -17,5 +17,7 @@ namespace GiamSat.API
 
             builder.Entity<DataLogModel>();
         }
+
+        public DbSet<GiamSat.Models.DataLogModel> DataLogModel { get; set; }
     }
 }

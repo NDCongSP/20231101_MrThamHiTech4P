@@ -118,6 +118,13 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line hidden
 #nullable disable
 #nullable restore
+#line 3 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Pages\Index.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Pages\Index.razor"
            [Authorize(Roles = "Admin")]
 
@@ -133,11 +140,16 @@ using Microsoft.AspNetCore.Components.Authorization;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 11 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Pages\Index.razor"
+#line 12 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Pages\Index.razor"
        
+    APIClient.DataLogApiClient _apiClient;
 
-    protected override void OnInitialized()
+    DataLogModel _dataLog = new DataLogModel();
+
+    protected async override void OnInitialized()
     {
+        Guid s = Guid.TryParse("3FA85F64-5717-4562-B3FC-2C963F66AFA6", out Guid value) ? value : Guid.Empty;
+        _dataLog = await _apiClient.Get(s);
         base.OnInitialized();
     }
 

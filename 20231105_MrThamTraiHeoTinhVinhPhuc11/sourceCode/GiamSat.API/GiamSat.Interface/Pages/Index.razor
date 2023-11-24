@@ -1,5 +1,6 @@
 ﻿@page "/"
 @attribute [Authorize(Roles = "Admin")]
+@using Models
 
 <h1>Hello, world!</h1>
 
@@ -9,9 +10,14 @@ Welcome to your new app.
 
 
 @code {
+    APIClient.DataLogApiClient _apiClient;
 
-    protected override void OnInitialized()
+    DataLogModel _dataLog = new DataLogModel();
+
+    protected async override void OnInitialized()
     {
+        Guid s = Guid.TryParse("3FA85F64-5717-4562-B3FC-2C963F66AFA6", out Guid value) ? value : Guid.Empty;
+        _dataLog = await _apiClient.Get(s);
         base.OnInitialized();
     }
 }
