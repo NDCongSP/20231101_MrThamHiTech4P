@@ -13,77 +13,77 @@ namespace WebApplication1.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 1 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 2 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 3 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 4 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 5 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 6 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 7 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 8 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 9 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using WebApplication1;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 10 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using WebApplication1.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\_Imports.razor"
+#line 11 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\_Imports.razor"
 using MudBlazor;
 
 #line default
@@ -98,7 +98,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 393 "D:\CongProfile\Downloads\LearnCode\WebApplication1\WebApplication1\Pages\Index.razor"
+#line 393 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\WebApplication1\WebApplication1\Pages\Index.razor"
        
     const string _iconTemperature = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\"><defs><style>.cls-1{fill:#e1251b;}</style></defs><g id=\"_42.thermometer\" data-name=\"42.thermometer\"><path d=\"M36.11,39.44V10.74a6.71,6.71,0,0,0-13.41,0v28.7C13.88,45.73,18.56,60.06,29.41,60,40.25,60.06,44.94,45.73,36.11,39.44ZM29.41,58c-9.13.16-12.86-12.31-5.15-17.19a1.15,1.15,0,0,0,.44-.84V10.74a4.71,4.71,0,0,1,9.41,0V39.93a1.22,1.22,0,0,0,.45.84C42.26,45.64,38.53,58.12,29.41,58Z\"/><path class=\"cls-1\" d=\"M30.89,42.56c.05-.15,0-30.1,0-30.26a1.5,1.5,0,0,0-3,0c0,.17,0,30.11,0,30.26-7,1.71-5.82,12.22,1.48,12.25S37.9,44.27,30.89,42.56Z\"/><path class=\"cls-1\" d=\"M45,34.63h-5.7a1,1,0,0,0,0,2H45A1,1,0,0,0,45,34.63Z\"/><path class=\"cls-1\" d=\"M45,30.48h-5.7a1,1,0,0,0,0,2H45A1,1,0,0,0,45,30.48Z\"/><path class=\"cls-1\" d=\"M45,26.33h-5.7a1,1,0,0,0,0,2H45A1,1,0,0,0,45,26.33Z\"/><path class=\"cls-1\" d=\"M45,22.19h-5.7a1,1,0,0,0,0,2H45A1,1,0,0,0,45,22.19Z\"/><path class=\"cls-1\" d=\"M45,18h-5.7a1,1,0,0,0,0,2H45A1,1,0,0,0,45,18Z\"/><path class=\"cls-1\" d=\"M39.26,15.89H45a1,1,0,0,0,0-2h-5.7A1,1,0,0,0,39.26,15.89Z\"/></g></svg>";
     const string _iconHumidity = @"<svg style=""width:24px;height:24px"" viewBox=""0 0 24 24"">

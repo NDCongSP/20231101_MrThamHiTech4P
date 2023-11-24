@@ -12,9 +12,12 @@
 @using GiamSat.Interface.Components
 @using GiamSat.Interface.Authorization
 @using MudBlazor
-
 @using Microsoft.AspNetCore.Components.Authorization
 
 @inject JwtAuthenticationService _authSerivce
+@*Alert*@
+@inject ISnackbar _snackBar
+@*show form*@
+@inject IDialogService _dialog
+@*redirect*@
 @inject NavigationManager _navigation
-@inject APIClient _apiClient

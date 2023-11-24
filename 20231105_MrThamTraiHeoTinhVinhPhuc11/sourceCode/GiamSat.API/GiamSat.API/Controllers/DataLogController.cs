@@ -21,7 +21,7 @@ namespace GiamSat.API.Controllers
         }
         // GET: api/<DataLogController>
         [HttpGet]
-        public IEnumerable<DataLogModel> Get()
+        public  IEnumerable<DataLogModel> Get()
         {
             return _context.DataLogModel.ToList();
         }
@@ -30,7 +30,7 @@ namespace GiamSat.API.Controllers
         [HttpGet("{id}")]
         public DataLogModel Get(Guid id)
         {
-            return  _context.DataLogModel.FirstOrDefault(x=>x.Id==id);
+            return _context.DataLogModel.FirstOrDefault(x => x.Id == id);
         }
 
         // POST api/<DataLogController>
@@ -41,16 +41,16 @@ namespace GiamSat.API.Controllers
             _context.SaveChanges();
         }
 
-        // PUT api/<DataLogController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //// PUT api/<DataLogController>/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
-        // DELETE api/<DataLogController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE api/<DataLogController>/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

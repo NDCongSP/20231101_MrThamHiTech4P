@@ -1,5 +1,4 @@
-﻿@inject NavigationManager _navigationManager
-
+﻿
 @code { 
     [Parameter] public string ReturnUrl { get; set; }
 
@@ -7,6 +6,6 @@
     {
         string url = $"/login?returnUrl={ReturnUrl}";
         Console.WriteLine($"Redirect: {url}");
-        _navigationManager.NavigateTo(url);
+        _navigation.NavigateTo(url);
     } 
 }

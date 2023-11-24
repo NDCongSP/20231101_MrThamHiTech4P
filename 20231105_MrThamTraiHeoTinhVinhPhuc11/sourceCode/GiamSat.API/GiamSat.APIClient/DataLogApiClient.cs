@@ -16,16 +16,16 @@ namespace GiamSat.APIClient
             _httpClient = httpClient;
         }
 
-        public async Task<List<DataLogModel>> GetAll()
-        {
-            var _res = await _httpClient.GetFromJsonAsync<List<DataLogModel>>($"/api/DataLog");
-            return _res;
-        }
+        //public async Task<List<DataLogModel>> GetAll()
+        //{
+        //    var _res = await _httpClient.GetFromJsonAsync<List<DataLogModel>>($"/api/DataLog");
+        //    return _res;
+        //}
 
-        public async Task<DataLogModel> Get(Guid id)
-        {
-            var _res = await _httpClient.GetFromJsonAsync<DataLogModel>($"/api/DataLog/{id}");
-            return _res;
-        }
+        //public async Task<DataLogModel> Get(Guid id)
+        //{
+        //    var _res = await _httpClient.GetFromJsonAsync<DataLogModel>($"/api/DataLog/{id}");
+        //    return _res;
+        //}
     }
 }

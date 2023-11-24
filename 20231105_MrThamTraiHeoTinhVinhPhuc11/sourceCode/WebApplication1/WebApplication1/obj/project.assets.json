@@ -1206,10 +1206,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ndcong\\.nuget\\packages\\": {},
+    "C:\\Users\\ndcon\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages": {},
-    "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages": {},
-    "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages": {},
     "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
@@ -1217,25 +1215,21 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CongProfile\\Downloads\\LearnCode\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "D:\\CongProfile\\Downloads\\LearnCode\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-      "packagesPath": "C:\\Users\\ndcong\\.nuget\\packages\\",
-      "outputPath": "D:\\CongProfile\\Downloads\\LearnCode\\WebApplication1\\WebApplication1\\obj\\",
+      "projectPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "packagesPath": "C:\\Users\\ndcon\\.nuget\\packages\\",
+      "outputPath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\WebApplication1\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages",
-        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
-        "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
         "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\ndcong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ndcon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.2.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -1245,9 +1239,11 @@
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
-        "Z:\\IT\\SoftwareTeam\\nuget": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "D:\\MyCompany\\8.SourceCode\\3.Projects\\20211201EasyScada\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

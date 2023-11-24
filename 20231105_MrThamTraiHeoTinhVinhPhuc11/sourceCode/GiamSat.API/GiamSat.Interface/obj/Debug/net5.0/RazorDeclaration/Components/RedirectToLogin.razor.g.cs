@@ -111,7 +111,7 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\_Imports.razor"
+#line 15 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
@@ -125,7 +125,7 @@ using Microsoft.AspNetCore.Components.Authorization;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 3 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Components\RedirectToLogin.razor"
+#line 2 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Components\RedirectToLogin.razor"
         
     [Parameter] public string ReturnUrl { get; set; }
 
@@ -133,14 +133,15 @@ using Microsoft.AspNetCore.Components.Authorization;
     {
         string url = $"/login?returnUrl={ReturnUrl}";
         Console.WriteLine($"Redirect: {url}");
-        _navigationManager.NavigateTo(url);
+        _navigation.NavigateTo(url);
     } 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigation { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService _dialog { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar _snackBar { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private JwtAuthenticationService _authSerivce { get; set; }
     }
 }

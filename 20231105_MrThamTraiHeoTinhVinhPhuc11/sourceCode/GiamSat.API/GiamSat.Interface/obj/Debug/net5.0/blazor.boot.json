@@ -202,15 +202,15 @@
       "mscorlib.dll": "sha256-zMI\/dXK7DoZZ9Qm9U9\/jRN4iQ9Ss3w8\/rwQQxC6SW9Y=",
       "netstandard.dll": "sha256-W3q3PN+lpRB+tRJEIhtMgYOGFv0pauEeeCS9iIRkKAM=",
       "System.Private.CoreLib.dll": "sha256-9rUJv1mXEQdGt\/kWiJ1ITPPzp3cAi3lSmqHVTisp7w0=",
-      "GiamSat.APIClient.dll": "sha256-4\/kPL062ZBf8Cd80W6NX+9CDRORUSvFP5ucPzI5cKfM=",
-      "GiamSat.Models.dll": "sha256-ylgTHALQgQJe69rkoW6fHNCM\/yOA8PXsGTcqJ0Y0N3c=",
-      "GiamSat.Interface.dll": "sha256-pZlmqrKvZ8XoHDwIrqLDSxnn0FLtROKofvoOkug7S+c="
+      "GiamSat.APIClient.dll": "sha256-Y6a6O6Vp0FwP56A2FG+3D3TW2GgYxjjUA7eLdwCfquM=",
+      "GiamSat.Models.dll": "sha256-jeFd3eiqNRu2jazu79tq+emS5zGuBe9wQZF6q8Xu3\/g=",
+      "GiamSat.Interface.dll": "sha256-5HUrmEAfBGX\/RK4FgBoZLfCJ7yJahTQZw5CHipBY0R8="
     },
     "lazyAssembly": null,
     "pdb": {
-      "GiamSat.APIClient.pdb": "sha256-Ry4RDGEQSEQ9QJTY0OpWHs1g1awy6mhwg1y6qkbRYEI=",
-      "GiamSat.Models.pdb": "sha256-3zV4XDwXtZ0xGVcRMqXF0ljDsOwNVFXLK8rRtJWCY6k=",
-      "GiamSat.Interface.pdb": "sha256-Ia78g1gw\/ylr8lH2i2ejpMrjGchO+XubaYz4+5sjChM="
+      "GiamSat.APIClient.pdb": "sha256-QDX5Kiak3BFVRwWHmcAErRI4fBiZStRg1jE6GKwDDmk=",
+      "GiamSat.Models.pdb": "sha256-Hs8kpM2gHxqUSpdgSbSYSGF938SVtx87X3gSsSDa7Xg=",
+      "GiamSat.Interface.pdb": "sha256-gkYuVhMKeqKx2vb2CO0OfMJ4954seYhknW83zZj4klQ="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-8oJip361m8OrfLRJOuIeswWKaoxtT27\/wINCxhn+s4c=",

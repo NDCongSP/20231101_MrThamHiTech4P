@@ -111,8 +111,15 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\_Imports.razor"
+#line 15 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Pages\Login.razor"
+           [AllowAnonymous]
 
 #line default
 #line hidden
@@ -126,38 +133,9 @@ using Microsoft.AspNetCore.Components.Authorization;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 13 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Pages\Login.razor"
-       
-    APIClient.LoginResult login;
-    private string token;
-
-
-    private async Task SignIn()
-    {
-
-        var success = await _authSerivce.LoginAsync(new APIClient.LoginModel()
-        {
-            Username = "admin",
-            Password = "123@123"
-        });
-
-        if (success != null)
-        {
-            token = success.Token;
-            login = success;
-            await InvokeAsync(StateHasChanged);
-            // StateHasChanged();
-            // _navigation.NavigateTo("/");
-        }
-
-        //  await _authSerivce.LogoutAsync();
-    }
-
-#line default
-#line hidden
-#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigation { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService _dialog { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar _snackBar { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private JwtAuthenticationService _authSerivce { get; set; }
     }
 }
