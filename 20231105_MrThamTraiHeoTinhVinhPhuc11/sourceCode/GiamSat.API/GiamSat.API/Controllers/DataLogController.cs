@@ -1,4 +1,5 @@
 ﻿using GiamSat.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestEase;
@@ -11,6 +12,7 @@ namespace GiamSat.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class DataLogController : BaseController<Guid, DataLogModel>, ISDataLog
     {
         readonly SCommon _sCommon;

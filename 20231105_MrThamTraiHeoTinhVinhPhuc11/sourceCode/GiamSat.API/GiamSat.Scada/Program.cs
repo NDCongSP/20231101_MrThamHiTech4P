@@ -14,6 +14,9 @@ namespace GiamSat.Scada
         [STAThread]
         static void Main()
         {
+            //đọc các giá trị khởi tạo ban đầu
+            GlobalVariable.ConnectionString = Properties.Settings.Default.ConnectionString;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

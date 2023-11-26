@@ -9,8 +9,4 @@
     <PackageReference Include="RestEase.HttpClientFactory" Version="1.6.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
-
 </Project>

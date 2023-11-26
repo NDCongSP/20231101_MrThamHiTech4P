@@ -24,26 +24,26 @@ namespace GiamSat.API.Controllers
             _repository = repository;
         }
 
-        [HttpPost("insert")]
-        Task<Result<T>> IRepository<TId, T>.Insert(T model)
-        {
-            return _repository.Insert(model);
-        }
-
         [HttpGet]
-        Task<Result<List<T>>> IRepository<TId, T>.GetAll()
+        public Task<Result<List<T>>> GetAll()
         {
             return _repository.GetAll();
         }
 
-        [HttpGet("{id}")]
-        Task<Result<T>> IRepository<TId, T>.GetById(TId id)
+        [HttpGet(ApiRoutes.GetById)]
+        public Task<Result<T>> GetById([Path] TId id)
         {
             return _repository.GetById(id);
         }
 
-        [HttpPost("update")]
-        Task<Result<T>> IRepository<TId, T>.Update(T model)
+        [HttpPost(ApiRoutes.Insert)]
+        public Task<Result<T>> Insert([Body] T model)
+        {
+            return _repository.Insert(model);
+        }
+
+        [HttpPost(ApiRoutes.Update)]
+        public Task<Result<T>> Update([Body] T model)
         {
             return _repository.Update(model);
         }
