@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace GiamSat.API.Controllers
 {
+    //[AllowAnonymous]//khong can authorize
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
     public class DataLogController : BaseController<Guid, DataLogModel>, ISDataLog
     {
         readonly SCommon _sCommon;

@@ -31,5 +31,11 @@ namespace GiamSat.Models
             public const string BasePath = "api/DataLog";
             public const string Test = "test";
         }
+
+        public static class ChuongInfo
+        {
+            public const string BasePath = "api/ChuongInfo";
+            public const string Test = "test";
+        }
     }
 }

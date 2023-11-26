@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Blazicons/1.0.10": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Blazicons.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazicons.props": {}
+        }
+      },
       "Blazored.LocalStorage/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -548,6 +557,15 @@
       }
     },
     "net5.0/browser-wasm": {
+      "Blazicons/1.0.10": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Blazicons.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazicons.props": {}
+        }
+      },
       "Blazored.LocalStorage/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -1095,6 +1113,26 @@
     }
   },
   "libraries": {
+    "Blazicons/1.0.10": {
+      "sha512": "s35KOhbdHbsFfP8NWEFHVEZDLINqBf1jOqrD5mOWlGp8uFSNEwF/OQtS54zpnvFW74OUCVZphs9se6OEws63rg==",
+      "type": "package",
+      "path": "blazicons/1.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "blazicons-md-128.png",
+        "blazicons.1.0.10.nupkg.sha512",
+        "blazicons.nuspec",
+        "build/Blazicons.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Blazicons.props",
+        "buildTransitive/Blazicons.props",
+        "lib/net6.0/Blazicons.dll",
+        "lib/net6.0/Blazicons.xml",
+        "staticwebassets/Blazicons.bundle.scp.css"
+      ]
+    },
     "Blazored.LocalStorage/3.0.0": {
       "sha512": "eXpHDvog+nRvAFsrqVKqGrpHXuyPTH8tgAremHKbteP5nNEROlItfP8Xh8pNMpTovuQ4tl3NyfQcG0rnbjQ5jw==",
       "type": "package",
@@ -2008,6 +2046,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Blazicons >= 1.0.10",
       "Blazored.LocalStorage >= 3.0.0",
       "GiamSat.APIClient >= 1.0.0",
       "GiamSat.Models >= 1.0.0",
@@ -2084,6 +2123,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Blazicons": {
+            "target": "Package",
+            "version": "[1.0.10, )"
+          },
           "Blazored.LocalStorage": {
             "target": "Package",
             "version": "[3.0.0, )"

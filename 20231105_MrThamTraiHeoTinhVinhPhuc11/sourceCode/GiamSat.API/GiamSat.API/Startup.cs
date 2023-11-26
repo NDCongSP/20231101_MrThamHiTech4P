@@ -88,6 +88,7 @@ namespace GiamSat.API
             //AddRepoServices(services);//add transient tu dong
             services.AddTransient<ISDisplayRealtime, SDisplayRealtime>();
             services.AddTransient<ISDataLog, SDataLog>();
+            services.AddTransient<ISChuongInfo, SChuongInfo>();
 
             services.AddScoped<SCommon>();
 
