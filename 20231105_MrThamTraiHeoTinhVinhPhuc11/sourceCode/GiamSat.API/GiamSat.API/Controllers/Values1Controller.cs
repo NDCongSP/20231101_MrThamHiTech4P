@@ -10,7 +10,7 @@ namespace GiamSat.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class Values1Controller : ControllerBase
     {
         // GET: api/<ValuesController>
         [HttpGet]

@@ -15,11 +15,12 @@ namespace GiamSat.Models
         [Key]
         public Guid Id { get; set; }
 
-        public int ChuongId { get; set; }
+        public Guid ChuongId { get; set; }
         public string TenChuong { get; set; }
         public double NhietDo { get; set; }
         public double DoAm { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public double Frequency { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         public bool IsActive { get; set; }
 
     }

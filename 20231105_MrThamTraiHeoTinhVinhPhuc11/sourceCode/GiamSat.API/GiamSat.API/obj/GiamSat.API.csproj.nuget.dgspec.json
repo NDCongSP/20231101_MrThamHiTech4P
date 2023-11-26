@@ -58,6 +58,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.24, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -83,6 +87,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "Stl.Fusion.Server": {
+              "target": "Package",
+              "version": "[5.2.87, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -172,6 +180,16 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "RestEase.HttpClientFactory": {
+              "target": "Package",
+              "version": "[1.6.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

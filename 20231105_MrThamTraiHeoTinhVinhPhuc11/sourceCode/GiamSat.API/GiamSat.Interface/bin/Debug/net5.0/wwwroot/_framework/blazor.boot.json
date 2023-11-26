@@ -36,6 +36,9 @@
       "Microsoft.JSInterop.dll": "sha256-pr6L2mjcqc8D0q4a8E717JbHBm5iEM4PFAo1DBJmaUg=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-wm\/PyT01CAndytn\/B\/egrjENN3gkDMsMDaFon1TwCHA=",
       "MudBlazor.dll": "sha256-kAmyWizka\/0a5GOD22Fr6MOAGcby8ZgoX9lwDnfwewc=",
+      "Newtonsoft.Json.dll": "sha256-cs8pHUurDt0IqbB8YXPh560au3q3J\/1wRL9jBddRVmE=",
+      "RestEase.dll": "sha256-3gAQfbPfypL5pwdQeji9L9RIL+raUiWAgJFS1nu+\/UQ=",
+      "RestEase.HttpClientFactory.dll": "sha256-KNpLpuZ0uQofath+vXSEWahK4NQCpDQmhz9HEAnYySA=",
       "System.IO.Pipelines.dll": "sha256-\/C5xhI+m3Aqrcjxy\/TauLyqv\/\/5l8WEW3rXFtVlNhy8=",
       "Microsoft.CSharp.dll": "sha256-PpkoBrb5GDDzBCVjEGJ15VkONpHLxk8ZZ3uc0eDYPaY=",
       "Microsoft.VisualBasic.Core.dll": "sha256-SyyaBBG5sBtJEfy89ATtHrxESu8\/SyNLYJXV1OaHYG0=",
@@ -203,14 +206,14 @@
       "netstandard.dll": "sha256-W3q3PN+lpRB+tRJEIhtMgYOGFv0pauEeeCS9iIRkKAM=",
       "System.Private.CoreLib.dll": "sha256-9rUJv1mXEQdGt\/kWiJ1ITPPzp3cAi3lSmqHVTisp7w0=",
       "GiamSat.APIClient.dll": "sha256-Y6a6O6Vp0FwP56A2FG+3D3TW2GgYxjjUA7eLdwCfquM=",
-      "GiamSat.Models.dll": "sha256-jeFd3eiqNRu2jazu79tq+emS5zGuBe9wQZF6q8Xu3\/g=",
-      "GiamSat.Interface.dll": "sha256-5HUrmEAfBGX\/RK4FgBoZLfCJ7yJahTQZw5CHipBY0R8="
+      "GiamSat.Models.dll": "sha256-aEtFgK9PrUVdVBHlre+4kTRy3JUbozmYiweIb6gvcKc=",
+      "GiamSat.Interface.dll": "sha256-7OCjvdMqQQLrdgJcEEc0HWeWjI3tgRbVJv\/3AYkUrxc="
     },
     "lazyAssembly": null,
     "pdb": {
       "GiamSat.APIClient.pdb": "sha256-QDX5Kiak3BFVRwWHmcAErRI4fBiZStRg1jE6GKwDDmk=",
-      "GiamSat.Models.pdb": "sha256-Hs8kpM2gHxqUSpdgSbSYSGF938SVtx87X3gSsSDa7Xg=",
-      "GiamSat.Interface.pdb": "sha256-gkYuVhMKeqKx2vb2CO0OfMJ4954seYhknW83zZj4klQ="
+      "GiamSat.Models.pdb": "sha256-gLFRMukBQVM7f1pMvyxhId38vB9NUz+CSb7NQr+0rjU=",
+      "GiamSat.Interface.pdb": "sha256-1S2Xd20R1yHqapZw\/KTj9WVWYmZVWLmYTXThkMqr7k8="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-8oJip361m8OrfLRJOuIeswWKaoxtT27\/wINCxhn+s4c=",

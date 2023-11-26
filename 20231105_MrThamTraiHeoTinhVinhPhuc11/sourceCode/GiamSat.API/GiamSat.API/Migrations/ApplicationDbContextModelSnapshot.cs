@@ -19,19 +19,45 @@ namespace GiamSat.API.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("GiamSat.Models.ChuongInfoModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConfigSettings")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TenChuong")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ChuongInfo");
+                });
+
             modelBuilder.Entity("GiamSat.Models.DataLogModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ChuongId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ChuongId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<double>("DoAm")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Frequency")
                         .HasColumnType("float");
 
                     b.Property<bool>("IsActive")
@@ -46,6 +72,76 @@ namespace GiamSat.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DataLog");
+                });
+
+            modelBuilder.Entity("GiamSat.Models.DisplayRealTimeModel", b =>
+                {
+                    b.Property<Guid>("ChuongId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConnectStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CoollerStatus")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Fan1Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fan2Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fan3Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fan4Status")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Frequency")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Humidity")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("Temperature")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TenChuong")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("DisplayRealtime");
+                });
+
+            modelBuilder.Entity("GiamSat.Models.SettingsChuongModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ChuongId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConfigSettings")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TenChuong")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SettingChuong");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

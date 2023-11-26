@@ -1,56 +1,52 @@
 ﻿using GiamSat.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RestEase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace GiamSat.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DataLogController : ControllerBase
+    public class DataLogController : BaseController<Guid, DataLogModel>, ISDataLog
     {
-        private readonly ApplicationDbContext _context;
-
-        public DataLogController(ApplicationDbContext context)
+        readonly SCommon _sCommon;
+        public DataLogController(SCommon sCommon) : base(sCommon.SDataLog)
         {
-            _context = context;
-        }
-        // GET: api/<DataLogController>
-        [HttpGet]
-        public  IEnumerable<DataLogModel> Get()
-        {
-            return _context.DataLogModel.ToList();
+            _sCommon = sCommon;
         }
 
-        // GET api/<DataLogController>/5
-        [HttpGet("{id}")]
-        public DataLogModel Get(Guid id)
-        {
-            return _context.DataLogModel.FirstOrDefault(x => x.Id == id);
-        }
-
-        // POST api/<DataLogController>
-        [HttpPost]
-        public void Post([FromBody] DataLogModel model)
-        {
-            _context.DataLogModel.Add(model);
-            _context.SaveChanges();
-        }
-
-        //// PUT api/<DataLogController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
+        //[HttpGet]
+        //public async Task<Result<List<DataLogModel>>> GetAll()
         //{
+        //    return await _sCommon.SDataLog.GetAll();
         //}
 
-        //// DELETE api/<DataLogController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
+        //[HttpGet(ApiRoutes.GetById)]
+        //public async Task<Result<DataLogModel>> GetById([Path] Guid id)
         //{
+        //    return await _sCommon.SDataLog.GetById(id);
+        //}
+
+        //[HttpPost(ApiRoutes.Insert)]
+        //public async Task<Result<DataLogModel>> Insert([Body] DataLogModel model)
+        //{
+        //    return await _sCommon.SDataLog.Insert(model);
+        //}
+
+        [HttpGet(ApiRoutes.DataLog.Test)]
+        public async Task<Result> TestApi()
+        {
+            return await _sCommon.SDataLog.TestApi();
+        }
+
+        //[HttpPost(ApiRoutes.Update)]
+        //public async Task<Result<DataLogModel>> Update([Body] DataLogModel model)
+        //{
+        //    return await _sCommon.SDataLog.Update(model);
         //}
     }
 }

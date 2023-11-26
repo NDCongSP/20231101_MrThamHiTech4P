@@ -16,8 +16,14 @@ namespace GiamSat.API
             base.OnModelCreating(builder);
 
             builder.Entity<DataLogModel>();
+            builder.Entity<ChuongInfoModel>();
+            builder.Entity<DisplayRealTimeModel>().HasNoKey();//table không sử dụng khóa chính
+            builder.Entity<SettingsChuongModel>();
         }
 
         public DbSet<GiamSat.Models.DataLogModel> DataLogModel { get; set; }
+        public DbSet<GiamSat.Models.ChuongInfoModel> ChuongInfoModel { get; set; }
+        public DbSet<GiamSat.Models.DisplayRealTimeModel> DisplayRealTimeModel { get; set; }
+        public DbSet<GiamSat.Models.SettingsChuongModel> SettingsChuongModel { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using GiamSat.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,7 @@ namespace GiamSat.API
 
             // For Entity Framework
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
+            GlobalVariable.ConString = Configuration.GetConnectionString("ConnStr");
 
             // For Identity
             services.AddIdentity<IdentityUser, IdentityRole>(o =>
@@ -82,6 +84,13 @@ namespace GiamSat.API
             });
 
             services.AddControllers();
+
+            //AddRepoServices(services);//add transient tu dong
+            services.AddTransient<ISDisplayRealtime, SDisplayRealtime>();
+            services.AddTransient<ISDataLog, SDataLog>();
+
+            services.AddScoped<SCommon>();
+
             services.AddSwaggerGen(c =>
             {
                 c.EnableAnnotations();
@@ -138,6 +147,30 @@ namespace GiamSat.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public IServiceCollection AddRepoServices(IServiceCollection services)
+        {
+            var managers = typeof(Startup);
+
+            var types = managers
+                .Assembly
+                .GetExportedTypes()
+                .Where(t => t.IsClass && !t.IsAbstract)
+                .Select(t => new
+                {
+                    Service = t.GetInterface($"I{t.Name}"),
+                    Implementation = t
+                })
+                .Where(t => t.Service != null);
+
+            foreach (var type in types)
+            {
+                services.AddTransient(type.Service, type.Implementation);
+            }
+
+            //services.AddTransient<ISDashboard, SDashboard>();
+            return services;
         }
     }
 }
