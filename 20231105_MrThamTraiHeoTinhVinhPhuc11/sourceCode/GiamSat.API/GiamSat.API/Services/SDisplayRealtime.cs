@@ -12,13 +12,12 @@ namespace GiamSat.API
     public class SDisplayRealtime : ISDisplayRealtime
     {
         readonly ApplicationDbContext _dbContext;
-        //readonly IHttpContextAccessor _contextAccessor;//de lay cac thong tin cua client khi truy cap API.
+        readonly IHttpContextAccessor _contextAccessor;//de lay cac thong tin cua client khi truy cap API.
 
-        public SDisplayRealtime(ApplicationDbContext dbContext//, IHttpContextAccessor httpContextAccessor
-            )
+        public SDisplayRealtime(ApplicationDbContext dbContext, IHttpContextAccessor contextAccessor)
         {
             _dbContext = dbContext;
-            //_contextAccessor = httpContextAccessor;
+            _contextAccessor = contextAccessor;
         }
 
         public async Task<Result<DisplayRealTimeModel>> Insert([Body] DisplayRealTimeModel model)
@@ -37,23 +36,54 @@ namespace GiamSat.API
 
         public async Task<Result<List<DisplayRealTimeModel>>> GetAll()
         {
-            return await Result<List<DisplayRealTimeModel>>.SuccessAsync(_dbContext.DisplayRealTimeModel.ToList());
+            try
+            {
+                return await Result<List<DisplayRealTimeModel>>.SuccessAsync(_dbContext.DisplayRealTimeModel.ToList());
+            }
+            catch (Exception ex)
+            {
+                return await Result<List<DisplayRealTimeModel>>.FailAsync(ex.Message);
+            }
         }
 
         public async Task<Result<DisplayRealTimeModel>> GetById([Path] Guid id)
         {
-            var res = await _dbContext.DisplayRealTimeModel.FindAsync(id);
-            return await Result<DisplayRealTimeModel>.SuccessAsync(res);
+            try
+            {
+                var res = await _dbContext.DisplayRealTimeModel.FindAsync(id);
+                return await Result<DisplayRealTimeModel>.SuccessAsync(res);
+            }
+            catch (Exception ex)
+            {
+                return await Result<DisplayRealTimeModel>.FailAsync(ex.Message);
+            }
         }
 
-        public Task<Result<DisplayRealTimeModel>> Update([Body] DisplayRealTimeModel model)
+        public async Task<Result<DisplayRealTimeModel>> Update([Body] DisplayRealTimeModel model)
         {
-            return null;
+            try
+            {
+                _dbContext.DisplayRealTimeModel.Update(model);
+                await _dbContext.SaveChangesAsync();
+
+                return await Result<DisplayRealTimeModel>.SuccessAsync("Update successfull");
+            }
+            catch (Exception ex)
+            {
+                return await Result<DisplayRealTimeModel>.FailAsync(ex.Message);
+            }
         }
 
         public async Task<Result<List<DisplayRealTimeModel>>> GetTop2()
         {
-            return await Result<List<DisplayRealTimeModel>>.SuccessAsync(_dbContext.DisplayRealTimeModel.ToList());
+            try
+            {
+                return await Result<List<DisplayRealTimeModel>>.SuccessAsync(_dbContext.DisplayRealTimeModel.ToList());
+            }
+            catch (Exception ex)
+            {
+                return await Result<List<DisplayRealTimeModel>>.FailAsync(ex.Message);
+            }
         }
     }
 }

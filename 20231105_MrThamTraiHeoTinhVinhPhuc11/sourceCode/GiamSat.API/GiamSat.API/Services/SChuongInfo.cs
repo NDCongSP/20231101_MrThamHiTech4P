@@ -1,4 +1,5 @@
 ﻿using GiamSat.Models;
+using Microsoft.AspNetCore.Http;
 using RestEase;
 using System;
 using System.Collections.Generic;
@@ -10,30 +11,66 @@ namespace GiamSat.API
     public class SChuongInfo : ISChuongInfo
     {
         readonly ApplicationDbContext _dbContext;
+        readonly IHttpContextAccessor _contextAccessor;
 
-        public SChuongInfo(ApplicationDbContext dbContext)
+        public SChuongInfo(ApplicationDbContext dbContext, IHttpContextAccessor contextAccessor)
         {
             _dbContext = dbContext;
+            _contextAccessor = contextAccessor;
         }
 
-        public Task<Result<List<ChuongInfoModel>>> GetAll()
+        public async Task<Result<List<ChuongInfoModel>>> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await Result<List<ChuongInfoModel>>.SuccessAsync(await _dbContext.ChuongInfoModel.ToListAsync());
+            }
+            catch (Exception ex)
+            {
+                return await Result<List<ChuongInfoModel>>.FailAsync(ex.Message);
+            }
         }
 
-        public Task<Result<ChuongInfoModel>> GetById([Path] Guid id)
+        public async Task<Result<ChuongInfoModel>> GetById([Path] Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await Result<ChuongInfoModel>.SuccessAsync(await _dbContext.ChuongInfoModel.FindAsync(id));
+            }
+            catch (Exception ex)
+            {
+                return await Result<ChuongInfoModel>.FailAsync(ex.Message);
+            }
         }
 
-        public Task<Result<ChuongInfoModel>> Insert([Body] ChuongInfoModel model)
+        public async Task<Result<ChuongInfoModel>> Insert([Body] ChuongInfoModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _dbContext.ChuongInfoModel.AddAsync(model);
+                await _dbContext.SaveChangesAsync();
+
+                return await Result<ChuongInfoModel>.SuccessAsync("Insert successfull.");
+            }
+            catch (Exception ex)
+            {
+                return await Result<ChuongInfoModel>.FailAsync(ex.Message);
+            }
         }
 
-        public Task<Result<ChuongInfoModel>> Update([Body] ChuongInfoModel model)
+        public async Task<Result<ChuongInfoModel>> Update([Body] ChuongInfoModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.ChuongInfoModel.Update(model);
+                await _dbContext.SaveChangesAsync();
+
+                return await Result<ChuongInfoModel>.SuccessAsync("Insert successfull.");
+            }
+            catch (Exception ex)
+            {
+                return await Result<ChuongInfoModel>.FailAsync(ex.Message);
+            }
         }
     }
 }

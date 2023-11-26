@@ -22,34 +22,10 @@ namespace GiamSat.API.Controllers
             _sCommon = sCommon;
         }
 
-        //[HttpGet]
-        //public async Task<Result<List<DataLogModel>>> GetAll()
-        //{
-        //    return await _sCommon.SDataLog.GetAll();
-        //}
-
-        //[HttpGet(ApiRoutes.GetById)]
-        //public async Task<Result<DataLogModel>> GetById([Path] Guid id)
-        //{
-        //    return await _sCommon.SDataLog.GetById(id);
-        //}
-
-        //[HttpPost(ApiRoutes.Insert)]
-        //public async Task<Result<DataLogModel>> Insert([Body] DataLogModel model)
-        //{
-        //    return await _sCommon.SDataLog.Insert(model);
-        //}
-
         [HttpGet(ApiRoutes.DataLog.Test)]
         public async Task<Result> TestApi()
         {
             return await _sCommon.SDataLog.TestApi();
         }
-
-        //[HttpPost(ApiRoutes.Update)]
-        //public async Task<Result<DataLogModel>> Update([Body] DataLogModel model)
-        //{
-        //    return await _sCommon.SDataLog.Update(model);
-        //}
     }
 }

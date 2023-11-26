@@ -21,34 +21,69 @@ namespace GiamSat.API
 
         public async Task<Result<List<DataLogModel>>> GetAll()
         {
-            return await Result<List<DataLogModel>>.SuccessAsync(_dbContex.DataLogModel.ToList());
+            try
+            {
+                return await Result<List<DataLogModel>>.SuccessAsync(_dbContex.DataLogModel.ToList());
+            }
+            catch (Exception ex)
+            {
+                return await Result<List<DataLogModel>>.FailAsync(ex.Message);
+            }
         }
 
         public async Task<Result<DataLogModel>> GetById([Path] Guid id)
         {
-            var res = await _dbContex.DataLogModel.FindAsync(id);
-            return await Result<DataLogModel>.SuccessAsync(res);
+            try
+            {
+                var res = await _dbContex.DataLogModel.FindAsync(id);
+                return await Result<DataLogModel>.SuccessAsync(res);
+            }
+            catch (Exception ex)
+            {
+                return await Result<DataLogModel>.FailAsync(ex.Message);
+            }
         }
 
         public async Task<Result<DataLogModel>> Insert([Body] DataLogModel model)
         {
-            await _dbContex.DataLogModel.AddAsync(model);
-            await _dbContex.SaveChangesAsync();
+            try
+            {
+                await _dbContex.DataLogModel.AddAsync(model);
+                await _dbContex.SaveChangesAsync();
 
-            return await Result<DataLogModel>.SuccessAsync("Insert Successfull");
+                return await Result<DataLogModel>.SuccessAsync("Insert Successfull");
+            }
+            catch (Exception ex)
+            {
+                return await Result<DataLogModel>.FailAsync(ex.Message);
+            }
         }
 
         public async Task<Result> TestApi()
         {
-            return await Result.SuccessAsync("Test successfull");
+            try
+            {
+                return await Result.SuccessAsync("Test successfull");
+            }
+            catch (Exception ex)
+            {
+                return await Result.FailAsync(ex.Message);
+            }
         }
 
         public async Task<Result<DataLogModel>> Update([Body] DataLogModel model)
         {
-            _dbContex.DataLogModel.Update(model);
-            await _dbContex.SaveChangesAsync();
+            try
+            {
+                _dbContex.DataLogModel.Update(model);
+                await _dbContex.SaveChangesAsync();
 
-            return await Result<DataLogModel>.SuccessAsync("Update successfull");
+                return await Result<DataLogModel>.SuccessAsync("Update successfull");
+            }
+            catch (Exception ex)
+            {
+                return await Result<DataLogModel>.FailAsync(ex.Message);
+            }
         }
     }
 }
