@@ -14,6 +14,7 @@
 @using MudBlazor
 @using Microsoft.AspNetCore.Components.Authorization
 @using GiamSat.Models
+@using GiamSat.APIClient
 @*@using Blazicons*@
 
 @inject JwtAuthenticationService _authSerivce
@@ -28,3 +29,7 @@
 @*inject cac service vao de dung*@
 @inject ISDisplayRealtime _displayRealtimeApiClient
 @inject  ISChuongInfo _chuongInfoApiClient
+@*cach 2*@
+@inject IDisplayRealtimeClient _displayRealtimeClient
+@inject IChuongInfoClient _chuongInfoClient
+@inject IDataLogClient _dataLogClient

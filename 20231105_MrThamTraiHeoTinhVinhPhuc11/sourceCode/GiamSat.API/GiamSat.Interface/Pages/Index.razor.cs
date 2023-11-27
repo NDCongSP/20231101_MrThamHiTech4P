@@ -34,9 +34,7 @@ namespace GiamSat.Interface.Pages
         private DisplayRealTimeModel _chuong3 = new DisplayRealTimeModel();
         private DisplayRealTimeModel _chuong4 = new DisplayRealTimeModel();
 
-        private List<ChuongInfoModel> _chuongInfo = new List<ChuongInfoModel>();
-
-        APIClient.IDisplayRealtimeClient _displayRealtimeClient;
+        private List<ChuongInfoModel> _chuongInfo = new List<ChuongInfoModel>();        
 
         protected override async Task OnInitializedAsync()
         {
@@ -54,13 +52,10 @@ namespace GiamSat.Interface.Pages
             }
 
             var res = await _displayRealtimeApiClient.GetAll();
-            //var res = await _displayRealtimeClient.GetAllAsync();
 
             if (res.Succeeded)
             {
                 _displayRealtime = res.Data;
-                //_dataLog = (List<DisplayRealTimeModel>)res.Data;
-                //_dataLog.AddRange(res.Data);
 
                 if (_displayRealtime == null && _displayRealtime.Count <= 0)
                 {
@@ -70,26 +65,22 @@ namespace GiamSat.Interface.Pages
 
                 foreach (var item in _chuongInfo)
                 {
-                    //    _chuong1 = _displayRealtime.FirstOrDefault(x => x.TenChuong == "Chuồng 1111");
-                    //    _chuong2 = _displayRealtime.FirstOrDefault(x => x.TenChuong == "Chuồng 2");
-                    //    _chuong3 = _displayRealtime.FirstOrDefault(x => x.TenChuong == "Chuồng 3");
-                    //    _chuong4 = _displayRealtime.FirstOrDefault(x => x.TenChuong == "Chuồng 4");
-                    if (item.NumIndex==0)
+                    if (item.NumIndex==1)
                     {
                         _chuong1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
                         _chuong1.TenChuong = item.TenChuong;
                     }
-                    else if (item.NumIndex == 1)
+                    else if (item.NumIndex == 2)
                     {
                         _chuong2 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
                         _chuong2.TenChuong = item.TenChuong;
                     }
-                    else if (item.NumIndex == 2)
+                    else if (item.NumIndex == 3)
                     {
                         _chuong3 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
                         _chuong3.TenChuong = item.TenChuong;
                     }
-                    else if (item.NumIndex == 3)
+                    else// if (item.NumIndex == 4)
                     {
                         _chuong4 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
                         _chuong4.TenChuong = item.TenChuong;
@@ -103,8 +94,6 @@ namespace GiamSat.Interface.Pages
                     _snackBar.Add(item, Severity.Error);
                 }
             }
-
-            //return base.OnInitializedAsync();
         }
 
         private void OnClickTest()
