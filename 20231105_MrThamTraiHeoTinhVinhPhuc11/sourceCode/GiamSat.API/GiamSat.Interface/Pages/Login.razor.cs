@@ -42,7 +42,7 @@ namespace GiamSat.Interface.Pages
             {
                 token = success.Token;
                 login = success;
-
+                
                 _snackBar.Add("Login successfull", Severity.Success);
                 //await InvokeAsync(StateHasChanged);
                 //StateHasChanged();

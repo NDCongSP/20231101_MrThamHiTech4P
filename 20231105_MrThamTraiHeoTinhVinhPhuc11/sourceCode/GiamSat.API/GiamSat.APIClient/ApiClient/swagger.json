@@ -5,6 +5,345 @@
     "version": "v1"
   },
   "paths": {
+    "/fusion/auth/SignOut": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_SignOut",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignOutCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignOutCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignOutCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/fusion/auth/EditUser": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_EditUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/fusion/auth/UpdatePresence": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_UpdatePresence",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Session"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Session"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Session"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/fusion/auth/IsSignOutForced": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_IsSignOutForced",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fusion/auth/GetAuthInfo": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_GetAuthInfo",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAuthInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAuthInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAuthInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fusion/auth/GetSessionInfo": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_GetSessionInfo",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fusion/auth/GetOptions": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_GetOptions",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImmutableOptionSet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImmutableOptionSet"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImmutableOptionSet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fusion/auth/GetUser": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_GetUser",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fusion/auth/GetUserSessions": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_GetUserSessions",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SessionInfo"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SessionInfo"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SessionInfo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Authenticate/login": {
       "post": {
         "tags": [
@@ -192,68 +531,30 @@
         }
       }
     },
-    "/api/DataLog": {
+    "/fusion/blazorMode/{isServerSideBlazor}": {
       "get": {
         "tags": [
-          "DataLog"
+          "BlazorMode"
         ],
-        "operationId": "DataLog_Get",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DataLogModel"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DataLogModel"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DataLogModel"
-                  }
-                }
-              }
+        "operationId": "BlazorMode_Switch",
+        "parameters": [
+          {
+            "name": "isServerSideBlazor",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "redirectTo",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
             }
           }
-        }
-      },
-      "post": {
-        "tags": [
-          "DataLog"
         ],
-        "operationId": "DataLog_Post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DataLogModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DataLogModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/DataLogModel"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Success"
@@ -261,12 +562,42 @@
         }
       }
     },
-    "/api/DataLog/{id}": {
+    "/api/ChuongInfo": {
       "get": {
         "tags": [
-          "DataLog"
+          "ChuongInfo"
         ],
-        "operationId": "DataLog_Get",
+        "operationId": "ChuongInfo_GetAll",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelListResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelListResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelListResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChuongInfo/{id}": {
+      "get": {
+        "tags": [
+          "ChuongInfo"
+        ],
+        "operationId": "ChuongInfo_GetById",
         "parameters": [
           {
             "name": "id",
@@ -284,17 +615,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataLogModel"
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataLogModel"
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataLogModel"
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
                 }
               }
             }
@@ -302,67 +633,523 @@
         }
       }
     },
-    "/api/Values": {
-      "get": {
-        "tags": [
-          "Values"
-        ],
-        "operationId": "Values_Get",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/ChuongInfo/insert": {
       "post": {
         "tags": [
-          "Values"
+          "ChuongInfo"
         ],
-        "operationId": "Values_Post",
+        "operationId": "ChuongInfo_Insert",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "string",
-                "nullable": true
+                "$ref": "#/components/schemas/ChuongInfoModel"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string",
-                "nullable": true
+                "$ref": "#/components/schemas/ChuongInfoModel"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string",
-                "nullable": true
+                "$ref": "#/components/schemas/ChuongInfoModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChuongInfo/update": {
+      "post": {
+        "tags": [
+          "ChuongInfo"
+        ],
+        "operationId": "ChuongInfo_Update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChuongInfoModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChuongInfoModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChuongInfoModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataLog/test": {
+      "get": {
+        "tags": [
+          "DataLog"
+        ],
+        "operationId": "DataLog_TestApi",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataLog": {
+      "get": {
+        "tags": [
+          "DataLog"
+        ],
+        "operationId": "DataLog_GetAll",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelListResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelListResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelListResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataLog/{id}": {
+      "get": {
+        "tags": [
+          "DataLog"
+        ],
+        "operationId": "DataLog_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataLog/insert": {
+      "post": {
+        "tags": [
+          "DataLog"
+        ],
+        "operationId": "DataLog_Insert",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataLogModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataLogModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataLogModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataLog/update": {
+      "post": {
+        "tags": [
+          "DataLog"
+        ],
+        "operationId": "DataLog_Update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataLogModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataLogModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataLogModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataLogModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DisplayRealtime/test": {
+      "get": {
+        "tags": [
+          "DisplayRealtime"
+        ],
+        "operationId": "DisplayRealtime_GetTop2",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DisplayRealtime": {
+      "get": {
+        "tags": [
+          "DisplayRealtime"
+        ],
+        "operationId": "DisplayRealtime_GetAll",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DisplayRealtime/{id}": {
+      "get": {
+        "tags": [
+          "DisplayRealtime"
+        ],
+        "operationId": "DisplayRealtime_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DisplayRealtime/insert": {
+      "post": {
+        "tags": [
+          "DisplayRealtime"
+        ],
+        "operationId": "DisplayRealtime_Insert",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DisplayRealtime/update": {
+      "post": {
+        "tags": [
+          "DisplayRealtime"
+        ],
+        "operationId": "DisplayRealtime_Update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fusion/kvs/Set": {
+      "post": {
+        "tags": [
+          "SandboxedKeyValueStore"
+        ],
+        "operationId": "SandboxedKeyValueStore_Set",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedSetCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedSetCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedSetCommand"
               }
             }
           }
@@ -374,20 +1161,122 @@
         }
       }
     },
-    "/api/Values/{id}": {
+    "/fusion/kvs/SetMany": {
+      "post": {
+        "tags": [
+          "SandboxedKeyValueStore"
+        ],
+        "operationId": "SandboxedKeyValueStore_SetMany",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedSetCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedSetCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedSetCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/fusion/kvs/Remove": {
+      "post": {
+        "tags": [
+          "SandboxedKeyValueStore"
+        ],
+        "operationId": "SandboxedKeyValueStore_Remove",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedRemoveCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedRemoveCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedRemoveCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/fusion/kvs/RemoveMany": {
+      "post": {
+        "tags": [
+          "SandboxedKeyValueStore"
+        ],
+        "operationId": "SandboxedKeyValueStore_RemoveMany",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedRemoveCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedRemoveCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxedRemoveCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/fusion/kvs/Get": {
       "get": {
         "tags": [
-          "Values"
+          "SandboxedKeyValueStore"
         ],
-        "operationId": "Values_Get",
+        "operationId": "SandboxedKeyValueStore_Get",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "session",
+            "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "$ref": "#/components/schemas/Session"
+            }
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
             }
           }
         ],
@@ -413,20 +1302,85 @@
             }
           }
         }
-      },
-      "put": {
+      }
+    },
+    "/fusion/kvs/Count": {
+      "get": {
         "tags": [
-          "Values"
+          "SandboxedKeyValueStore"
         ],
-        "operationId": "Values_Put",
+        "operationId": "SandboxedKeyValueStore_Count",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "session",
+            "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "$ref": "#/components/schemas/Session"
+            }
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fusion/kvs/ListKeySuffixes": {
+      "get": {
+        "tags": [
+          "SandboxedKeyValueStore"
+        ],
+        "operationId": "SandboxedKeyValueStore_ListKeySuffixes",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Session"
+            }
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SortDirection"
             }
           }
         ],
@@ -434,43 +1388,75 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string",
-                "nullable": true
+                "$ref": "#/components/schemas/StringPageRef"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string",
-                "nullable": true
+                "$ref": "#/components/schemas/StringPageRef"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string",
-                "nullable": true
+                "$ref": "#/components/schemas/StringPageRef"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/signIn": {
+      "get": {
         "tags": [
-          "Values"
+          "SignIn"
         ],
-        "operationId": "Values_Delete",
+        "operationId": "SignIn_SignIn",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "scheme",
+            "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "returnUrl",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
             }
           }
         ],
@@ -481,41 +1467,57 @@
         }
       }
     },
-    "/WeatherForecast": {
+    "/signIn/{scheme}": {
       "get": {
         "tags": [
-          "WeatherForecast"
+          "SignIn"
         ],
-        "operationId": "WeatherForecast_Get",
+        "operationId": "SignIn_SignIn",
+        "parameters": [
+          {
+            "name": "scheme",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "returnUrl",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              }
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/signOut": {
+      "get": {
+        "tags": [
+          "SignIn"
+        ],
+        "operationId": "SignIn_SignOut",
+        "parameters": [
+          {
+            "name": "returnUrl",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -523,6 +1525,265 @@
   },
   "components": {
     "schemas": {
+      "Symbol": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "hashCode": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "isEmpty": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Session": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Symbol"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignOutCommand": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/Session"
+          },
+          "kickUserSessionHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "kickAllUserSessions": {
+            "type": "boolean"
+          },
+          "force": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EditUserCommand": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/Session"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserIdentity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Symbol"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionAuthInfo": {
+        "type": "object",
+        "properties": {
+          "sessionHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticatedIdentity": {
+            "$ref": "#/components/schemas/UserIdentity"
+          },
+          "userId": {
+            "$ref": "#/components/schemas/Symbol"
+          },
+          "isSignOutForced": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TimeSpan": {
+        "type": "object",
+        "properties": {
+          "ticks": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "hours": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "milliseconds": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "minutes": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "seconds": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "totalDays": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalHours": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMilliseconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMinutes": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalSeconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Moment": {
+        "type": "object",
+        "properties": {
+          "epochOffsetTicks": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "epochOffset": {
+            "$ref": "#/components/schemas/TimeSpan"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObjectNewtonsoftJsonSerialized": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImmutableOptionSet": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectNewtonsoftJsonSerialized"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionInfo": {
+        "type": "object",
+        "properties": {
+          "sessionHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticatedIdentity": {
+            "$ref": "#/components/schemas/UserIdentity"
+          },
+          "userId": {
+            "$ref": "#/components/schemas/Symbol"
+          },
+          "isSignOutForced": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdAt": {
+            "$ref": "#/components/schemas/Moment"
+          },
+          "lastSeenAt": {
+            "$ref": "#/components/schemas/Moment"
+          },
+          "ipAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "userAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/ImmutableOptionSet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Symbol"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "claims": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Identities": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginModel": {
         "required": [
           "password",
@@ -588,6 +1849,89 @@
         },
         "additionalProperties": false
       },
+      "ChuongInfoModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "tenChuong": {
+            "type": "string",
+            "nullable": true
+          },
+          "configSettings": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChuongInfoModelListResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChuongInfoModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChuongInfoModelResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ChuongInfoModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "DataLogModel": {
         "type": "object",
         "properties": {
@@ -596,8 +1940,8 @@
             "format": "uuid"
           },
           "chuongId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
           },
           "tenChuong": {
             "type": "string",
@@ -611,6 +1955,10 @@
             "type": "number",
             "format": "double"
           },
+          "frequency": {
+            "type": "number",
+            "format": "double"
+          },
           "createdDate": {
             "type": "string",
             "format": "date-time"
@@ -621,25 +1969,215 @@
         },
         "additionalProperties": false
       },
-      "WeatherForecast": {
+      "DataLogModelListResult": {
         "type": "object",
         "properties": {
-          "date": {
-            "type": "string",
-            "format": "date-time"
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           },
-          "temperatureC": {
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataLogModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataLogModelResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DataLogModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisplayRealTimeModel": {
+        "type": "object",
+        "properties": {
+          "chuongId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "tenChuong": {
+            "type": "string",
+            "nullable": true
+          },
+          "temperature": {
+            "type": "number",
+            "format": "double"
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double"
+          },
+          "frequency": {
+            "type": "number",
+            "format": "double"
+          },
+          "fan1Status": {
             "type": "integer",
             "format": "int32"
           },
-          "temperatureF": {
+          "fan2Status": {
             "type": "integer",
-            "format": "int32",
-            "readOnly": true
+            "format": "int32"
           },
-          "summary": {
+          "fan3Status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fan4Status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "coollerStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "connectStatus": {
             "type": "string",
             "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisplayRealTimeModelListResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DisplayRealTimeModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisplayRealTimeModelResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DisplayRealTimeModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringStringMomentNullableValueTuple": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "SandboxedSetCommand": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/Session"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringMomentNullableValueTuple"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SandboxedRemoveCommand": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/Session"
+          },
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SortDirection": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "StringOption": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "valueOrDefault": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringPageRef": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "after": {
+            "$ref": "#/components/schemas/StringOption"
           }
         },
         "additionalProperties": false

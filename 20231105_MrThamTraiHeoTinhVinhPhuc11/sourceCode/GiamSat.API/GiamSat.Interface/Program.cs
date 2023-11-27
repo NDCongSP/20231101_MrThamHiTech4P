@@ -58,6 +58,9 @@ namespace GiamSat.Interface
             }).AddHttpMessageHandler<JwtAuthenticationHeaderHandler>().Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("GiamSatAPI"));
 
             //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddTransient<ISDisplayRealtime, DisplayRealtimeApiClient>();
+            builder.Services.AddTransient<ISChuongInfo, ChuongInfoApiClient>();
+            //builder.Services.AddScoped<Common>();
 
             await builder.Build().RunAsync();
         }

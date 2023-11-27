@@ -1315,11 +1315,9 @@ D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTrai
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\build-gz\y1qxthVY.gz
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\RazorDeclaration\Pages\Contact.razor.g.cs
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\RazorDeclaration\Pages\SettingsChuong1.razor.g.cs
-D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\RazorDeclaration\Pages\SettingsChuong2.razor.g.cs
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\RazorDeclaration\Pages\Trend.razor.g.cs
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\Razor\Pages\Contact.razor.g.cs
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\Razor\Pages\SettingsChuong1.razor.g.cs
-D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\Razor\Pages\SettingsChuong2.razor.g.cs
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\Razor\Pages\Trend.razor.g.cs
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\bin\Debug\net5.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\bin\Debug\net5.0\wwwroot\_framework\RestEase.dll.gz

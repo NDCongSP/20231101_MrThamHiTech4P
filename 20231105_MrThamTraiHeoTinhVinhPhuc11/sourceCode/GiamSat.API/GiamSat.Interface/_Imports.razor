@@ -13,6 +13,7 @@
 @using GiamSat.Interface.Authorization
 @using MudBlazor
 @using Microsoft.AspNetCore.Components.Authorization
+@using GiamSat.Models
 @*@using Blazicons*@
 
 @inject JwtAuthenticationService _authSerivce
@@ -22,3 +23,8 @@
 @inject IDialogService _dialog
 @*redirect*@
 @inject NavigationManager _navigation
+@*@inject Common _common*@
+
+@*inject cac service vao de dung*@
+@inject ISDisplayRealtime _displayRealtimeApiClient
+@inject  ISChuongInfo _chuongInfoApiClient

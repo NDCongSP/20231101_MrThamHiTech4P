@@ -17,5 +17,6 @@ namespace GiamSat.Models
         public string ConfigSettings { get; set; }
         public bool IsActive { get; set; } = true;
         public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public int NumIndex { get; set; }//đánh số thứ tự để hiển thị
     }
 }

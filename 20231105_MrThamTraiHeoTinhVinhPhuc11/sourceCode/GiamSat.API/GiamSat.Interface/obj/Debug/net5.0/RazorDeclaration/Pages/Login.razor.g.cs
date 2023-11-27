@@ -118,6 +118,13 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line hidden
 #nullable disable
 #nullable restore
+#line 16 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\_Imports.razor"
+using GiamSat.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Pages\Login.razor"
            [AllowAnonymous]
 
@@ -133,6 +140,8 @@ using Microsoft.AspNetCore.Components.Authorization;
         {
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISChuongInfo _chuongInfoApiClient { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISDisplayRealtime _displayRealtimeApiClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService _dialog { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar _snackBar { get; set; }

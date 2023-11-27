@@ -34,6 +34,9 @@ namespace GiamSat.API.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<int>("NumIndex")
+                        .HasColumnType("int");
+
                     b.Property<string>("TenChuong")
                         .HasColumnType("nvarchar(max)");
 
@@ -77,7 +80,11 @@ namespace GiamSat.API.Migrations
             modelBuilder.Entity("GiamSat.Models.DisplayRealTimeModel", b =>
                 {
                     b.Property<Guid>("ChuongId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ActiveStatus")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConnectStatus")
                         .HasColumnType("nvarchar(max)");
@@ -114,6 +121,8 @@ namespace GiamSat.API.Migrations
 
                     b.Property<string>("TenChuong")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ChuongId");
 
                     b.ToTable("DisplayRealtime");
                 });

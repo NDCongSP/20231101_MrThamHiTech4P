@@ -11,6 +11,7 @@ namespace GiamSat.Models
     [Table("DisplayRealtime")]
    public  class DisplayRealTimeModel
     {
+        [Key]
         public  Guid ChuongId { get; set; }
         public string TenChuong { get; set; }
         public double Temperature { get; set; }
@@ -25,6 +26,7 @@ namespace GiamSat.Models
         /// Báo trạng thái kết nối đến tủ.
         /// </summary>
         public string ConnectStatus { get; set; }
+        public string ActiveStatus { get; set; }//báo trạng thái hoạt động là auto hay man hay dung
         public bool IsActive { get; set; } = true;
         public DateTime CreatedDate { get; set; } = DateTime.Now;
     }

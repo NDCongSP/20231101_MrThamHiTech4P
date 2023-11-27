@@ -114,6 +114,13 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 16 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\_Imports.razor"
+using GiamSat.Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/trend")]
     public partial class Trend : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -309,6 +316,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISChuongInfo _chuongInfoApiClient { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISDisplayRealtime _displayRealtimeApiClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService _dialog { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar _snackBar { get; set; }

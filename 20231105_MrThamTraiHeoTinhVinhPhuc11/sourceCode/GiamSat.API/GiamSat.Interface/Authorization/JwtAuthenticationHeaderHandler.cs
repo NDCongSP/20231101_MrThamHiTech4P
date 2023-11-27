@@ -46,12 +46,4 @@ namespace GiamSat.Interface.Authorization
             return await base.SendAsync(request, cancellationToken);
         }
     }
-
-    public static class ExtAccessTokenProvider
-    {
-        public static async Task<string> GetAccessTokenAsync(this IAccessTokenProvider tokenProvider)
-        {
-            return (await tokenProvider.RequestAccessToken()).TryGetToken(out var token) ? token.Value : null;
-        }
-    }
 }
