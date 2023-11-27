@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GiamSat.Models
 {
-    class SettingsModel
+    public class SettingsModel
     {
         public Guid Id { get; set; }
         public int Chuongid { get; set; }

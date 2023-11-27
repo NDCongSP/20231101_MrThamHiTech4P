@@ -5,14 +5,14 @@
 
 @if (_displayRealtime == null)
 {
-    <MudText>ko co data</MudText>
+    <MudText>Loading....</MudText>
 }
 else
 {
 <MudGrid Spacing="2" Class="pt-5">
     @*Chuong 1*@
     <MudItem xs="12" sm="6">
-        <MudCard Elevation="25" Class="rounded-lg pb-4 h-100">
+        <MudCard Elevation="25" Class="rounded-lg pb-4 h-100 border border-warning">
             <MudCardHeader Class="bg-success">
                 <CardHeaderAvatar>
                     <MudIcon Icon="@Icons.Filled.Warehouse"></MudIcon>
@@ -111,10 +111,10 @@ else
                                 </MudGrid>
 
                                 @*<MudChip Icon="@_iconFan" Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">Quạt 1</MudChip>
-                                    <MudChip Icon="@_iconFan" Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">Quạt 2</MudChip>
-                                    <MudChip Icon="@_iconFan" Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.GrayDark};")">Quạt 3</MudChip>
-                                    <MudChip Icon="@_iconFan" Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.GrayDark};")">Quạt 4</MudChip>
-                                    <MudChip Icon="@_iconCooler" Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">Dàn mát</MudChip>*@
+                                <MudChip Icon="@_iconFan" Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">Quạt 2</MudChip>
+                                <MudChip Icon="@_iconFan" Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.GrayDark};")">Quạt 3</MudChip>
+                                <MudChip Icon="@_iconFan" Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.GrayDark};")">Quạt 4</MudChip>
+                                <MudChip Icon="@_iconCooler" Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">Dàn mát</MudChip>*@
                             </MudCardContent>
                         </MudCard>
                     </MudItem>
@@ -124,7 +124,7 @@ else
     </MudItem>
     @*Chuong 2*@
     <MudItem xs="12" sm="6">
-        <MudCard Elevation="25" Class="rounded-lg pb-4 h-100">
+        <MudCard Elevation="25" Class="rounded-lg pb-4 h-100 border border-warning">
             <MudCardHeader Class="bg-success">
                 <CardHeaderAvatar>
                     <MudIcon Icon="@Icons.Filled.Warehouse"></MudIcon>
@@ -236,7 +236,7 @@ else
     </MudItem>
     @*Chuong 3*@
     <MudItem xs="12" sm="6">
-        <MudCard Elevation="25" Class="rounded-lg pb-4 h-100">
+        <MudCard Elevation="25" Class="rounded-lg pb-4 h-100 border border-warning">
             <MudCardHeader Class="bg-success">
                 <CardHeaderAvatar>
                     <MudIcon Icon="@Icons.Filled.Warehouse"></MudIcon>
@@ -348,7 +348,7 @@ else
     </MudItem>
     @*Chuong 4*@
     <MudItem xs="12" sm="6">
-        <MudCard Elevation="25" Class="rounded-lg pb-4 h-100">
+        <MudCard Elevation="25" Class="rounded-lg pb-4 h-100 border border-warning">
             <MudCardHeader Class="bg-success">
                 <CardHeaderAvatar>
                     <MudIcon Icon="@Icons.Filled.Warehouse"></MudIcon>

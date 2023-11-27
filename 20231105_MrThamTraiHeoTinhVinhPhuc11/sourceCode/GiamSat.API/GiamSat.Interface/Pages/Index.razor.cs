@@ -28,13 +28,13 @@ namespace GiamSat.Interface.Pages
 
         //[Inject] public ISDisplayRealtime _displayRealtimeApiClient { get; set; }
 
-        private List<DisplayRealTimeModel> _displayRealtime = new List<DisplayRealTimeModel>();
+        private List<DisplayRealTimeModel> _displayRealtime;
         private DisplayRealTimeModel _chuong1 = new DisplayRealTimeModel();
         private DisplayRealTimeModel _chuong2 = new DisplayRealTimeModel();
         private DisplayRealTimeModel _chuong3 = new DisplayRealTimeModel();
         private DisplayRealTimeModel _chuong4 = new DisplayRealTimeModel();
 
-        private List<ChuongInfoModel> _chuongInfo = new List<ChuongInfoModel>();
+        private List<ChuongInfoModel> _chuongInfo;
 
         private System.Threading.Timer _timer;
 
