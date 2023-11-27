@@ -1410,6 +1410,7 @@ using System.ComponentModel.DataAnnotations;
             __builder.CloseComponent();
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient _httpClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDataLogClient _dataLogClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IChuongInfoClient _chuongInfoClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDisplayRealtimeClient _displayRealtimeClient { get; set; }

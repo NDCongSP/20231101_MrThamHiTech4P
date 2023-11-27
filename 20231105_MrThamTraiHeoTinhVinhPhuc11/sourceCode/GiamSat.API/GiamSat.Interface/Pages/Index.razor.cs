@@ -34,7 +34,9 @@ namespace GiamSat.Interface.Pages
         private DisplayRealTimeModel _chuong3 = new DisplayRealTimeModel();
         private DisplayRealTimeModel _chuong4 = new DisplayRealTimeModel();
 
-        private List<ChuongInfoModel> _chuongInfo = new List<ChuongInfoModel>();        
+        private List<ChuongInfoModel> _chuongInfo = new List<ChuongInfoModel>();
+
+        private System.Threading.Timer _timer;
 
         protected override async Task OnInitializedAsync()
         {
@@ -94,11 +96,58 @@ namespace GiamSat.Interface.Pages
                     _snackBar.Add(item, Severity.Error);
                 }
             }
-        }
 
-        private void OnClickTest()
-        {
-            var s = 100;
+            #region Timer refresh data
+            _timer = new System.Threading.Timer(async (object stateInfo) =>
+            {
+                //get thong tin chuong
+                var chuongInfoRes = await _chuongInfoApiClient.GetAll();
+                if (chuongInfoRes.Succeeded)
+                {
+                    _chuongInfo = chuongInfoRes.Data;
+                }
+
+                //get thong tien hien thi thoi gian thuc
+                var res = await _displayRealtimeApiClient.GetAll();
+
+                if (res.Succeeded)
+                {
+                    _displayRealtime = res.Data;
+
+                    if (_displayRealtime == null && _displayRealtime.Count <= 0)
+                    {
+                        _snackBar.Add("Data Null", Severity.Warning);
+                        return;
+                    }
+
+                    foreach (var item in _chuongInfo)
+                    {
+                        if (item.NumIndex == 1)
+                        {
+                            _chuong1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
+                            _chuong1.TenChuong = item.TenChuong;
+                        }
+                        else if (item.NumIndex == 2)
+                        {
+                            _chuong2 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
+                            _chuong2.TenChuong = item.TenChuong;
+                        }
+                        else if (item.NumIndex == 3)
+                        {
+                            _chuong3 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
+                            _chuong3.TenChuong = item.TenChuong;
+                        }
+                        else// if (item.NumIndex == 4)
+                        {
+                            _chuong4 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
+                            _chuong4.TenChuong = item.TenChuong;
+                        }
+                    }
+                }
+
+                StateHasChanged(); // NOTE: MUST CALL StateHasChanged() BECAUSE THIS IS TRIGGERED BY A TIMER INSTEAD OF A USER EVENT
+            }, new System.Threading.AutoResetEvent(false), 1000, 1000); // fire every 1000 milliseconds
+            #endregion
         }
     }
 }

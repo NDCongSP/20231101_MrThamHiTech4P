@@ -163,6 +163,7 @@ using GiamSat.APIClient;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient _httpClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDataLogClient _dataLogClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IChuongInfoClient _chuongInfoClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDisplayRealtimeClient _displayRealtimeClient { get; set; }
