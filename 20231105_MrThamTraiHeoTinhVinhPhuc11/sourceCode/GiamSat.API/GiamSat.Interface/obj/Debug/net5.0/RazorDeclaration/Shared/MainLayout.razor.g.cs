@@ -138,19 +138,6 @@ using GiamSat.APIClient;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 20 "D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\Shared\MainLayout.razor"
-       
-    bool _drawerOpen = true;
-
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
-    }
-
-#line default
-#line hidden
-#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient _httpClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDataLogClient _dataLogClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IChuongInfoClient _chuongInfoClient { get; set; }

@@ -5,7 +5,13 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudText Typo="Typo.h5" Class="ml-3">Giám sát trang trại</MudText>
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
+        @*<MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />*@
+        <MudMenu Icon="@Icons.Material.Filled.MoreVert" ActivationEvent="@MouseEvent.MouseOver">
+            <MudMenuItem>Profile</MudMenuItem>
+            @*<MudMenuItem>Theme</MudMenuItem>
+                <MudMenuItem>Usage</MudMenuItem>*@
+            <MudMenuItem OnClick="@OnClockLogout">Sign Out</MudMenuItem>
+        </MudMenu>
     </MudAppBar>
 
     <MudDrawer @bind-Open="@_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
@@ -17,14 +23,6 @@
         </MudContainer>
     </MudMainContent>
 </MudLayout>
-@code {
-    bool _drawerOpen = true;
-
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
-    }
-}
 
 <MudThemeProvider />
 <MudDialogProvider />

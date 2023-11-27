@@ -1301,7 +1301,6 @@ D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTrai
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\build-gz\B2aUr1M+.gz
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\staticwebassets\GiamSat.Interface.StaticWebAssets.Manifest.cache
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\staticwebassets\GiamSat.Interface.StaticWebAssets.xml
-D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\scopedcss\bundle\GiamSat.Interface.styles.css
 D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\scopedcss\projectbundle\GiamSat.Interface.bundle.scp.css
