@@ -2,6 +2,7 @@
   <ContentRoot BasePath="/" Path="D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\bin\Debug\net5.0\wwwroot\" />
   <ContentRoot BasePath="/" Path="D:\MyCompany\8.SourceCode\3.Projects\20231101_MrThamHiTech4P\20231105_MrThamTraiHeoTinhVinhPhuc11\sourceCode\GiamSat.API\GiamSat.Interface\obj\Debug\net5.0\scopedcss\bundle\" />
   <ContentRoot BasePath="_content/Blazicons" Path="C:\Users\ndcon\.nuget\packages\blazicons\1.0.10\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazorise.LoadingIndicator" Path="C:\Users\ndcon\.nuget\packages\blazorise.loadingindicator\1.1.0\build\..\staticwebassets\" />
   <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\ndcon\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\5.0.17\build\..\staticwebassets\" />
   <ContentRoot BasePath="_content/MudBlazor" Path="C:\Users\ndcon\.nuget\packages\mudblazor\5.2.5\build\..\staticwebassets\" />
 </StaticWebAssets>

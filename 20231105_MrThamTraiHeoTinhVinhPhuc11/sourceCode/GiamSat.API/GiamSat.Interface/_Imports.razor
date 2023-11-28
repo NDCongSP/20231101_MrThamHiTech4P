@@ -16,6 +16,7 @@
 @using GiamSat.Models
 @using GiamSat.APIClient
 @*@using Blazicons*@
+@*@using Blazorise.LoadingIndicator*@
 
 @inject JwtAuthenticationService _authSerivce
 @*Alert*@
@@ -28,7 +29,7 @@
 
 @*inject cac service vao de dung*@
 @inject ISDisplayRealtime _displayRealtimeApiClient
-@inject  ISChuongInfo _chuongInfoApiClient
+@inject ISChuongInfo _chuongInfoApiClient
 @*cach 2*@
 @inject IDisplayRealtimeClient _displayRealtimeClient
 @inject IChuongInfoClient _chuongInfoClient

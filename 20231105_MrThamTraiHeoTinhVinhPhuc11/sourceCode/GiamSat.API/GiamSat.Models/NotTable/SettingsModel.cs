@@ -9,10 +9,8 @@ namespace GiamSat.Models
 {
     public class SettingsModel
     {
-        public Guid Id { get; set; }
-        public int Chuongid { get; set; }
-
-        public List<StepSettingsModel> Steps { get; set; }
-        public GeneralStepSettingsModel GeneralSettings { get; set; }
+        public Guid Chuongid { get; set; }
+        public List<StepSettingsModel> Steps { get; set; } = new List<StepSettingsModel>();
+        public GeneralStepSettingsModel GeneralSettings { get; set; } = new GeneralStepSettingsModel();
     }
 }

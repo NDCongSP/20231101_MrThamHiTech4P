@@ -11,6 +11,9 @@ namespace GiamSat.Models
     /// </summary>
     public class GeneralStepSettingsModel
     {
+        public string TenChuong { get; set; }
+        public int NumIndex { get; set; }//đánh số thứ tự để hiển thị
+
         public int Fan1 { get; set; }
         public int Fan2 { get; set; }
         public int Fan3 { get; set; }

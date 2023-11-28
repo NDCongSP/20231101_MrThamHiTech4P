@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project filever="1.0" SoftLang="English" OldVersion="R05R998_V8.4.66_D23102001" ProjectVer="R05R998_V8.4.66_D23102001">
-	<HmiSet RotateAngle="0" Type="PI3070i-A" Width="800" Height="480" HmiTypeIndex="98" HmiCpuType="A7-5" PIEx="0" StartScrNo="0" Style="Rurality" SaveAsJpg="0" JpgBkColor="0" Language="0" />
+	<HmiSet RotateAngle="0" PIEx="0" Type="PI3070i-A" Width="800" Height="480" HmiTypeIndex="98" HmiCpuType="A7-5" StartScrNo="0" Style="Rurality" SaveAsJpg="0" JpgBkColor="0" Language="0" />
 	<AddressLib />
 	<StringLib Language="0" />
 	<SysSet>
@@ -13,6 +13,8 @@
 		<BaseSet IsProjBackup="0" StorePattern="0" AlarmPath="0" Background="-1" AlarmScrSave="0" JianGe="0" OsLanguage="0" IsScrIdVar="0" ScrIdWordAddr="" CurScrIdAddr="" SysLen="0" IsScrFast="0" IsUDKeyboard="0" IsNShowPOPUP="0" IsEncrypt="0" IsuseTTS="0" IsUseAuthority="0" IsUseOptLogFunc="1" ChangeTime="0" nWallId="1" FloatHiLowReverse="0" HMINAME="" ProtectScreen="0" ProtectScreenTime="10" ProtectScreenNo="0" IsShowNC="0" IsHighWord="0" IsShowCursor="0" IsDownValid="0" HeadLang="1" UseScrSaver="0" ScrSaverTime="1" ScrSaverType="0" />
 		<Extend GotoBackSetType="2" PushTime="5" BackSetPsw="" IsAudio="0" IsKeyBoard="0" IsShortcutKey="0" IsCamera="0" UseTTF="0" IsUsbPopScreen="0" IsPicCompress="0" IsFtpServer="0" FtpServerPwd="" IsPacketSVG="1" IsMultiLink="0" MultiType="0" />
 		<DataSourceSet UseDataSource="0" DataSourceName="" SQLDataFilePath="0" SQLDataFileType="0" SQLDataGroupNum="1" />
+		<PwdProtect UsePassword="0" MaxGradeNum="1" Default="1" Grade1="" Grade2="" Grade3="" Grade4="" Grade5="" Grade6="" Grade7="" Grade8="" Grade9="" Grade10="" Grade11="" Grade12="" GradeIndependent="0" UseScrProtect="0" ScrPwd="" PwdTimeout="1" IsUseUserAuthority="0" UserGroupIdSet="0" />
+		<LANPassword Enable="0" AppleId="" Password="" />
 	</SysSet>
 	<ScreenSet>
 		<ScreenInfo ScrnNo="0" Child="0" bInscreen="0" IsModeScr="0" ScrnName="" Height="480" Width="800" Filled="1" BkColor="0xc0c0c0" FnColor="0x0" Pattern="0" BmpIndex="-1" UseRight="0" RightClass="0" PopType="0" ScrnFile="1.hsc" Opened="1" PartPng="" bUseJumpTimer="0" ChangeScrNo="-1" ScrTimeout="0" IsDynamic="0" TimeAddr="" ScreenBgFunc="-1" BgScreenNo="-1" />
@@ -3917,25 +3919,25 @@ if @w_haw186 = 0 or @w_haw187 = 0 or @w_haw188=0 or @w_haw189=0 then
 endif
 
 'tat het ca ngo ra
-if @b_hdx16.0=0 then
+if @b_hdx0.0=0 then
 	@b_hdx280.0=1
 else
 	@b_hdx280.0=0
 endif
 
-if @b_hdx17.0=0 then
+if @b_hdx1.0=0 then
 	@b_hdx281.0=1
 else
 	@b_hdx281.0=0
 endif
 
-if @b_hdx18.0=0 then
+if @b_hdx2.0=0 then
 	@b_hdx282.0=1
 else
 	@b_hdx282.0=0
 endif
 
-if @b_hdx19.0=0 then
+if @b_hdx3.0=0 then
 	@b_hdx283.0=1
 else
 	@b_hdx283.0=0
@@ -4157,4 +4159,5 @@ if @b_hax238.0=0 then
 endif
 </InitialAction>
 	</Script>
+	<FunctionSet />
 </project>

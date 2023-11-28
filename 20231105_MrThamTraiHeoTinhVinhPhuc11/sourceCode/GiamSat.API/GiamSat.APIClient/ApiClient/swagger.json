@@ -1870,6 +1870,10 @@
           "createdDate": {
             "type": "string",
             "format": "date-time"
+          },
+          "numIndex": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2055,6 +2059,10 @@
             "format": "int32"
           },
           "connectStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "activeStatus": {
             "type": "string",
             "nullable": true
           },

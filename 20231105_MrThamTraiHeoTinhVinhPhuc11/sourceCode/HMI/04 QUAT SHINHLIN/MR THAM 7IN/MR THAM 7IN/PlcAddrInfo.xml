@@ -7,6 +7,67 @@
 		<Add Addr="HSW_W_0010038" Len="1" Fast="0" />
 		<Add Addr="HSW_W_0010035" Len="1" Fast="0" />
 		<Add Addr="HDW_W_0000031" Len="1" Fast="0" />
+		<Add Addr="HSW_W_0010036" Len="1" Fast="0" />
+		<Add Addr="HSW_W_0010037" Len="1" Fast="0" />
+		<Add Addr="HSW_W_0010038" Len="1" Fast="0" />
+		<Add Addr="HSW_W_0010035" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000030" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000026" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000027" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000032" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000030" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000026" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000027" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000032" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000040" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000030" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000026" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000027" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000032" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000040" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000280" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000281" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000282" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000283" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000030" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000026" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000027" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000032" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000040" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000280" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000281" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000282" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000283" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000003" Len="1" Fast="0" />
 	</AddrInfo>
 	<AddrInfo ScrnNo="5" HasNoPlcAddr="1">
 		<HMIAddr />
@@ -35,13 +96,13 @@
 	<AddrInfo ScrnNo="15" HasNoPlcAddr="1">
 		<HMIAddr />
 	</AddrInfo>
-	<AddrInfo ScrnNo="0" HasNoPlcAddr="1">
-		<HMIAddr />
-	</AddrInfo>
 	<AddrInfo ScrnNo="11" HasNoPlcAddr="1">
 		<HMIAddr />
 	</AddrInfo>
 	<AddrInfo ScrnNo="17" HasNoPlcAddr="1">
+		<HMIAddr />
+	</AddrInfo>
+	<AddrInfo ScrnNo="0" HasNoPlcAddr="1">
 		<HMIAddr />
 	</AddrInfo>
 </project>

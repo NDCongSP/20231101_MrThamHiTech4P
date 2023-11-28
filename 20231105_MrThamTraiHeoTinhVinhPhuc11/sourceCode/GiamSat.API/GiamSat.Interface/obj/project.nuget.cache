@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wK5agiL2NUiPeylhaWJ/9fJsprvZHWppuY7M+TnWnltND8UIv850I5ne0q8FuhIAe3lY091lzz2diIqe4sTJoA==",
+  "dgSpecHash": "oWtzWcwUlzKUmbOncxQfpzkCO/0N4QKIfHIK81PeGSlPPGnf90hH/WeUXeSGwVAXpqqwHfhEEy8NVAFPGtTh6A==",
   "success": true,
   "projectFilePath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.Interface\\GiamSat.Interface.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ndcon\\.nuget\\packages\\blazicons\\1.0.10\\blazicons.1.0.10.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\blazored.localstorage\\3.0.0\\blazored.localstorage.3.0.0.nupkg.sha512",
+    "C:\\Users\\ndcon\\.nuget\\packages\\blazorise.loadingindicator\\1.1.0\\blazorise.loadingindicator.1.1.0.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.17\\microsoft.aspnetcore.authorization.5.0.17.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.17\\microsoft.aspnetcore.components.5.0.17.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\5.0.17\\microsoft.aspnetcore.components.analyzers.5.0.17.nupkg.sha512",

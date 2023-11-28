@@ -4583,6 +4583,9 @@ namespace GiamSat.APIClient
         [System.Text.Json.Serialization.JsonPropertyName("createdDate")]
         public System.DateTime CreatedDate { get; set; }= default!;
     
+        [System.Text.Json.Serialization.JsonPropertyName("numIndex")]
+        public int NumIndex { get; set; }= default!;
+    
     
     }
     
@@ -4723,6 +4726,9 @@ namespace GiamSat.APIClient
     
         [System.Text.Json.Serialization.JsonPropertyName("connectStatus")]
         public string? ConnectStatus { get; set; }= default!;
+    
+        [System.Text.Json.Serialization.JsonPropertyName("activeStatus")]
+        public string? ActiveStatus { get; set; }= default!;
     
         [System.Text.Json.Serialization.JsonPropertyName("isActive")]
         public bool IsActive { get; set; }= default!;

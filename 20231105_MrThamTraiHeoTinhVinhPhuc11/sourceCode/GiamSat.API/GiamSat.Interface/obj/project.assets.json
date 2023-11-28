@@ -24,6 +24,15 @@
           "lib/netstandard2.1/Blazored.LocalStorage.dll": {}
         }
       },
+      "Blazorise.LoadingIndicator/1.1.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Blazorise.LoadingIndicator.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazorise.LoadingIndicator.props": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/5.0.17": {
         "type": "package",
         "dependencies": {
@@ -577,6 +586,15 @@
         },
         "runtime": {
           "lib/netstandard2.1/Blazored.LocalStorage.dll": {}
+        }
+      },
+      "Blazorise.LoadingIndicator/1.1.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Blazorise.LoadingIndicator.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazorise.LoadingIndicator.props": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/5.0.17": {
@@ -1144,6 +1162,29 @@
         "blazored.localstorage.nuspec",
         "icon.png",
         "lib/netstandard2.1/Blazored.LocalStorage.dll"
+      ]
+    },
+    "Blazorise.LoadingIndicator/1.1.0": {
+      "sha512": "mYVlipvDYzPQ5OhpFjfHlxbVFieE1QrMHZJDLhdJftvCL6wh4bQkkr3Cx1GXzwQpewHqotmqWrh2iMTnjNdHsg==",
+      "type": "package",
+      "path": "blazorise.loadingindicator/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Blazorise.png",
+        "LICENSE.md",
+        "blazorise.loadingindicator.1.1.0.nupkg.sha512",
+        "blazorise.loadingindicator.nuspec",
+        "build/Blazorise.LoadingIndicator.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Blazorise.LoadingIndicator.props",
+        "buildTransitive/Blazorise.LoadingIndicator.props",
+        "lib/net6.0/Blazorise.LoadingIndicator.dll",
+        "lib/net6.0/Blazorise.LoadingIndicator.xml",
+        "lib/net7.0/Blazorise.LoadingIndicator.dll",
+        "lib/net7.0/Blazorise.LoadingIndicator.xml",
+        "staticwebassets/blazorise.loadingindicator.css",
+        "staticwebassets/blazorise.loadingindicator.min.css"
       ]
     },
     "Microsoft.AspNetCore.Authorization/5.0.17": {
@@ -2048,6 +2089,7 @@
     "net5.0": [
       "Blazicons >= 1.0.10",
       "Blazored.LocalStorage >= 3.0.0",
+      "Blazorise.LoadingIndicator >= 1.1.0",
       "GiamSat.APIClient >= 1.0.0",
       "GiamSat.Models >= 1.0.0",
       "Microsoft.AspNetCore.Components.Authorization >= 5.0.17",
@@ -2130,6 +2172,10 @@
           "Blazored.LocalStorage": {
             "target": "Package",
             "version": "[3.0.0, )"
+          },
+          "Blazorise.LoadingIndicator": {
+            "target": "Package",
+            "version": "[1.1.0, )"
           },
           "Microsoft.AspNetCore.Components.Authorization": {
             "target": "Package",

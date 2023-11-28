@@ -10,7 +10,7 @@ namespace GiamSat.Interface.Components
         private string stringValue { get; set; }
         private StepRun enumValue { get; set; } = StepRun.GiaiDoan1;
         public enum StepRun { GiaiDoan1, GiaiDoan2, GiaiDoan3, GiaiDoan4, GiaiDoan5, GiaiDoan6, GiaiDoan7, GiaiDoan8, GiaiDoan9, GiaiDoan10, }
-        SettingTestModel model = new SettingTestModel();
+        
         bool success;
         void OnValidSubmit(EditContext args)
         {

@@ -9,7 +9,7 @@ namespace GiamSat.Models
 {
    public  class StepSettingsModel
     {
-        public int StepRun { get; set; }//giai đoạn
+        public int StepId { get; set; }//giai đoạn
         [Required]
         [Range(0, 100, ErrorMessage = "chỉ được nhập từ 0 đến 100")]
         public int FromDate { get; set; }
