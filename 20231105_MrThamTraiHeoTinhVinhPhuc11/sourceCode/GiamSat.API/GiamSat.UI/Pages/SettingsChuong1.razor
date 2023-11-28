@@ -1,5 +1,6 @@
 ﻿@page "/c1/{Id}"
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize]
+@* @attribute [Authorize(Roles = "Admin")] *@
 @*@attribute [AllowAnonymous]*@
 
 @using System.ComponentModel.DataAnnotations

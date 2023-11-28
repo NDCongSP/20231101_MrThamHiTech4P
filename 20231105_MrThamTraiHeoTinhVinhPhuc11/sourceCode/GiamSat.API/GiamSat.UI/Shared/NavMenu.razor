@@ -1,4 +1,6 @@
-﻿<MudNavMenu>
+﻿@attribute [AllowAnonymous]
+
+<MudNavMenu>
     <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard" Match="NavLinkMatch.All">Dashboard</MudNavLink>
     <MudNavLink Href="/trend" Icon="@Icons.Material.Filled.StackedLineChart" Match="NavLinkMatch.Prefix">Biểu đồ</MudNavLink>
     <MudNavGroup Title="Cài đặt" Icon="@Icons.Material.Filled.Settings" Expanded="true">

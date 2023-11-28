@@ -18,5 +18,9 @@ namespace GiamSat.Models
         public bool IsActive { get; set; } = true;
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public int NumIndex { get; set; }//đánh số thứ tự để hiển thị
+        /// <summary>
+        /// Chốt báo có cài đặt mới từ web xuống, để app winform biết lấy cài xuống HMI.
+        /// </summary>
+        public int FlagUpdate { get; set; }
     }
 }

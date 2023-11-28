@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiamSat.APIClient", "GiamSa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiamSat.Scada", "GiamSat.Scada\GiamSat.Scada.csproj", "{366818F3-FE70-4B7D-94C0-67233F486C9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiamSat.UI", "GiamSat.UI\GiamSat.UI.csproj", "{87FF40FD-59E4-4FBE-8B51-869CEC212323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiamSat.UI", "GiamSat.UI\GiamSat.UI.csproj", "{87FF40FD-59E4-4FBE-8B51-869CEC212323}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
