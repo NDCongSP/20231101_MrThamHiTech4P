@@ -36,6 +36,7 @@ namespace GiamSat.Models
         {
             public const string BasePath = "api/ChuongInfo";
             public const string Test = "test";
+            public const string GetByName = "GetByName/{id}";
         }
     }
 }

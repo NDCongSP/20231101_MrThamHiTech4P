@@ -550,14 +550,53 @@
             "name": "redirectTo",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
             "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ChuongInfo/GetByName/{id}": {
+      "get": {
+        "tags": [
+          "ChuongInfo"
+        ],
+        "operationId": "ChuongInfo_GetByName",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChuongInfoModelResult"
+                }
+              }
+            }
           }
         }
       }
@@ -1275,8 +1314,7 @@
             "name": "key",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1322,8 +1360,7 @@
             "name": "prefix",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1372,8 +1409,7 @@
             "name": "prefix",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1447,16 +1483,14 @@
             "name": "scheme",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           },
           {
             "name": "returnUrl",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1479,16 +1513,14 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           },
           {
             "name": "returnUrl",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1510,8 +1542,7 @@
             "name": "returnUrl",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1525,330 +1556,6 @@
   },
   "components": {
     "schemas": {
-      "Symbol": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "hashCode": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "isEmpty": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Session": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "#/components/schemas/Symbol"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SignOutCommand": {
-        "type": "object",
-        "properties": {
-          "session": {
-            "$ref": "#/components/schemas/Session"
-          },
-          "kickUserSessionHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "kickAllUserSessions": {
-            "type": "boolean"
-          },
-          "force": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "EditUserCommand": {
-        "type": "object",
-        "properties": {
-          "session": {
-            "$ref": "#/components/schemas/Session"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserIdentity": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "#/components/schemas/Symbol"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SessionAuthInfo": {
-        "type": "object",
-        "properties": {
-          "sessionHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "authenticatedIdentity": {
-            "$ref": "#/components/schemas/UserIdentity"
-          },
-          "userId": {
-            "$ref": "#/components/schemas/Symbol"
-          },
-          "isSignOutForced": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TimeSpan": {
-        "type": "object",
-        "properties": {
-          "ticks": {
-            "type": "integer",
-            "format": "int64",
-            "readOnly": true
-          },
-          "days": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "hours": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "milliseconds": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "minutes": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "seconds": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "totalDays": {
-            "type": "number",
-            "format": "double",
-            "readOnly": true
-          },
-          "totalHours": {
-            "type": "number",
-            "format": "double",
-            "readOnly": true
-          },
-          "totalMilliseconds": {
-            "type": "number",
-            "format": "double",
-            "readOnly": true
-          },
-          "totalMinutes": {
-            "type": "number",
-            "format": "double",
-            "readOnly": true
-          },
-          "totalSeconds": {
-            "type": "number",
-            "format": "double",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Moment": {
-        "type": "object",
-        "properties": {
-          "epochOffsetTicks": {
-            "type": "integer",
-            "format": "int64",
-            "readOnly": true
-          },
-          "epochOffset": {
-            "$ref": "#/components/schemas/TimeSpan"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ObjectNewtonsoftJsonSerialized": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ImmutableOptionSet": {
-        "type": "object",
-        "properties": {
-          "Items": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/ObjectNewtonsoftJsonSerialized"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SessionInfo": {
-        "type": "object",
-        "properties": {
-          "sessionHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "authenticatedIdentity": {
-            "$ref": "#/components/schemas/UserIdentity"
-          },
-          "userId": {
-            "$ref": "#/components/schemas/Symbol"
-          },
-          "isSignOutForced": {
-            "type": "boolean"
-          },
-          "version": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "createdAt": {
-            "$ref": "#/components/schemas/Moment"
-          },
-          "lastSeenAt": {
-            "$ref": "#/components/schemas/Moment"
-          },
-          "ipAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "userAgent": {
-            "type": "string",
-            "nullable": true
-          },
-          "options": {
-            "$ref": "#/components/schemas/ImmutableOptionSet"
-          }
-        },
-        "additionalProperties": false
-      },
-      "User": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "#/components/schemas/Symbol"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "version": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "claims": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "Identities": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LoginModel": {
-        "required": [
-          "password",
-          "username"
-        ],
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LoginResult": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string",
-            "nullable": true
-          },
-          "expiration": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegisterModel": {
-        "required": [
-          "email",
-          "password",
-          "username"
-        ],
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
-          "password": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Response": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "nullable": true
-          },
-          "message": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChuongInfoModel": {
         "type": "object",
         "properties": {
@@ -1916,22 +1623,6 @@
           },
           "data": {
             "$ref": "#/components/schemas/ChuongInfoModel"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Result": {
-        "type": "object",
-        "properties": {
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "succeeded": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2118,22 +1809,137 @@
         },
         "additionalProperties": false
       },
-      "StringStringMomentNullableValueTuple": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "SandboxedSetCommand": {
+      "EditUserCommand": {
         "type": "object",
         "properties": {
           "session": {
             "$ref": "#/components/schemas/Session"
           },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StringStringMomentNullableValueTuple"
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImmutableOptionSet": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectNewtonsoftJsonSerialized"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginModel": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginResult": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiration": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Moment": {
+        "type": "object",
+        "properties": {
+          "epochOffsetTicks": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "epochOffset": {
+            "$ref": "#/components/schemas/TimeSpan"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObjectNewtonsoftJsonSerialized": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterModel": {
+        "required": [
+          "email",
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2154,6 +1960,109 @@
         },
         "additionalProperties": false
       },
+      "SandboxedSetCommand": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/Session"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringMomentNullableValueTuple"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Session": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Symbol"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionAuthInfo": {
+        "type": "object",
+        "properties": {
+          "sessionHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticatedIdentity": {
+            "$ref": "#/components/schemas/UserIdentity"
+          },
+          "userId": {
+            "$ref": "#/components/schemas/Symbol"
+          },
+          "isSignOutForced": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionInfo": {
+        "type": "object",
+        "properties": {
+          "sessionHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticatedIdentity": {
+            "$ref": "#/components/schemas/UserIdentity"
+          },
+          "userId": {
+            "$ref": "#/components/schemas/Symbol"
+          },
+          "isSignOutForced": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdAt": {
+            "$ref": "#/components/schemas/Moment"
+          },
+          "lastSeenAt": {
+            "$ref": "#/components/schemas/Moment"
+          },
+          "ipAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "userAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/ImmutableOptionSet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignOutCommand": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/Session"
+          },
+          "kickUserSessionHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "kickAllUserSessions": {
+            "type": "boolean"
+          },
+          "force": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "SortDirection": {
         "enum": [
           0,
@@ -2166,13 +2075,11 @@
         "type": "object",
         "properties": {
           "hasValue": {
-            "type": "boolean",
-            "readOnly": true
+            "type": "boolean"
           },
           "valueOrDefault": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2186,6 +2093,149 @@
           },
           "after": {
             "$ref": "#/components/schemas/StringOption"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringStringMomentNullableValueTuple": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Symbol": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "hashCode": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "isEmpty": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TimeSpan": {
+        "type": "object",
+        "properties": {
+          "ticks": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "hours": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "milliseconds": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "microseconds": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "nanoseconds": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "minutes": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "seconds": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "totalDays": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalHours": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMilliseconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMicroseconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalNanoseconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMinutes": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalSeconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Symbol"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "claims": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Identities": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserIdentity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Symbol"
           }
         },
         "additionalProperties": false

@@ -1,6 +1,7 @@
 ﻿using GiamSat.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using RestEase;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,19 @@ namespace GiamSat.API
             try
             {
                 return await Result<ChuongInfoModel>.SuccessAsync(await _dbContext.ChuongInfoModel.FindAsync(id));
+            }
+            catch (Exception ex)
+            {
+                return await Result<ChuongInfoModel>.FailAsync(ex.Message);
+            }
+        }
+
+        public async Task<Result<ChuongInfoModel>> GetByName([Path] string id)
+        {
+            try
+            {
+                var res = await _dbContext.ChuongInfoModel.FirstOrDefaultAsync(x => x.TenChuong == id);
+                return await Result<ChuongInfoModel>.SuccessAsync(res);
             }
             catch (Exception ex)
             {

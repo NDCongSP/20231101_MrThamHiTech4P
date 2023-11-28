@@ -2,10 +2,10 @@
     <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard" Match="NavLinkMatch.All">Dashboard</MudNavLink>
     <MudNavLink Href="/trend" Icon="@Icons.Material.Filled.StackedLineChart" Match="NavLinkMatch.Prefix">Biểu đồ</MudNavLink>
     <MudNavGroup Title="Cài đặt" Icon="@Icons.Material.Filled.Settings" Expanded="true">
-        <MudNavLink Href="/c1" Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">Chuồng 1</MudNavLink>
-        <MudNavLink Href="/c2" Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">Chuồng 2</MudNavLink>
-        <MudNavLink Href="/c3" Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">Chuồng 3</MudNavLink>
-        <MudNavLink Href="/clock" Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">Chuồng 4</MudNavLink>
+        <MudNavLink Href=@linkC1 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c1.TenChuong</MudNavLink>
+        <MudNavLink Href=@linkC2 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c2.TenChuong</MudNavLink>
+        <MudNavLink Href=@linkC3 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c3.TenChuong</MudNavLink>
+        <MudNavLink Href=@linkC4 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c4.TenChuong</MudNavLink>
     </MudNavGroup>
     <MudNavLink Href="/contact" Icon="@Icons.Material.Filled.ContactPage" Match="NavLinkMatch.Prefix">Liên hệ</MudNavLink>
 </MudNavMenu>

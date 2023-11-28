@@ -1,4 +1,5 @@
 ﻿using GiamSat.Models;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor;
 using Newtonsoft.Json;
@@ -7,18 +8,24 @@ namespace GiamSat.UI.Pages
 {
     public partial class SettingsChuong1
     {
+        //tao bien Routing parameter. nay dùng để truyền thông số vào khi gọi trang
+        [Parameter]
+        public string Id { get; set; }
+
+        //tạo các biến dùng cho tạo select chọn giai doạn
         private string stringValue { get; set; }
         private StepRun enumValue { get; set; } = StepRun.GiaiDoan1;
         public enum StepRun { GiaiDoan1, GiaiDoan2, GiaiDoan3, GiaiDoan4, GiaiDoan5, GiaiDoan6, GiaiDoan7, GiaiDoan8, GiaiDoan9, GiaiDoan10, }
 
+        //các biến xử lý data
         APIClient.ChuongInfoModel chuongInfo = new APIClient.ChuongInfoModel();
         SettingsModel chuongModel = new SettingsModel();
-        SettingBindingModel stepModel = new SettingBindingModel() { FromDate = 1, ToDate = 2, StaticFanRun = 3 };
+        SettingBindingModel stepModel = new SettingBindingModel() { FromDate = 1, ToDate = 2, StaticFanRun = 3 };//model dùng để bind data editform
         bool success;
 
         protected override async Task OnInitializedAsync()
         {
-            var id = Guid.TryParse("E50409D5-AA02-4166-8F53-C5DDB304EB50", out Guid value) ? value : Guid.Empty;
+            var id=Guid.TryParse(Id, out var value)?value:Guid.Empty;
             var res = await _chuongInfoClient.GetByIdAsync(id);
 
             success = res.Succeeded;
@@ -81,6 +88,12 @@ namespace GiamSat.UI.Pages
             success = false;
             _snackBar.Add($"Invalid data", Severity.Error);
             StateHasChanged();
+        }
+
+        private void OnValueChanged(string selected)
+        {
+            var s = selected;
+            // Do other stuff
         }
     }
 }

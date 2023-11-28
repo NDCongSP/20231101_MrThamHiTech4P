@@ -1,4 +1,4 @@
-﻿@page "/c1"
+﻿@page "/c1/{Id}"
 @attribute [Authorize(Roles = "Admin")]
 @*@attribute [AllowAnonymous]*@
 
@@ -18,7 +18,9 @@
                                 <MudCardContent>
                                     <MudGrid Spacing="1">
                                         <MudItem xs="12">
-                                            <MudSelect @bind-Value="enumValue" Label="CHỌN GIAI ĐOẠN" HelperText="Chọn giai đoạn để cài đặt các thông số" OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
+                                            <MudSelect  @bind-Value="enumValue" Label="CHỌN GIAI ĐOẠN"
+                                                HelperText="Chọn giai đoạn để cài đặt các thông số" 
+                                                OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
                                                 @foreach (StepRun item in Enum.GetValues(typeof(StepRun)))
                                                 {
                                                     <MudSelectItem Value="@item">@item</MudSelectItem>
@@ -126,7 +128,7 @@
                     </MudGrid>
                 </MudCardContent>
                 <MudCardActions>
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Cập nhật</MudButton>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="btn btn-primary btn-lg btn-block">Cập nhật</MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
@@ -144,11 +146,6 @@
                     </MudText>
                 }
             </MudPaper>
-        </MudItem>
-        <MudItem xs="12">
-            <MudText Typo="Typo.body2" Align="Align.Center">
-                Fill out the form correctly to see the success message.
-            </MudText>
         </MudItem>
     </MudGrid>
 </EditForm>

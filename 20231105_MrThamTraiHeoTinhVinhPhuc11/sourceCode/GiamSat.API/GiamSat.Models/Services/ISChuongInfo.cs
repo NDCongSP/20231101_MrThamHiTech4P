@@ -10,6 +10,7 @@ namespace GiamSat.Models
     [BasePath(ApiRoutes.ChuongInfo.BasePath)]
     public interface ISChuongInfo : IRepository<Guid, ChuongInfoModel>
     {
-
+        [Get(ApiRoutes.ChuongInfo.BasePath)]
+        Task<Result<ChuongInfoModel>> GetByName([Path]string id);
     }
 }

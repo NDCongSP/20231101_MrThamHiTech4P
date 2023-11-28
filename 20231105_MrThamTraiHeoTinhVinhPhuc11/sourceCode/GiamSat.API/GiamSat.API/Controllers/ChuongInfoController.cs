@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RestEase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,12 @@ namespace GiamSat.API.Controllers
         public ChuongInfoController(SCommon sCommon):base(sCommon.SChuongInfo)
         {
             _sCommon = sCommon;
+        }
+
+        [HttpGet(ApiRoutes.ChuongInfo.GetByName)]
+        public Task<Result<ChuongInfoModel>> GetByName([Path] string id)
+        {
+            return _sCommon.SChuongInfo.GetByName(id);
         }
     }
 }

@@ -36,6 +36,11 @@ namespace GiamSat.UI
             throw new NotImplementedException();
         }
 
+        public Task<Result<ChuongInfoModel>> GetByName([Path] string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Result<ChuongInfoModel>> Insert([Body] ChuongInfoModel model)
         {
             throw new NotImplementedException();
