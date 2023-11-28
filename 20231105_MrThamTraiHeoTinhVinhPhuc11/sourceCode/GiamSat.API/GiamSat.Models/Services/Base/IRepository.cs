@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using RestEase;
+﻿using RestEase;
 using System;
 using System.Collections.Generic;
 using System.Linq;

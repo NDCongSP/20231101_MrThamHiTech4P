@@ -1,5 +1,6 @@
 ﻿using GiamSat.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using RestEase;
 using System;
 using System.Collections.Generic;

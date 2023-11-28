@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "GDV7tY//9zLPOik39ji+rAXwiDcgfcVQVbXYyfSSctJz0ZT4YDgiy9TstzEKIZ7kbT7BDhXX0Srn5s+Vf3HHUQ==",
+  "dgSpecHash": "opWKk4leMXK8wb3gt0XtM4bayT1xL5UJFIQm4eGBmUQF8oYHpqrK60BA33KBAx/FpkItlPZtZW1zDj3jdG2+9w==",
   "success": true,
   "projectFilePath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.APIClient\\GiamSat.APIClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ndcon\\.nuget\\packages\\nswag.msbuild\\13.10.8\\nswag.msbuild.13.10.8.nupkg.sha512",
+    "C:\\Users\\ndcon\\.nuget\\packages\\nswag.msbuild\\13.20.0\\nswag.msbuild.13.20.0.nupkg.sha512",
     "C:\\Users\\ndcon\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "C:\\Users\\ndcon\\.nuget\\packages\\system.text.json\\5.0.2\\system.text.json.5.0.2.nupkg.sha512"
+    "C:\\Users\\ndcon\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\ndcon\\.nuget\\packages\\system.text.json\\7.0.4\\system.text.json.7.0.4.nupkg.sha512"
   ],
   "logs": []
 }
