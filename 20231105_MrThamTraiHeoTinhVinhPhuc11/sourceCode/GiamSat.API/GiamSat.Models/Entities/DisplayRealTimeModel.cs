@@ -29,5 +29,8 @@ namespace GiamSat.Models
         public string ActiveStatus { get; set; }//báo trạng thái hoạt động là auto hay man hay dung
         public bool IsActive { get; set; } = true;
         public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public double HightTemperature { get; set; }
+        public double Lowtemperature { get; set; }
+        public int NumIndex { get; set; } 
     }
 }

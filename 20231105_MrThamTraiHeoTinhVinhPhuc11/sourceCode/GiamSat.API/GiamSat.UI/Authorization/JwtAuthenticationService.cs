@@ -8,7 +8,9 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -119,6 +121,26 @@ namespace GiamSat.UI.Authorization
         {
             await LogoutAsync();
             _navigation.NavigateTo(returnUrl);
+        }
+
+        public async Task<string> RefreshToken()
+        {
+            var token = await _localStorage.GetItemAsync<string>(StorageConts.AuthToken);
+            if (string.IsNullOrWhiteSpace(token))
+                return null;
+
+            var authState = await GetAuthenticationStateAsync();
+            var user = authState.User;
+            var exp = user.FindFirst(c => c.Type.Equals("exp"))?.Value;
+            var expTime = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(exp));
+            var timeUTC = DateTime.UtcNow;
+            var diff = expTime - timeUTC;
+            if (diff.TotalMinutes <= 5)
+            {
+                // Cho nay de refresh token khi token sap het han
+                return null;
+            }
+            return token;
         }
 
         public async ValueTask<AccessTokenResult> RequestAccessToken()

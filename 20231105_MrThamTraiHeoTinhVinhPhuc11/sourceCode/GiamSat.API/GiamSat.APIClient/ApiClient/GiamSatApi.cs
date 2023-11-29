@@ -4607,6 +4607,21 @@ namespace GiamSat.APIClient
         [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
         public System.DateTime CreatedDate { get; set; } = default!;
 
+        [System.Text.Json.Serialization.JsonPropertyName("hightTemperature")]
+
+        [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
+        public double HightTemperature { get; set; } = default!;
+
+        [System.Text.Json.Serialization.JsonPropertyName("lowtemperature")]
+
+        [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
+        public double Lowtemperature { get; set; } = default!;
+
+        [System.Text.Json.Serialization.JsonPropertyName("numIndex")]
+
+        [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
+        public int NumIndex { get; set; } = default!;
+
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v12.0.0.0))")]

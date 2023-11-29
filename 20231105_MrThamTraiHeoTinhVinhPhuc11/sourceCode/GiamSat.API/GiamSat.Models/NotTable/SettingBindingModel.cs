@@ -10,7 +10,9 @@ namespace GiamSat.Models
     public class SettingBindingModel
     {
         public Guid ChuongId { get; set; }//id cua chuồng
+        [Required(ErrorMessage ="Không được trống tên chuồng.")]
         public string TenChuong { get; set; }
+        [Required(ErrorMessage = "Không được trống thứ tự chuồng.")]
         public int NumIndex { get; set; }//đánh số thứ tự để hiển thị
         public int StepId { get; set; }//giai đoạn
         [Required]
@@ -45,18 +47,24 @@ namespace GiamSat.Models
         public double TempRunCooler { get; set; }
 
         //general settings
+        [Required(ErrorMessage = "Không được trống.")]
         public int Fan1 { get; set; }
+        [Required(ErrorMessage = "Không được trống.")]
         public int Fan2 { get; set; }
+        [Required(ErrorMessage = "Không được trống.")]
         public int Fan3 { get; set; }
+        [Required(ErrorMessage = "Không được trống.")]
         public int Fan4 { get; set; }
 
         /// <summary>
         /// Thời gian chạy dàn mát, minute.
         /// </summary>
+        [Required(ErrorMessage = "Không được trống.")]
         public int TimeOnCooler { get; set; }
         /// <summary>
         /// Thời gian dừng dàn mát, minute.
         /// </summary>
+        [Required(ErrorMessage = "Không được trống.")]
         public int TimeOffCooler { get; set; }
     }
 }

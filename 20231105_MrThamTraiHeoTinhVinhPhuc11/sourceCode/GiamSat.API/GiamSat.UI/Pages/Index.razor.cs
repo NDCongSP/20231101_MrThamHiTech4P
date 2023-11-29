@@ -26,11 +26,6 @@ namespace GiamSat.UI.Pages
         //[Inject] public ISDisplayRealtime _displayRealtimeApiClient { get; set; }
 
         private List<APIClient.DisplayRealTimeModel> _displayRealtime;
-        private APIClient.DisplayRealTimeModel _chuong1 = new APIClient.DisplayRealTimeModel();
-        private APIClient.DisplayRealTimeModel _chuong2 = new APIClient.DisplayRealTimeModel();
-        private APIClient.DisplayRealTimeModel _chuong3 = new APIClient.DisplayRealTimeModel();
-        private APIClient.DisplayRealTimeModel _chuong4 = new APIClient.DisplayRealTimeModel();
-
         private List<APIClient.ChuongInfoModel> _chuongInfo;
 
         private System.Timers.Timer _timer;
@@ -62,30 +57,6 @@ namespace GiamSat.UI.Pages
                 {
                     _snackBar.Add("Data Null", Severity.Warning);
                     return;
-                }
-
-                foreach (var item in _chuongInfo)
-                {
-                    if (item.NumIndex == 1)
-                    {
-                        _chuong1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
-                        _chuong1.TenChuong = item.TenChuong;
-                    }
-                    else if (item.NumIndex == 2)
-                    {
-                        _chuong2 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
-                        _chuong2.TenChuong = item.TenChuong;
-                    }
-                    else if (item.NumIndex == 3)
-                    {
-                        _chuong3 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
-                        _chuong3.TenChuong = item.TenChuong;
-                    }
-                    else// if (item.NumIndex == 4)
-                    {
-                        _chuong4 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
-                        _chuong4.TenChuong = item.TenChuong;
-                    }
                 }
             }
             else
@@ -130,30 +101,6 @@ namespace GiamSat.UI.Pages
                     {
                         _snackBar.Add("Data Null", Severity.Warning);
                         return;
-                    }
-
-                    foreach (var item in _chuongInfo)
-                    {
-                        if (item.NumIndex == 1)
-                        {
-                            _chuong1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
-                            _chuong1.TenChuong = item.TenChuong;
-                        }
-                        else if (item.NumIndex == 2)
-                        {
-                            _chuong2 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
-                            _chuong2.TenChuong = item.TenChuong;
-                        }
-                        else if (item.NumIndex == 3)
-                        {
-                            _chuong3 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
-                            _chuong3.TenChuong = item.TenChuong;
-                        }
-                        else// if (item.NumIndex == 4)
-                        {
-                            _chuong4 = _displayRealtime.FirstOrDefault(x => x.ChuongId == item.Id);
-                            _chuong4.TenChuong = item.TenChuong;
-                        }
                     }
                 }
 

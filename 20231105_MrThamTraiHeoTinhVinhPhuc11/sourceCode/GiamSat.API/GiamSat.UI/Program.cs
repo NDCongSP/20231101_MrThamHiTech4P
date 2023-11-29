@@ -10,14 +10,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
 using System.Globalization;
 using GiamSat.UI.Authorization;
-
-//var builder = WebAssemblyHostBuilder.CreateDefault(args);
-//builder.RootComponents.Add<App>("#app");
-//builder.RootComponents.Add<HeadOutlet>("head::after");
-
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-//await builder.Build().RunAsync();
+using Toolbelt.Blazor.Extensions.DependencyInjection;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -44,13 +37,15 @@ builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationService
     .AddScoped<IAccessTokenProviderAccessor, AccessTokenProviderAccessor>()
     .AddScoped<JwtAuthenticationHeaderHandler>();
 
+builder.Services.AddScoped<IHttpInterceptorManager, HttpInterceptorManager>();
 builder.Services.AddHttpClient("GiamSatAPI", (sp, client) =>
 {
     client.DefaultRequestHeaders.AcceptLanguage.Clear();
     client.DefaultRequestHeaders.AcceptLanguage.ParseAdd(CultureInfo.DefaultThreadCurrentCulture?.TwoLetterISOLanguageName);
     client.BaseAddress = new Uri(config["AppSettings:ApiBaseUrl"]);
+    client.EnableIntercept(sp);
 }).AddHttpMessageHandler<JwtAuthenticationHeaderHandler>().Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("GiamSatAPI"));
-
+builder.Services.AddHttpClientInterceptor();
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddTransient<ISDisplayRealtime, DisplayRealtimeApiClient>();
 builder.Services.AddTransient<ISChuongInfo, ChuongInfoApiClient>();

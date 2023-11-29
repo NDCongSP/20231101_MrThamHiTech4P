@@ -22,6 +22,11 @@ namespace GiamSat.API
             builder.Entity<SettingsChuongModel>();
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
+
         public DbSet<GiamSat.Models.DataLogModel> DataLogModel { get; set; }
         public DbSet<GiamSat.Models.ChuongInfoModel> ChuongInfoModel { get; set; }
         public DbSet<GiamSat.Models.DisplayRealTimeModel> DisplayRealTimeModel { get; set; }
