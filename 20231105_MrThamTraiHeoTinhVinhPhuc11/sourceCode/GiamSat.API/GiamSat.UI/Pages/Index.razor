@@ -15,7 +15,7 @@ else
         @foreach (var item in _displayRealtime)
         {
             <MudItem xs="12" sm="6">
-                <MudCard Elevation="25" Class="rounded-lg pb-4 h-100 border border-warning">
+                <MudCard Elevation="25" Class="rounded-lg pb-4 border border-warning">
                     <MudCardHeader Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.DarkDarken};")">
                         <CardHeaderAvatar>
                             <MudIcon Icon="@Icons.Material.Filled.Warehouse"></MudIcon>
@@ -27,16 +27,22 @@ else
                     <MudCardContent>
                         <MudGrid Spacing="1">
                             <MudItem xs="12">
-                                <div class="d-flex justify-center">
-                                    <MudText Typo="Typo.h5">Chế độ chạy:</MudText>
-                                    <MudText Typo="Typo.h5" Color="Color.Secondary">@_chuong1.ActiveStatus</MudText>
-                                </div>
+                                <MudGrid Spacing="2">
+                                    <MudItem xs="12" sm="6" Class="d-flex flex-row justify-content-end">
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Chế độ chạy: </MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="Color.Success">@item.ActiveStatus</MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" Class="d-flex flex-row justify-content-end">
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Trạng thái kết nối: </MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="@(item.ConnectStatus=="Connected"?Color.Success:Color.Error)">@item.ConnectStatus</MudText>
+                                    </MudItem>
+                                </MudGrid>
                             </MudItem>
                             <MudItem xs="12">
                                 <MudGrid Spacing="1">
                                     <MudItem xs="12" sm="4">
-                                        <MudCard Class="pb-4 h-100">
-                                            <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">
+                                        <MudCard Class="pb-4">
+                                            <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten}; height: 30px;")">
                                                 <CardHeaderAvatar>
                                                     <MudIcon Icon="@_iconTemperature"></MudIcon>
                                                 </CardHeaderAvatar>
@@ -44,14 +50,14 @@ else
                                                     Nhiệt độ (oC)
                                                 </CardHeaderContent>
                                             </MudCardHeader>
-                                            <MudCardContent Class="d-flex justify-content-center">
+                                            <MudCardContent Class="d-flex justify-content-center" Style="heeight:40px">
                                                 <MudText Typo="Typo.h4" class="rounded mx-auto d-block">@item.Temperature</MudText>
                                             </MudCardContent>
                                         </MudCard>
                                     </MudItem>
                                     <MudItem xs="12" sm="4">
-                                        <MudCard Class="pb-4 h-100">
-                                            <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">
+                                        <MudCard Class="pb-4">
+                                            <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};height: 30px;")">
                                                 <CardHeaderAvatar>
                                                     <MudIcon Icon="@_iconHumidity"></MudIcon>
                                                 </CardHeaderAvatar>
@@ -65,8 +71,8 @@ else
                                         </MudCard>
                                     </MudItem>
                                     <MudItem xs="12" sm="4">
-                                        <MudCard Class="pb-4 h-100">
-                                            <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">
+                                        <MudCard Class="pb-4">
+                                            <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};height: 30px;")">
                                                 <CardHeaderAvatar>
                                                     <MudIcon Icon="@_iconFrequency"></MudIcon>
                                                 </CardHeaderAvatar>
@@ -83,7 +89,7 @@ else
                             </MudItem>
                             <MudItem xs="12">
                                 <MudCard Class="pb-4">
-                                    <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};")">
+                                    <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};height: 30px;")">
                                         <CardHeaderAvatar>
                                             <MudIcon Icon="@_iconMonitor"></MudIcon>
                                         </CardHeaderAvatar>
