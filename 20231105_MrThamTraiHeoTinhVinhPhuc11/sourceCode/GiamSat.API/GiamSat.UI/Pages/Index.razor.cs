@@ -101,7 +101,7 @@ namespace GiamSat.UI.Pages
             //{
 
             //}, new System.Threading.AutoResetEvent(false), 2000, 2000); // fire every 1000 milliseconds
-            _timer = new System.Timers.Timer(1000);
+            _timer = new System.Timers.Timer(5000);
             _timer.Elapsed += RefreshData;
             _timer.Enabled = true;
             #endregion
@@ -115,7 +115,7 @@ namespace GiamSat.UI.Pages
                 var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
                 if (chuongInfoRes.Succeeded)
                 {
-                    _chuongInfo = chuongInfoRes.Data.ToList();
+                    _chuongInfo = chuongInfoRes.Data.OrderBy(x=>x.NumIndex).ToList();
                 }
 
                 //get thong tien hien thi thoi gian thuc

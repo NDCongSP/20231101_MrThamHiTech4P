@@ -4,13 +4,13 @@ namespace GiamSat.UI.Shared
 {
     public partial class NavMenu
     {
-        private List<ChuongInfoModel> chuongInfo;
+        private List<ChuongInfoModel> chuongInfo =new List<ChuongInfoModel>();
 
-        private string linkC1, linkC2, linkC3, linkC4;
-        private ChuongInfoModel c1;
-        private ChuongInfoModel c2;
-        private ChuongInfoModel c3;
-        private ChuongInfoModel c4;
+        private string linkC1, linkC2, linkC3, linkC4,linkC;
+        private ChuongInfoModel c1 = new ChuongInfoModel();
+        private ChuongInfoModel c2 = new ChuongInfoModel();
+        private ChuongInfoModel c3 = new ChuongInfoModel();
+        private ChuongInfoModel c4 = new ChuongInfoModel();
         protected override async Task OnInitializedAsync()
         {
             try
@@ -19,7 +19,7 @@ namespace GiamSat.UI.Shared
 
                 if (res.Succeeded)
                 {
-                    chuongInfo = res.Data.ToList();
+                    chuongInfo = res.Data.OrderBy(x => x.NumIndex).ToList();
                     foreach (var item in chuongInfo)
                     {
                         if (item.NumIndex == 1)
