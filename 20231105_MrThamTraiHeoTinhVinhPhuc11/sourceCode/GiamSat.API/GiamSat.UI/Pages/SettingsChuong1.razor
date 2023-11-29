@@ -1,23 +1,34 @@
-﻿@page "/c/{Id}"
+﻿@page "/c/{ChuongId}"
 @attribute [Authorize]
 @* @attribute [Authorize(Roles = "Admin")] *@
 @*@attribute [AllowAnonymous]*@
 
 @using System.ComponentModel.DataAnnotations
 
-@if (stepModel != null)
+@* @if (ChuongId != null)
+{
+    <SettingsChuong ChuongId="@ChuongId"></SettingsChuong>
+} *@
+
+@if (chuongInfo != null && stepModel != null)
 {
     <EditForm Model="@stepModel" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
         <DataAnnotationsValidator />
 
         <MudGrid Spacing="1" Class="m-2">
             <MudItem xs="12">
-                <MudCard>
+                <MudChip Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.DarkDarken};")" Class="d-flex">@stepModel.TenChuong</MudChip>
+            </MudItem>
+            <MudDivider></MudDivider>
+            <MudItem xs="12">
+                <MudCard Class="rounded-lg pb-4 h-100 border border-warning">
                     <MudCardContent>
                         <MudGrid Spacing="1" Class="pt-2">
                             <MudItem xs="12">
                                 <MudCard Class="m-2">
-                                    <MudCardHeader Class="bg-success h-4">Cài đặt giai đoạn</MudCardHeader>
+                                    <MudCardHeader Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.SuccessDarken};")">
+                                        Cài đặt giai đoạn
+                                    </MudCardHeader>
                                     <MudCardContent>
                                         <MudGrid Spacing="1">
                                             <MudItem xs="12">
@@ -98,15 +109,17 @@
                             </MudItem>
                             <MudItem xs="12">
                                 <MudCard Class="m-2">
-                                    <MudCardHeader Class="bg-success">Cài đặt chung</MudCardHeader>
+                                    <MudCardHeader Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.SuccessDarken};")">
+                                        Cài đặt chung
+                                    </MudCardHeader>
                                     <MudCardContent>
                                         <MudGrid Spacing="1" Class="m-2">
-                                             <MudItem xs="12" sm="6">
+                                            <MudItem xs="12" sm="6">
                                                 <MudTextField Label="Tên chuồng" Class="m-2"
                                                 @bind-Value="@stepModel.TenChuong" For="@(()=>@stepModel.TenChuong)"></MudTextField>
                                             </MudItem>
-                                             <MudItem xs="12" sm="6">
-                                                <MudNumericField Label="Thứ tự chuòng" Class="m-2"
+                                            <MudItem xs="12" sm="6">
+                                                <MudNumericField Label="Thứ tự chuồng" Class="m-2"
                                                 @bind-Value="@stepModel.NumIndex" For="@(()=>@stepModel.NumIndex)"></MudNumericField>
                                             </MudItem>
                                             <MudItem xs="12" sm="3">
@@ -140,24 +153,9 @@
                         </MudGrid>
                     </MudCardContent>
                     <MudCardActions>
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="btn btn-primary btn-lg btn-block">Cập nhật</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" FullWidth=true Variant="Variant.Filled" Color="Color.Primary" Class="btn btn-primary btn-lg btn-block">Cập nhật</MudButton>
                     </MudCardActions>
                 </MudCard>
-            </MudItem>
-            <MudItem xs="12">
-                <MudPaper Class="pa-4 mud-height-full">
-                    <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
-                    @if (success)
-                    {
-                        <MudText Color="Color.Success">Success</MudText>
-                    }
-                    else
-                    {
-                        <MudText Color="@Color.Error">
-                            <ValidationSummary />
-                        </MudText>
-                    }
-                </MudPaper>
             </MudItem>
         </MudGrid>
     </EditForm>

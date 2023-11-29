@@ -1,0 +1,54 @@
+﻿@page "/report"
+@attribute [Authorize]
+
+
+@if (Elements == null)
+{
+    @*<MudText>Loading....</MudText>*@
+    <div class="spinner center-div"></div>
+}
+else
+{
+    <MudPaper Class="ma-2 mt-5 p-5" Elevation="3">
+        <MudGrid Spacing="2" Class="p-5 border border-warning">
+            <MudItem xs="12">
+                <MudSelect @bind-Value="enumValue" Label="Chọn chuồng"
+                           SelectedValuesChanged="(IEnumerable<StepRun>e)=>OnSelectedValuesChanged(e)"
+                           OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
+                    @foreach (StepRun item in Enum.GetValues(typeof(StepRun)))
+                    {
+                        <MudSelectItem Value="@item">@item</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+            <MudItem xs="12">
+                <MudTable Items="@Elements" Hover="true" Dense="true" Striped="true" Bordered="true" FixedHeader="true" Breakpoint="Breakpoint.Sm"
+                          Loading="@_loading" LoadingProgressColor="Color.Info">
+                    @* Filter="new Func<DataLogModel,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1"> *@
+                    <ToolBarContent>
+                        <MudText Typo="Typo.h6">Tìm kiếm</MudText>
+                        <MudSpacer />
+                        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </ToolBarContent>
+                    <HeaderContent>
+                        <MudTh>Thời gian</MudTh>
+                        <MudTh>Tên chuồng</MudTh>
+                        <MudTh>Nhiệt độ (oC)</MudTh>
+                        <MudTh>Độ ẩm (%)</MudTh>
+                        <MudTh>Tần số (Hz)</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Thời gian">@context.CreatedDate</MudTd>
+                        <MudTd DataLabel="Tên chuồng">@context.TenChuong</MudTd>
+                        <MudTd DataLabel="Nhiệt độ (oC)">@context.NhietDo</MudTd>
+                        <MudTd DataLabel="Độ ẩm (%)">@context.DoAm</MudTd>
+                        <MudTd DataLabel="Tần số (Hz)">@context.Frequency</MudTd>
+                    </RowTemplate>
+                    <PagerContent>
+                        <MudTablePager />
+                    </PagerContent>
+                </MudTable>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
+}

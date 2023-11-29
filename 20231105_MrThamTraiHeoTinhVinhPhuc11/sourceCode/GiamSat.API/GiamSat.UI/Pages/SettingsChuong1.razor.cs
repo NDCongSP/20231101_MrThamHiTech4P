@@ -10,7 +10,9 @@ namespace GiamSat.UI.Pages
     {
         //tao bien Routing parameter. nay dùng để truyền thông số vào khi gọi trang
         [Parameter]
-        public string Id { get; set; }
+        public string ChuongId { get; set; }
+
+        private MudTheme _theme = new MudTheme();
 
         //tạo các biến dùng cho tạo select chọn giai doạn
         private string stringValue { get; set; }
@@ -23,12 +25,12 @@ namespace GiamSat.UI.Pages
         SettingBindingModel stepModel = new SettingBindingModel() { FromDate = 1, ToDate = 2, StaticFanRun = 3 };//model dùng để bind data editform
         bool success;
 
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnParametersSetAsync()
         {
             try
             {
-                Guid id = Guid.TryParse(Id, out var value) ? value : Guid.Empty;
-                var res = await _chuongInfoClient.GetByIdAsync(id);
+                Guid chuongId = Guid.TryParse(ChuongId, out var value) ? value : Guid.Empty;
+                var res = await _chuongInfoClient.GetByIdAsync(chuongId);
 
                 success = res.Succeeded;
 
@@ -39,7 +41,100 @@ namespace GiamSat.UI.Pages
                     #region khoi tao thong tin cai dat cho chuong
                     if (string.IsNullOrEmpty(chuongInfo.ConfigSettings) || chuongInfo.ConfigSettings == "")
                     {
-                        chuongModel.Chuongid = id;
+                        chuongModel.Chuongid = chuongId;
+                        for (int i = 1; i <= 10; i++)
+                        {
+                            chuongModel.Steps.Add(new StepSettingsModel()
+                            {
+                                StepId = i,
+                                FromDate = 0,
+                                ToDate = 1,
+                                StaticFanRun = 1,
+                                HightTemperature = 30,
+                                Lowtemperature = 15,
+                                HightFrequency = 50,
+                                LowFrequency = 10,
+                                TempRunFan1 = 20,
+                                TempRunFan2 = 21,
+                                TempRunFan3 = 22,
+                                TempRunFan4 = 23,
+                                TempRunCooler = 25
+                            });
+                        }
+
+                        chuongModel.GeneralSettings.Fan1 = 1;
+                        chuongModel.GeneralSettings.Fan2 = 2;
+                        chuongModel.GeneralSettings.Fan3 = 3;
+                        chuongModel.GeneralSettings.Fan4 = 4;
+                        chuongModel.GeneralSettings.TimeOnCooler = 2;
+                        chuongModel.GeneralSettings.TimeOffCooler = 1;
+                        chuongModel.GeneralSettings.TenChuong = chuongInfo.TenChuong;
+                        chuongModel.GeneralSettings.NumIndex = chuongInfo.NumIndex;
+
+                        chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
+                        chuongInfo.FlagUpdate = 1;
+
+                        await _chuongInfoClient.UpdateAsync(chuongInfo);
+                    }
+                    #endregion
+
+                    chuongModel = JsonConvert.DeserializeObject<SettingsModel>(chuongInfo.ConfigSettings);
+
+                    Console.WriteLine($"{chuongInfo.ConfigSettings}");
+
+                    #region lay ra thong so cai dat cho giai doan dau tien
+                    var stepFirst = chuongModel.Steps.FirstOrDefault();
+
+                    stepModel.ChuongId = chuongModel.Chuongid;
+                    stepModel.TenChuong = chuongInfo.TenChuong;
+                    stepModel.NumIndex = chuongInfo.NumIndex;
+                    stepModel.StepId = stepFirst.StepId;
+                    stepModel.FromDate = stepFirst.FromDate;
+                    stepModel.ToDate = stepFirst.ToDate;
+                    stepModel.StaticFanRun = stepFirst.StaticFanRun;
+                    stepModel.HightTemperature = stepFirst.HightTemperature;
+                    stepModel.Lowtemperature = stepFirst.Lowtemperature;
+                    stepModel.HightFrequency = stepFirst.HightFrequency;
+                    stepModel.LowFrequency = stepFirst.LowFrequency;
+                    stepModel.TempRunFan1 = stepFirst.TempRunFan1;
+                    stepModel.TempRunFan2 = stepFirst.TempRunFan2;
+                    stepModel.TempRunFan3 = stepFirst.TempRunFan3;
+                    stepModel.TempRunFan4 = stepFirst.TempRunFan4;
+                    stepModel.TempRunCooler = stepFirst.TempRunCooler;
+                    stepModel.Fan1 = chuongModel.GeneralSettings.Fan1;
+                    stepModel.Fan2 = chuongModel.GeneralSettings.Fan2;
+                    stepModel.Fan3 = chuongModel.GeneralSettings.Fan3;
+                    stepModel.Fan4 = chuongModel.GeneralSettings.Fan4;
+                    stepModel.TimeOnCooler = chuongModel.GeneralSettings.TimeOnCooler;
+                    stepModel.TimeOffCooler = chuongModel.GeneralSettings.TimeOffCooler;
+                    #endregion
+                }
+
+                //StateHasChanged();
+            }
+            catch (Exception ex)
+            {
+                _snackBar.Add(ex.Message, Severity.Error);
+            }
+        }
+
+        protected override async Task OnInitializedAsync()
+        {
+            try
+            {
+                Guid chuongId = Guid.TryParse(ChuongId, out var value) ? value : Guid.Empty;
+                var res = await _chuongInfoClient.GetByIdAsync(chuongId);
+
+                success = res.Succeeded;
+
+                if (res.Succeeded)
+                {
+                    chuongInfo = res.Data;
+
+                    #region khoi tao thong tin cai dat cho chuong
+                    if (string.IsNullOrEmpty(chuongInfo.ConfigSettings) || chuongInfo.ConfigSettings == "")
+                    {
+                        chuongModel.Chuongid = chuongId;
                         for (int i = 1; i <= 10; i++)
                         {
                             chuongModel.Steps.Add(new StepSettingsModel()
@@ -156,7 +251,8 @@ namespace GiamSat.UI.Pages
                 //success = res.Succeeded;
 
                 _snackBar.Add("Update successfull", Severity.Success);
-                StateHasChanged();
+
+                await InvokeAsync(StateHasChanged);
             }
             catch (Exception ex)
             {
@@ -169,12 +265,6 @@ namespace GiamSat.UI.Pages
             success = false;
             _snackBar.Add($"Invalid data", Severity.Error);
             StateHasChanged();
-        }
-
-        private void OnValueChanged(string selected)
-        {
-            var s = selected;
-            // Do other stuff
         }
 
         private void OnSelectedValuesChanged(IEnumerable<StepRun> values)
