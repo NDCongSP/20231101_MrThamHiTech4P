@@ -29,12 +29,12 @@ else
                             <MudItem xs="12">
                                 <MudGrid Spacing="2">
                                     <MudItem xs="12" sm="6" Class="d-flex flex-row justify-content-end">
-                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Chế độ chạy: </MudText>
-                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="Color.Success">@item.ActiveStatus</MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Chế độ chạy:</MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="Color.Success">"  "@item.ActiveStatus</MudText>
                                     </MudItem>
                                     <MudItem xs="12" sm="6" Class="d-flex flex-row justify-content-end">
                                         <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Trạng thái kết nối: </MudText>
-                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="@(item.ConnectStatus=="Connected"?Color.Success:Color.Error)">@item.ConnectStatus</MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="@(item.ConnectStatus=="Connected"?Color.Success:Color.Error)">"  "@item.ConnectStatus</MudText>
                                     </MudItem>
                                 </MudGrid>
                             </MudItem>
@@ -51,7 +51,8 @@ else
                                                 </CardHeaderContent>
                                             </MudCardHeader>
                                             <MudCardContent Class="d-flex justify-content-center" Style="heeight:40px">
-                                                <MudText Typo="Typo.h4" class="rounded mx-auto d-block">@item.Temperature</MudText>
+                                                <MudText Typo="Typo.h4" class="rounded mx-auto d-block" 
+                                                            Color="@(item.Temperature>item.HightTemperature||item.Temperature<item.Lowtemperature?Color.Error:Color.Dark)">@item.Temperature</MudText>
                                             </MudCardContent>
                                         </MudCard>
                                     </MudItem>

@@ -23,7 +23,7 @@ namespace GiamSat.Models
         public static class DisplayRealtime
         {
             public const string BasePath = "api/DisplayRealtime";
-            public const string Test = "test";
+            public const string enUpdateTChuong = "updatetenchuong";
         }
 
         public static class DataLog

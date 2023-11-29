@@ -2682,12 +2682,12 @@ namespace GiamSat.APIClient
     {
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DisplayRealTimeModelListResult> GetTop2Async();
+        System.Threading.Tasks.Task<DisplayRealTimeModelResult> UpdateTenChuongAsync(DisplayRealTimeModel? body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DisplayRealTimeModelListResult> GetTop2Async(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DisplayRealTimeModelResult> UpdateTenChuongAsync(DisplayRealTimeModel? body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -2756,18 +2756,18 @@ namespace GiamSat.APIClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<DisplayRealTimeModelListResult> GetTop2Async()
+        public virtual System.Threading.Tasks.Task<DisplayRealTimeModelResult> UpdateTenChuongAsync(DisplayRealTimeModel? body)
         {
-            return GetTop2Async(System.Threading.CancellationToken.None);
+            return UpdateTenChuongAsync(body, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<DisplayRealTimeModelListResult> GetTop2Async(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DisplayRealTimeModelResult> UpdateTenChuongAsync(DisplayRealTimeModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("api/DisplayRealtime/test");
+            urlBuilder_.Append("api/DisplayRealtime/updatetenchuong");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2775,7 +2775,11 @@ namespace GiamSat.APIClient
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    var json_ = System.Text.Json.JsonSerializer.Serialize(body, _settings.Value);
+                    var content_ = new System.Net.Http.StringContent(json_);
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("text/plain"));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -2801,7 +2805,7 @@ namespace GiamSat.APIClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<DisplayRealTimeModelListResult>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DisplayRealTimeModelResult>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);

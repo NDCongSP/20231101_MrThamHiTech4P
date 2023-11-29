@@ -10,7 +10,7 @@ namespace GiamSat.Models
     [BasePath(ApiRoutes.DisplayRealtime.BasePath)]
     public interface ISDisplayRealtime : IRepository<Guid, DisplayRealTimeModel>, IRepositoryService
     {
-        [Get(ApiRoutes.DisplayRealtime.Test)]
-        Task<Result<List<DisplayRealTimeModel>>> GetTop2();
+        [Post(ApiRoutes.DisplayRealtime.enUpdateTChuong)]
+        Task<Result<DisplayRealTimeModel>> UpdateTenChuong(DisplayRealTimeModel model);
     }
 }

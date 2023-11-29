@@ -26,10 +26,10 @@ namespace GiamSat.API.Controllers
             _dbContext = dbContext;
         }
 
-        [HttpGet(ApiRoutes.DisplayRealtime.Test)]
-        public Task<Result<List<DisplayRealTimeModel>>> GetTop2()
+        [HttpPost(ApiRoutes.DisplayRealtime.enUpdateTChuong)]
+        public Task<Result<DisplayRealTimeModel>> UpdateTenChuong(DisplayRealTimeModel model)
         {
-            return _sCommon.SDisplayRealtime.GetTop2();
+            return _sCommon.SDisplayRealtime.UpdateTenChuong(model);
         }
     }
 }

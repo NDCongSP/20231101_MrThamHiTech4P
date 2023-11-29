@@ -47,7 +47,7 @@ builder.Services.AddHttpClient("GiamSatAPI", (sp, client) =>
 }).AddHttpMessageHandler<JwtAuthenticationHeaderHandler>().Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("GiamSatAPI"));
 builder.Services.AddHttpClientInterceptor();
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-builder.Services.AddTransient<ISDisplayRealtime, DisplayRealtimeApiClient>();
+//builder.Services.AddTransient<ISDisplayRealtime, DisplayRealtimeApiClient>();
 builder.Services.AddTransient<ISChuongInfo, ChuongInfoApiClient>();
 //builder.Services.AddScoped<Common>();
 

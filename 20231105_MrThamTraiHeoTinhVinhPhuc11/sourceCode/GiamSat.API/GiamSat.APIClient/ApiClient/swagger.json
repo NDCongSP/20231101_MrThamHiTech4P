@@ -969,29 +969,48 @@
         }
       }
     },
-    "/api/DisplayRealtime/test": {
-      "get": {
+    "/api/DisplayRealtime/updatetenchuong": {
+      "post": {
         "tags": [
           "DisplayRealtime"
         ],
-        "operationId": "DisplayRealtime_GetTop2",
+        "operationId": "DisplayRealtime_UpdateTenChuong",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisplayRealTimeModel"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DisplayRealTimeModelListResult"
+                  "$ref": "#/components/schemas/DisplayRealTimeModelResult"
                 }
               }
             }

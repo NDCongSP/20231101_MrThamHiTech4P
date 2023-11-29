@@ -51,7 +51,7 @@ namespace GiamSat.UI.Pages
 
             if (res.Succeeded)
             {
-                _displayRealtime = res.Data.ToList();
+                _displayRealtime = res.Data.OrderBy(x=>x.NumIndex).ToList();
 
                 if (_displayRealtime == null && _displayRealtime.Count <= 0)
                 {
@@ -95,7 +95,7 @@ namespace GiamSat.UI.Pages
 
                 if (res.Succeeded)
                 {
-                    _displayRealtime = res.Data.ToList();
+                    _displayRealtime = res.Data.OrderBy(x=>x.NumIndex).ToList();
 
                     if (_displayRealtime == null && _displayRealtime.Count <= 0)
                     {

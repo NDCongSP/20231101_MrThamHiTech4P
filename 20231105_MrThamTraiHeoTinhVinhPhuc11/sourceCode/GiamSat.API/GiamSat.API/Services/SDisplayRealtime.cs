@@ -1,6 +1,7 @@
 ﻿using GiamSat.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RestEase;
 using System;
 using System.Collections.Generic;
@@ -74,7 +75,7 @@ namespace GiamSat.API
             }
         }
 
-        public async Task<Result<List<DisplayRealTimeModel>>> GetTop2()
+        public async Task<Result<List<DisplayRealTimeModel>>> UpdateTenChuong()
         {
             try
             {
@@ -83,6 +84,28 @@ namespace GiamSat.API
             catch (Exception ex)
             {
                 return await Result<List<DisplayRealTimeModel>>.FailAsync(ex.Message);
+            }
+        }
+
+        public async Task<Result<DisplayRealTimeModel>> UpdateTenChuong(DisplayRealTimeModel model)
+        {
+            try
+            {
+                var itemUpdate = await _dbContext.DisplayRealTimeModel.FindAsync(model.ChuongId);
+
+                if (itemUpdate == null)
+                {
+                    return await Result<DisplayRealTimeModel>.FailAsync("Loi ko co data");
+                }
+
+                _dbContext.Entry(itemUpdate).Property(x => x.TenChuong).CurrentValue = model.TenChuong;
+                await _dbContext.SaveChangesAsync();
+
+                return await Result<DisplayRealTimeModel>.SuccessAsync("Success");
+            }
+            catch (Exception ex)
+            {
+                return await Result<DisplayRealTimeModel>.FailAsync(ex.Message);
             }
         }
     }

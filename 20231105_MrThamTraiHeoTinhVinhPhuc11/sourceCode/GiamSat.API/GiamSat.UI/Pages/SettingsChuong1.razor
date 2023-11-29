@@ -10,7 +10,12 @@
     <SettingsChuong ChuongId="@ChuongId"></SettingsChuong>
 } *@
 
-@if (chuongInfo != null && stepModel != null)
+@if (chuongInfo == null && stepModel == null)
+{
+    @*<MudText>Loading....</MudText>*@
+    <div class="spinner center-div"></div>
+}
+else
 {
     <EditForm Model="@stepModel" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
         <DataAnnotationsValidator />
