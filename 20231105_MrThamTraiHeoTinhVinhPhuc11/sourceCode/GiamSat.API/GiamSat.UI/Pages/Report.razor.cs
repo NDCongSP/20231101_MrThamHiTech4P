@@ -3,7 +3,6 @@ using static MudBlazor.CategoryTypes;
 using System.Net.Http.Json;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components;
-using GiamSat.APIClient;
 
 namespace GiamSat.UI.Pages
 {
@@ -13,14 +12,16 @@ namespace GiamSat.UI.Pages
 
         //tạo các biến dùng cho tạo select chọn giai doạn
         private string stringValue { get; set; }
-        private StepRun enumValue { get; set; } = StepRun.GiaiDoan1;
-        public enum StepRun { GiaiDoan1 = 1, GiaiDoan2 = 2, GiaiDoan3 = 3, GiaiDoan4 = 4, GiaiDoan5 = 5, GiaiDoan6 = 6, GiaiDoan7 = 7, GiaiDoan8 = 8, GiaiDoan9 = 9, GiaiDoan10 = 10, }
+        private StepRun enumValue { get; set; } = StepRun.Chuong1;
+        public enum StepRun { Chuong1 = 1, Chuong2 = 2, Chuong3 = 3, Chuong4 = 4 }
+
+        DateTime? date = DateTime.Today;
 
 
         private bool _loading = true;
         private string searchString1 = "";
-        private DataLogModel selectedItem1 = null;
-        private List<DataLogModel> Elements;
+        private APIClient.DataLogModel selectedItem1 = null;
+        private List<APIClient.DataLogModel> Elements;
 
         protected override async Task OnInitializedAsync()
         {
@@ -46,13 +47,13 @@ namespace GiamSat.UI.Pages
             StateHasChanged();
         }
 
-        private bool FilterFunc1(DataLogModel element) => FilterFunc(element, searchString1);
+        private bool FilterFunc1(APIClient.DataLogModel element) => FilterFunc(element, searchString1);
 
-        private bool FilterFunc(DataLogModel element, string searchString)
+        private bool FilterFunc(APIClient.DataLogModel element, string searchString)
         {
             if (string.IsNullOrWhiteSpace(searchString))
                 return true;
-            if (element.TenChuong.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            if (element.TenChuong.Contains(searchString,StringComparison.OrdinalIgnoreCase))
                 return true;
             return false;
         }
