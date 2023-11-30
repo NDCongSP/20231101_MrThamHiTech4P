@@ -35,8 +35,8 @@ namespace GiamSat.API
             // Add services to the container.
 
             // For Entity Framework
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
-            GlobalVariable.ConString = Configuration.GetConnectionString("ConnStr");
+            GlobalVariable.ConString = EncodeMD5.DecryptString(Configuration.GetConnectionString("ConnStr"), "PTAut0m@t!0n30!)@)20");
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(GlobalVariable.ConString));
 
             // For Identity
             services.AddIdentity<IdentityUser, IdentityRole>(o =>
@@ -54,7 +54,7 @@ namespace GiamSat.API
 
                 o.SignIn.RequireConfirmedAccount = false;
                 o.SignIn.RequireConfirmedEmail = false;
-                o.SignIn.RequireConfirmedPhoneNumber = false;                
+                o.SignIn.RequireConfirmedPhoneNumber = false;
 
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()

@@ -248,7 +248,14 @@ namespace GiamSat.UI.Pages
                 chuongInfo.FlagUpdate = 1;
 
                 var res = await _chuongInfoClient.UpdateAsync(chuongInfo);
-                await _displayRealtimeClient.UpdateTenChuongAsync(new APIClient.DisplayRealTimeModel() { ChuongId = chuongInfo.Id, TenChuong = chuongInfo.TenChuong });
+                await _displayRealtimeClient.UpdateTenChuongAsync(new APIClient.DisplayRealTimeModel()
+                {
+                    ChuongId = chuongInfo.Id,
+                    TenChuong = chuongInfo.TenChuong,
+                    NumIndex = chuongInfo.NumIndex,
+                    HightTemperature=stepModel.HightTemperature,
+                    Lowtemperature=stepModel.Lowtemperature
+                });
                 //success = res.Succeeded;
 
                 _snackBar.Add("Update successfull", Severity.Success);

@@ -27,18 +27,18 @@ namespace GiamSat.Models
         public int StaticFanRun { get; set; }
 
         [Required]
-        [RegularExpression(@"^[0-50]{2}$", ErrorMessage = "Chỉ được nhập <= 50 oC")]
+        [Range(0, 40, ErrorMessage = "Chỉ được nhập <= 40 oC")]
         public double HightTemperature { get; set; }
 
         [Required]
-        [RegularExpression(@"^[0-50]{2}$", ErrorMessage = "Chỉ được nhập <= 50 oC")]
+        [Range(0,40, ErrorMessage = "Chỉ được nhập <= 40 oC")]
         public double Lowtemperature { get; set; }
 
         [Required]
-        [RegularExpression(@"^[0-50]{2}$", ErrorMessage = "Chỉ nhập <= 50 Hz")]
+        [Range(0,50, ErrorMessage = "Chỉ nhập <= 50 Hz")]
         public double HightFrequency { get; set; }
         [Required]
-        [RegularExpression(@"^[0-50]{2}$", ErrorMessage = "Chỉ nhập <= 50 Hz")]
+        [Range(0,50, ErrorMessage = "Chỉ nhập <= 50 Hz")]
         public double LowFrequency { get; set; }
         public double TempRunFan1 { get; set; }
         public double TempRunFan2 { get; set; }

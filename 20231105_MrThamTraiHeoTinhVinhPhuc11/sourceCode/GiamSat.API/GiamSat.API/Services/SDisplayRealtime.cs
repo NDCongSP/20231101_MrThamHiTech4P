@@ -99,6 +99,9 @@ namespace GiamSat.API
                 }
 
                 _dbContext.Entry(itemUpdate).Property(x => x.TenChuong).CurrentValue = model.TenChuong;
+                _dbContext.Entry(itemUpdate).Property(x => x.NumIndex).CurrentValue = model.NumIndex;
+                _dbContext.Entry(itemUpdate).Property(x => x.HightTemperature).CurrentValue = model.HightTemperature;
+                _dbContext.Entry(itemUpdate).Property(x => x.Lowtemperature).CurrentValue = model.Lowtemperature;
                 await _dbContext.SaveChangesAsync();
 
                 return await Result<DisplayRealTimeModel>.SuccessAsync("Success");
