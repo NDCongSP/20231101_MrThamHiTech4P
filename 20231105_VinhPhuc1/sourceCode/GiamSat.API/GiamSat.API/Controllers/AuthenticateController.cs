@@ -136,6 +136,8 @@ namespace GiamSat.API.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
+ 
+
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));

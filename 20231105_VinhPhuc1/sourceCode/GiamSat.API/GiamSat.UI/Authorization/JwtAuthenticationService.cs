@@ -1,6 +1,7 @@
 ﻿
 using Blazored.LocalStorage;
 using GiamSat.APIClient;
+using GiamSat.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
@@ -8,6 +9,8 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -22,6 +25,7 @@ namespace GiamSat.UI.Authorization
         private readonly SemaphoreSlim _semaphore = new(1, 1);
 
         private readonly ILocalStorageService _localStorage;
+        readonly HttpClient _httpClient;
         // private readonly IPersonalClient _personalClient;
         private readonly IAuthenticateClient _tokenClient;
         private readonly NavigationManager _navigation;
@@ -78,7 +82,7 @@ namespace GiamSat.UI.Authorization
         public void NavigateToExternalLogin(string returnUrl) =>
             throw new NotImplementedException();
 
-        public async Task<LoginResult> LoginAsync(LoginModel request)
+        public async Task<APIClient.LoginResult> LoginAsync(APIClient.LoginModel request)
         {
             var tokenResponse = await _tokenClient.LoginAsync(request);
 
@@ -123,7 +127,29 @@ namespace GiamSat.UI.Authorization
             _navigation.NavigateTo(returnUrl);
         }
 
-        public async Task<string> RefreshToken()
+        //public async Task<string> RefreshToken()
+        //{
+        //    var token = await _localStorage.GetItemAsync<string>(StorageConts.AuthToken);
+        //    var refreshToken = await _localStorage.GetItemAsync<string>(StorageConts.RefreshToken);
+
+        //    var response = await _httpClient.PostAsJsonAsync(ApiRoutes.Token.Refresh, new RefreshTokenRequest { Token = token, RefreshToken = refreshToken });
+
+        //    var result = await response.ToResult<TokenResponse>();
+
+        //    if (!result.Succeeded)
+        //    {
+        //        throw new ApplicationException("Something went wrong during the refresh token action");
+        //    }
+
+        //    token = result.Data.Token;
+        //    refreshToken = result.Data.RefreshToken;
+        //    await _localStorage.SetItemAsync(StorageConstants.Local.AuthToken, token);
+        //    await _localStorage.SetItemAsync(StorageConstants.Local.RefreshToken, refreshToken);
+        //    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        //    return token;
+        //}
+
+        public async Task<string> TryRefreshToken()
         {
             var token = await _localStorage.GetItemAsync<string>(StorageConts.AuthToken);
             if (string.IsNullOrWhiteSpace(token))
@@ -138,6 +164,8 @@ namespace GiamSat.UI.Authorization
             if (diff.TotalMinutes <= 5)
             {
                 // Cho nay de refresh token khi token sap het han
+                //return await RefreshToken();
+
                 return null;
             }
             return token;

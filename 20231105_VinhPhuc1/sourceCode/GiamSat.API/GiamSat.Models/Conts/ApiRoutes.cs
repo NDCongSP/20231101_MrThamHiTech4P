@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +22,11 @@ namespace GiamSat.Models
         /// </summary>
         public const string Insert = "insert";
 
+        public static class Token
+        {
+            public static string Get = "api/identity/token";
+            public static string Refresh = "api/identity/token/refresh";
+        }
         public static class DisplayRealtime
         {
             public const string BasePath = "api/DisplayRealtime";

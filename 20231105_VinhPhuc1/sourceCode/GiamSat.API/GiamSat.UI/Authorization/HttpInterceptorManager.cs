@@ -31,7 +31,7 @@ namespace GiamSat.UI.Authorization
             {
                 try
                 {
-                    var result = await _authService.RefreshToken();
+                    var result = await _authService.TryRefreshToken();
                     if (result != null)
                     {
                         args.Request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", result);

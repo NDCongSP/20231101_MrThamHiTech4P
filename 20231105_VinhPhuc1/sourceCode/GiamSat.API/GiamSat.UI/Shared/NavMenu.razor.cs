@@ -1,4 +1,5 @@
 ﻿using GiamSat.APIClient;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace GiamSat.UI.Shared
 {
@@ -20,32 +21,17 @@ namespace GiamSat.UI.Shared
                 if (res.Succeeded)
                 {
                     chuongInfo = res.Data.OrderBy(x => x.NumIndex).ToList();
-                    foreach (var item in chuongInfo)
-                    {
-                        if (item.NumIndex == 1)
-                        {
-                            c1 = item;
-                            linkC1 = $"/c1/{item.Id}";
-                        }
-                        else if (item.NumIndex == 2)
-                        {
-                            c2 = item;
-                        }
-                        else if (item.NumIndex == 3)
-                        {
-                            c3 = item;
-                        }
-                        else //if (item.NumIndex == 1)
-                        {
-                            c4 = item;
-                        }
-                    }
                 }
             }
             catch (Exception ex)
             {
                 _snackBar.Add(ex.Message, MudBlazor.Severity.Error);
             }
+        }
+
+        async void OnclickLogout(MouseEventArgs args)
+        {
+            await _authSerivce.LogoutAsync();
         }
     }
 }
