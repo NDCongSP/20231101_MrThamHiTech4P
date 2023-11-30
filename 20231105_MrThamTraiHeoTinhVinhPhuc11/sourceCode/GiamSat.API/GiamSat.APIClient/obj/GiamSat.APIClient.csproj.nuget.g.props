@@ -16,10 +16,4 @@
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
   </ItemGroup>
-  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)nswag.msbuild\13.20.0\buildTransitive\NSwag.MSBuild.props" Condition="Exists('$(NuGetPackageRoot)nswag.msbuild\13.20.0\buildTransitive\NSwag.MSBuild.props')" />
-  </ImportGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNSwag_MSBuild Condition=" '$(PkgNSwag_MSBuild)' == '' ">C:\Users\ndcon\.nuget\packages\nswag.msbuild\13.20.0</PkgNSwag_MSBuild>
-  </PropertyGroup>
 </Project>
