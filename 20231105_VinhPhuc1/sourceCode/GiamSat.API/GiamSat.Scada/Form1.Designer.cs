@@ -39,6 +39,8 @@ namespace GiamSat.Scada
             this._pnStatusChuong3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this._pnStatusChuong4 = new System.Windows.Forms.Panel();
+            this._pnStatus = new System.Windows.Forms.Panel();
+            this._labTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.easyDriverConnector1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,17 +125,36 @@ namespace GiamSat.Scada
             this._pnStatusChuong4.Size = new System.Drawing.Size(297, 71);
             this._pnStatusChuong4.TabIndex = 1;
             // 
+            // _pnStatus
+            // 
+            this._pnStatus.Location = new System.Drawing.Point(12, 12);
+            this._pnStatus.Name = "_pnStatus";
+            this._pnStatus.Size = new System.Drawing.Size(123, 40);
+            this._pnStatus.TabIndex = 1;
+            // 
+            // _labTime
+            // 
+            this._labTime.AutoSize = true;
+            this._labTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labTime.Location = new System.Drawing.Point(654, 22);
+            this._labTime.Name = "_labTime";
+            this._labTime.Size = new System.Drawing.Size(51, 20);
+            this._labTime.TabIndex = 2;
+            this._labTime.Text = "label5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1083, 458);
+            this.Controls.Add(this._labTime);
             this.Controls.Add(this._pnStatusChuong4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this._pnStatusChuong3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this._pnStatusChuong2);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this._pnStatus);
             this.Controls.Add(this._pnStatusChuong1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
@@ -155,6 +176,8 @@ namespace GiamSat.Scada
         private System.Windows.Forms.Panel _pnStatusChuong3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel _pnStatusChuong4;
+        private System.Windows.Forms.Panel _pnStatus;
+        private System.Windows.Forms.Label _labTime;
     }
 }
 

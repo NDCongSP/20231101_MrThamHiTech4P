@@ -1798,6 +1798,18 @@
           "numIndex": {
             "type": "integer",
             "format": "int32"
+          },
+          "currentDay": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currentStep": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalDay": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

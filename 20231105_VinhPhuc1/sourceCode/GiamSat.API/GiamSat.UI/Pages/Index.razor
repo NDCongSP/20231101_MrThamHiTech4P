@@ -11,7 +11,7 @@
 }
 else
 {
-    <MudGrid Spacing="2" Class="pt-5">
+    <MudGrid Spacing="2" Class="p-2">
         @foreach (var item in _displayRealtime)
         {
             <MudItem xs="12" sm="6">
@@ -28,13 +28,21 @@ else
                         <MudGrid Spacing="1">
                             <MudItem xs="12">
                                 <MudGrid Spacing="2">
-                                    <MudItem xs="12" sm="6" Class="d-flex flex-row justify-content-end">
-                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Chế độ chạy:</MudText>
-                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="Color.Success">"  "@item.ActiveStatus</MudText>
+                                    <MudItem xs="12" sm="3" Class="d-flex flex-row justify-content-end">
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Ngày hiện tại: </MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="Color.Success">@item.CurrentDay/@item.TotalDay</MudText>
                                     </MudItem>
-                                    <MudItem xs="12" sm="6" Class="d-flex flex-row justify-content-end">
+                                    <MudItem xs="12" sm="3" Class="d-flex flex-row justify-content-end">
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Giai đoạn: </MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="Color.Success">@item.CurrentStep/10</MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="3" Class="d-flex flex-row justify-content-end">
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Chế độ chạy: </MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="Color.Success">@item.ActiveStatus</MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="3" Class="d-flex flex-row justify-content-end">
                                         <MudText Typo="Typo.subtitle2" Class="d-flex flex-row">Trạng thái kết nối: </MudText>
-                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="@(item.ConnectStatus=="Connected"?Color.Success:Color.Error)">"  "@item.ConnectStatus</MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="d-flex flex-row" Color="@(item.ConnectStatus=="Connected"?Color.Success:Color.Error)">@item.ConnectStatus</MudText>
                                     </MudItem>
                                 </MudGrid>
                             </MudItem>

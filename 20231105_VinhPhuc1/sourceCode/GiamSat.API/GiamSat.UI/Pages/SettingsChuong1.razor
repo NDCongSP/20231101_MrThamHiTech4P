@@ -1,6 +1,6 @@
 ﻿@page "/c/{ChuongId}"
-@attribute [Authorize]
-@* @attribute [Authorize(Roles = "Admin")] *@
+@* @attribute [Authorize] *@
+@attribute [Authorize(Roles = "Admin")]
 @*@attribute [AllowAnonymous]*@
 
 @using System.ComponentModel.DataAnnotations
@@ -39,7 +39,7 @@ else
                                             <MudItem xs="12">
                                                 <MudSelect @bind-Value="enumValue" Label="CHỌN GIAI ĐOẠN"
                                                            SelectedValuesChanged="(IEnumerable<StepRun>e)=>OnSelectedValuesChanged(e)"
-                                                           HelperText="Chọn giai đoạn để cài đặt các thông số"
+                                                           HelperText="Chọn giai đoạn để cài đặt các thông số" HelperTextOnFocus="true"
                                                            OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
                                                     @foreach (StepRun item in Enum.GetValues(typeof(StepRun)))
                                                     {
@@ -50,11 +50,11 @@ else
                                             <MudItem xs="12">
                                                 <MudGrid Spacing="1">
                                                     <MudItem xs="12" sm="3">
-                                                        <MudNumericField Label="Từ ngày" HelperText="Ngày bắt đầu giai đoạn" Class="m-2"
+                                                        <MudNumericField Label="Từ ngày" HelperText="Ngày bắt đầu giai đoạn" HelperTextOnFocus="true" Class="m-2"
                                                         @bind-Value="@stepModel.FromDate" For="@(()=>@stepModel.FromDate)"></MudNumericField>
                                                     </MudItem>
                                                     <MudItem xs="12" sm="3">
-                                                        <MudNumericField Label="Đến ngày" HelperText="Ngày kết thúc giai đoạn" Class="m-2"
+                                                        <MudNumericField Label="Đến ngày" HelperText="Ngày kết thúc giai đoạn" HelperTextOnFocus="true" Class="m-2"
                                                         @bind-Value="@stepModel.ToDate" For="@(()=>@stepModel.ToDate)"></MudNumericField>
                                                     </MudItem>
                                                     <MudItem xs="12" sm="3">
@@ -151,6 +151,22 @@ else
                                                 <MudNumericField Label="Quat 4" Class="m-2"
                                                 @bind-Value="@stepModel.Fan4" For="@(()=>@stepModel.Fan4)"></MudNumericField>
                                             </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Ngày hiện tại" Class="m-2" HelperTextOnFocus="true" HelperText="Nhập ngày để chọn giai đoạn chạy tương ứng"
+                                                @bind-Value="@stepModel.CurrentDay" For="@(()=>@stepModel.CurrentDay)"></MudNumericField>
+                                            </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Bù nhiệt (oC)" Class="m-2" HelperTextOnFocus="true" HelperText="Giá trị offset nhiệt độ."
+                                                @bind-Value="@stepModel.OffsetTemp" For="@(()=>@stepModel.OffsetTemp)"></MudNumericField>
+                                            </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Trễ cảnh báo (oC)" Class="m-2"
+                                                @bind-Value="@stepModel.DeadbandTemp" For="@(()=>@stepModel.DeadbandTemp)"></MudNumericField>
+                                            </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Reset giai đoạn" Class="m-2" HelperText="Cho chạy lại từ giai đoạn đầu tiên" HelperTextOnFocus="true"
+                                                @bind-Value="@stepModel.ResetGiaiDoan" For="@(()=>@stepModel.ResetGiaiDoan)"></MudNumericField>
+                                            </MudItem>
                                         </MudGrid>
                                     </MudCardContent>
                                 </MudCard>
@@ -158,7 +174,7 @@ else
                         </MudGrid>
                     </MudCardContent>
                     <MudCardActions>
-                        <MudButton ButtonType="ButtonType.Submit" FullWidth=true Variant="Variant.Filled" Color="Color.Primary" Class="btn btn-primary btn-lg btn-block">Cập nhật</MudButton>
+                        <MudButton ButtonType="MudBlazor.ButtonType.Submit" FullWidth=true Variant="Variant.Filled" Color="Color.Primary" Class="btn btn-primary btn-lg btn-block">Cập nhật</MudButton>
                     </MudCardActions>
                 </MudCard>
             </MudItem>

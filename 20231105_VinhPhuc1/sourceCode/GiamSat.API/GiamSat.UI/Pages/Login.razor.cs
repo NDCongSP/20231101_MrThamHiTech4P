@@ -32,24 +32,28 @@ namespace GiamSat.UI.Pages
 
         private async Task HandleLogin()
         {
-            var success = await _authSerivce.LoginAsync(_model);
-
-            if (success != null)
+            try
             {
-                token = success.Token;
-                login = success;
+                var success = await _authSerivce.LoginAsync(_model);
 
-                _snackBar.Add("Login successfull", Severity.Success);
-                //await InvokeAsync(StateHasChanged);
-                //StateHasChanged();
-                _navigation.NavigateTo("/");
-            }
-            else
-            {
-                _snackBar.Add("Login fail", Severity.Error);
+                if (success != null)
+                {
+                    token = success.Token;
+                    login = success;
 
-                //StateHasChanged();
+                    _snackBar.Add("Login successfull", Severity.Success);
+                    //await InvokeAsync(StateHasChanged);
+                    //StateHasChanged();
+                    _navigation.NavigateTo("/");
+                }
+                else
+                {
+                    _snackBar.Add("Login fail", Severity.Error);
+
+                    //StateHasChanged();
+                }
             }
+            catch { }
         }
     }
 }

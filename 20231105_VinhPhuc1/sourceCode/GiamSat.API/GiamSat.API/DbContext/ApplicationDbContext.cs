@@ -19,7 +19,6 @@ namespace GiamSat.API
             builder.Entity<ChuongInfoModel>();
             //builder.Entity<DisplayRealTimeModel>().HasNoKey();//table không sử dụng khóa chính
             builder.Entity<DisplayRealTimeModel>();
-            builder.Entity<SettingsChuongModel>();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -30,6 +29,5 @@ namespace GiamSat.API
         public DbSet<GiamSat.Models.DataLogModel> DataLogModel { get; set; }
         public DbSet<GiamSat.Models.ChuongInfoModel> ChuongInfoModel { get; set; }
         public DbSet<GiamSat.Models.DisplayRealTimeModel> DisplayRealTimeModel { get; set; }
-        public DbSet<GiamSat.Models.SettingsChuongModel> SettingsChuongModel { get; set; }
     }
 }

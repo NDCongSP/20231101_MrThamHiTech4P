@@ -7,11 +7,7 @@ namespace GiamSat.UI.Shared
     {
         private List<ChuongInfoModel> chuongInfo =new List<ChuongInfoModel>();
 
-        private string linkC1, linkC2, linkC3, linkC4,linkC;
-        private ChuongInfoModel c1 = new ChuongInfoModel();
-        private ChuongInfoModel c2 = new ChuongInfoModel();
-        private ChuongInfoModel c3 = new ChuongInfoModel();
-        private ChuongInfoModel c4 = new ChuongInfoModel();
+        private string linkC;
         protected override async Task OnInitializedAsync()
         {
             try

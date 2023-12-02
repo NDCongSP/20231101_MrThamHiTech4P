@@ -31,6 +31,18 @@ namespace GiamSat.Models
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public double HightTemperature { get; set; }
         public double Lowtemperature { get; set; }
-        public int NumIndex { get; set; } 
+        public int NumIndex { get; set; }
+        /// <summary>
+        /// Ngày hiện tại của giai đoạn.
+        /// </summary>
+        public int CurrentDay { get; set; }
+        /// <summary>
+        /// Giai đoạn hiện tại.
+        /// </summary>
+        public int CurrentStep { get; set; }
+        /// <summary>
+        /// Tổng số ngày của cả quá trình.
+        /// </summary>
+        public int TotalDay { get; set; }
     }
 }

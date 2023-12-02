@@ -34,49 +34,53 @@ namespace GiamSat.UI.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
-            if (chuongInfoRes.Succeeded)
+            try
             {
-                _chuongInfo = chuongInfoRes.Data.ToList();
-            }
-            else
-            {
-                foreach (var item in chuongInfoRes.Messages)
+                var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
+                if (chuongInfoRes.Succeeded)
                 {
-                    _snackBar.Add(item, Severity.Error);
+                    _chuongInfo = chuongInfoRes.Data.ToList();
                 }
-            }
-
-            var res = await _displayRealtimeClient.GetAllAsync();
-
-            if (res.Succeeded)
-            {
-                _displayRealtime = res.Data.OrderBy(x=>x.NumIndex).ToList();
-
-                if (_displayRealtime == null && _displayRealtime.Count <= 0)
+                else
                 {
-                    _snackBar.Add("Data Null", Severity.Warning);
-                    return;
+                    foreach (var item in chuongInfoRes.Messages)
+                    {
+                        _snackBar.Add(item, Severity.Error);
+                    }
                 }
-            }
-            else
-            {
-                foreach (var item in res.Messages)
+
+                var res = await _displayRealtimeClient.GetAllAsync();
+
+                if (res.Succeeded)
                 {
-                    _snackBar.Add(item, Severity.Error);
+                    _displayRealtime = res.Data.OrderBy(x => x.NumIndex).ToList();
+
+                    if (_displayRealtime == null && _displayRealtime.Count <= 0)
+                    {
+                        _snackBar.Add("Data Null", Severity.Warning);
+                        return;
+                    }
                 }
+                else
+                {
+                    foreach (var item in res.Messages)
+                    {
+                        _snackBar.Add(item, Severity.Error);
+                    }
+                }
+
+                #region Timer refresh data
+
+                //    _timer = new System.Threading.Timer(async (object stateInfo) =>
+                //{
+
+                //}, new System.Threading.AutoResetEvent(false), 2000, 2000); // fire every 1000 milliseconds
+                _timer = new System.Timers.Timer(5000);
+                _timer.Elapsed += RefreshData;
+                _timer.Enabled = true;
+                #endregion
             }
-
-            #region Timer refresh data
-
-            //    _timer = new System.Threading.Timer(async (object stateInfo) =>
-            //{
-
-            //}, new System.Threading.AutoResetEvent(false), 2000, 2000); // fire every 1000 milliseconds
-            _timer = new System.Timers.Timer(5000);
-            _timer.Elapsed += RefreshData;
-            _timer.Enabled = true;
-            #endregion
+            catch { }
         }
 
         private async void RefreshData(object? sender, ElapsedEventArgs e)

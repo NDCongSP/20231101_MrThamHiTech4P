@@ -36,6 +36,15 @@ namespace GiamSat.UI.Pages
 
                 if (res.Succeeded)
                 {
+                    chuongInfo = null;
+                    chuongInfo = new APIClient.ChuongInfoModel();
+
+                    chuongModel = null;
+                    chuongModel = new SettingsModel();
+
+                    stepModel = null;
+                    stepModel = new SettingBindingModel();
+
                     chuongInfo = res.Data;
 
                     #region khoi tao thong tin cai dat cho chuong
@@ -70,6 +79,10 @@ namespace GiamSat.UI.Pages
                         chuongModel.GeneralSettings.TimeOffCooler = 1;
                         chuongModel.GeneralSettings.TenChuong = chuongInfo.TenChuong;
                         chuongModel.GeneralSettings.NumIndex = chuongInfo.NumIndex;
+                        chuongModel.GeneralSettings.CurrentDay = 0;
+                        chuongModel.GeneralSettings.OffsetTemp = 0;
+                        chuongModel.GeneralSettings.DeadbandTemp = 0;
+                        chuongModel.GeneralSettings.ResetGiaiDoan = 0;
 
                         chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
                         chuongInfo.FlagUpdate = 1;
@@ -107,10 +120,14 @@ namespace GiamSat.UI.Pages
                     stepModel.Fan4 = chuongModel.GeneralSettings.Fan4;
                     stepModel.TimeOnCooler = chuongModel.GeneralSettings.TimeOnCooler;
                     stepModel.TimeOffCooler = chuongModel.GeneralSettings.TimeOffCooler;
+                    stepModel.CurrentDay = chuongModel.GeneralSettings.CurrentDay;
+                    stepModel.OffsetTemp = chuongModel.GeneralSettings.OffsetTemp;
+                    stepModel.DeadbandTemp = chuongModel.GeneralSettings.DeadbandTemp;
+                    stepModel.ResetGiaiDoan = chuongModel.GeneralSettings.ResetGiaiDoan;
                     #endregion
                 }
 
-                //StateHasChanged();
+                StateHasChanged();
             }
             catch (Exception ex)
             {
@@ -129,19 +146,29 @@ namespace GiamSat.UI.Pages
 
                 if (res.Succeeded)
                 {
+                    chuongInfo = null;
+                    chuongInfo = new APIClient.ChuongInfoModel();
+
+                    chuongModel = null;
+                    chuongModel = new SettingsModel();
+
+                    stepModel = null;
+                    stepModel = new SettingBindingModel();
+
                     chuongInfo = res.Data;
 
                     #region khoi tao thong tin cai dat cho chuong
                     if (string.IsNullOrEmpty(chuongInfo.ConfigSettings) || chuongInfo.ConfigSettings == "")
                     {
+                        int dayIndex = 0;
                         chuongModel.Chuongid = chuongId;
                         for (int i = 1; i <= 10; i++)
                         {
                             chuongModel.Steps.Add(new StepSettingsModel()
                             {
                                 StepId = i,
-                                FromDate = 0,
-                                ToDate = 1,
+                                FromDate = dayIndex,
+                                ToDate = dayIndex + 1,
                                 StaticFanRun = 1,
                                 HightTemperature = 30,
                                 Lowtemperature = 15,
@@ -152,7 +179,10 @@ namespace GiamSat.UI.Pages
                                 TempRunFan3 = 22,
                                 TempRunFan4 = 23,
                                 TempRunCooler = 25
+
                             });
+
+                            dayIndex += 2;
                         }
 
                         chuongModel.GeneralSettings.Fan1 = 1;
@@ -162,7 +192,11 @@ namespace GiamSat.UI.Pages
                         chuongModel.GeneralSettings.TimeOnCooler = 2;
                         chuongModel.GeneralSettings.TimeOffCooler = 1;
                         chuongModel.GeneralSettings.TenChuong = chuongInfo.TenChuong;
-                        chuongModel.GeneralSettings.NumIndex = 1;
+                        chuongModel.GeneralSettings.NumIndex = chuongInfo.NumIndex;
+                        chuongModel.GeneralSettings.CurrentDay = 0;
+                        chuongModel.GeneralSettings.OffsetTemp = 0;
+                        chuongModel.GeneralSettings.DeadbandTemp = 0;
+                        chuongModel.GeneralSettings.ResetGiaiDoan = 0;
 
                         chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
                         chuongInfo.TenChuong = chuongModel.GeneralSettings.TenChuong;
@@ -202,6 +236,10 @@ namespace GiamSat.UI.Pages
                     stepModel.Fan4 = chuongModel.GeneralSettings.Fan4;
                     stepModel.TimeOnCooler = chuongModel.GeneralSettings.TimeOnCooler;
                     stepModel.TimeOffCooler = chuongModel.GeneralSettings.TimeOffCooler;
+                    stepModel.CurrentDay = chuongModel.GeneralSettings.CurrentDay;
+                    stepModel.OffsetTemp = chuongModel.GeneralSettings.OffsetTemp;
+                    stepModel.DeadbandTemp = chuongModel.GeneralSettings.DeadbandTemp;
+                    stepModel.ResetGiaiDoan = chuongModel.GeneralSettings.ResetGiaiDoan;
                     #endregion
                 }
             }
@@ -241,6 +279,10 @@ namespace GiamSat.UI.Pages
                 chuongModel.GeneralSettings.Fan4 = stepModel.Fan4;
                 chuongModel.GeneralSettings.TimeOnCooler = stepModel.TimeOnCooler;
                 chuongModel.GeneralSettings.TimeOffCooler = stepModel.TimeOffCooler;
+                chuongModel.GeneralSettings.CurrentDay = stepModel.CurrentDay;
+                chuongModel.GeneralSettings.OffsetTemp = stepModel.OffsetTemp;
+                chuongModel.GeneralSettings.DeadbandTemp = stepModel.DeadbandTemp;
+                chuongModel.GeneralSettings.ResetGiaiDoan = stepModel.ResetGiaiDoan;
 
                 chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
                 chuongInfo.TenChuong = stepModel.TenChuong;
@@ -253,8 +295,8 @@ namespace GiamSat.UI.Pages
                     ChuongId = chuongInfo.Id,
                     TenChuong = chuongInfo.TenChuong,
                     NumIndex = chuongInfo.NumIndex,
-                    HightTemperature=stepModel.HightTemperature,
-                    Lowtemperature=stepModel.Lowtemperature
+                    HightTemperature = stepModel.HightTemperature,
+                    Lowtemperature = stepModel.Lowtemperature
                 });
                 //success = res.Succeeded;
 

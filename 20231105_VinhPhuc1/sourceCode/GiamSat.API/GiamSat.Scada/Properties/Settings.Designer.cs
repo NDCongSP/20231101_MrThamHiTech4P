@@ -12,7 +12,7 @@ namespace GiamSat.Scada.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,14 +25,38 @@ namespace GiamSat.Scada.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;Database=GiamSatTrai;User Id=dev;Password=Dev@123;TrustServerCer" +
-            "tificate=True;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("6uYjIe3oXDqJRKsw6NeEsI/BY/T4qF8gAZK3T/xLTyYjoF2fq/Jo9eq08TK3YvN8W5mDmmbB0mWs1RTcD" +
+            "H9gjTKcjMeCJfpNXn8xCgA7cNmg1Gvk14wCzJwtyVLEN0hj")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
             }
             set {
                 this["ConnectionString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int LogInterval {
+            get {
+                return ((int)(this["LogInterval"]));
+            }
+            set {
+                this["LogInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int DisplayRealtimeInterval {
+            get {
+                return ((int)(this["DisplayRealtimeInterval"]));
+            }
+            set {
+                this["DisplayRealtimeInterval"] = value;
             }
         }
     }

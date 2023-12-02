@@ -101,6 +101,12 @@ namespace GiamSat.API.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("CurrentDay")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CurrentStep")
+                        .HasColumnType("int");
+
                     b.Property<int>("Fan1Status")
                         .HasColumnType("int");
 
@@ -137,35 +143,12 @@ namespace GiamSat.API.Migrations
                     b.Property<string>("TenChuong")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TotalDay")
+                        .HasColumnType("int");
+
                     b.HasKey("ChuongId");
 
                     b.ToTable("DisplayRealtime");
-                });
-
-            modelBuilder.Entity("GiamSat.Models.SettingsChuongModel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("ChuongId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConfigSettings")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("TenChuong")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SettingChuong");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

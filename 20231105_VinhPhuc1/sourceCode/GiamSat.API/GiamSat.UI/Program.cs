@@ -19,6 +19,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 var config = builder.Configuration;
 
 builder.Services.AddMudServices();
+builder.Services.AddBlazorBootstrap();
 
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AutoRegisterInterfaces<IApiService>();
@@ -28,6 +29,7 @@ builder.Services.AddAuthorizationCore(options =>
     options.AddPolicy(UserRoles.Admin, policy =>
     {
         policy.RequireRole(UserRoles.Admin);
+        policy.RequireRole(UserRoles.User);
     });
 });
 

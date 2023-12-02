@@ -66,5 +66,9 @@ namespace GiamSat.Models
         /// </summary>
         [Required(ErrorMessage = "Không được trống.")]
         public int TimeOffCooler { get; set; }
+        public int CurrentDay { get; set; }
+        public double OffsetTemp { get; set; }
+        public double DeadbandTemp { get; set; }
+        public int ResetGiaiDoan { get; set; }
     }
 }

@@ -9,8 +9,8 @@
 }
 else
 {
-    <MudPaper Class="ma-2 mt-5 p-5" Elevation="3">
-        <MudGrid Spacing="2" Class="p-5 border border-warning">
+    <MudPaper Class="ma-2 mt-5 p-2" Elevation="3">
+        <MudGrid Spacing="2" Class="p-1">
             <MudItem xs="12" sm="3">
                 <MudDatePicker Label="Từ ngày" @bind-Date="date" />
             </MudItem>
@@ -38,7 +38,8 @@ else
                     <ToolBarContent>
                         <MudText Typo="Typo.h6">Tìm kiếm</MudText>
                         <MudSpacer />
-                        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" 
+                            AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
                     </ToolBarContent>
                     <HeaderContent>
                         <MudTh>Thời gian</MudTh>
