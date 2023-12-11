@@ -44,5 +44,7 @@ namespace GiamSat.Models
         /// Tổng số ngày của cả quá trình.
         /// </summary>
         public int TotalDay { get; set; }
+        public int QuaTai { get; set; }
+        public int ChayDuPhong { get; set; }
     }
 }

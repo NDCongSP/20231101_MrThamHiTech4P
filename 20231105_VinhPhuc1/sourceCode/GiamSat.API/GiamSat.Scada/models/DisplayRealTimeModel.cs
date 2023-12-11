@@ -40,5 +40,8 @@ namespace GiamSat.Scada
         /// Giai đoạn hiện tại.
         /// </summary>
         public int CurrentStep { get; set; }
+        public int TotalDay { get; set; }
+        public int QuaTai { get; set; }
+        public int ChayDuPhong { get; set; }
     }
 }

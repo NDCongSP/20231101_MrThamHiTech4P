@@ -75,7 +75,7 @@ namespace GiamSat.UI.Pages
                 //{
 
                 //}, new System.Threading.AutoResetEvent(false), 2000, 2000); // fire every 1000 milliseconds
-                _timer = new System.Timers.Timer(5000);
+                _timer = new System.Timers.Timer(GlobalVariable.RefreshInterval);
                 _timer.Elapsed += RefreshData;
                 _timer.Enabled = true;
                 #endregion

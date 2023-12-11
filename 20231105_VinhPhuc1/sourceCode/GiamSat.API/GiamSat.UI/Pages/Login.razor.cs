@@ -50,10 +50,14 @@ namespace GiamSat.UI.Pages
                 {
                     _snackBar.Add("Login fail", Severity.Error);
 
-                    //StateHasChanged();
+                    StateHasChanged();
                 }
             }
-            catch { }
+            catch {
+                _snackBar.Add("Login fail", Severity.Error);
+
+                StateHasChanged();
+            }
         }
     }
 }

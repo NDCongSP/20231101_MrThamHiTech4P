@@ -11,6 +11,8 @@ using MudBlazor.Services;
 using System.Globalization;
 using GiamSat.UI.Authorization;
 using Toolbelt.Blazor.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Localization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -53,6 +55,43 @@ builder.Services.AddHttpClientInterceptor();
 //builder.Services.AddTransient<ISDisplayRealtime, DisplayRealtimeApiClient>();
 builder.Services.AddTransient<ISChuongInfo, ChuongInfoApiClient>();
 //builder.Services.AddScoped<Common>();
+
+#region set use dot as decimal separator when the current culture is Greek
+// Define the list of cultures your app will support 
+var supportedCultures = new List<CultureInfo>()
+                {
+                    new CultureInfo("en-US"),
+                    new CultureInfo("es-ES"),
+                    new CultureInfo("de-DE")
+                };
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    // Set the default culture 
+    var culture = new CultureInfo("de-DE");
+    //culture.NumberFormat.NumberDecimalSeparator = ".";
+    options.DefaultRequestCulture = new RequestCulture(culture);
+
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+    options.RequestCultureProviders = new List<IRequestCultureProvider>() {
+                 new QueryStringRequestCultureProvider() // Here, You can also use other localization provider 
+                };
+});
+
+//var supportedCultures = new[]
+//{
+//    new System.Globalization.CultureInfo("de-DE"),
+//};
+
+
+//builder.Services.Configure<RequestLocalizationOptions>(options =>
+//{
+//    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("de-DE");
+//    options.SupportedCultures = supportedCultures;
+//    options.SupportedUICultures = supportedCultures;
+//});
+#endregion
 
 await builder.Build().RunAsync();
 

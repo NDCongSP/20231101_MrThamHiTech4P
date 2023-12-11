@@ -27,5 +27,12 @@ namespace GiamSat.Scada
         /// Thời gian dừng dàn mát, minute.
         /// </summary>
         public int TimeOffCooler { get; set; }
+        public int CurrentDay { get; set; }
+        public double OffsetTemp { get; set; }
+        public double DeadbandTemp { get; set; }
+        /// <summary>
+        /// coil 15. reset lai, chay lại từ đầu.
+        /// </summary>
+        public int ResetGiaiDoan { get; set; }
     }
 }

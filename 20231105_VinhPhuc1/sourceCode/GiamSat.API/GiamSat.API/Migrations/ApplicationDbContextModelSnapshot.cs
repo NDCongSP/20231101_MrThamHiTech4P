@@ -92,6 +92,9 @@ namespace GiamSat.API.Migrations
                     b.Property<string>("ActiveStatus")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ChayDuPhong")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConnectStatus")
                         .HasColumnType("nvarchar(max)");
 
@@ -135,6 +138,9 @@ namespace GiamSat.API.Migrations
                         .HasColumnType("float");
 
                     b.Property<int>("NumIndex")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuaTai")
                         .HasColumnType("int");
 
                     b.Property<double>("Temperature")

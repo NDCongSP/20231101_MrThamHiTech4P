@@ -75,14 +75,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalVariable.cs" />
-    <Compile Include="models\ChuongInfoModel.cs" />
-    <Compile Include="models\DataLogModel.cs" />
-    <Compile Include="models\DisplayRealTimeModel.cs" />
-    <Compile Include="models\NotTable\DeviceTagValueModel.cs" />
-    <Compile Include="models\NotTable\GeneralStepSettingsModel.cs" />
-    <Compile Include="models\NotTable\SettingBindingModel.cs" />
-    <Compile Include="models\NotTable\SettingsModel.cs" />
-    <Compile Include="models\NotTable\StepSettingsModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -111,6 +103,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GiamSat.Models\GiamSat.Models.csproj">
+      <Project>{bcd2bfea-4b8e-41c2-b297-fa5f39bd38b2}</Project>
+      <Name>GiamSat.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

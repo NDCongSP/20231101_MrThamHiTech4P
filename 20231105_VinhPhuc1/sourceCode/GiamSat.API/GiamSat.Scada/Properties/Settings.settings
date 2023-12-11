@@ -6,7 +6,7 @@
       <Value Profile="(Default)">6uYjIe3oXDqJRKsw6NeEsI/BY/T4qF8gAZK3T/xLTyYjoF2fq/Jo9eq08TK3YvN8W5mDmmbB0mWs1RTcDH9gjTKcjMeCJfpNXn8xCgA7cNmg1Gvk14wCzJwtyVLEN0hj</Value>
     </Setting>
     <Setting Name="LogInterval" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5</Value>
+      <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="DisplayRealtimeInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
