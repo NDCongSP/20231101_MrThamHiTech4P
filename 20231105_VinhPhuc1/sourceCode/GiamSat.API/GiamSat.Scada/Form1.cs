@@ -1,6 +1,4 @@
 ﻿using Dapper;
-using DevExpress.Data.Helpers;
-using DevExpress.XtraReports.Parameters;
 using EasyScada.Core;
 using Newtonsoft.Json;
 using System;
