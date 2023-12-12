@@ -3978,7 +3978,7 @@ if @b_hax238.0=0 then
 	@W_HAW227=1
 	
 	'gan gia tri ban dau cho moc 1
-	@W_HAW3=1'SO QUAT CHAY CO DINH
+	@W_HAW3=0'SO QUAT CHAY CO DINH
 	@W_HAW4=300'nhiet do cao
 	@W_HAW5=100'nhiet do thap
 	@W_HAW6=5000'tan so cao
