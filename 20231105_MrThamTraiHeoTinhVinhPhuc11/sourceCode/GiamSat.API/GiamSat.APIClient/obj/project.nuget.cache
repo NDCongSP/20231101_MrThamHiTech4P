@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GDV7tY//9zLPOik39ji+rAXwiDcgfcVQVbXYyfSSctJz0ZT4YDgiy9TstzEKIZ7kbT7BDhXX0Srn5s+Vf3HHUQ==",
+  "dgSpecHash": "KsXaduaSVPq2xDL18OzS+u69VLIFFlgu1MwbjzH5eDUZQf2iDEjPQo1pBtlO9hW46c5j7B/yGbuKAjaaEY9h3A==",
   "success": true,
   "projectFilePath": "D:\\MyCompany\\8.SourceCode\\3.Projects\\20231101_MrThamHiTech4P\\20231105_MrThamTraiHeoTinhVinhPhuc11\\sourceCode\\GiamSat.API\\GiamSat.APIClient\\GiamSat.APIClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ndcon\\.nuget\\packages\\nswag.msbuild\\13.10.8\\nswag.msbuild.13.10.8.nupkg.sha512",
-    "C:\\Users\\ndcon\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "C:\\Users\\ndcon\\.nuget\\packages\\system.text.json\\5.0.2\\system.text.json.5.0.2.nupkg.sha512"
+    "C:\\Users\\ndcong\\.nuget\\packages\\nswag.msbuild\\13.10.8\\nswag.msbuild.13.10.8.nupkg.sha512",
+    "C:\\Users\\ndcong\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\ndcong\\.nuget\\packages\\system.text.json\\5.0.2\\system.text.json.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }
