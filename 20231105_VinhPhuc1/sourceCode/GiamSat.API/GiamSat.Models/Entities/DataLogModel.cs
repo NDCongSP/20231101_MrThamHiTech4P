@@ -20,6 +20,7 @@ namespace GiamSat.Models
         public double NhietDo { get; set; }
         public double DoAm { get; set; }
         public double Frequency { get; set; }
+        public string Data { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public bool IsActive { get; set; }
 

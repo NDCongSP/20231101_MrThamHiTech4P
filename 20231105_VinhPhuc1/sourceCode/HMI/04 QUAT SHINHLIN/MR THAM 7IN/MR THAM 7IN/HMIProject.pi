@@ -3996,7 +3996,7 @@ if @b_hax238.0=0 then
 	@W_HAW228=210'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 2
-	@W_HAW20=2
+	@W_HAW20=0
 	@W_HAW21=300
 	@W_HAW22=100
 	@W_HAW23=5000
@@ -4014,7 +4014,7 @@ if @b_hax238.0=0 then
 	@W_HAW229=220'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 3
-	@W_HAW37=3
+	@W_HAW37=0
 	@W_HAW38=300
 	@W_HAW39=100
 	@W_HAW40=5000
@@ -4032,7 +4032,7 @@ if @b_hax238.0=0 then
 	@W_HAW230=220'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 4
-	@W_HAW54=4
+	@W_HAW54=0
 	@W_HAW55=300
 	@W_HAW56=100
 	@W_HAW57=5000
@@ -4050,7 +4050,7 @@ if @b_hax238.0=0 then
 	@W_HAW231=230'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 5
-	@W_HAW71=4
+	@W_HAW71=0
 	@W_HAW72=300
 	@W_HAW73=100
 	@W_HAW74=5000
@@ -4068,7 +4068,7 @@ if @b_hax238.0=0 then
 	@W_HAW232=240'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 6
-	@W_HAW88=3
+	@W_HAW88=0
 	@W_HAW89=300
 	@W_HAW90=100
 	@W_HAW91=5000
@@ -4086,7 +4086,7 @@ if @b_hax238.0=0 then
 	@W_HAW233=250'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 7
-	@W_HAW105=2
+	@W_HAW105=0
 	@W_HAW106=300
 	@W_HAW107=100
 	@W_HAW108=5000
@@ -4104,7 +4104,7 @@ if @b_hax238.0=0 then
 	@W_HAW234=260'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 8
-	@W_HAW137=2
+	@W_HAW137=0
 	@W_HAW138=300
 	@W_HAW139=100
 	@W_HAW140=5000
@@ -4122,7 +4122,7 @@ if @b_hax238.0=0 then
 	@W_HAW235=270'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 9
-	@W_HAW154=2
+	@W_HAW154=0
 	@W_HAW155=300
 	@W_HAW156=100
 	@W_HAW157=5000
@@ -4140,7 +4140,7 @@ if @b_hax238.0=0 then
 	@W_HAW236=280'NHIET DDO BAT DAN MAT
 	
 	'gan gia tri ban dau cho moc 10
-	@W_HAW171=2
+	@W_HAW171=0
 	@W_HAW172=300
 	@W_HAW173=100
 	@W_HAW174=5000

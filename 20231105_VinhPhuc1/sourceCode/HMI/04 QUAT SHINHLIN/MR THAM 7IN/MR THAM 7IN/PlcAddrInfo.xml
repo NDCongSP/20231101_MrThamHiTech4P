@@ -68,6 +68,15 @@
 		<Add Addr="HDW_W_0000001" Len="1" Fast="0" />
 		<Add Addr="HDW_W_0000002" Len="1" Fast="0" />
 		<Add Addr="HDW_W_0000003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000030" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000026" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000027" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001000" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001001" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001002" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0001003" Len="1" Fast="0" />
+		<Add Addr="HDW_W_0000032" Len="1" Fast="0" />
+		<Add Addr="HAW_W_0000120" Len="1" Fast="0" />
 	</AddrInfo>
 	<AddrInfo ScrnNo="5" HasNoPlcAddr="1">
 		<HMIAddr />
