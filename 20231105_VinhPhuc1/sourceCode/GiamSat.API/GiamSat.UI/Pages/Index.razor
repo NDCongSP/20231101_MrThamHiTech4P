@@ -15,7 +15,7 @@ else
         @foreach (var item in _displayRealtime)
         {
             <MudItem xs="12" sm="6">
-                <MudCard Elevation="25" Class="rounded-lg pb-4 border border-warning">
+                <MudCard Elevation="25" Class="rounded-lg pb-4 border border-warning" Style="height: 100%;">
                     <MudCardHeader Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.DarkDarken};")">
                         <CardHeaderAvatar>
                             <MudIcon Icon="@Icons.Material.Filled.Warehouse"></MudIcon>

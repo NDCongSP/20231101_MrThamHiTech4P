@@ -15,7 +15,7 @@ namespace GiamSat.Models
         public Guid Chuongid { get; set; }
         public List<StepSettingsModel> Steps { get; set; } = new List<StepSettingsModel>();
         public GeneralStepSettingsModel GeneralSettings { get; set; } = new GeneralStepSettingsModel();
-        public ThucAnModel ThucAn = new ThucAnModel();
-        public ChuongNuoiModel ChuongNuoi = new ChuongNuoiModel();
+        public ThucAnModel ThucAn { get; set; } = new ThucAnModel();
+        public ChuongNuoiModel ChuongNuoi { get; set; } = new ChuongNuoiModel();
     }
 }

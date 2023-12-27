@@ -29,7 +29,7 @@ namespace GiamSat.Scada
         private DateTime _startTime, _endTime, _startTimeDisplay, _endTimeDisplay;
         private double _totalTime = 0, _totalTimeDisplay = 0;
 
-        private bool _settingsFromHMI = false;
+        private bool[] _settingsFromHMI = { false, false, false, false };
 
         private string _auto = "0", _man = "0";
 
@@ -198,7 +198,7 @@ namespace GiamSat.Scada
             {
                 var para = new DynamicParameters();
 
-                if (!_settingsFromHMI)//nếu ko có tín hiệu thay đổi giá trị cài đặt trực tiếp từ HMI thì vào get cai đặt từ web, nếu có thay đổi thì cập nhật xuống cho HMI
+                if (!_settingsFromHMI[0])//nếu ko có tín hiệu thay đổi giá trị cài đặt trực tiếp từ HMI thì vào get cai đặt từ web, nếu có thay đổi thì cập nhật xuống cho HMI
                 {
                     _chuongInfo = con.Query<ChuongInfoModel>("sp_chuongInfoGetAll", commandType: CommandType.StoredProcedure).ToList();
 
@@ -301,7 +301,7 @@ namespace GiamSat.Scada
 
             Chuong1Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/OutQ1Auto")
               , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/OutQ1Auto")
-              ,Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/OutQ1Auto").Quality));
+              , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/OutQ1Auto").Quality));
 
             NhietDoChuong1_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/NhietDo")
                 , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/NhietDo")
@@ -353,6 +353,7 @@ namespace GiamSat.Scada
               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/HmiThayDoiCaiDat")
               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/HmiThayDoiCaiDat").Value));
             #endregion
+
             if (_pnStatus.InvokeRequired)
             {
                 _pnStatus?.Invoke(new Action(() =>
@@ -381,6 +382,7 @@ namespace GiamSat.Scada
         }
 
         #region Event tag value change chuong 1
+        #region Chuong 1
         private void Chuong1Status_QualityChanged(object sender, TagQualityChangedEventArgs e)
         {
             //cập nhật giá trị cho DisplayRealtime
@@ -578,11 +580,11 @@ namespace GiamSat.Scada
         {
             if (e.NewValue == "1")
             {
-                _settingsFromHMI = true;
+                _settingsFromHMI[0] = true;
             }
             else
             {
-                _settingsFromHMI = false;
+                _settingsFromHMI[0] = false;
             }
         }
 
@@ -603,6 +605,680 @@ namespace GiamSat.Scada
             }
         }
         #endregion
+
+        #region Chuong 2
+        private void Chuong2Status_QualityChanged(object sender, TagQualityChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+
+            if (e.NewQuality == Quality.Good)
+            {
+                if (item1 != null)
+                {
+                    item1.ConnectStatus = "Connected";
+                }
+            }
+            else
+            {
+                if (item1 != null)
+                {
+                    item1.ConnectStatus = "Disconnect";
+                }
+            }
+        }
+
+        private void InStatusDanMatChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.CoollerStatus = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ4Chuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.Fan4Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ3Chuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.Fan3Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ2Chuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.Fan2Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ1Chuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.Fan1Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InQuaTaiChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.QuaTai = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InChayDuPhongChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.ChayDuPhong = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InManChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            _man = e.NewValue;
+
+            if (e.NewValue == "1" && _auto == "0")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Chạy tay";
+                }
+            }
+            else if (e.NewValue == "1" && _auto == "1")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Dừng";
+                }
+            }
+        }
+
+        private void InAutoChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            _auto = e.NewValue;
+
+            if (e.NewValue == "1" && _man == "0")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Tự động";
+                }
+            }
+            else if (e.NewValue == "1" && _man == "1")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Dừng";
+                }
+            }
+        }
+
+        private void GiaiDoanHienTaiChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.CurrentStep = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void NgayHienTaiChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.CurrentDay = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void TanSoChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item != null)
+            {
+                item.Frequency = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.Frequency = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+
+        private void DoAmChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item != null)
+            {
+                item.DoAm = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.Humidity = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+
+        private void HmiThayDoiCaiDatChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            if (e.NewValue == "1")
+            {
+                _settingsFromHMI[1] = true;
+            }
+            else
+            {
+                _settingsFromHMI[1] = false;
+            }
+        }
+
+        private void NhietDoChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item != null)
+            {
+                item.NhietDo = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[1]);
+            if (item1 != null)
+            {
+                item1.Temperature = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+        #endregion
+
+        #region Chuong 3
+        private void Chuong3Status_QualityChanged(object sender, TagQualityChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+
+            if (e.NewQuality == Quality.Good)
+            {
+                if (item1 != null)
+                {
+                    item1.ConnectStatus = "Connected";
+                }
+            }
+            else
+            {
+                if (item1 != null)
+                {
+                    item1.ConnectStatus = "Disconnect";
+                }
+            }
+        }
+
+        private void InStatusDanMatChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.CoollerStatus = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ4Chuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.Fan4Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ3Chuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.Fan3Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ2Chuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.Fan2Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ1Chuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.Fan1Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InQuaTaiChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.QuaTai = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InChayDuPhongChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.ChayDuPhong = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InManChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            _man = e.NewValue;
+
+            if (e.NewValue == "1" && _auto == "0")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Chạy tay";
+                }
+            }
+            else if (e.NewValue == "1" && _auto == "1")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Dừng";
+                }
+            }
+        }
+
+        private void InAutoChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            _auto = e.NewValue;
+
+            if (e.NewValue == "1" && _man == "0")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Tự động";
+                }
+            }
+            else if (e.NewValue == "1" && _man == "1")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Dừng";
+                }
+            }
+        }
+
+        private void GiaiDoanHienTaiChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.CurrentStep = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void NgayHienTaiChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.CurrentDay = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void TanSoChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item != null)
+            {
+                item.Frequency = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.Frequency = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+
+        private void DoAmChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item != null)
+            {
+                item.DoAm = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.Humidity = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+
+        private void HmiThayDoiCaiDatChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            if (e.NewValue == "1")
+            {
+                _settingsFromHMI[2] = true;
+            }
+            else
+            {
+                _settingsFromHMI[2] = false;
+            }
+        }
+
+        private void NhietDoChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item != null)
+            {
+                item.NhietDo = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[2]);
+            if (item1 != null)
+            {
+                item1.Temperature = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+        #endregion
+
+        #region Chuong 4
+        private void Chuong4Status_QualityChanged(object sender, TagQualityChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+
+            if (e.NewQuality == Quality.Good)
+            {
+                if (item1 != null)
+                {
+                    item1.ConnectStatus = "Connected";
+                }
+            }
+            else
+            {
+                if (item1 != null)
+                {
+                    item1.ConnectStatus = "Disconnect";
+                }
+            }
+        }
+
+        private void InStatusDanMatChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.CoollerStatus = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ4Chuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.Fan4Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ3Chuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.Fan3Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ2Chuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.Fan2Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InStatusQ1Chuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.Fan1Status = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InQuaTaiChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.QuaTai = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InChayDuPhongChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.ChayDuPhong = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void InManChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            _man = e.NewValue;
+
+            if (e.NewValue == "1" && _auto == "0")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Chạy tay";
+                }
+            }
+            else if (e.NewValue == "1" && _auto == "1")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Dừng";
+                }
+            }
+        }
+
+        private void InAutoChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            _auto = e.NewValue;
+
+            if (e.NewValue == "1" && _man == "0")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Tự động";
+                }
+            }
+            else if (e.NewValue == "1" && _man == "1")
+            {
+                //cập nhật giá trị cho DisplayRealtime
+                var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+                if (item1 != null)
+                {
+                    item1.ActiveStatus = "Dừng";
+                }
+            }
+        }
+
+        private void GiaiDoanHienTaiChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.CurrentStep = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void NgayHienTaiChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.CurrentDay = int.TryParse(e.NewValue, out int value) ? value : 0;
+            }
+        }
+
+        private void TanSoChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item != null)
+            {
+                item.Frequency = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.Frequency = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+
+        private void DoAmChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item != null)
+            {
+                item.DoAm = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.Humidity = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+
+        private void HmiThayDoiCaiDatChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            if (e.NewValue == "1")
+            {
+                _settingsFromHMI[3] = true;
+            }
+            else
+            {
+                _settingsFromHMI[3] = false;
+            }
+        }
+
+        private void NhietDoChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //cập nhật giá trị cho DataLog
+            var item = _dataLog.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item != null)
+            {
+                item.NhietDo = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+
+            //cập nhật giá trị cho DisplayRealtime
+            var item1 = _displayRealtime.FirstOrDefault(x => x.ChuongId == _chuongId[3]);
+            if (item1 != null)
+            {
+                item1.Temperature = double.TryParse(e.NewValue, out double value) ? value : 0;
+            }
+        }
+        #endregion
+        #endregion
+
         #endregion
     }
 }

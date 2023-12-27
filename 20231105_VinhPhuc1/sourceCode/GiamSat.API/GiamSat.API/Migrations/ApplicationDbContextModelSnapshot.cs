@@ -51,6 +51,38 @@ namespace GiamSat.API.Migrations
                     b.ToTable("ChuongInfo");
                 });
 
+            modelBuilder.Entity("GiamSat.Models.ChuongNuoiModel", b =>
+                {
+                    b.Property<Guid>("ChuongId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("SoLuongBanDau")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuongBiBenh")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuongChet")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuongConLai")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuongDangDieuTri")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuongHaoHut")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenChuong")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ChuongId");
+
+                    b.ToTable("ChuongNuoiModel");
+                });
+
             modelBuilder.Entity("GiamSat.Models.DataLogModel", b =>
                 {
                     b.Property<Guid>("Id")
@@ -62,6 +94,9 @@ namespace GiamSat.API.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Data")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("DoAm")
                         .HasColumnType("float");
@@ -94,6 +129,9 @@ namespace GiamSat.API.Migrations
 
                     b.Property<int>("ChayDuPhong")
                         .HasColumnType("int");
+
+                    b.Property<Guid?>("ChuongNuoiChuongId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConnectStatus")
                         .HasColumnType("nvarchar(max)");
@@ -149,12 +187,83 @@ namespace GiamSat.API.Migrations
                     b.Property<string>("TenChuong")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("ThucAnId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("TotalDay")
                         .HasColumnType("int");
 
                     b.HasKey("ChuongId");
 
+                    b.HasIndex("ChuongNuoiChuongId");
+
+                    b.HasIndex("ThucAnId");
+
                     b.ToTable("DisplayRealtime");
+                });
+
+            modelBuilder.Entity("GiamSat.Models.RealtimeDisplayModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedMachine")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisplayData")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActived")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RealtimeDisplay");
+                });
+
+            modelBuilder.Entity("GiamSat.Models.ThucAnModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("ChotKhoiLuongCuoiNgay")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ChotKhoiLuongDauNgay")
+                        .HasColumnType("float");
+
+                    b.Property<double>("KhoiLuongDungTrongNgay")
+                        .HasColumnType("float");
+
+                    b.Property<double>("KhoiLuongTheoDauCon")
+                        .HasColumnType("float");
+
+                    b.Property<double>("KhoiLuongTren1Con")
+                        .HasColumnType("float");
+
+                    b.Property<int>("SoLuongConLai")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenThucAn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TongKhoiLuong")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TongKhoiLuongConLai")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TongKhoiLuongThucTe")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ThucAnModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -353,6 +462,21 @@ namespace GiamSat.API.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("GiamSat.Models.DisplayRealTimeModel", b =>
+                {
+                    b.HasOne("GiamSat.Models.ChuongNuoiModel", "ChuongNuoi")
+                        .WithMany()
+                        .HasForeignKey("ChuongNuoiChuongId");
+
+                    b.HasOne("GiamSat.Models.ThucAnModel", "ThucAn")
+                        .WithMany()
+                        .HasForeignKey("ThucAnId");
+
+                    b.Navigation("ChuongNuoi");
+
+                    b.Navigation("ThucAn");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

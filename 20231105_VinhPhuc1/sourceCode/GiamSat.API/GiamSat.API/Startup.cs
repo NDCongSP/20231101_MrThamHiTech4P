@@ -89,6 +89,7 @@ namespace GiamSat.API
             services.AddTransient<ISDisplayRealtime, SDisplayRealtime>();
             services.AddTransient<ISDataLog, SDataLog>();
             services.AddTransient<ISChuongInfo, SChuongInfo>();
+            services.AddTransient<ISRealtimeDisplay,SRealtimeDisplay>();
 
             services.AddScoped<SCommon>();
 
@@ -134,9 +135,9 @@ namespace GiamSat.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GiamSat.API v1"));
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GiamSat.API v1"));
 
             app.UseCors();
             //app.UseCors(o =>

@@ -17,6 +17,7 @@ dwZ.&gJAL!ML%-S#x_b!HH1Yq}aAwW
 clent1
 !9Y1oJ~2S[BPut)1!MD@6W1%@otiEE
 
+
 conString: Server=ADMIN\MAYSERVER;Database=GiamSatTrai;User Id=client1;Password=!9Y1oJ~2S[BPut)1!MD@6W1%@otiEE;TrustServerCertificate=True;
 wRpyQxyqeh4g2ncdSyjAJ9Of14yMeZXo/TloIHzSy61oxi8xaZPrO9puwtsmkH2Xpb8WpZ4MdpjUalSLNlCIWKLtLm/kNC99BzjCl/6bZeTJPy+EUZ5MKpqDuFeFsDZYhXAuHK0ZvzCzhiCLXC9WgHKm8O3JEuZykuT3N11kEMy86aveE/iNbw==
 ---------------------------------------------------------------------------------------------

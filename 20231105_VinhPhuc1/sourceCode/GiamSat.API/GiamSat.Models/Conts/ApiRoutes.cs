@@ -33,6 +33,12 @@ namespace GiamSat.Models
             public const string enUpdateTChuong = "updatetenchuong";
         }
 
+        public static class RealtimeDisplay
+        {
+            public const string BasePath = "api/RealtimeDisplay";
+            public const string GetTop1 = "GetTop1";
+        }
+
         public static class DataLog
         {
             public const string BasePath = "api/DataLog";

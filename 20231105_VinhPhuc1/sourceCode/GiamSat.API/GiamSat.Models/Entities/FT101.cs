@@ -14,7 +14,7 @@ namespace GiamSat.Models
     {
         [Key]
         public Guid Id { get; set; }
-        public Guid ChuongId { get; set; }
+        public Guid ChuongId { get; set; } = new Guid();
         public string Details { get; set; }
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;        

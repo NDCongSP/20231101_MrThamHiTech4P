@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace GiamSat.Models
 {
     [Table("DisplayRealtime")]
-   public  class DisplayRealTimeModel
+    public class DisplayRealTimeModel
     {
         [Key]
-        public  Guid ChuongId { get; set; }
+        public Guid ChuongId { get; set; }
         public string TenChuong { get; set; }
         public double Temperature { get; set; }
         public double Humidity { get; set; }
@@ -31,6 +31,10 @@ namespace GiamSat.Models
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public double HightTemperature { get; set; }
         public double Lowtemperature { get; set; }
+
+        /// <summary>
+        /// số thứ tự của chuồng.
+        /// </summary>
         public int NumIndex { get; set; }
         /// <summary>
         /// Ngày hiện tại của giai đoạn.
@@ -46,5 +50,12 @@ namespace GiamSat.Models
         public int TotalDay { get; set; }
         public int QuaTai { get; set; }
         public int ChayDuPhong { get; set; }
+
+
+        /// <summary>
+        /// phần quản lý năng suất.
+        /// </summary>
+        public ThucAnModel ThucAn { get; set; } = new ThucAnModel();
+        public ChuongNuoiModel ChuongNuoi { get; set; } = new ChuongNuoiModel();
     }
 }

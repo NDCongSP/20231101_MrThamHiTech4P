@@ -12,12 +12,14 @@ namespace GiamSat.API
         public ISDataLog  SDataLog { get;private set; }
 
         public ISChuongInfo SChuongInfo { get;private set; }
+        public ISRealtimeDisplay SRealtimeDisplay { get; private set; }
 
-        public SCommon(ISDisplayRealtime sDisplayRealtime, ISDataLog sDataLog, ISChuongInfo sChuongInfo)
+        public SCommon(ISDisplayRealtime sDisplayRealtime, ISDataLog sDataLog, ISChuongInfo sChuongInfo, ISRealtimeDisplay sRealtimeDisplay = null)
         {
             SDisplayRealtime = sDisplayRealtime;
             SDataLog = sDataLog;
             SChuongInfo = sChuongInfo;
+            SRealtimeDisplay = sRealtimeDisplay;
         }
     }
 }

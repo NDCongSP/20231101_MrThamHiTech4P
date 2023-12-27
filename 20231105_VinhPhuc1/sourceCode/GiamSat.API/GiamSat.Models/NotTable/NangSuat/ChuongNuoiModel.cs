@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace GiamSat.Models
 {
     public class ChuongNuoiModel
     {
+        [Key]
         public Guid ChuongId { get; set; }
         public string TenChuong { get; set; }
         public int SoLuongBanDau { get; set; }
