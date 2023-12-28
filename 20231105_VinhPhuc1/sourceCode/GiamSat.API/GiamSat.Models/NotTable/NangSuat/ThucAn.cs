@@ -9,7 +9,7 @@ namespace GiamSat.Models
     /// <summary>
     /// list model chua các thông tin cai dat và tieu hao thuc an.
     /// </summary>
-    public class ThucAn : List<ThucAnModel>
+    public class ThucAn : List<NangSuatModel>
     {
     }
 }

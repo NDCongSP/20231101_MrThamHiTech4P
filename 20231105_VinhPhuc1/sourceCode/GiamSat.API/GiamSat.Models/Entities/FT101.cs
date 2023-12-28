@@ -14,11 +14,17 @@ namespace GiamSat.Models
     {
         [Key]
         public Guid Id { get; set; }
-        public Guid ChuongId { get; set; } = new Guid();
-        public string Details { get; set; }
+        /// <summary>
+        /// Chu Ky Nuoi.
+        /// </summary>
+        public Guid FT100Id { get; set; }
+        /// <summary>
+        /// Luu lại những lần thay đổi thông số, SettingModel, Quan tâm đến properties NangSuatModel
+        /// </summary>
+        public string? Details { get; set; }
 
-        public DateTime CreatedDate { get; set; } = DateTime.Now;        
-        public int IsActived { get; set; } = 1;
-        public string CreatedMachine { get; set; }
+        public DateTime? CreatedDate { get; set; } = DateTime.Now;        
+        public int? IsActived { get; set; } = 1;
+        public string? CreatedMachine { get; set; }
     }
 }

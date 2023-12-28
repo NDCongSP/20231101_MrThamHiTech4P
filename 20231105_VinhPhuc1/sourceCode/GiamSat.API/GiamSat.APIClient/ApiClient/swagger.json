@@ -1187,6 +1187,344 @@
         }
       }
     },
+    "/api/FT100": {
+      "get": {
+        "tags": [
+          "FT100"
+        ],
+        "operationId": "FT100_GetAll",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100ListResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100ListResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100ListResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FT100/{id}": {
+      "get": {
+        "tags": [
+          "FT100"
+        ],
+        "operationId": "FT100_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FT100/insert": {
+      "post": {
+        "tags": [
+          "FT100"
+        ],
+        "operationId": "FT100_Insert",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT100"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT100"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT100"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FT100/update": {
+      "post": {
+        "tags": [
+          "FT100"
+        ],
+        "operationId": "FT100_Update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT100"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT100"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT100"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT100Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FT101": {
+      "get": {
+        "tags": [
+          "FT101"
+        ],
+        "operationId": "FT101_GetAll",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101ListResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101ListResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101ListResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FT101/{id}": {
+      "get": {
+        "tags": [
+          "FT101"
+        ],
+        "operationId": "FT101_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FT101/insert": {
+      "post": {
+        "tags": [
+          "FT101"
+        ],
+        "operationId": "FT101_Insert",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT101"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT101"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT101"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FT101/update": {
+      "post": {
+        "tags": [
+          "FT101"
+        ],
+        "operationId": "FT101_Update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT101"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT101"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FT101"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FT101Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/RealtimeDisplay/GetTop1": {
       "get": {
         "tags": [
@@ -1790,7 +2128,8 @@
             "nullable": true
           },
           "isActive": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           },
           "createdDate": {
             "type": "string",
@@ -1798,11 +2137,13 @@
           },
           "numIndex": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "flagUpdate": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2080,6 +2421,155 @@
         },
         "additionalProperties": false
       },
+      "FT100": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifyDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isActived": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "createdMachine": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FT100ListResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FT100"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FT100Result": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/FT100"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FT101": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "fT100Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "details": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isActived": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "createdMachine": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FT101ListResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FT101"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FT101Result": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/FT101"
+          }
+        },
+        "additionalProperties": false
+      },
       "ImmutableOptionSet": {
         "type": "object",
         "properties": {
@@ -2160,11 +2650,13 @@
             "nullable": true
           },
           "isActived": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           },
           "createdDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "createdMachine": {
             "type": "string",

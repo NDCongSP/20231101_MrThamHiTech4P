@@ -13,9 +13,9 @@ namespace GiamSat.Models
     {
         [Key]
         public Guid Id { get; set; }
-        public string DisplayData { get; set; }
-        public bool IsActived { get; set; } = true;
-        public DateTime CreatedDate { get; set; }=DateTime.Now;
-        public string CreatedMachine { get; set; }
+        public string? DisplayData { get; set; }
+        public bool? IsActived { get; set; } = true;
+        public DateTime? CreatedDate { get; set; }=DateTime.Now;
+        public string? CreatedMachine { get; set; }
     }
 }

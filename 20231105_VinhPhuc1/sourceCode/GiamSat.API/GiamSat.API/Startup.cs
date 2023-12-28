@@ -90,6 +90,8 @@ namespace GiamSat.API
             services.AddTransient<ISDataLog, SDataLog>();
             services.AddTransient<ISChuongInfo, SChuongInfo>();
             services.AddTransient<ISRealtimeDisplay,SRealtimeDisplay>();
+            services.AddTransient<ISFT100, SFT100>();
+            services.AddTransient<ISFT101, SFT101>();
 
             services.AddScoped<SCommon>();
 

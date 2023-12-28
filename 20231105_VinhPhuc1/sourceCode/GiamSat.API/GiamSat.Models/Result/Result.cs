@@ -145,7 +145,7 @@ namespace GiamSat.Models
             return new Result<T> { Succeeded = true, Data = data, Messages = messages };
         }
 
-        public new static Task<Result<T>> SuccessAsync()
+        public new static Task<Result<T>> SuccessAsync(FT101 model)
         {
             return Task.FromResult(Success());
         }

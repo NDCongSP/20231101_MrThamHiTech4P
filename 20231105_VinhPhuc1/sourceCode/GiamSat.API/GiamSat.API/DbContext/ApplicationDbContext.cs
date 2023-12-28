@@ -20,6 +20,8 @@ namespace GiamSat.API
             //builder.Entity<DisplayRealTimeModel>().HasNoKey();//table không sử dụng khóa chính
             builder.Entity<DisplayRealTimeModel>();
             builder.Entity<RealtimeDisplayModel>();
+            builder.Entity<FT100>();
+            builder.Entity<FT101>();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,5 +33,7 @@ namespace GiamSat.API
         public DbSet<GiamSat.Models.ChuongInfoModel> ChuongInfoModel { get; set; }
         public DbSet<GiamSat.Models.DisplayRealTimeModel> DisplayRealTimeModel { get; set; }
         public DbSet<GiamSat.Models.RealtimeDisplayModel> RealTimeDisplayModel { get; set; }
+        public DbSet<GiamSat.Models.FT100> FT100 { get; set; }
+        public DbSet<GiamSat.Models.FT101> FT101 { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace GiamSat.Models
 {
-    public class ThucAnModel
+    public class NangSuatModel
     {
         public Guid ChuongId { get; set; }
 

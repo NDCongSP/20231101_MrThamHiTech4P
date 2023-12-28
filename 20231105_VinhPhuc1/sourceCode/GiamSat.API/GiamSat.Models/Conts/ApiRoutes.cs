@@ -51,5 +51,13 @@ namespace GiamSat.Models
             public const string Test = "test";
             public const string GetByName = "GetByName/{id}";
         }
+        public static class FT100
+        {
+            public const string BasePath = "api/FT100";
+        }
+        public static class FT101
+        {
+            public const string BasePath = "api/FT101";
+        }
     }
 }

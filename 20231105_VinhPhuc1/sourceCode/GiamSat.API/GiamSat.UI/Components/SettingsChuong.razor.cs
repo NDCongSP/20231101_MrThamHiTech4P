@@ -68,7 +68,7 @@ namespace GiamSat.UI.Components
                     chuongModel.GeneralSettings.TimeOnCooler = 2;
                     chuongModel.GeneralSettings.TimeOffCooler = 1;
                     chuongModel.GeneralSettings.TenChuong = chuongInfo.TenChuong;
-                    chuongModel.GeneralSettings.NumIndex = chuongInfo.NumIndex;
+                    chuongModel.GeneralSettings.NumIndex = (int)chuongInfo.NumIndex;
 
                     chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
                     chuongInfo.FlagUpdate = 1;
@@ -86,7 +86,7 @@ namespace GiamSat.UI.Components
 
                 stepModel.ChuongId = chuongModel.Chuongid;
                 stepModel.TenChuong = chuongInfo.TenChuong;
-                stepModel.NumIndex = chuongInfo.NumIndex;
+                stepModel.NumIndex = (int)chuongInfo.NumIndex;
                 stepModel.StepId = stepFirst.StepId;
                 stepModel.FromDate = stepFirst.FromDate;
                 stepModel.ToDate = stepFirst.ToDate;
@@ -155,7 +155,7 @@ namespace GiamSat.UI.Components
                         chuongModel.GeneralSettings.TimeOnCooler = 2;
                         chuongModel.GeneralSettings.TimeOffCooler = 1;
                         chuongModel.GeneralSettings.TenChuong = chuongInfo.TenChuong;
-                        chuongModel.GeneralSettings.NumIndex = chuongInfo.NumIndex;
+                        chuongModel.GeneralSettings.NumIndex = (int)chuongInfo.NumIndex;
 
                         chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
                         chuongInfo.FlagUpdate = 1;
@@ -173,7 +173,7 @@ namespace GiamSat.UI.Components
 
                     stepModel.ChuongId = chuongModel.Chuongid;
                     stepModel.TenChuong = chuongInfo.TenChuong;
-                    stepModel.NumIndex = chuongInfo.NumIndex;
+                    stepModel.NumIndex = (int)chuongInfo.NumIndex;
                     stepModel.StepId = stepFirst.StepId;
                     stepModel.FromDate = stepFirst.FromDate;
                     stepModel.ToDate = stepFirst.ToDate;
@@ -266,7 +266,7 @@ namespace GiamSat.UI.Components
 
             stepModel.ChuongId = chuongModel.Chuongid;
             stepModel.TenChuong = chuongInfo.TenChuong;
-            stepModel.NumIndex = chuongInfo.NumIndex;
+            stepModel.NumIndex = (int)chuongInfo.NumIndex;
             stepModel.StepId = stepFirst.StepId;
             stepModel.FromDate = stepFirst.FromDate;
             stepModel.ToDate = stepFirst.ToDate;

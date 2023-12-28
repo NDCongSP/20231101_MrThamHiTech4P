@@ -78,14 +78,7 @@ namespace GiamSat.API
         {
             try
             {
-                var itemUpdate = await _dbContext.RealTimeDisplayModel.FindAsync(model.Id);
-
-                if (itemUpdate == null)
-                {
-                    return await Result<RealtimeDisplayModel>.FailAsync("Data empty");
-                }
-
-                _dbContext.Entry(itemUpdate).Property(x => x.DisplayData).CurrentValue = model.DisplayData;
+               _dbContext.RealTimeDisplayModel.Update(model);
                 await _dbContext.SaveChangesAsync();
 
                 return await Result<RealtimeDisplayModel>.SuccessAsync(model);
