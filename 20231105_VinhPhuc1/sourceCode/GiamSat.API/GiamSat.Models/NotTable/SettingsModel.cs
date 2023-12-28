@@ -13,9 +13,13 @@ namespace GiamSat.Models
     public class SettingsModel
     {
         public Guid Chuongid { get; set; }
+        /// <summary>
+        /// Định danh mỗi chu ký nuôi.
+        /// </summary>
+        public Guid KhuKyNuoiId { get; set; }
+
         public List<StepSettingsModel> Steps { get; set; } = new List<StepSettingsModel>();
         public GeneralStepSettingsModel GeneralSettings { get; set; } = new GeneralStepSettingsModel();
         public ThucAnModel ThucAn { get; set; } = new ThucAnModel();
-        public ChuongNuoiModel ChuongNuoi { get; set; } = new ChuongNuoiModel();
     }
 }

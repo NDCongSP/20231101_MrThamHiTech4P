@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GiamSat.Models
 {
-    public class SettingBindingModel
+    public class EditFromSettingChuongModel
     {
         public Guid ChuongId { get; set; }//id cua chuồng
         [Required(ErrorMessage ="Không được trống tên chuồng.")]

@@ -22,7 +22,7 @@ namespace GiamSat.UI.Components
         //các biến xử lý data
         APIClient.ChuongInfoModel chuongInfo;
         SettingsModel chuongModel = new SettingsModel();
-        SettingBindingModel stepModel;//model dùng để bind data editform
+        EditFromSettingChuongModel stepModel;//model dùng để bind data editform
         bool success;
 
         //goij lai sự kiện OnInitializedAsync

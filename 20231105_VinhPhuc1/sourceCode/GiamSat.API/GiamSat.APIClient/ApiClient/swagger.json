@@ -1187,6 +1187,205 @@
         }
       }
     },
+    "/api/RealtimeDisplay/GetTop1": {
+      "get": {
+        "tags": [
+          "RealtimeDisplay"
+        ],
+        "operationId": "RealtimeDisplay_GetTop1",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RealtimeDisplay": {
+      "get": {
+        "tags": [
+          "RealtimeDisplay"
+        ],
+        "operationId": "RealtimeDisplay_GetAll",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelListResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelListResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelListResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RealtimeDisplay/{id}": {
+      "get": {
+        "tags": [
+          "RealtimeDisplay"
+        ],
+        "operationId": "RealtimeDisplay_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RealtimeDisplay/insert": {
+      "post": {
+        "tags": [
+          "RealtimeDisplay"
+        ],
+        "operationId": "RealtimeDisplay_Insert",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RealtimeDisplayModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RealtimeDisplayModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RealtimeDisplayModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RealtimeDisplay/update": {
+      "post": {
+        "tags": [
+          "RealtimeDisplay"
+        ],
+        "operationId": "RealtimeDisplay_Update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RealtimeDisplayModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RealtimeDisplayModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RealtimeDisplayModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeDisplayModelResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/fusion/kvs/Set": {
       "post": {
         "tags": [
@@ -1677,6 +1876,10 @@
             "type": "number",
             "format": "double"
           },
+          "data": {
+            "type": "string",
+            "nullable": true
+          },
           "createdDate": {
             "type": "string",
             "format": "date-time"
@@ -1810,6 +2013,14 @@
           "totalDay": {
             "type": "integer",
             "format": "int32"
+          },
+          "quaTai": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "chayDuPhong": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1933,6 +2144,73 @@
           "data": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RealtimeDisplayModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "displayData": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActived": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdMachine": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RealtimeDisplayModelListResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RealtimeDisplayModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RealtimeDisplayModelResult": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/RealtimeDisplayModel"
           }
         },
         "additionalProperties": false

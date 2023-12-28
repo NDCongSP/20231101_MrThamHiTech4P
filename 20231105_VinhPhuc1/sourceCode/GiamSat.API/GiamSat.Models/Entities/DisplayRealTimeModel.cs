@@ -50,12 +50,5 @@ namespace GiamSat.Models
         public int TotalDay { get; set; }
         public int QuaTai { get; set; }
         public int ChayDuPhong { get; set; }
-
-
-        /// <summary>
-        /// phần quản lý năng suất.
-        /// </summary>
-        public ThucAnModel ThucAn { get; set; } = new ThucAnModel();
-        public ChuongNuoiModel ChuongNuoi { get; set; } = new ChuongNuoiModel();
     }
 }

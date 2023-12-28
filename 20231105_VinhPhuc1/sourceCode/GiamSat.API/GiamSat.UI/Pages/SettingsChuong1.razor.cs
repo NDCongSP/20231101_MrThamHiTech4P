@@ -22,7 +22,7 @@ namespace GiamSat.UI.Pages
         //các biến xử lý data
         APIClient.ChuongInfoModel chuongInfo = new APIClient.ChuongInfoModel();
         SettingsModel chuongModel = new SettingsModel();
-        SettingBindingModel stepModel = new SettingBindingModel() { FromDate = 1, ToDate = 2, StaticFanRun = 3 };//model dùng để bind data editform
+        EditFromSettingChuongModel stepModel = new EditFromSettingChuongModel() { FromDate = 1, ToDate = 2, StaticFanRun = 3 };//model dùng để bind data editform
         bool success;
 
         protected override async Task OnParametersSetAsync()
@@ -43,7 +43,7 @@ namespace GiamSat.UI.Pages
                     chuongModel = new SettingsModel();
 
                     stepModel = null;
-                    stepModel = new SettingBindingModel();
+                    stepModel = new EditFromSettingChuongModel();
 
                     chuongInfo = res.Data;
 
@@ -153,7 +153,7 @@ namespace GiamSat.UI.Pages
                     chuongModel = new SettingsModel();
 
                     stepModel = null;
-                    stepModel = new SettingBindingModel();
+                    stepModel = new EditFromSettingChuongModel();
 
                     chuongInfo = res.Data;
 
