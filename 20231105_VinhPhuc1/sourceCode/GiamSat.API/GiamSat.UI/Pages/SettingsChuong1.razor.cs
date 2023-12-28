@@ -20,9 +20,11 @@ namespace GiamSat.UI.Pages
         public enum StepRun { GiaiDoan1 = 1, GiaiDoan2 = 2, GiaiDoan3 = 3, GiaiDoan4 = 4, GiaiDoan5 = 5, GiaiDoan6 = 6, GiaiDoan7 = 7, GiaiDoan8 = 8, GiaiDoan9 = 9, GiaiDoan10 = 10, }
 
         //các biến xử lý data
-        APIClient.ChuongInfoModel chuongInfo = new APIClient.ChuongInfoModel();
-        SettingsModel chuongModel = new SettingsModel();
-        EditFromSettingChuongModel stepModel = new EditFromSettingChuongModel() { FromDate = 1, ToDate = 2, StaticFanRun = 3 };//model dùng để bind data editform
+        APIClient.ChuongInfoModel _chuongInfo = new APIClient.ChuongInfoModel();
+        APIClient.FT101 _ft101 = new APIClient.FT101();//lưu lại các thông tin chỉnh sửa, lịch sử cài đặt theo chu kỳ nuôi
+
+        SettingsModel _chuongModel = new SettingsModel();
+        EditFromSettingChuongModel _stepModel = new EditFromSettingChuongModel() { FromDate = 1, ToDate = 2, StaticFanRun = 3 };//model dùng để bind data editform
         bool success;
 
         protected override async Task OnParametersSetAsync()
@@ -36,28 +38,51 @@ namespace GiamSat.UI.Pages
 
                 if (res.Succeeded)
                 {
-                    chuongInfo = null;
-                    chuongInfo = new APIClient.ChuongInfoModel();
+                    _chuongInfo = null;
+                    _chuongInfo = new APIClient.ChuongInfoModel();
 
-                    chuongModel = null;
-                    chuongModel = new SettingsModel();
+                    _ft101 = null;
+                    _ft101 = new APIClient.FT101();
 
-                    stepModel = null;
-                    stepModel = new EditFromSettingChuongModel();
+                    _chuongModel = null;
+                    _chuongModel = new SettingsModel();
 
-                    chuongInfo = res.Data;
+                    _stepModel = null;
+                    _stepModel = new EditFromSettingChuongModel();
+
+                    _chuongInfo = res.Data;
+
+                    #region Get thông tin của bảng chuongInfo lên để chuẩn bị data lưu vào bảng lịch sử cài đặt FT101
+                    var resChuongInfo = await _chuongInfoClient.GetAllAsync();
+                    if (resChuongInfo.Succeeded)
+                    {
+                        var d = resChuongInfo.Data.ToList();
+                        GlobalVariable.FT101Details = null;
+                        GlobalVariable.FT101Details = new List<SettingsModel>();
+                        foreach (var item in d)
+                        {
+                            GlobalVariable.FT101Details.Add(JsonConvert.DeserializeObject<SettingsModel>(item.ConfigSettings));
+                        }
+                    }
+                    #endregion
 
                     #region khoi tao thong tin cai dat cho chuong
-                    if (string.IsNullOrEmpty(chuongInfo.ConfigSettings) || chuongInfo.ConfigSettings == "")
+                    if (string.IsNullOrEmpty(_chuongInfo.ConfigSettings) || _chuongInfo.ConfigSettings == "")
                     {
-                        chuongModel.Chuongid = chuongId;
+                        //get me nuoi. Luôn trả về 1 dòng dữ liệu, chính là mẻ nuôi hiện tại.
+                        var chuKuNuoi = await _ft100Client.GetAllAsync();
+
+                        int dayIndex = 0;
+                        _chuongModel.Chuongid = chuongId;
+                        _chuongModel.FT100Id = chuKuNuoi.Data.ToList()[0].Id;
+
                         for (int i = 1; i <= 10; i++)
                         {
-                            chuongModel.Steps.Add(new StepSettingsModel()
+                            _chuongModel.Steps.Add(new StepSettingsModel()
                             {
                                 StepId = i,
-                                FromDate = 0,
-                                ToDate = 1,
+                                FromDate = dayIndex,
+                                ToDate = dayIndex + 1,
                                 StaticFanRun = 1,
                                 HightTemperature = 30,
                                 Lowtemperature = 15,
@@ -69,61 +94,83 @@ namespace GiamSat.UI.Pages
                                 TempRunFan4 = 23,
                                 TempRunCooler = 25
                             });
+
+                            dayIndex += 2;
                         }
 
-                        chuongModel.GeneralSettings.Fan1 = 1;
-                        chuongModel.GeneralSettings.Fan2 = 2;
-                        chuongModel.GeneralSettings.Fan3 = 3;
-                        chuongModel.GeneralSettings.Fan4 = 4;
-                        chuongModel.GeneralSettings.TimeOnCooler = 2;
-                        chuongModel.GeneralSettings.TimeOffCooler = 1;
-                        chuongModel.GeneralSettings.TenChuong = chuongInfo.TenChuong;
-                        chuongModel.GeneralSettings.NumIndex = (int)chuongInfo.NumIndex;
-                        chuongModel.GeneralSettings.CurrentDay = 0;
-                        chuongModel.GeneralSettings.OffsetTemp = 0;
-                        chuongModel.GeneralSettings.DeadbandTemp = 0;
-                        chuongModel.GeneralSettings.ResetGiaiDoan = 0;
+                        _chuongModel.GeneralSettings.Fan1 = 1;
+                        _chuongModel.GeneralSettings.Fan2 = 2;
+                        _chuongModel.GeneralSettings.Fan3 = 3;
+                        _chuongModel.GeneralSettings.Fan4 = 4;
+                        _chuongModel.GeneralSettings.TimeOnCooler = 2;
+                        _chuongModel.GeneralSettings.TimeOffCooler = 1;
+                        _chuongModel.GeneralSettings.TenChuong = _chuongInfo.TenChuong;
+                        _chuongModel.GeneralSettings.NumIndex = (int)_chuongInfo.NumIndex;
+                        _chuongModel.GeneralSettings.CurrentDay = 0;
+                        _chuongModel.GeneralSettings.OffsetTemp = 0;
+                        _chuongModel.GeneralSettings.DeadbandTemp = 0;
+                        _chuongModel.GeneralSettings.ResetGiaiDoan = 0;
 
-                        chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
-                        chuongInfo.FlagUpdate = 1;
+                        //năng suất
+                        _chuongModel.NangSuat.ChuongId = chuongId;
 
-                        await _chuongInfoClient.UpdateAsync(chuongInfo);
+                        _chuongInfo.ConfigSettings = JsonConvert.SerializeObject(_chuongModel);
+                        _chuongInfo.FlagUpdate = 1;
+
+                        await _chuongInfoClient.UpdateAsync(_chuongInfo);
+
+                        #region Lưu vào bảng lịch sử của chu kỳ nuôi
+                        try
+                        {
+                            var item = GlobalVariable.FT101Details.FirstOrDefault(x => x.Chuongid == _chuongInfo.Id);
+                            item = _chuongModel;
+                        }
+                        catch
+                        {
+                            GlobalVariable.FT101Details.Remove(null);
+                            GlobalVariable.FT101Details.Add(_chuongModel);
+                        }
+
+                        _ft101.FT100Id = _chuongModel.FT100Id;
+                        _ft101.Details = JsonConvert.SerializeObject(GlobalVariable.FT101Details);
+                        await _ft101Client.InsertAsync(_ft101);
+                        #endregion
                     }
                     #endregion
 
-                    chuongModel = JsonConvert.DeserializeObject<SettingsModel>(chuongInfo.ConfigSettings);
+                    _chuongModel = JsonConvert.DeserializeObject<SettingsModel>(_chuongInfo.ConfigSettings);
 
-                    Console.WriteLine($"{chuongInfo.ConfigSettings}");
+                    Console.WriteLine($"{_chuongInfo.ConfigSettings}");
 
                     #region lay ra thong so cai dat cho giai doan dau tien
-                    var stepFirst = chuongModel.Steps.FirstOrDefault();
+                    var stepFirst = _chuongModel.Steps.FirstOrDefault();
 
-                    stepModel.ChuongId = chuongModel.Chuongid;
-                    stepModel.TenChuong = chuongInfo.TenChuong;
-                    stepModel.NumIndex = (int)chuongInfo.NumIndex;
-                    stepModel.StepId = stepFirst.StepId;
-                    stepModel.FromDate = stepFirst.FromDate;
-                    stepModel.ToDate = stepFirst.ToDate;
-                    stepModel.StaticFanRun = stepFirst.StaticFanRun;
-                    stepModel.HightTemperature = stepFirst.HightTemperature;
-                    stepModel.Lowtemperature = stepFirst.Lowtemperature;
-                    stepModel.HightFrequency = stepFirst.HightFrequency;
-                    stepModel.LowFrequency = stepFirst.LowFrequency;
-                    stepModel.TempRunFan1 = stepFirst.TempRunFan1;
-                    stepModel.TempRunFan2 = stepFirst.TempRunFan2;
-                    stepModel.TempRunFan3 = stepFirst.TempRunFan3;
-                    stepModel.TempRunFan4 = stepFirst.TempRunFan4;
-                    stepModel.TempRunCooler = stepFirst.TempRunCooler;
-                    stepModel.Fan1 = chuongModel.GeneralSettings.Fan1;
-                    stepModel.Fan2 = chuongModel.GeneralSettings.Fan2;
-                    stepModel.Fan3 = chuongModel.GeneralSettings.Fan3;
-                    stepModel.Fan4 = chuongModel.GeneralSettings.Fan4;
-                    stepModel.TimeOnCooler = chuongModel.GeneralSettings.TimeOnCooler;
-                    stepModel.TimeOffCooler = chuongModel.GeneralSettings.TimeOffCooler;
-                    stepModel.CurrentDay = chuongModel.GeneralSettings.CurrentDay;
-                    stepModel.OffsetTemp = chuongModel.GeneralSettings.OffsetTemp;
-                    stepModel.DeadbandTemp = chuongModel.GeneralSettings.DeadbandTemp;
-                    stepModel.ResetGiaiDoan = chuongModel.GeneralSettings.ResetGiaiDoan;
+                    _stepModel.ChuongId = _chuongModel.Chuongid;
+                    _stepModel.TenChuong = _chuongInfo.TenChuong;
+                    _stepModel.NumIndex = (int)_chuongInfo.NumIndex;
+                    _stepModel.StepId = stepFirst.StepId;
+                    _stepModel.FromDate = stepFirst.FromDate;
+                    _stepModel.ToDate = stepFirst.ToDate;
+                    _stepModel.StaticFanRun = stepFirst.StaticFanRun;
+                    _stepModel.HightTemperature = stepFirst.HightTemperature;
+                    _stepModel.Lowtemperature = stepFirst.Lowtemperature;
+                    _stepModel.HightFrequency = stepFirst.HightFrequency;
+                    _stepModel.LowFrequency = stepFirst.LowFrequency;
+                    _stepModel.TempRunFan1 = stepFirst.TempRunFan1;
+                    _stepModel.TempRunFan2 = stepFirst.TempRunFan2;
+                    _stepModel.TempRunFan3 = stepFirst.TempRunFan3;
+                    _stepModel.TempRunFan4 = stepFirst.TempRunFan4;
+                    _stepModel.TempRunCooler = stepFirst.TempRunCooler;
+                    _stepModel.Fan1 = _chuongModel.GeneralSettings.Fan1;
+                    _stepModel.Fan2 = _chuongModel.GeneralSettings.Fan2;
+                    _stepModel.Fan3 = _chuongModel.GeneralSettings.Fan3;
+                    _stepModel.Fan4 = _chuongModel.GeneralSettings.Fan4;
+                    _stepModel.TimeOnCooler = _chuongModel.GeneralSettings.TimeOnCooler;
+                    _stepModel.TimeOffCooler = _chuongModel.GeneralSettings.TimeOffCooler;
+                    _stepModel.CurrentDay = _chuongModel.GeneralSettings.CurrentDay;
+                    _stepModel.OffsetTemp = _chuongModel.GeneralSettings.OffsetTemp;
+                    _stepModel.DeadbandTemp = _chuongModel.GeneralSettings.DeadbandTemp;
+                    _stepModel.ResetGiaiDoan = _chuongModel.GeneralSettings.ResetGiaiDoan;
                     #endregion
                 }
 
@@ -146,28 +193,47 @@ namespace GiamSat.UI.Pages
 
                 if (res.Succeeded)
                 {
-                    chuongInfo = null;
-                    chuongInfo = new APIClient.ChuongInfoModel();
+                    _chuongInfo = null;
+                    _chuongInfo = new APIClient.ChuongInfoModel();
 
-                    chuongModel = null;
-                    chuongModel = new SettingsModel();
+                    _ft101 = null;
+                    _ft101 = new APIClient.FT101();
 
-                    stepModel = null;
-                    stepModel = new EditFromSettingChuongModel();
+                    _chuongModel = null;
+                    _chuongModel = new SettingsModel();
 
-                    chuongInfo = res.Data;
+                    _stepModel = null;
+                    _stepModel = new EditFromSettingChuongModel();
+
+                    _chuongInfo = res.Data;
+
+                    #region Get thông tin của bảng chuongInfo lên để chuẩn bị data lưu vào bảng lịch sử cài đặt FT101
+                    var resChuongInfo = await _chuongInfoClient.GetAllAsync();
+                    if (resChuongInfo.Succeeded)
+                    {
+                        var d = resChuongInfo.Data.ToList();
+                        GlobalVariable.FT101Details = null;
+                        GlobalVariable.FT101Details = new List<SettingsModel>();
+                        foreach (var item in d)
+                        {
+                            GlobalVariable.FT101Details.Add(JsonConvert.DeserializeObject<SettingsModel>(item.ConfigSettings));
+                        }
+                    }
+                    #endregion
 
                     #region khoi tao thong tin cai dat cho chuong
-                    if (string.IsNullOrEmpty(chuongInfo.ConfigSettings) || chuongInfo.ConfigSettings == "")
+                    if (string.IsNullOrEmpty(_chuongInfo.ConfigSettings) || _chuongInfo.ConfigSettings == "")
                     {
-                        //get me nuoi
-                        
-                        
+                        //get me nuoi. Luôn trả về 1 dòng dữ liệu, chính là mẻ nuôi hiện tại.
+                        var chuKuNuoi = await _ft100Client.GetAllAsync();
+
                         int dayIndex = 0;
-                        chuongModel.Chuongid = chuongId;
+                        _chuongModel.Chuongid = chuongId;
+                        _chuongModel.FT100Id = chuKuNuoi.Data.ToList()[0].Id;
+
                         for (int i = 1; i <= 10; i++)
                         {
-                            chuongModel.Steps.Add(new StepSettingsModel()
+                            _chuongModel.Steps.Add(new StepSettingsModel()
                             {
                                 StepId = i,
                                 FromDate = dayIndex,
@@ -188,64 +254,79 @@ namespace GiamSat.UI.Pages
                             dayIndex += 2;
                         }
 
-                        chuongModel.GeneralSettings.Fan1 = 1;
-                        chuongModel.GeneralSettings.Fan2 = 2;
-                        chuongModel.GeneralSettings.Fan3 = 3;
-                        chuongModel.GeneralSettings.Fan4 = 4;
-                        chuongModel.GeneralSettings.TimeOnCooler = 2;
-                        chuongModel.GeneralSettings.TimeOffCooler = 1;
-                        chuongModel.GeneralSettings.TenChuong = chuongInfo.TenChuong;
-                        chuongModel.GeneralSettings.NumIndex = (int)chuongInfo.NumIndex;
-                        chuongModel.GeneralSettings.CurrentDay = 0;
-                        chuongModel.GeneralSettings.OffsetTemp = 0;
-                        chuongModel.GeneralSettings.DeadbandTemp = 0;
-                        chuongModel.GeneralSettings.ResetGiaiDoan = 0;
+                        _chuongModel.GeneralSettings.Fan1 = 1;
+                        _chuongModel.GeneralSettings.Fan2 = 2;
+                        _chuongModel.GeneralSettings.Fan3 = 3;
+                        _chuongModel.GeneralSettings.Fan4 = 4;
+                        _chuongModel.GeneralSettings.TimeOnCooler = 2;
+                        _chuongModel.GeneralSettings.TimeOffCooler = 1;
+                        _chuongModel.GeneralSettings.TenChuong = _chuongInfo.TenChuong;
+                        _chuongModel.GeneralSettings.NumIndex = (int)_chuongInfo.NumIndex;
+                        _chuongModel.GeneralSettings.CurrentDay = 0;
+                        _chuongModel.GeneralSettings.OffsetTemp = 0;
+                        _chuongModel.GeneralSettings.DeadbandTemp = 0;
+                        _chuongModel.GeneralSettings.ResetGiaiDoan = 0;
 
                         //năng suất
-                        chuongModel.ThucAn.ChuongId = chuongId;
+                        _chuongModel.NangSuat.ChuongId = chuongId;
 
-                        chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
-                        chuongInfo.TenChuong = chuongModel.GeneralSettings.TenChuong;
-                        chuongInfo.NumIndex = chuongModel.GeneralSettings.NumIndex;
-                        chuongInfo.FlagUpdate = 1;
+                        _chuongInfo.ConfigSettings = JsonConvert.SerializeObject(_chuongModel);
+                        _chuongInfo.FlagUpdate = 1;
 
-                        await _chuongInfoClient.UpdateAsync(chuongInfo);
+                        await _chuongInfoClient.UpdateAsync(_chuongInfo);
+
+                        #region Lưu vào bảng lịch sử của chu kỳ nuôi
+                        try
+                        {
+                            var item=GlobalVariable.FT101Details.FirstOrDefault(x=>x.Chuongid==_chuongInfo.Id);
+                            item = _chuongModel;
+                        }
+                        catch
+                        {
+                            GlobalVariable.FT101Details.Remove(null);
+                            GlobalVariable.FT101Details.Add(_chuongModel);
+                        }
+
+                        _ft101.FT100Id = _chuongModel.FT100Id;
+                        _ft101.Details = JsonConvert.SerializeObject(GlobalVariable.FT101Details);
+                        await _ft101Client.InsertAsync(_ft101);
+                        #endregion
                     }
                     #endregion
 
-                    chuongModel = JsonConvert.DeserializeObject<SettingsModel>(chuongInfo.ConfigSettings);
+                    _chuongModel = JsonConvert.DeserializeObject<SettingsModel>(_chuongInfo.ConfigSettings);
 
-                    Console.WriteLine($"{chuongInfo.ConfigSettings}");
+                    Console.WriteLine($"{_chuongInfo.ConfigSettings}");
 
                     #region lay ra thong so cai dat cho giai doan dau tien
-                    var stepFirst = chuongModel.Steps.FirstOrDefault();
+                    var stepFirst = _chuongModel.Steps.FirstOrDefault();
 
-                    stepModel.ChuongId = chuongModel.Chuongid;
-                    stepModel.TenChuong = chuongInfo.TenChuong;
-                    stepModel.NumIndex = (int)chuongInfo.NumIndex;
-                    stepModel.StepId = stepFirst.StepId;
-                    stepModel.FromDate = stepFirst.FromDate;
-                    stepModel.ToDate = stepFirst.ToDate;
-                    stepModel.StaticFanRun = stepFirst.StaticFanRun;
-                    stepModel.HightTemperature = stepFirst.HightTemperature;
-                    stepModel.Lowtemperature = stepFirst.Lowtemperature;
-                    stepModel.HightFrequency = stepFirst.HightFrequency;
-                    stepModel.LowFrequency = stepFirst.LowFrequency;
-                    stepModel.TempRunFan1 = stepFirst.TempRunFan1;
-                    stepModel.TempRunFan2 = stepFirst.TempRunFan2;
-                    stepModel.TempRunFan3 = stepFirst.TempRunFan3;
-                    stepModel.TempRunFan4 = stepFirst.TempRunFan4;
-                    stepModel.TempRunCooler = stepFirst.TempRunCooler;
-                    stepModel.Fan1 = chuongModel.GeneralSettings.Fan1;
-                    stepModel.Fan2 = chuongModel.GeneralSettings.Fan2;
-                    stepModel.Fan3 = chuongModel.GeneralSettings.Fan3;
-                    stepModel.Fan4 = chuongModel.GeneralSettings.Fan4;
-                    stepModel.TimeOnCooler = chuongModel.GeneralSettings.TimeOnCooler;
-                    stepModel.TimeOffCooler = chuongModel.GeneralSettings.TimeOffCooler;
-                    stepModel.CurrentDay = chuongModel.GeneralSettings.CurrentDay;
-                    stepModel.OffsetTemp = chuongModel.GeneralSettings.OffsetTemp;
-                    stepModel.DeadbandTemp = chuongModel.GeneralSettings.DeadbandTemp;
-                    stepModel.ResetGiaiDoan = chuongModel.GeneralSettings.ResetGiaiDoan;
+                    _stepModel.ChuongId = _chuongModel.Chuongid;
+                    _stepModel.TenChuong = _chuongInfo.TenChuong;
+                    _stepModel.NumIndex = (int)_chuongInfo.NumIndex;
+                    _stepModel.StepId = stepFirst.StepId;
+                    _stepModel.FromDate = stepFirst.FromDate;
+                    _stepModel.ToDate = stepFirst.ToDate;
+                    _stepModel.StaticFanRun = stepFirst.StaticFanRun;
+                    _stepModel.HightTemperature = stepFirst.HightTemperature;
+                    _stepModel.Lowtemperature = stepFirst.Lowtemperature;
+                    _stepModel.HightFrequency = stepFirst.HightFrequency;
+                    _stepModel.LowFrequency = stepFirst.LowFrequency;
+                    _stepModel.TempRunFan1 = stepFirst.TempRunFan1;
+                    _stepModel.TempRunFan2 = stepFirst.TempRunFan2;
+                    _stepModel.TempRunFan3 = stepFirst.TempRunFan3;
+                    _stepModel.TempRunFan4 = stepFirst.TempRunFan4;
+                    _stepModel.TempRunCooler = stepFirst.TempRunCooler;
+                    _stepModel.Fan1 = _chuongModel.GeneralSettings.Fan1;
+                    _stepModel.Fan2 = _chuongModel.GeneralSettings.Fan2;
+                    _stepModel.Fan3 = _chuongModel.GeneralSettings.Fan3;
+                    _stepModel.Fan4 = _chuongModel.GeneralSettings.Fan4;
+                    _stepModel.TimeOnCooler = _chuongModel.GeneralSettings.TimeOnCooler;
+                    _stepModel.TimeOffCooler = _chuongModel.GeneralSettings.TimeOffCooler;
+                    _stepModel.CurrentDay = _chuongModel.GeneralSettings.CurrentDay;
+                    _stepModel.OffsetTemp = _chuongModel.GeneralSettings.OffsetTemp;
+                    _stepModel.DeadbandTemp = _chuongModel.GeneralSettings.DeadbandTemp;
+                    _stepModel.ResetGiaiDoan = _chuongModel.GeneralSettings.ResetGiaiDoan;
                     #endregion
                 }
             }
@@ -260,50 +341,60 @@ namespace GiamSat.UI.Pages
         {
             try
             {
-                var step = chuongModel.Steps.FirstOrDefault(x => x.StepId == stepModel.StepId);
+                var step = _chuongModel.Steps.FirstOrDefault(x => x.StepId == _stepModel.StepId);
                 if (step != null)
                 {
-                    step.StepId = stepModel.StepId;
-                    step.FromDate = stepModel.FromDate;
-                    step.ToDate = stepModel.ToDate;
-                    step.StaticFanRun = stepModel.StaticFanRun;
-                    step.HightTemperature = stepModel.HightTemperature;
-                    step.Lowtemperature = stepModel.Lowtemperature;
-                    step.HightFrequency = stepModel.HightFrequency;
-                    step.LowFrequency = stepModel.LowFrequency;
-                    step.TempRunFan1 = stepModel.TempRunFan1;
-                    step.TempRunFan2 = stepModel.TempRunFan2;
-                    step.TempRunFan3 = stepModel.TempRunFan3;
-                    step.TempRunFan4 = stepModel.TempRunFan4;
-                    step.TempRunCooler = stepModel.TempRunCooler;
+                    step.StepId = _stepModel.StepId;
+                    step.FromDate = _stepModel.FromDate;
+                    step.ToDate = _stepModel.ToDate;
+                    step.StaticFanRun = _stepModel.StaticFanRun;
+                    step.HightTemperature = _stepModel.HightTemperature;
+                    step.Lowtemperature = _stepModel.Lowtemperature;
+                    step.HightFrequency = _stepModel.HightFrequency;
+                    step.LowFrequency = _stepModel.LowFrequency;
+                    step.TempRunFan1 = _stepModel.TempRunFan1;
+                    step.TempRunFan2 = _stepModel.TempRunFan2;
+                    step.TempRunFan3 = _stepModel.TempRunFan3;
+                    step.TempRunFan4 = _stepModel.TempRunFan4;
+                    step.TempRunCooler = _stepModel.TempRunCooler;
                 }
-                chuongModel.GeneralSettings.TenChuong = stepModel.TenChuong;
-                chuongModel.GeneralSettings.NumIndex = stepModel.NumIndex;
-                chuongModel.GeneralSettings.Fan1 = stepModel.Fan1;
-                chuongModel.GeneralSettings.Fan2 = stepModel.Fan2;
-                chuongModel.GeneralSettings.Fan3 = stepModel.Fan3;
-                chuongModel.GeneralSettings.Fan4 = stepModel.Fan4;
-                chuongModel.GeneralSettings.TimeOnCooler = stepModel.TimeOnCooler;
-                chuongModel.GeneralSettings.TimeOffCooler = stepModel.TimeOffCooler;
-                chuongModel.GeneralSettings.CurrentDay = stepModel.CurrentDay;
-                chuongModel.GeneralSettings.OffsetTemp = stepModel.OffsetTemp;
-                chuongModel.GeneralSettings.DeadbandTemp = stepModel.DeadbandTemp;
-                chuongModel.GeneralSettings.ResetGiaiDoan = stepModel.ResetGiaiDoan;
+                _chuongModel.GeneralSettings.TenChuong = _stepModel.TenChuong;
+                _chuongModel.GeneralSettings.NumIndex = _stepModel.NumIndex;
+                _chuongModel.GeneralSettings.Fan1 = _stepModel.Fan1;
+                _chuongModel.GeneralSettings.Fan2 = _stepModel.Fan2;
+                _chuongModel.GeneralSettings.Fan3 = _stepModel.Fan3;
+                _chuongModel.GeneralSettings.Fan4 = _stepModel.Fan4;
+                _chuongModel.GeneralSettings.TimeOnCooler = _stepModel.TimeOnCooler;
+                _chuongModel.GeneralSettings.TimeOffCooler = _stepModel.TimeOffCooler;
+                _chuongModel.GeneralSettings.CurrentDay = _stepModel.CurrentDay;
+                _chuongModel.GeneralSettings.OffsetTemp = _stepModel.OffsetTemp;
+                _chuongModel.GeneralSettings.DeadbandTemp = _stepModel.DeadbandTemp;
+                _chuongModel.GeneralSettings.ResetGiaiDoan = _stepModel.ResetGiaiDoan;
 
-                chuongInfo.ConfigSettings = JsonConvert.SerializeObject(chuongModel);
-                chuongInfo.TenChuong = stepModel.TenChuong;
-                chuongInfo.NumIndex = stepModel.NumIndex;
-                chuongInfo.FlagUpdate = 1;
+                _chuongInfo.ConfigSettings = JsonConvert.SerializeObject(_chuongModel);
+                _chuongInfo.TenChuong = _stepModel.TenChuong;
+                _chuongInfo.NumIndex = _stepModel.NumIndex;
+                _chuongInfo.FlagUpdate = 1;
 
-                var res = await _chuongInfoClient.UpdateAsync(chuongInfo);
+                var res = await _chuongInfoClient.UpdateAsync(_chuongInfo);
                 await _displayRealtimeClient.UpdateTenChuongAsync(new APIClient.DisplayRealTimeModel()
                 {
-                    ChuongId = chuongInfo.Id,
-                    TenChuong = chuongInfo.TenChuong,
-                    NumIndex = (int)chuongInfo.NumIndex,
-                    HightTemperature = stepModel.HightTemperature,
-                    Lowtemperature = stepModel.Lowtemperature
+                    ChuongId = _chuongInfo.Id,
+                    TenChuong = _chuongInfo.TenChuong,
+                    NumIndex = (int)_chuongInfo.NumIndex,
+                    HightTemperature = _stepModel.HightTemperature,
+                    Lowtemperature = _stepModel.Lowtemperature
                 });
+
+                #region Lưu vào bảng lịch sử của chu kỳ nuôi
+                var itemUpdate = GlobalVariable.FT101Details.FirstOrDefault(x => x.Chuongid == _chuongInfo.Id);
+                itemUpdate = _chuongModel;
+
+                _ft101.FT100Id = _chuongModel.FT100Id;
+                _ft101.Details = JsonConvert.SerializeObject(GlobalVariable.FT101Details);
+                await _ft101Client.InsertAsync(_ft101);
+                #endregion
+
                 //success = res.Succeeded;
 
                 _snackBar.Add("Update successfull", Severity.Success);
@@ -328,30 +419,30 @@ namespace GiamSat.UI.Pages
             Console.WriteLine(string.Join("SELECTED value:\n", values));
             #region lay ra thong so cai dat cho giai doan dau tien
             var step = values.FirstOrDefault();
-            var stepFirst = chuongModel.Steps.FirstOrDefault(x => x.StepId == (int)step);
+            var stepFirst = _chuongModel.Steps.FirstOrDefault(x => x.StepId == (int)step);
 
-            stepModel.ChuongId = chuongModel.Chuongid;
-            stepModel.TenChuong = chuongInfo.TenChuong;
-            stepModel.NumIndex = (int)chuongInfo.NumIndex;
-            stepModel.StepId = stepFirst.StepId;
-            stepModel.FromDate = stepFirst.FromDate;
-            stepModel.ToDate = stepFirst.ToDate;
-            stepModel.StaticFanRun = stepFirst.StaticFanRun;
-            stepModel.HightTemperature = stepFirst.HightTemperature;
-            stepModel.Lowtemperature = stepFirst.Lowtemperature;
-            stepModel.HightFrequency = stepFirst.HightFrequency;
-            stepModel.LowFrequency = stepFirst.LowFrequency;
-            stepModel.TempRunFan1 = stepFirst.TempRunFan1;
-            stepModel.TempRunFan2 = stepFirst.TempRunFan2;
-            stepModel.TempRunFan3 = stepFirst.TempRunFan3;
-            stepModel.TempRunFan4 = stepFirst.TempRunFan4;
-            stepModel.TempRunCooler = stepFirst.TempRunCooler;
-            stepModel.Fan1 = chuongModel.GeneralSettings.Fan1;
-            stepModel.Fan2 = chuongModel.GeneralSettings.Fan2;
-            stepModel.Fan3 = chuongModel.GeneralSettings.Fan3;
-            stepModel.Fan4 = chuongModel.GeneralSettings.Fan4;
-            stepModel.TimeOnCooler = chuongModel.GeneralSettings.TimeOnCooler;
-            stepModel.TimeOffCooler = chuongModel.GeneralSettings.TimeOffCooler;
+            _stepModel.ChuongId = _chuongModel.Chuongid;
+            _stepModel.TenChuong = _chuongInfo.TenChuong;
+            _stepModel.NumIndex = (int)_chuongInfo.NumIndex;
+            _stepModel.StepId = stepFirst.StepId;
+            _stepModel.FromDate = stepFirst.FromDate;
+            _stepModel.ToDate = stepFirst.ToDate;
+            _stepModel.StaticFanRun = stepFirst.StaticFanRun;
+            _stepModel.HightTemperature = stepFirst.HightTemperature;
+            _stepModel.Lowtemperature = stepFirst.Lowtemperature;
+            _stepModel.HightFrequency = stepFirst.HightFrequency;
+            _stepModel.LowFrequency = stepFirst.LowFrequency;
+            _stepModel.TempRunFan1 = stepFirst.TempRunFan1;
+            _stepModel.TempRunFan2 = stepFirst.TempRunFan2;
+            _stepModel.TempRunFan3 = stepFirst.TempRunFan3;
+            _stepModel.TempRunFan4 = stepFirst.TempRunFan4;
+            _stepModel.TempRunCooler = stepFirst.TempRunCooler;
+            _stepModel.Fan1 = _chuongModel.GeneralSettings.Fan1;
+            _stepModel.Fan2 = _chuongModel.GeneralSettings.Fan2;
+            _stepModel.Fan3 = _chuongModel.GeneralSettings.Fan3;
+            _stepModel.Fan4 = _chuongModel.GeneralSettings.Fan4;
+            _stepModel.TimeOnCooler = _chuongModel.GeneralSettings.TimeOnCooler;
+            _stepModel.TimeOffCooler = _chuongModel.GeneralSettings.TimeOffCooler;
             #endregion
 
             StateHasChanged();

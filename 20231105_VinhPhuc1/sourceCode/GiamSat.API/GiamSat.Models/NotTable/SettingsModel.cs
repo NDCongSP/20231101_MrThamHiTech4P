@@ -20,6 +20,6 @@ namespace GiamSat.Models
 
         public List<StepSettingsModel> Steps { get; set; } = new List<StepSettingsModel>();
         public GeneralStepSettingsModel GeneralSettings { get; set; } = new GeneralStepSettingsModel();
-        public NangSuatModel ThucAn { get; set; } = new NangSuatModel();
+        public NangSuatModel NangSuat { get; set; } = new NangSuatModel();
     }
 }
