@@ -20,7 +20,10 @@ namespace GiamSat.Scada
     public partial class Form1 : Form
     {
         private List<DisplayRealTimeModel> _displayRealtime = new List<DisplayRealTimeModel>();
-        //private List<DisplayRealTimeModel> _displayRealtime = new List<DisplayRealTimeModel>();
+        //private List<RealtimeDisplayModel> _realtimeDisplay = new List<RealtimeDisplayModel>();
+        private double[] _khoiLuongSilo = { 0, 0, 0, 0 };
+        private RealtimeList _realtimeData = new RealtimeList();
+
         private List<DataLogModel> _dataLog = new List<DataLogModel>();
         private List<ChuongInfoModel> _chuongInfo = new List<ChuongInfoModel>();
 
@@ -46,7 +49,7 @@ namespace GiamSat.Scada
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -71,6 +74,8 @@ namespace GiamSat.Scada
         {
             using (var con = GlobalVariable.GetDbConnection())
             {
+                var para = new DynamicParameters();
+
                 _chuongInfo = con.Query<ChuongInfoModel>("sp_chuongInfoGetAll", commandType: CommandType.StoredProcedure).ToList();
                 foreach (var item in _chuongInfo)
                 {
@@ -92,14 +97,27 @@ namespace GiamSat.Scada
                         HightTemperature = settingsItem.Steps.FirstOrDefault().HightTemperature,
                         Lowtemperature = settingsItem.Steps.FirstOrDefault().Lowtemperature,
                     });
+
+                    _realtimeData.Add(new RealtimeModel()
+                    {
+                        DisplayRealtime = new DisplayRealTimeModel()
+                        {
+                            ChuongId = item.Id,
+                            TenChuong = item.TenChuong,
+                            NumIndex = (int)item.NumIndex,
+                            HightTemperature = settingsItem.Steps.FirstOrDefault().HightTemperature,
+                            Lowtemperature = settingsItem.Steps.FirstOrDefault().Lowtemperature,
+                        },
+                        NangSuat = settingsItem.NangSuat
+                    });
                 }
 
                 #region initial display table
                 con.Execute("Truncate table DisplayRealtime");
-
                 foreach (var item in _displayRealtime)
                 {
-                    var para = new DynamicParameters();
+                    para = null;
+                    para = new DynamicParameters();
                     para.Add("chuongId", item.ChuongId);
                     para.Add("tenChuong", item.TenChuong);
                     para.Add("temperature", item.Temperature);
@@ -123,6 +141,13 @@ namespace GiamSat.Scada
 
                     con.Execute("sp_displayRealtimeInsert", param: para, commandType: CommandType.StoredProcedure);
                 }
+
+                con.Execute("Truncate table RealtimeDisplay");
+                var displayData = JsonConvert.SerializeObject(_realtimeData);
+                para = null;
+                para = new DynamicParameters();
+                para.Add("displayData", displayData);
+                con.Execute("sp_realtimeDisplayInsert", param: para, commandType: CommandType.StoredProcedure);
                 #endregion
             }
         }
@@ -131,10 +156,14 @@ namespace GiamSat.Scada
         {
             while (true)
             {
+                //kiểm tra xem có cài đặt gì từ web thì cài xuống HMI
+                UpdateSettingsFormWeb();
+
                 _endTime = DateTime.Now;
                 _totalTime = (_endTime - _startTime).TotalSeconds;
                 _totalTimeDisplay = (_endTimeDisplay - _startTimeDisplay).TotalSeconds;
 
+                //data log
                 if (_totalTime >= GlobalVariable.LogInterval)
                 {
                     _startTime = DateTime.Now;
@@ -155,15 +184,19 @@ namespace GiamSat.Scada
                     }
                 }
 
+                //realtime display
                 if (_totalTimeDisplay < GlobalVariable.DisplayRealtimeInterval)
                 {
                     _startTimeDisplay = DateTime.Now;
                     //log data
                     using (var con = GlobalVariable.GetDbConnection())
                     {
+                        var para = new DynamicParameters();
+
                         foreach (var item in _displayRealtime)
                         {
-                            var para = new DynamicParameters();
+                            para = null;
+                            para = new DynamicParameters();
                             para.Add("chuongId", item.ChuongId);
                             para.Add("tenChuong", item.TenChuong);
                             para.Add("temperature", item.Temperature);
@@ -186,7 +219,19 @@ namespace GiamSat.Scada
                             para.Add("quaTai", item.QuaTai);
 
                             con.Execute("sp_displayRealtimeUpdate", param: para, commandType: CommandType.StoredProcedure);
+
+                            var res = _realtimeData.FirstOrDefault(x => x.DisplayRealtime.ChuongId == item.ChuongId);
+
+                            res.DisplayRealtime = item;
+                            res.NangSuat.TongKhoiLuongThucTe = _khoiLuongSilo[item.NumIndex - 1];
                         }
+
+                        con.Execute("Truncate table RealtimeDisplay");
+                        var displayData = JsonConvert.SerializeObject(_realtimeData);
+                        para = null;
+                        para = new DynamicParameters();
+                        para.Add("displayData", displayData);
+                        con.Execute("sp_realtimeDisplayInsert", param: para, commandType: CommandType.StoredProcedure);
                     }
                 }
 
@@ -199,16 +244,23 @@ namespace GiamSat.Scada
             {
                 var para = new DynamicParameters();
 
-                if (!_settingsFromHMI[0])//nếu ko có tín hiệu thay đổi giá trị cài đặt trực tiếp từ HMI thì vào get cai đặt từ web, nếu có thay đổi thì cập nhật xuống cho HMI
-                {
-                    _chuongInfo = con.Query<ChuongInfoModel>("sp_chuongInfoGetAll", commandType: CommandType.StoredProcedure).ToList();
 
-                    foreach (var item in _chuongInfo)
+                _chuongInfo = con.Query<ChuongInfoModel>("sp_chuongInfoGetAll", commandType: CommandType.StoredProcedure).ToList();
+
+                foreach (var item in _chuongInfo)
+                {
+                    if (item.FlagUpdate == 1)
                     {
-                        if (item.FlagUpdate == 1)
+                        #region add cac thong so moi vao list nang suat de  ghi len hien thi thoi gian thuc
+                        var resNangSuat = _realtimeData.FirstOrDefault(x => x.NangSuat.ChuongId == item.Id);
+                        resNangSuat.NangSuat = JsonConvert.DeserializeObject<SettingsModel>(item.ConfigSettings).NangSuat;
+                        resNangSuat.NangSuat.TongKhoiLuongThucTe = _khoiLuongSilo[(int)(item.NumIndex - 1)];
+                        #endregion
+
+                        //cap nhat cai dat moi xuong HMI. sau đó resert flagUpdate
+                        if (!_settingsFromHMI[0])//nếu ko có tín hiệu thay đổi giá trị cài đặt trực tiếp từ HMI thì vào get cai đặt từ web, nếu có thay đổi thì cập nhật xuống cho HMI
                         {
-                            //cap nhat cai dat moi xuong HMI. sau đó resert flagUpdate
-                            UpdateSettingsForHMI(item);
+                            UpdateSettingsForHMI((int)item.NumIndex, item);
                             item.FlagUpdate = 0;
 
                             para = null;
@@ -221,34 +273,61 @@ namespace GiamSat.Scada
 
                             con.Execute("[sp_chuongInfoUpdate]", param: para, commandType: CommandType.StoredProcedure);
                         }
-
                     }
-                }
-                else
-                {
-
                 }
             }
         }
 
-        private void UpdateSettingsForHMI(ChuongInfoModel model)
+        private bool UpdateSettingsForHMI(int numIndex, ChuongInfoModel model)
         {
-            var d = JsonConvert.DeserializeObject<SettingsModel>(model.ConfigSettings);
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/DeadbandNhietDo").WriteAsync(d.GeneralSettings.DeadbandTemp.ToString(), WritePiority.High);
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/NgayHienTai").WriteAsync(d.GeneralSettings.CurrentDay.ToString(), WritePiority.High);
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/OffsetNhietDo").WriteAsync(d.GeneralSettings.OffsetTemp.ToString(), WritePiority.High);
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/ResetGiaiDoan").WriteAsync(d.GeneralSettings.ResetGiaiDoan.ToString(), WritePiority.High);
+            try
+            {
+                var d = JsonConvert.DeserializeObject<SettingsModel>(model.ConfigSettings);
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/QuatCoDinh1").WriteAsync(d.GeneralSettings.Fan1.ToString(), WritePiority.High);
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/QuatCoDinh2").WriteAsync(d.GeneralSettings.Fan2.ToString(), WritePiority.High);
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/QuatCoDinh3").WriteAsync(d.GeneralSettings.Fan3.ToString(), WritePiority.High);
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/QuatCoDinh4").WriteAsync(d.GeneralSettings.Fan4.ToString(), WritePiority.High);
+                #region Step
+                int index = 1;
+                foreach (var item in d.Steps)
+                {
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}TuNgay").WriteAsync(item.FromDate.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}DenNgay").WriteAsync(item.ToDate.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}SoQuatChayCoDinh").WriteAsync(item.StaticFanRun.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}NhietDoCao").WriteAsync(item.HightTemperature.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}NhietDoThap").WriteAsync(item.LowFrequency.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}TanSoCao").WriteAsync(item.HightFrequency.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}TanSoThap").WriteAsync(item.LowFrequency.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}NhietDoQuat1").WriteAsync(item.TempRunFan1.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}NhietDoQuat2").WriteAsync(item.TempRunFan2.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}NhietDoQuat3").WriteAsync(item.TempRunFan3.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}NhietDoQuat4").WriteAsync(item.TempRunFan4.ToString(), WritePiority.High);
+                    easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/Moc{index}NhietDoBatDanMat").WriteAsync(item.TempRunCooler.ToString(), WritePiority.High);
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/ThoiGianOnDanMat").WriteAsync(d.GeneralSettings.TimeOnCooler.ToString(), WritePiority.High);
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/ThoiGianOffDanMat").WriteAsync(d.GeneralSettings.TimeOffCooler.ToString(), WritePiority.High);
+                    index += 1;
+                }
+                #endregion
 
-            //bật bit này lên để HMI cap nhật lại thứ tự quạt
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/ChotCaiThuTuOutQuat").WriteAsync("1", WritePiority.High);
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/DeadbandNhietDo").WriteAsync(d.GeneralSettings.DeadbandTemp.ToString(), WritePiority.High);
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/NgayHienTai").WriteAsync(d.GeneralSettings.CurrentDay.ToString(), WritePiority.High);
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/OffsetNhietDo").WriteAsync(d.GeneralSettings.OffsetTemp.ToString(), WritePiority.High);
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/ResetGiaiDoan").WriteAsync(d.GeneralSettings.ResetGiaiDoan.ToString(), WritePiority.High);
+
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/QuatCoDinh1").WriteAsync(d.GeneralSettings.Fan1.ToString(), WritePiority.High);
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/QuatCoDinh2").WriteAsync(d.GeneralSettings.Fan2.ToString(), WritePiority.High);
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/QuatCoDinh3").WriteAsync(d.GeneralSettings.Fan3.ToString(), WritePiority.High);
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/QuatCoDinh4").WriteAsync(d.GeneralSettings.Fan4.ToString(), WritePiority.High);
+
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/ThoiGianOnDanMat").WriteAsync(d.GeneralSettings.TimeOnCooler.ToString(), WritePiority.High);
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/ThoiGianOffDanMat").WriteAsync(d.GeneralSettings.TimeOffCooler.ToString(), WritePiority.High);
+
+                //bật bit này lên để HMI cap nhật lại thứ tự quạt
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/ChotCaiThuTuOutQuat").WriteAsync("1", WritePiority.High);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Write tag error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
         #endregion
 
@@ -299,6 +378,7 @@ namespace GiamSat.Scada
             easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong1_ValueChanged;
 
             easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong1_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong1_ValueChanged;
 
             Chuong1Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/OutQ1Auto")
               , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/OutQ1Auto")
@@ -353,6 +433,259 @@ namespace GiamSat.Scada
             HmiThayDoiCaiDatChuong1_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/HmiThayDoiCaiDat")
               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/HmiThayDoiCaiDat")
               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/HmiThayDoiCaiDat").Value));
+
+            KhoiLuongSiloChuong1_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/KhoiLuongSilo")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/KhoiLuongSilo")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong1/Device1/KhoiLuongSilo").Value));
+            #endregion
+
+            #region Chuong 2
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto").QualityChanged += Chuong2Status_QualityChanged;
+                                                                    
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto").ValueChanged += InAutoChuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan").ValueChanged += InManChuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai").ValueChanged += InQuaTaiChuong2_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong2_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo").ValueChanged += NhietDoChuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm").ValueChanged += DoAmChuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo").ValueChanged += TanSoChuong2_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong2_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong2_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong2_ValueChanged;
+
+            Chuong2Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto")
+              , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto")
+              , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto").Quality));
+
+            NhietDoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo").Value));
+            DoAmChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm").Value));
+            TanSoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo").Value));
+
+            InAutoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto").Value));
+            InManChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan").Value));
+            InChayDuPhongChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong").Value));
+            InQuaTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai").Value));
+
+            InStatusQ1Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1").Value));
+            InStatusQ2Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2").Value));
+            InStatusQ3Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3").Value));
+            InStatusQ4Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4").Value));
+            InStatusDanMatChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat").Value));
+
+            NgayHienTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai").Value));
+            GiaiDoanHienTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai").Value));
+
+            HmiThayDoiCaiDatChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat").Value));
+
+            KhoiLuongSiloChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo").Value));
+            #endregion
+
+            #region Chuong 3
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto").QualityChanged += Chuong3Status_QualityChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto").ValueChanged += InAutoChuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan").ValueChanged += InManChuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai").ValueChanged += InQuaTaiChuong3_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong3_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo").ValueChanged += NhietDoChuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm").ValueChanged += DoAmChuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo").ValueChanged += TanSoChuong3_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong3_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong3_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong3_ValueChanged;
+
+            Chuong3Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto")
+              , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto")
+              , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto").Quality));
+
+            NhietDoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo").Value));
+            DoAmChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm").Value));
+            TanSoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo").Value));
+
+            InAutoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto").Value));
+            InManChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan").Value));
+            InChayDuPhongChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong").Value));
+            InQuaTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai").Value));
+
+            InStatusQ1Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1").Value));
+            InStatusQ2Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2").Value));
+            InStatusQ3Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3").Value));
+            InStatusQ4Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4").Value));
+            InStatusDanMatChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat").Value));
+
+            NgayHienTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai").Value));
+            GiaiDoanHienTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai").Value));
+
+            HmiThayDoiCaiDatChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat").Value));
+
+            KhoiLuongSiloChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo").Value));
+            #endregion
+
+            #region Chuong 4
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto").QualityChanged += Chuong4Status_QualityChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto").ValueChanged += InAutoChuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan").ValueChanged += InManChuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai").ValueChanged += InQuaTaiChuong4_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong4_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo").ValueChanged += NhietDoChuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm").ValueChanged += DoAmChuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo").ValueChanged += TanSoChuong4_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong4_ValueChanged;
+
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong4_ValueChanged;
+            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong4_ValueChanged;
+
+            Chuong4Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto")
+              , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto")
+              , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto").Quality));
+
+            NhietDoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo").Value));
+            DoAmChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm").Value));
+            TanSoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo")
+                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo")
+                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo").Value));
+
+            InAutoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto").Value));
+            InManChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan").Value));
+            InChayDuPhongChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong").Value));
+            InQuaTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai").Value));
+
+            InStatusQ1Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1").Value));
+            InStatusQ2Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2").Value));
+            InStatusQ3Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3").Value));
+            InStatusQ4Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4").Value));
+            InStatusDanMatChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat")
+               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat")
+               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat").Value));
+
+            NgayHienTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai").Value));
+            GiaiDoanHienTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai").Value));
+
+            HmiThayDoiCaiDatChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat").Value));
+
+            KhoiLuongSiloChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo")
+              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo")
+              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo").Value));
             #endregion
 
             if (_pnStatus.InvokeRequired)
@@ -589,6 +922,17 @@ namespace GiamSat.Scada
             }
         }
 
+        private void KhoiLuongSiloChuong1_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //var item = _realtimeData.FirstOrDefault(x => x.NangSuat.ChuongId == _chuongId[0]);
+            //if (item != null)
+            //{
+            //    item.NangSuat.TongKhoiLuongThucTe = double.TryParse(e.NewValue, out double value) ? value : 0;
+            //}
+
+            _khoiLuongSilo[0] = double.TryParse(e.NewValue, out double value) ? value : 0;
+        }
+
         private void NhietDoChuong1_ValueChanged(object sender, TagValueChangedEventArgs e)
         {
             //cập nhật giá trị cho DataLog
@@ -811,6 +1155,17 @@ namespace GiamSat.Scada
             {
                 _settingsFromHMI[1] = false;
             }
+        }
+
+        private void KhoiLuongSiloChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //var item = _realtimeData.FirstOrDefault(x => x.NangSuat.ChuongId == _chuongId[0]);
+            //if (item != null)
+            //{
+            //    item.NangSuat.TongKhoiLuongThucTe = double.TryParse(e.NewValue, out double value) ? value : 0;
+            //}
+
+            _khoiLuongSilo[1] = double.TryParse(e.NewValue, out double value) ? value : 0;
         }
 
         private void NhietDoChuong2_ValueChanged(object sender, TagValueChangedEventArgs e)
@@ -1037,6 +1392,17 @@ namespace GiamSat.Scada
             }
         }
 
+        private void KhoiLuongSiloChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //var item = _realtimeData.FirstOrDefault(x => x.NangSuat.ChuongId == _chuongId[0]);
+            //if (item != null)
+            //{
+            //    item.NangSuat.TongKhoiLuongThucTe = double.TryParse(e.NewValue, out double value) ? value : 0;
+            //}
+
+            _khoiLuongSilo[2] = double.TryParse(e.NewValue, out double value) ? value : 0;
+        }
+
         private void NhietDoChuong3_ValueChanged(object sender, TagValueChangedEventArgs e)
         {
             //cập nhật giá trị cho DataLog
@@ -1259,6 +1625,17 @@ namespace GiamSat.Scada
             {
                 _settingsFromHMI[3] = false;
             }
+        }
+
+        private void KhoiLuongSiloChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)
+        {
+            //var item = _realtimeData.FirstOrDefault(x => x.NangSuat.ChuongId == _chuongId[0]);
+            //if (item != null)
+            //{
+            //    item.NangSuat.TongKhoiLuongThucTe = double.TryParse(e.NewValue, out double value) ? value : 0;
+            //}
+
+            _khoiLuongSilo[3] = double.TryParse(e.NewValue, out double value) ? value : 0;
         }
 
         private void NhietDoChuong4_ValueChanged(object sender, TagValueChangedEventArgs e)

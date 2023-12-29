@@ -3,8 +3,8 @@
   "ServerAddress": "127.0.0.1",
   "Port": 8800,
   "CommunicationMode": 0,
-  "RefreshRate": 100,
-  "CreatedDate": "2023-12-12T22:05:49.3688507+07:00",
+  "RefreshRate": 1000,
+  "CreatedDate": "2023-12-29T12:27:12.0099131+07:00",
   "Username": null,
   "Password": null,
   "Childs": [
@@ -1955,8 +1955,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TuNgay",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7TuNgay",
+                  "Name": "Moc7TuNgay",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7TuNgay",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -1969,8 +1969,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7DenNgay",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7DenNgay",
+                  "Name": "Moc7DenNgay",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7DenNgay",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -1983,8 +1983,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7SoQuatChayCoDinh",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7SoQuatChayCoDinh",
+                  "Name": "Moc7SoQuatChayCoDinh",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7SoQuatChayCoDinh",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -1997,8 +1997,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoCao",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoCao",
+                  "Name": "Moc7NhietDoCao",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoCao",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2011,8 +2011,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoThap",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoThap",
+                  "Name": "Moc7NhietDoThap",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoThap",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2025,8 +2025,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TanSoCao",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7TanSoCao",
+                  "Name": "Moc7TanSoCao",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7TanSoCao",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2039,8 +2039,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TanSoThap",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7TanSoThap",
+                  "Name": "Moc7TanSoThap",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7TanSoThap",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2053,8 +2053,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat1",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat1",
+                  "Name": "Moc7NhietDoQuat1",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat1",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2067,8 +2067,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat2",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat2",
+                  "Name": "Moc7NhietDoQuat2",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat2",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2081,8 +2081,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat3",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat3",
+                  "Name": "Moc7NhietDoQuat3",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat3",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2095,8 +2095,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat4",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat4",
+                  "Name": "Moc7NhietDoQuat4",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat4",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2109,8 +2109,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat5",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat5",
+                  "Name": "Moc7NhietDoQuat5",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat5",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2123,8 +2123,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat6",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat6",
+                  "Name": "Moc7NhietDoQuat6",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat6",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2137,8 +2137,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat7",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat7",
+                  "Name": "Moc7NhietDoQuat7",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat7",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2151,8 +2151,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat8",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat8",
+                  "Name": "Moc7NhietDoQuat8",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat8",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2165,8 +2165,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat9",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat9",
+                  "Name": "Moc7NhietDoQuat9",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat9",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -2179,8 +2179,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat10",
-                  "Path": "Local Station/ChannelChuong1/Device1/Quat7NhietDoQuat10",
+                  "Name": "Moc7NhietDoQuat10",
+                  "Path": "Local Station/ChannelChuong1/Device1/Moc7NhietDoQuat10",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5312,8 +5312,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TuNgay",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7TuNgay",
+                  "Name": "Moc7TuNgay",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7TuNgay",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5326,8 +5326,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7DenNgay",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7DenNgay",
+                  "Name": "Moc7DenNgay",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7DenNgay",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5340,8 +5340,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7SoQuatChayCoDinh",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7SoQuatChayCoDinh",
+                  "Name": "Moc7SoQuatChayCoDinh",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7SoQuatChayCoDinh",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5354,8 +5354,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoCao",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoCao",
+                  "Name": "Moc7NhietDoCao",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoCao",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5368,8 +5368,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoThap",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoThap",
+                  "Name": "Moc7NhietDoThap",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoThap",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5382,8 +5382,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TanSoCao",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7TanSoCao",
+                  "Name": "Moc7TanSoCao",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7TanSoCao",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5396,8 +5396,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TanSoThap",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7TanSoThap",
+                  "Name": "Moc7TanSoThap",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7TanSoThap",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5410,8 +5410,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat1",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat1",
+                  "Name": "Moc7NhietDoQuat1",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat1",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5424,8 +5424,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat2",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat2",
+                  "Name": "Moc7NhietDoQuat2",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat2",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5438,8 +5438,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat3",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat3",
+                  "Name": "Moc7NhietDoQuat3",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat3",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5452,8 +5452,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat4",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat4",
+                  "Name": "Moc7NhietDoQuat4",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat4",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5466,8 +5466,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat5",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat5",
+                  "Name": "Moc7NhietDoQuat5",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat5",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5480,8 +5480,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat6",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat6",
+                  "Name": "Moc7NhietDoQuat6",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat6",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5494,8 +5494,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat7",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat7",
+                  "Name": "Moc7NhietDoQuat7",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat7",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5508,8 +5508,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat8",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat8",
+                  "Name": "Moc7NhietDoQuat8",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat8",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5522,8 +5522,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat9",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat9",
+                  "Name": "Moc7NhietDoQuat9",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat9",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -5536,8 +5536,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat10",
-                  "Path": "Local Station/ChannelChuong2/Device1/Quat7NhietDoQuat10",
+                  "Name": "Moc7NhietDoQuat10",
+                  "Path": "Local Station/ChannelChuong2/Device1/Moc7NhietDoQuat10",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -6694,20 +6694,6 @@
                   "Properties": {
                     "DataType": "Word",
                     "Address": "400241"
-                  }
-                },
-                {
-                  "ItemType": 6,
-                  "Name": "HmiThayDoiCaiDat",
-                  "Path": "Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat",
-                  "Description": "bien HMI bao cho PC biet la co thay doi cau hinh tu HMI, PC doc cac gia tri cai dat len cap nhat vao DB, sau do reset tag nay ve 0",
-                  "DisplayInfo": null,
-                  "Error": null,
-                  "ConnectionStatus": 0,
-                  "Childs": [],
-                  "Properties": {
-                    "DataType": "Word",
-                    "Address": "400242"
                   }
                 }
               ],
@@ -8669,8 +8655,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TuNgay",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7TuNgay",
+                  "Name": "Moc7TuNgay",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7TuNgay",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8683,8 +8669,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7DenNgay",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7DenNgay",
+                  "Name": "Moc7DenNgay",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7DenNgay",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8697,8 +8683,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7SoQuatChayCoDinh",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7SoQuatChayCoDinh",
+                  "Name": "Moc7SoQuatChayCoDinh",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7SoQuatChayCoDinh",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8711,8 +8697,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoCao",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoCao",
+                  "Name": "Moc7NhietDoCao",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoCao",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8725,8 +8711,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoThap",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoThap",
+                  "Name": "Moc7NhietDoThap",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoThap",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8739,8 +8725,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TanSoCao",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7TanSoCao",
+                  "Name": "Moc7TanSoCao",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7TanSoCao",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8753,8 +8739,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TanSoThap",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7TanSoThap",
+                  "Name": "Moc7TanSoThap",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7TanSoThap",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8767,8 +8753,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat1",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat1",
+                  "Name": "Moc7NhietDoQuat1",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat1",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8781,8 +8767,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat2",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat2",
+                  "Name": "Moc7NhietDoQuat2",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat2",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8795,8 +8781,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat3",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat3",
+                  "Name": "Moc7NhietDoQuat3",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat3",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8809,8 +8795,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat4",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat4",
+                  "Name": "Moc7NhietDoQuat4",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat4",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8823,8 +8809,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat5",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat5",
+                  "Name": "Moc7NhietDoQuat5",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat5",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8837,8 +8823,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat6",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat6",
+                  "Name": "Moc7NhietDoQuat6",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat6",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8851,8 +8837,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat7",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat7",
+                  "Name": "Moc7NhietDoQuat7",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat7",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8865,8 +8851,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat8",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat8",
+                  "Name": "Moc7NhietDoQuat8",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat8",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8879,8 +8865,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat9",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat9",
+                  "Name": "Moc7NhietDoQuat9",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat9",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -8893,8 +8879,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat10",
-                  "Path": "Local Station/ChannelChuong3/Device1/Quat7NhietDoQuat10",
+                  "Name": "Moc7NhietDoQuat10",
+                  "Path": "Local Station/ChannelChuong3/Device1/Moc7NhietDoQuat10",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -10051,20 +10037,6 @@
                   "Properties": {
                     "DataType": "Word",
                     "Address": "400241"
-                  }
-                },
-                {
-                  "ItemType": 6,
-                  "Name": "HmiThayDoiCaiDat",
-                  "Path": "Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat",
-                  "Description": "bien HMI bao cho PC biet la co thay doi cau hinh tu HMI, PC doc cac gia tri cai dat len cap nhat vao DB, sau do reset tag nay ve 0",
-                  "DisplayInfo": null,
-                  "Error": null,
-                  "ConnectionStatus": 0,
-                  "Childs": [],
-                  "Properties": {
-                    "DataType": "Word",
-                    "Address": "400242"
                   }
                 }
               ],
@@ -12026,8 +11998,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TuNgay",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7TuNgay",
+                  "Name": "Moc7TuNgay",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7TuNgay",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12040,8 +12012,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7DenNgay",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7DenNgay",
+                  "Name": "Moc7DenNgay",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7DenNgay",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12054,8 +12026,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7SoQuatChayCoDinh",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7SoQuatChayCoDinh",
+                  "Name": "Moc7SoQuatChayCoDinh",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7SoQuatChayCoDinh",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12068,8 +12040,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoCao",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoCao",
+                  "Name": "Moc7NhietDoCao",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoCao",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12082,8 +12054,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoThap",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoThap",
+                  "Name": "Moc7NhietDoThap",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoThap",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12096,8 +12068,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TanSoCao",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7TanSoCao",
+                  "Name": "Moc7TanSoCao",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7TanSoCao",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12110,8 +12082,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7TanSoThap",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7TanSoThap",
+                  "Name": "Moc7TanSoThap",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7TanSoThap",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12124,8 +12096,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat1",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat1",
+                  "Name": "Moc7NhietDoQuat1",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat1",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12138,8 +12110,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat2",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat2",
+                  "Name": "Moc7NhietDoQuat2",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat2",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12152,8 +12124,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat3",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat3",
+                  "Name": "Moc7NhietDoQuat3",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat3",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12166,8 +12138,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat4",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat4",
+                  "Name": "Moc7NhietDoQuat4",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat4",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12180,8 +12152,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat5",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat5",
+                  "Name": "Moc7NhietDoQuat5",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat5",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12194,8 +12166,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat6",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat6",
+                  "Name": "Moc7NhietDoQuat6",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat6",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12208,8 +12180,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat7",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat7",
+                  "Name": "Moc7NhietDoQuat7",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat7",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12222,8 +12194,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat8",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat8",
+                  "Name": "Moc7NhietDoQuat8",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat8",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12236,8 +12208,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat9",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat9",
+                  "Name": "Moc7NhietDoQuat9",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat9",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -12250,8 +12222,8 @@
                 },
                 {
                   "ItemType": 6,
-                  "Name": "Quat7NhietDoQuat10",
-                  "Path": "Local Station/ChannelChuong4/Device1/Quat7NhietDoQuat10",
+                  "Name": "Moc7NhietDoQuat10",
+                  "Path": "Local Station/ChannelChuong4/Device1/Moc7NhietDoQuat10",
                   "Description": "",
                   "DisplayInfo": null,
                   "Error": null,
@@ -13408,20 +13380,6 @@
                   "Properties": {
                     "DataType": "Word",
                     "Address": "400241"
-                  }
-                },
-                {
-                  "ItemType": 6,
-                  "Name": "HmiThayDoiCaiDat",
-                  "Path": "Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat",
-                  "Description": "bien HMI bao cho PC biet la co thay doi cau hinh tu HMI, PC doc cac gia tri cai dat len cap nhat vao DB, sau do reset tag nay ve 0",
-                  "DisplayInfo": null,
-                  "Error": null,
-                  "ConnectionStatus": 0,
-                  "Childs": [],
-                  "Properties": {
-                    "DataType": "Word",
-                    "Address": "400242"
                   }
                 }
               ],

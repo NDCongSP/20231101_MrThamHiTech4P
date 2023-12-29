@@ -1,6 +1,8 @@
 ﻿using Blazorise.Utilities;
 using GiamSat.APIClient;
+using GiamSat.Models;
 using MudBlazor;
+using Newtonsoft.Json;
 using System.Timers;
 
 namespace GiamSat.UI.Pages
@@ -25,7 +27,9 @@ namespace GiamSat.UI.Pages
 
         //[Inject] public ISDisplayRealtime _displayRealtimeApiClient { get; set; }
 
-        private List<APIClient.DisplayRealTimeModel> _displayRealtime;
+        private List<APIClient.RealtimeDisplayModel>? _dataFromDB;
+        private RealtimeList? _displayRealtime;
+        //private List<APIClient.DisplayRealTimeModel> _displayRealtime;
         //private List<APIClient.ChuongInfoModel> _chuongInfo;
 
         private System.Timers.Timer _timer;
@@ -36,30 +40,19 @@ namespace GiamSat.UI.Pages
         {
             try
             {
-                //var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
-                //if (chuongInfoRes.Succeeded)
-                //{
-                //    _chuongInfo = chuongInfoRes.Data.ToList();
-                //}
-                //else
-                //{
-                //    foreach (var item in chuongInfoRes.Messages)
-                //    {
-                //        _snackBar.Add(item, Severity.Error);
-                //    }
-                //}
-
-                var res = await _displayRealtimeClient.GetAllAsync();
+                var res = await _realtimeDisplayClient.GetAllAsync();
 
                 if (res.Succeeded)
                 {
-                    _displayRealtime = res.Data.OrderBy(x => x.NumIndex).ToList();
+                    _dataFromDB = res.Data.ToList();
 
-                    if (_displayRealtime == null && _displayRealtime.Count <= 0)
+                    if (_dataFromDB == null && _dataFromDB.Count <= 0)
                     {
                         _snackBar.Add("Data Null", Severity.Warning);
                         return;
                     }
+
+                    _displayRealtime = JsonConvert.DeserializeObject<RealtimeList>(_dataFromDB.FirstOrDefault().DisplayData);
                 }
                 else
                 {
@@ -70,11 +63,6 @@ namespace GiamSat.UI.Pages
                 }
 
                 #region Timer refresh data
-
-                //    _timer = new System.Threading.Timer(async (object stateInfo) =>
-                //{
-
-                //}, new System.Threading.AutoResetEvent(false), 2000, 2000); // fire every 1000 milliseconds
                 _timer = new System.Timers.Timer(GlobalVariable.RefreshInterval);
                 _timer.Elapsed += RefreshData;
                 _timer.Enabled = true;
@@ -87,25 +75,19 @@ namespace GiamSat.UI.Pages
         {
             try
             {
-                ////get thong tin chuong
-                //var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
-                //if (chuongInfoRes.Succeeded)
-                //{
-                //    _chuongInfo = chuongInfoRes.Data.OrderBy(x=>x.NumIndex).ToList();
-                //}
-
-                //get thong tien hien thi thoi gian thuc
-                var res = await _displayRealtimeClient.GetAllAsync();
+                var res = await _realtimeDisplayClient.GetAllAsync();
 
                 if (res.Succeeded)
                 {
-                    _displayRealtime = res.Data.OrderBy(x=>x.NumIndex).ToList();
+                    _dataFromDB = res.Data.ToList();
 
-                    if (_displayRealtime == null && _displayRealtime.Count <= 0)
+                    if (_dataFromDB == null && _dataFromDB.Count <= 0)
                     {
                         _snackBar.Add("Data Null", Severity.Warning);
                         return;
                     }
+
+                    _displayRealtime = JsonConvert.DeserializeObject<RealtimeList>(_dataFromDB.FirstOrDefault().DisplayData);
                 }
 
                 StateHasChanged(); // NOTE: MUST CALL StateHasChanged() BECAUSE THIS IS TRIGGERED BY A TIMER INSTEAD OF A USER EVENT
