@@ -20,6 +20,7 @@ namespace GiamSat.Scada
     public partial class Form1 : Form
     {
         private List<DisplayRealTimeModel> _displayRealtime = new List<DisplayRealTimeModel>();
+        //private List<DisplayRealTimeModel> _displayRealtime = new List<DisplayRealTimeModel>();
         private List<DataLogModel> _dataLog = new List<DataLogModel>();
         private List<ChuongInfoModel> _chuongInfo = new List<ChuongInfoModel>();
 
@@ -87,7 +88,7 @@ namespace GiamSat.Scada
                     {
                         ChuongId = item.Id,
                         TenChuong = item.TenChuong,
-                        NumIndex = item.NumIndex,
+                        NumIndex = (int)item.NumIndex,
                         HightTemperature = settingsItem.Steps.FirstOrDefault().HightTemperature,
                         Lowtemperature = settingsItem.Steps.FirstOrDefault().Lowtemperature,
                     });

@@ -26,7 +26,7 @@ namespace GiamSat.UI.Pages
         //[Inject] public ISDisplayRealtime _displayRealtimeApiClient { get; set; }
 
         private List<APIClient.DisplayRealTimeModel> _displayRealtime;
-        private List<APIClient.ChuongInfoModel> _chuongInfo;
+        //private List<APIClient.ChuongInfoModel> _chuongInfo;
 
         private System.Timers.Timer _timer;
 
@@ -36,18 +36,18 @@ namespace GiamSat.UI.Pages
         {
             try
             {
-                var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
-                if (chuongInfoRes.Succeeded)
-                {
-                    _chuongInfo = chuongInfoRes.Data.ToList();
-                }
-                else
-                {
-                    foreach (var item in chuongInfoRes.Messages)
-                    {
-                        _snackBar.Add(item, Severity.Error);
-                    }
-                }
+                //var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
+                //if (chuongInfoRes.Succeeded)
+                //{
+                //    _chuongInfo = chuongInfoRes.Data.ToList();
+                //}
+                //else
+                //{
+                //    foreach (var item in chuongInfoRes.Messages)
+                //    {
+                //        _snackBar.Add(item, Severity.Error);
+                //    }
+                //}
 
                 var res = await _displayRealtimeClient.GetAllAsync();
 
@@ -87,12 +87,12 @@ namespace GiamSat.UI.Pages
         {
             try
             {
-                //get thong tin chuong
-                var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
-                if (chuongInfoRes.Succeeded)
-                {
-                    _chuongInfo = chuongInfoRes.Data.OrderBy(x=>x.NumIndex).ToList();
-                }
+                ////get thong tin chuong
+                //var chuongInfoRes = await _chuongInfoClient.GetAllAsync();
+                //if (chuongInfoRes.Succeeded)
+                //{
+                //    _chuongInfo = chuongInfoRes.Data.OrderBy(x=>x.NumIndex).ToList();
+                //}
 
                 //get thong tien hien thi thoi gian thuc
                 var res = await _displayRealtimeClient.GetAllAsync();
