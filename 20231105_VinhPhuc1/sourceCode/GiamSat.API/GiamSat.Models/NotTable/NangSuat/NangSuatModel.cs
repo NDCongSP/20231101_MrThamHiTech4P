@@ -44,19 +44,33 @@ namespace GiamSat.Models
         /// Tổng khối lượng đo từ cân.
         /// </summary>
         public double TongKhoiLuongThucTe { get; set; }
-        public double TongKhoiLuongThucAnConLai
+        /// <summary>
+        /// Khối lượng thức ăn đã dùng.
+        /// </summary>
+        public double TongKhoiLuongThucAnDaSuDung
         {
             set { }
             get { return TongKhoiLuongThucAn - TongKhoiLuongThucTe; }
         }
+        /// <summary>
+        /// Khối lượng chốt vào 0h sáng.
+        /// </summary>
         public double ChotKhoiLuongThucAnDauNgay { get; set; }
+        /// <summary>
+        /// Khối lượng thức ăn chốt vào 23:59:59.
+        /// </summary>
         public double ChotKhoiLuongThucAnCuoiNgay { get; set; }
+        /// <summary>
+        /// Khối lượng thức ăn dùng trong 1 ngày.
+        /// </summary>
         public double KhoiLuongThucAnDungTrongNgay
         {
             set { }
             get { return Math.Round(ChotKhoiLuongThucAnCuoiNgay - ChotKhoiLuongThucAnDauNgay, 2); }
         }
-
+        /// <summary>
+        /// Tổng khối lượng thức ăn cần dùng trong 1 ngày theo đầu con còn lại trong chuồng.
+        /// </summary>
         public double KhoiLuongThucAnTheoDauCon { set { } get { return Math.Round(SoLuongConLai * KhoiLuongTren1Con, 2); } }
     }
 }

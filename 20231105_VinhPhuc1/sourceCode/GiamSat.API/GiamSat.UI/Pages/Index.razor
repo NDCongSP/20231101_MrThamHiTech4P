@@ -48,7 +48,7 @@ else
                             </MudItem>
                             <MudItem xs="12">
                                 <MudGrid Spacing="1">
-                                    <MudItem xs="12" sm="4">
+                                    <MudItem xs="12" sm="3">
                                         <MudCard Class="pb-4">
                                             <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten}; height: 30px;")">
                                                 <CardHeaderAvatar>
@@ -64,7 +64,7 @@ else
                                             </MudCardContent>
                                         </MudCard>
                                     </MudItem>
-                                    <MudItem xs="12" sm="4">
+                                    <MudItem xs="12" sm="3">
                                         <MudCard Class="pb-4">
                                             <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};height: 30px;")">
                                                 <CardHeaderAvatar>
@@ -79,7 +79,7 @@ else
                                             </MudCardContent>
                                         </MudCard>
                                     </MudItem>
-                                    <MudItem xs="12" sm="4">
+                                    <MudItem xs="12" sm="3">
                                         <MudCard Class="pb-4">
                                             <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};height: 30px;")">
                                                 <CardHeaderAvatar>
@@ -94,6 +94,21 @@ else
                                             </MudCardContent>
                                         </MudCard>
                                     </MudItem>
+                                        <MudItem xs="12" sm="3">
+                                            <MudCard Class="pb-4">
+                                                <MudCardHeader Style="@($"color:{_theme.Palette.Dark}; background:{_theme.Palette.TertiaryLighten};height: 30px;")">
+                                                    <CardHeaderAvatar>
+                                                        <MudIcon Icon="@_iconKhoiLuong"></MudIcon>
+                                                    </CardHeaderAvatar>
+                                                    <CardHeaderContent>
+                                                       KL Thức ăn (kg)
+                                                    </CardHeaderContent>
+                                                </MudCardHeader>
+                                                <MudCardContent Class="d-flex justify-content-center">
+                                                    <MudText Typo="Typo.h4" class="rounded mx-auto d-block">@item.NangSuat.TongKhoiLuongThucTe</MudText>
+                                                </MudCardContent>
+                                            </MudCard>
+                                        </MudItem>
                                 </MudGrid>
                             </MudItem>
                             <MudItem xs="12">
