@@ -1,6 +1,7 @@
 ﻿using Blazorise.Utilities;
 using GiamSat.APIClient;
 using GiamSat.Models;
+using GiamSat.UI.Components;
 using MudBlazor;
 using Newtonsoft.Json;
 using System.Timers;
@@ -26,6 +27,8 @@ namespace GiamSat.UI.Pages
 
         private MudTheme _theme = new MudTheme();
 
+        string _tenChuong;
+
         //[Inject] public ISDisplayRealtime _displayRealtimeApiClient { get; set; }
 
         private List<APIClient.RealtimeDisplayModel>? _dataFromDB;
@@ -35,7 +38,7 @@ namespace GiamSat.UI.Pages
 
         private System.Timers.Timer _timer;
 
-         bool visible = true;
+        bool visible = true;
 
         protected override async Task OnInitializedAsync()
         {
@@ -94,6 +97,18 @@ namespace GiamSat.UI.Pages
                 StateHasChanged(); // NOTE: MUST CALL StateHasChanged() BECAUSE THIS IS TRIGGERED BY A TIMER INSTEAD OF A USER EVENT
             }
             catch { }
+        }
+
+        private void OpenDialog(string chuong)
+        {
+            var options = new DialogOptions
+            {
+                CloseButton = true,
+                MaxWidth = MaxWidth.Medium,
+                FullWidth = true,
+                Position=DialogPosition.Center
+            };
+            _dialog.Show<NangSuatView>($"Năng suất {chuong}", options);
         }
     }
 }
