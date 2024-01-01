@@ -99,16 +99,22 @@ namespace GiamSat.UI.Pages
             catch { }
         }
 
-        private void OpenDialog(string chuong)
+        private void OpenDialog(NangSuatModel data, string tenChuong)
         {
             var options = new DialogOptions
             {
                 CloseButton = true,
                 MaxWidth = MaxWidth.Medium,
                 FullWidth = true,
-                Position=DialogPosition.Center
+                Position = DialogPosition.Center
             };
-            _dialog.Show<NangSuatView>($"Năng suất {chuong}", options);
+            //_dialog.Show<NangSuatView>($"Năng suất", options);
+
+            var parameters = new DialogParameters();
+            parameters.Add("ChuongId", data.ChuongId.ToString());
+            parameters.Add("NangSuat", data);
+            var dialogresult = _dialog.Show<NangSuatView>($"Năng Suất {tenChuong}", parameters, options);
+            var result = dialogresult.Result;
         }
     }
 }

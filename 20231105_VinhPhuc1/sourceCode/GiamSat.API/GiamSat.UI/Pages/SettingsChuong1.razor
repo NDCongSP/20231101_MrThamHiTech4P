@@ -171,6 +171,41 @@ else
                                     </MudCardContent>
                                 </MudCard>
                             </MudItem>
+                            <MudItem xs="12">
+                                <MudCard Class="m-2">
+                                    <MudCardHeader Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.SuccessDarken};")">
+                                        Năng suất
+                                    </MudCardHeader>
+                                    <MudCardContent>
+                                        <MudGrid Spacing="1" Class="m-2">
+                                            <MudItem xs="12" sm="6">
+                                                <MudNumericField Label="Số lượng con ban đầu" Class="m-2"
+                                                                 @bind-Value="@_stepModel.NumIndex" For="@(()=>_stepModel.NumIndex)"></MudNumericField>
+                                            </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Số lượng con chết" Class="m-2"
+                                                                 @bind-Value="@_stepModel.TimeOnCooler" For="@(()=>_stepModel.TimeOnCooler)"></MudNumericField>
+                                            </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Số lượng con bệnh" Class="m-2"
+                                                                 @bind-Value="@_stepModel.TimeOffCooler" For="@(()=>_stepModel.TimeOffCooler)"></MudNumericField>
+                                            </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Số lượng con đang điều trị" Class="m-2"
+                                                                 @bind-Value="@_stepModel.Fan1" For="@(()=>_stepModel.Fan1)"></MudNumericField>
+                                            </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Khối lượng thức ăn ban đầu" Class="m-2"
+                                                                 @bind-Value="@_stepModel.Fan2" For="@(()=>_stepModel.Fan2)"></MudNumericField>
+                                            </MudItem>
+                                            <MudItem xs="12" sm="3">
+                                                <MudNumericField Label="Khối lượng/1 con" Class="m-2"
+                                                                 @bind-Value="@_stepModel.Fan3" For="@(()=>_stepModel.Fan3)"></MudNumericField>
+                                            </MudItem>
+                                        </MudGrid>
+                                    </MudCardContent>
+                                </MudCard>
+                            </MudItem>
                         </MudGrid>
                     </MudCardContent>
                     <MudCardActions>
