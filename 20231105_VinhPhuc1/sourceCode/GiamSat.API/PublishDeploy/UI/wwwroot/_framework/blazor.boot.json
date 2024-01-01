@@ -1,7 +1,7 @@
 {
   "entryAssembly": "GiamSat.UI",
   "resources": {
-    "hash": "sha256-+uFaH0dSvjyU9DzjypbUzOaJHl4yFtFB4kZB+SY1G5A=",
+    "hash": "sha256-L2wkb+5g/Cc2lT8MQgBgds5nS2AjV3Mm3vZb7PM8T7w=",
     "runtime": {
       "dotnet.7.0.14.8p74s20uef.js": "sha256-JUB7JawXpZ83I4nBGs/KT9pg0Pm9RITug9WHA7UBt20=",
       "dotnet.timezones.blat": "sha256-t5xviiOQTfAsF0UDhmcyalKiaehUmf/sqJl97tmPM0M=",
@@ -18,9 +18,9 @@
       "Blazorise.Licensing.dll": "sha256-HCvMfGG13thv3GWvUEN2Ca7avc0Bjw5kpc9h9Kk+LS0=",
       "Blazorise.LoadingIndicator.dll": "sha256-b/dyT3zlPAUlwZutIHAUOFBD8040j7QNo9m//1mncfk=",
       "DeepCloner.dll": "sha256-0z32Jj39dxvhAObryD60N1OemfRoFvti9RLp8VkWXSI=",
-      "GiamSat.APIClient.dll": "sha256-kL/H9jS46X0kC5BNHqSg+jM8ZD47FY+6ovwEyrfzFJA=",
-      "GiamSat.Models.dll": "sha256-5oOGGkZKutzCylCdjwbsz6LC2lYRZQ/AgKLyOnZ8/hI=",
-      "GiamSat.UI.dll": "sha256-r0bWatl4wClImsO4zi/HUoKc0vtUFTxgSiXOxu9lSFQ=",
+      "GiamSat.APIClient.dll": "sha256-o/wWWmtUvFtaMboSw7h9fW3YZ1KZVPuJa+l5t93chmY=",
+      "GiamSat.Models.dll": "sha256-GzujmiN2HyjZDhN/rmSjF+RCBdv5looDw7jtn4Hxi+c=",
+      "GiamSat.UI.dll": "sha256-xSJhQ4v1djUXvrU3SrBvoyVU9zldcJ2yKJ5I+r3mN+U=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-F2N2GI7tBaCNFyT8Mauyo27UIhLxIHasAbKym7MXUWc=",
       "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-D3yCOKbOelvTqOROw7lVFkLEcuZOkjMsWMsECVmeg7s=",
       "Microsoft.AspNetCore.Components.dll": "sha256-HU3c5ubaolPr0TKh9x3cjZnKb7GaC1XngJPq+0WXUHM=",
@@ -49,7 +49,7 @@
       "Microsoft.JSInterop.dll": "sha256-nvAPBWl/MSchaYQ2svG0UX1MBWRci+WT9HHZ2TV1kdw=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-4cMfifCYL/bv5qiC8T6HyABhOewZlTXovRc+E/CrUbc=",
       "Microsoft.Net.Http.Headers.dll": "sha256-P66ftDrXwc6ayND8uYzIk0CPQy1GjNZAPHx9RMhi3V4=",
-      "MudBlazor.dll": "sha256-SzVCVu0XjGVkzsEnZRpWBgT9P0jKqr9gPbCWpIXKmlw=",
+      "MudBlazor.dll": "sha256-jZbPolB0jGy8pzIxhx1uziecvJBFc3R4KijpN6BkLRo=",
       "netstandard.dll": "sha256-7/Vwx/PqSOj+XPwgemRDeZ2G9ltnP47xVtwPwYSScGA=",
       "Newtonsoft.Json.dll": "sha256-cs8pHUurDt0IqbB8YXPh560au3q3J/1wRL9jBddRVmE=",
       "RestEase.dll": "sha256-3gAQfbPfypL5pwdQeji9L9RIL+raUiWAgJFS1nu+/UQ=",

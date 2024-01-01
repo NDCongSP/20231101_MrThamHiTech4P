@@ -83,7 +83,7 @@ namespace GiamSat.UI.Pages
                                 StepId = i,
                                 FromDate = dayIndex,
                                 ToDate = dayIndex + 1,
-                                StaticFanRun = 1,
+                                StaticFanRun = 0,
                                 HightTemperature = 30,
                                 Lowtemperature = 15,
                                 HightFrequency = 50,
@@ -171,6 +171,13 @@ namespace GiamSat.UI.Pages
                     _stepModel.OffsetTemp = _chuongModel.GeneralSettings.OffsetTemp;
                     _stepModel.DeadbandTemp = _chuongModel.GeneralSettings.DeadbandTemp;
                     _stepModel.ResetGiaiDoan = _chuongModel.GeneralSettings.ResetGiaiDoan;
+
+                    _stepModel.SoLuongBanDau = _chuongModel.NangSuat.SoLuongBanDau;
+                    _stepModel.SoLuongChet=_chuongModel.NangSuat.SoLuongChet;
+                    _stepModel.SoLuongBiBenh = _chuongModel.NangSuat.SoLuongBiBenh;
+                    _stepModel.SoLuongDangDieuTri = _chuongModel.NangSuat.SoLuongDangDieuTri;
+                    _stepModel.TongKhoiLuongThucAn = _chuongModel.NangSuat.TongKhoiLuongThucAn;
+                    _stepModel.KhoiLuongTren1Con = _chuongModel.NangSuat.KhoiLuongTren1Con;
                     #endregion
                 }
 
@@ -327,6 +334,13 @@ namespace GiamSat.UI.Pages
                     _stepModel.OffsetTemp = _chuongModel.GeneralSettings.OffsetTemp;
                     _stepModel.DeadbandTemp = _chuongModel.GeneralSettings.DeadbandTemp;
                     _stepModel.ResetGiaiDoan = _chuongModel.GeneralSettings.ResetGiaiDoan;
+
+                    _stepModel.SoLuongBanDau = _chuongModel.NangSuat.SoLuongBanDau;
+                    _stepModel.SoLuongChet = _chuongModel.NangSuat.SoLuongChet;
+                    _stepModel.SoLuongBiBenh = _chuongModel.NangSuat.SoLuongBiBenh;
+                    _stepModel.SoLuongDangDieuTri = _chuongModel.NangSuat.SoLuongDangDieuTri;
+                    _stepModel.TongKhoiLuongThucAn = _chuongModel.NangSuat.TongKhoiLuongThucAn;
+                    _stepModel.KhoiLuongTren1Con = _chuongModel.NangSuat.KhoiLuongTren1Con;
                     #endregion
                 }
             }
@@ -371,6 +385,13 @@ namespace GiamSat.UI.Pages
                 _chuongModel.GeneralSettings.DeadbandTemp = _stepModel.DeadbandTemp;
                 _chuongModel.GeneralSettings.ResetGiaiDoan = _stepModel.ResetGiaiDoan;
 
+                _chuongModel.NangSuat.SoLuongBanDau = _stepModel.SoLuongBanDau;
+                _chuongModel.NangSuat.SoLuongChet = _stepModel.SoLuongChet;
+                _chuongModel.NangSuat.SoLuongBiBenh = _stepModel.SoLuongBiBenh;
+                _chuongModel.NangSuat.SoLuongDangDieuTri = _stepModel.SoLuongDangDieuTri;
+                _chuongModel.NangSuat.TongKhoiLuongThucAn = _stepModel.TongKhoiLuongThucAn;
+                _chuongModel.NangSuat.KhoiLuongTren1Con = _stepModel.KhoiLuongTren1Con;
+
                 _chuongInfo.ConfigSettings = JsonConvert.SerializeObject(_chuongModel);
                 _chuongInfo.TenChuong = _stepModel.TenChuong;
                 _chuongInfo.NumIndex = _stepModel.NumIndex;
@@ -383,15 +404,15 @@ namespace GiamSat.UI.Pages
                     TenChuong = _chuongInfo.TenChuong,
                     NumIndex = (int)_chuongInfo.NumIndex,
                     HightTemperature = _stepModel.HightTemperature,
-                    Lowtemperature = _stepModel.Lowtemperature
+                    Lowtemperature = _stepModel.Lowtemperature,
                 });
 
                 #region Lưu vào bảng lịch sử của chu kỳ nuôi
-                var itemUpdate = GlobalVariable.FT101Details.FirstOrDefault(x => x.Chuongid == _chuongInfo.Id);
-                itemUpdate = _chuongModel;
+                //var itemUpdate = GlobalVariable.FT101Details.FirstOrDefault(x => x.Chuongid == _chuongInfo.Id);
+                //itemUpdate = _chuongModel;
 
                 _ft101.FT100Id = _chuongModel.FT100Id;
-                _ft101.Details = JsonConvert.SerializeObject(GlobalVariable.FT101Details);
+                _ft101.Details = JsonConvert.SerializeObject(_chuongModel);
                 await _ft101Client.InsertAsync(_ft101);
                 #endregion
 

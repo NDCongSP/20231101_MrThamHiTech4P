@@ -70,5 +70,30 @@ namespace GiamSat.Models
         public double OffsetTemp { get; set; }
         public double DeadbandTemp { get; set; }
         public int ResetGiaiDoan { get; set; }
+
+        //nang suat
+        public int SoLuongBanDau { get; set; }
+        /// <summary>
+        /// số lượng con chế
+        /// </summary>
+        public int SoLuongChet { get; set; }
+        /// <summary>
+        /// số lượng con bị bệnh.
+        /// </summary>
+        public int SoLuongBiBenh { get; set; }
+        /// <summary>
+        /// số lượng con đang điều trị bệnh.
+        /// </summary>
+        public int SoLuongDangDieuTri { get; set; }
+
+        public string TenThucAn { get; set; }
+        /// <summary>
+        /// Lượng thức ăn 1 con ăn 1 ngày.
+        /// </summary>
+        public double KhoiLuongTren1Con { get; set; }
+        /// <summary>
+        /// Tổng khối lượng thức ăn cài đặt khi bắt đầu nuôi.
+        /// </summary>
+        public double TongKhoiLuongThucAn { get; set; }
     }
 }
