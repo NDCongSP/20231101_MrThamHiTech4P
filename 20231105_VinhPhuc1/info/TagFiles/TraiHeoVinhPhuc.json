@@ -36,7 +36,7 @@
   "DisplayName": null,
   "DisplayParameters": null,
   "Parameters": {
-    "IpAddress": "127.0.0.1",
+    "IpAddress": "192.168.1.250",
     "Port": "502",
     "DelayBetweenPool": "5",
     "ScanRate": "100"
@@ -1053,7 +1053,7 @@
   "ByteOrder": 0,
   "AccessPermission": "ReadAndWrite",
   "Offset": 0.0,
-  "Gain": 0.1,
+  "Gain": 0.01,
   "IsInternalTag": false,
   "GUID": null,
   "Retain": false,
@@ -1083,7 +1083,7 @@
   "ByteOrder": 0,
   "AccessPermission": "ReadAndWrite",
   "Offset": 0.0,
-  "Gain": 1.0,
+  "Gain": 0.1,
   "IsInternalTag": false,
   "GUID": null,
   "Retain": false,
@@ -7224,8 +7224,8 @@
   "DisplayName": null,
   "DisplayParameters": null,
   "Parameters": {
-    "IpAddress": "127.0.0.1",
-    "Port": "503",
+    "IpAddress": "192.168.1.251",
+    "Port": "502",
     "DelayBetweenPool": "5",
     "ScanRate": "100"
   }
@@ -8142,7 +8142,7 @@
   "ByteOrder": 0,
   "AccessPermission": "ReadAndWrite",
   "Offset": 0.0,
-  "Gain": 0.1,
+  "Gain": 0.01,
   "IsInternalTag": false,
   "GUID": null,
   "Retain": false,
@@ -13701,8 +13701,8 @@
   "DisplayName": null,
   "DisplayParameters": null,
   "Parameters": {
-    "IpAddress": "127.0.0.1",
-    "Port": "504",
+    "IpAddress": "192.168.1.252",
+    "Port": "502",
     "DelayBetweenPool": "5",
     "ScanRate": "100"
   }
@@ -14619,7 +14619,7 @@
   "ByteOrder": 0,
   "AccessPermission": "ReadAndWrite",
   "Offset": 0.0,
-  "Gain": 0.1,
+  "Gain": 0.01,
   "IsInternalTag": false,
   "GUID": null,
   "Retain": false,
@@ -20178,8 +20178,8 @@
   "DisplayName": null,
   "DisplayParameters": null,
   "Parameters": {
-    "IpAddress": "127.0.0.1",
-    "Port": "505",
+    "IpAddress": "192.168.1.253",
+    "Port": "502",
     "DelayBetweenPool": "5",
     "ScanRate": "100"
   }
@@ -21096,7 +21096,7 @@
   "ByteOrder": 0,
   "AccessPermission": "ReadAndWrite",
   "Offset": 0.0,
-  "Gain": 0.1,
+  "Gain": 0.01,
   "IsInternalTag": false,
   "GUID": null,
   "Retain": false,

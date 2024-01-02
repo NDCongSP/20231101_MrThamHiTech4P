@@ -318,6 +318,9 @@ namespace GiamSat.Scada
                 easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/ThoiGianOnDanMat").WriteAsync(d.GeneralSettings.TimeOnCooler.ToString(), WritePiority.High);
                 easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/ThoiGianOffDanMat").WriteAsync(d.GeneralSettings.TimeOffCooler.ToString(), WritePiority.High);
 
+                //dùng để bùa cho trại ở vĩnh phúc, do đầu cân hiện chưa kết nối lên được
+                easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/KhoiLuongSilo").WriteAsync(d.NangSuat.KhoiLuongThucAnTheoDauCon.ToString(), WritePiority.High);
+
                 //bật bit này lên để HMI cap nhật lại thứ tự quạt
                 easyDriverConnector1.GetTag($"Local Station/ChannelChuong{numIndex}/Device1/ChotCaiThuTuOutQuat").WriteAsync("1", WritePiority.High);
 

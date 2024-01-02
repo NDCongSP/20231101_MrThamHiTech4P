@@ -304,7 +304,6 @@
 			<Add PLCAddr="HDW304" PLCAddr1="" DstAddr="2#4240" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" DWord="0" DWordL="0" DWordR="0" DataFormatL="105" DataFormatR="2" DataFormat="105" DigitCount="5 0" HighToLowL="0" HighToLowR="0" HighToLow="0" />
 			<Add PLCAddr="HDW305" PLCAddr1="" DstAddr="2#4241" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" DWord="0" DWordL="0" DWordR="0" DataFormatL="105" DataFormatR="2" DataFormat="105" DigitCount="5 0" HighToLowL="0" HighToLowR="0" HighToLow="0" />
 			<Add PLCAddr="HDW306" PLCAddr1="" DstAddr="2#4242" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" DWord="0" DWordL="0" DWordR="0" DataFormatL="105" DataFormatR="2" DataFormat="105" DigitCount="5 0" HighToLowL="0" HighToLowR="0" HighToLow="0" />
-			<Add PLCAddr="3#4:40" PLCAddr1="" DstAddr="HDW306" FunType="0" Len="1" Monitor="0" Refresh="0" ContralAddr="" ConType="0" EnableWrite="0" DWord="0" DWordL="0" DWordR="0" DataFormatL="105" DataFormatR="2" DataFormat="105" DigitCount="5 0" HighToLowL="0" HighToLowR="0" HighToLow="0" />
 		</WordAddr>
 	</SourAddrToDestAddrInfo>
 </project>
