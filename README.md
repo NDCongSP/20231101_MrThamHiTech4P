@@ -9,6 +9,7 @@ Cai moi truong de publish IIS:
 -dotnet-hosting-7.0.14-win.exe
 -aspnetcore-runtime-7.0.14-win-x64
 -URL Rewrite Module 2.1
+- Hosting bundle
 ---------------------------------------------------------------------------------------------
 -SQL server
 sa
@@ -32,3 +33,6 @@ VinhPhuc@123
 IP address:
  HMI: 192.168.1.250 ~ 253
  Server 192.168.1.254-LAN; 192.168.1.248-Wifi
+
+ ---------------------------------------------------------------------
+ http://localhost:64665/swagger/index.html

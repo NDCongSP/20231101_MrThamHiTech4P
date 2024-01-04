@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Components.Web;
+﻿ using Microsoft.AspNetCore.Components.Web;
 
 namespace GiamSat.UI.Shared
 {
     public partial class MainLayout : IDisposable
     {
-        bool _drawerOpen = true;
+        bool _drawerOpen = false;
 
         void DrawerToggle()
         {
