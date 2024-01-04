@@ -927,13 +927,13 @@ namespace GiamSat.Scada
 
         private void KhoiLuongSiloChuong1_ValueChanged(object sender, TagValueChangedEventArgs e)
         {
-            //var item = _realtimeData.FirstOrDefault(x => x.NangSuat.ChuongId == _chuongId[0]);
-            //if (item != null)
-            //{
-            //    item.NangSuat.TongKhoiLuongThucTe = double.TryParse(e.NewValue, out double value) ? value : 0;
-            //}
-
             _khoiLuongSilo[0] = double.TryParse(e.NewValue, out double value) ? value : 0;
+
+            var item = _realtimeData.FirstOrDefault(x => x.NangSuat.ChuongId == _chuongId[0]);
+            if (item != null)
+            {
+                item.NangSuat.TongKhoiLuongThucTe = Math.Round(_khoiLuongSilo[0], 2);
+            }
         }
 
         private void NhietDoChuong1_ValueChanged(object sender, TagValueChangedEventArgs e)
