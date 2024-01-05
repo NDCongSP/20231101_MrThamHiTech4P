@@ -41,9 +41,15 @@ namespace GiamSat.Scada
             this._pnStatusChuong4 = new System.Windows.Forms.Panel();
             this._pnStatus = new System.Windows.Forms.Panel();
             this._labTime = new System.Windows.Forms.Label();
-            this.easyTextBox1 = new EasyScada.Winforms.Controls.EasyTextBox();
+            this.easyLabel1 = new EasyScada.Winforms.Controls.EasyLabel();
+            this.easyLabel2 = new EasyScada.Winforms.Controls.EasyLabel();
+            this.easyLabel3 = new EasyScada.Winforms.Controls.EasyLabel();
+            this.easyLabel4 = new EasyScada.Winforms.Controls.EasyLabel();
             ((System.ComponentModel.ISupportInitialize)(this.easyDriverConnector1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.easyTextBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easyLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easyLabel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easyLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easyLabel4)).BeginInit();
             this.SuspendLayout();
             // 
             // easyDriverConnector1
@@ -144,31 +150,59 @@ namespace GiamSat.Scada
             this._labTime.TabIndex = 2;
             this._labTime.Text = "label5";
             // 
-            // easyTextBox1
+            // easyLabel1
             // 
-            this.easyTextBox1.DropDownBackColor = System.Drawing.SystemColors.Control;
-            this.easyTextBox1.DropDownBorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.easyTextBox1.DropDownDirection = EasyScada.Winforms.Controls.DropDownDirection.None;
-            this.easyTextBox1.DropDownFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.easyTextBox1.DropDownForeColor = System.Drawing.SystemColors.ControlText;
-            this.easyTextBox1.HightLightStatusTime = 3;
-            this.easyTextBox1.Location = new System.Drawing.Point(842, 90);
-            this.easyTextBox1.Name = "easyTextBox1";
-            this.easyTextBox1.Role = null;
-            this.easyTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.easyTextBox1.StringFormat = null;
-            this.easyTextBox1.TabIndex = 3;
-            this.easyTextBox1.TagPath = "Local Station/ChannelChuong1/Device1/KhoiLuongSilo";
-            this.easyTextBox1.Text = "easyTextBox1";
-            this.easyTextBox1.WriteDelay = 200;
-            this.easyTextBox1.WriteTrigger = EasyScada.Core.WriteTrigger.OnEnter;
+            this.easyLabel1.DisplayMode = EasyScada.Winforms.Controls.DisplayMode.Value;
+            this.easyLabel1.Location = new System.Drawing.Point(834, 71);
+            this.easyLabel1.Name = "easyLabel1";
+            this.easyLabel1.Size = new System.Drawing.Size(100, 23);
+            this.easyLabel1.StringFormat = null;
+            this.easyLabel1.TabIndex = 3;
+            this.easyLabel1.TagPath = "Local Station/ChannelChuong1/Device1/KhoiLuongSilo";
+            this.easyLabel1.Text = "easyLabel1";
+            // 
+            // easyLabel2
+            // 
+            this.easyLabel2.DisplayMode = EasyScada.Winforms.Controls.DisplayMode.Value;
+            this.easyLabel2.Location = new System.Drawing.Point(834, 110);
+            this.easyLabel2.Name = "easyLabel2";
+            this.easyLabel2.Size = new System.Drawing.Size(100, 23);
+            this.easyLabel2.StringFormat = null;
+            this.easyLabel2.TabIndex = 3;
+            this.easyLabel2.TagPath = "Local Station/ChannelChuong2/Device1/KhoiLuongSilo";
+            this.easyLabel2.Text = "easyLabel1";
+            // 
+            // easyLabel3
+            // 
+            this.easyLabel3.DisplayMode = EasyScada.Winforms.Controls.DisplayMode.Value;
+            this.easyLabel3.Location = new System.Drawing.Point(834, 145);
+            this.easyLabel3.Name = "easyLabel3";
+            this.easyLabel3.Size = new System.Drawing.Size(100, 23);
+            this.easyLabel3.StringFormat = null;
+            this.easyLabel3.TabIndex = 3;
+            this.easyLabel3.TagPath = "Local Station/ChannelChuong3/Device1/KhoiLuongSilo";
+            this.easyLabel3.Text = "easyLabel1";
+            // 
+            // easyLabel4
+            // 
+            this.easyLabel4.DisplayMode = EasyScada.Winforms.Controls.DisplayMode.Value;
+            this.easyLabel4.Location = new System.Drawing.Point(834, 179);
+            this.easyLabel4.Name = "easyLabel4";
+            this.easyLabel4.Size = new System.Drawing.Size(100, 23);
+            this.easyLabel4.StringFormat = null;
+            this.easyLabel4.TabIndex = 3;
+            this.easyLabel4.TagPath = "Local Station/ChannelChuong4/Device1/KhoiLuongSilo";
+            this.easyLabel4.Text = "easyLabel1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1083, 458);
-            this.Controls.Add(this.easyTextBox1);
+            this.Controls.Add(this.easyLabel4);
+            this.Controls.Add(this.easyLabel3);
+            this.Controls.Add(this.easyLabel2);
+            this.Controls.Add(this.easyLabel1);
             this.Controls.Add(this._labTime);
             this.Controls.Add(this._pnStatusChuong4);
             this.Controls.Add(this.label4);
@@ -182,7 +216,10 @@ namespace GiamSat.Scada
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.easyDriverConnector1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.easyTextBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easyLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easyLabel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easyLabel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easyLabel4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +238,10 @@ namespace GiamSat.Scada
         private System.Windows.Forms.Panel _pnStatusChuong4;
         private System.Windows.Forms.Panel _pnStatus;
         private System.Windows.Forms.Label _labTime;
-        private EasyScada.Winforms.Controls.EasyTextBox easyTextBox1;
+        private EasyScada.Winforms.Controls.EasyLabel easyLabel1;
+        private EasyScada.Winforms.Controls.EasyLabel easyLabel2;
+        private EasyScada.Winforms.Controls.EasyLabel easyLabel3;
+        private EasyScada.Winforms.Controls.EasyLabel easyLabel4;
     }
 }
 
