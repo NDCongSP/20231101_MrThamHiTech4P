@@ -1,4 +1,8 @@
 ﻿using BlazorBootstrap;
+using Blazorise;
+using GiamSat.Models;
+using MudBlazor;
+using Newtonsoft.Json;
 
 namespace GiamSat.UI.Pages
 {
@@ -13,49 +17,129 @@ namespace GiamSat.UI.Pages
 
         private Random random = new();
 
-        protected override void OnInitialized()
+        private List<APIClient.RealtimeDisplayModel>? _dataFromDB;
+        private RealtimeList? _displayRealtime;
+
+        protected override async Task OnInitializedAsync()
         {
-            chartData = new ChartData { Labels = GetDefaultDataLabels(6), Datasets = GetDefaultDataSets(3) };
-            lineChartOptions = new() { Responsive = true, Interaction = new Interaction { Mode = InteractionMode.Index } };
+            
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                await lineChart.InitializeAsync(chartData, lineChartOptions);
+                await InitialChart();
+                await lineChart.InitializeAsync(chartData: chartData, chartOptions: lineChartOptions, plugins: new string[] { "ChartDataLabels" });
             }
+
             await base.OnAfterRenderAsync(firstRender);
         }
 
-        private async Task RandomizeAsync()
+        private async Task InitialChart()
         {
-            if (chartData is null || chartData.Datasets is null || !chartData.Datasets.Any()) return;
+            var colors = ColorBuilder.CategoricalTwelveColors;
+            var labels = new List<string> { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            var datasets = new List<IChartDataset>();
+           
 
-            var newDatasets = new List<IChartDataset>();
+            lineChartOptions = new();
+            lineChartOptions.Responsive = true;
+            lineChartOptions.Interaction = new Interaction { Mode = InteractionMode.Index };
 
-            foreach (var dataset in chartData.Datasets)
+            lineChartOptions.Scales.X.Title.Text = "Thời gian";
+            lineChartOptions.Scales.X.Title.Display = true;
+
+            lineChartOptions.Scales.Y.Title.Text = "Nhiệt độ (oC)";
+            lineChartOptions.Scales.Y.Title.Display = true;
+
+            lineChartOptions.Plugins.Title.Text = "Đồ thị nhiệt độ";
+            lineChartOptions.Plugins.Title.Display = true;
+
+            // datalabels
+            lineChartOptions.Plugins.Datalabels.Color = "white";
+            lineChartOptions.Plugins.Datalabels.Font = new LineChartDataLabelsFont() { Weight = "Size.Small" };
+
+            try
             {
-                if (dataset is LineChartDataset lineChartDataset
-                    && lineChartDataset is not null
-                    && lineChartDataset.Data is not null)
-                {
-                    var count = lineChartDataset.Data.Count;
+                var res = await _realtimeDisplayClient.GetAllAsync().ConfigureAwait(true);
 
-                    var newData = new List<double>();
-                    for (var i = 0; i < count; i++)
+                if (res.Succeeded)
+                {
+                    _dataFromDB = res.Data.ToList();
+
+                    if (_dataFromDB == null && _dataFromDB.Count <= 0)
                     {
-                        newData.Add(random.Next(200));
+                        _snackBar.Add("Data Null", Severity.Warning);
+                        return;
                     }
 
-                    lineChartDataset.Data = newData;
-                    newDatasets.Add(lineChartDataset);
+                    _displayRealtime = JsonConvert.DeserializeObject<RealtimeList>(_dataFromDB.FirstOrDefault().DisplayData);
+                }
+                else
+                {
+                    foreach (var item in res.Messages)
+                    {
+                        _snackBar.Add(item, Severity.Error);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                _snackBar.Add(ex.Message, Severity.Error);
+            }
 
-            chartData.Datasets = newDatasets;
+            var dataset1 = new LineChartDataset
+            {
+                Label = "Windows",
+                Data = new List<double> { 7265791, 5899643, 6317759, 6315641, 5338211, 8496306, 7568556, 8538933, 8274297, 8657298, 7548388, 7764845 },
+                BackgroundColor = new List<string> { colors[0] },
+                BorderColor = new List<string> { colors[0] },
+                BorderWidth = new List<double> { 2 },
+                HoverBorderWidth = new List<double> { 4 },
+                PointBackgroundColor = new List<string> { colors[0] },
+                PointRadius = new List<int> { 0 }, // hide points
+                PointHoverRadius = new List<int> { 4 },
 
-            await lineChart.UpdateAsync(chartData, lineChartOptions);
+                // datalabels
+                Datalabels = new() { Align = "end", Anchor = "end"},
+
+            };
+            datasets.Add(dataset1);
+
+            var dataset2 = new LineChartDataset
+            {
+                Label = "macOS",
+                Data = new List<double> { 1809499, 1816642, 2122410, 1809499, 1850793, 1846743, 1954797, 2391313, 1983430, 2469918, 2633303, 2821149 },
+                BackgroundColor = new List<string> { colors[1] },
+                BorderColor = new List<string> { colors[1] },
+                BorderWidth = new List<double> { 2 },
+                HoverBorderWidth = new List<double> { 4 },
+                PointBackgroundColor = new List<string> { colors[1] },
+                PointRadius = new List<int> { 0 }, // hide points
+                PointHoverRadius = new List<int> { 4 }
+            };
+            datasets.Add(dataset2);
+
+            var dataset3 = new LineChartDataset
+            {
+                Label = "Other",
+                Data = new List<double> { 1081241, 1100363, 1118136, 1073255, 1120315, 1395736, 1488788, 1489466, 1489947, 1414739, 1735811, 1820171 },
+                BackgroundColor = new List<string> { colors[2] },
+                BorderColor = new List<string> { colors[2] },
+                BorderWidth = new List<double> { 2 },
+                HoverBorderWidth = new List<double> { 4 },
+                PointBackgroundColor = new List<string> { colors[2] },
+                PointRadius = new List<int> { 0 }, // hide points
+                PointHoverRadius = new List<int> { 4 }
+            };
+            datasets.Add(dataset3);
+
+            chartData = new ChartData
+            {
+                Labels = labels,
+                Datasets = datasets
+            };
         }
 
         private async Task AddDatasetAsync()
