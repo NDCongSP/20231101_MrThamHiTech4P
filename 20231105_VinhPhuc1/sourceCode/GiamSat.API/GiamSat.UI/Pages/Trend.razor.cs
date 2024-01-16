@@ -40,7 +40,7 @@ namespace GiamSat.UI.Pages
                 //await lineChart.InitializeAsync(chartData: chartData, chartOptions: lineChartOptions, plugins: new string[] { "ChartDataLabels" });
 
                 #region Timer refresh data
-                _timer = new System.Timers.Timer(1000);
+                _timer = new System.Timers.Timer(5000);
                 _timer.Elapsed += RefreshData;
                 _timer.Enabled = true;
                 #endregion
@@ -104,7 +104,7 @@ namespace GiamSat.UI.Pages
                             PointBackgroundColor = new List<string> { colors[index] },
                             PointRadius = new List<int> { 3 }, // hide points
                             PointHoverRadius = new List<int> { 4 },
-                            PointStyle=new List<string> { "diamond" },//diamond
+                            PointStyle = new List<string> { "diamond" },//diamond
                             // datalabels
                             //Datalabels = new() { Align = "end", Anchor = "end" },
 
@@ -215,6 +215,9 @@ namespace GiamSat.UI.Pages
                         return;
                     }
 
+                    //add data to chart
+                    var data = new List<IChartDatasetData>();
+
                     var res = await _realtimeDisplayClient.GetAllAsync().ConfigureAwait(true);
 
                     if (res.Succeeded)
@@ -230,40 +233,53 @@ namespace GiamSat.UI.Pages
                         _displayRealtime = JsonConvert.DeserializeObject<RealtimeList>(_dataFromDB.FirstOrDefault().DisplayData);
 
                         //add data to chart
-                        //var data = new List<IChartDatasetData>();
-                        //foreach (var item in _displayRealtime)
-                        //{
-                        //    foreach (var dataset in chartData.Datasets)
-                        //    {
-                        //        if (dataset is LineChartDataset lineChartDataset)
-                        //        {
-                        //            data.Add(new LineChartDatasetData(lineChartDataset.Label, random.Next(200)));
-                        //        }
-                        //    }
-                        //}
+                        foreach (var item in _displayRealtime)
+                        {
+                            foreach (var dataset in chartData.Datasets)
+                            {
+                                if (dataset is LineChartDataset lineChartDataset)
+                                {
+                                    //var ds = dataset as LineChartDataset;   
 
-                        //chartData = await lineChart.AddDataAsync(chartData, DateTime.Now.ToString("HH:mm:ss"), data);
+                                    if (item.DisplayRealtime.TenChuong == lineChartDataset.Label)
+                                    {
+                                        var count = lineChartDataset.Data.Count;
+
+                                        if (count > 10)
+                                        {
+                                            lineChartDataset.Data.RemoveAt(0);
+                                        }
+
+                                        data.Add(new LineChartDatasetData(lineChartDataset.Label, item.DisplayRealtime.Temperature));
+
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        chartData = await lineChart.AddDataAsync(chartData, DateTime.Now.ToString("HH:mm:ss"), data);
                     }
 
 
                     //add data to chart
-                    var data = new List<IChartDatasetData>();
-                    foreach (var dataset in chartData.Datasets)
-                    {
-                        if (dataset is LineChartDataset lineChartDataset)
-                        {
-                            //var ds = dataset as LineChartDataset;                         
+                    //var data = new List<IChartDatasetData>();
+                    //foreach (var dataset in chartData.Datasets)
+                    //{
+                    //    if (dataset is LineChartDataset lineChartDataset)
+                    //    {
+                    //        //var ds = dataset as LineChartDataset;                         
 
-                            var count = lineChartDataset.Data.Count;
-                            Debug.WriteLine($"Count point: {count}");
+                    //        var count = lineChartDataset.Data.Count;
+                    //        Debug.WriteLine($"Count point: {count}");
 
-                            if (count > 10)
-                            {
-                                lineChartDataset.Data.RemoveAt(0);
-                            }
-                            data.Add(new LineChartDatasetData(lineChartDataset.Label, random.Next(30)));
-                        }
-                    }
+                    //        if (count > 10)
+                    //        {
+                    //            lineChartDataset.Data.RemoveAt(0);
+                    //        }
+                    //        data.Add(new LineChartDatasetData(lineChartDataset.Label, random.Next(30)));
+                    //    }
+                    //}
 
                     if (chartData.Labels.Count > 10)
                     {
