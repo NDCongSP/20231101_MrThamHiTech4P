@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace GiamSat.API.Controllers
 {
-    //[AllowAnonymous]//khong can authorize
     [Authorize]
     [Route("api/[controller]")]
-    [ApiController]
+    //[ApiController]
+    [AllowAnonymous]//khong can authorize
     public class DataLogController : BaseController<Guid, DataLogModel>, ISDataLog
     {
         readonly SCommon _sCommon;
@@ -22,10 +22,10 @@ namespace GiamSat.API.Controllers
             _sCommon = sCommon;
         }
 
-        [HttpGet(ApiRoutes.DataLog.Test)]
-        public async Task<Result> TestApi()
+        [HttpGet(ApiRoutes.DataLog.GetFromToByName)]
+        public Task<Result<List<DataLogModel>>> GetFromToByName([Path] string from, string to, string tenChuong)
         {
-            return await _sCommon.SDataLog.TestApi();
+            return  _sCommon.SDataLog.GetFromToByName(from, to, tenChuong);
         }
     }
 }

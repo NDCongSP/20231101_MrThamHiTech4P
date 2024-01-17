@@ -1,37 +1,31 @@
 ﻿@if (chuongInfo != null)
 {
-    <MudPaper Height="100%" Class="py-3" Elevation="0">
-        <div class="d-flex align-items-start flex-column" style="height: 200px;">
-            <div class="mb-auto p-2">
-                <MudNavMenu Rounded="true" Margin="Margin.Dense" Color="Color.Info" Class="pa-2">
-                    <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard" IconColor="Color.Dark" Match="NavLinkMatch.All">Giám sát</MudNavLink>
-                    <MudNavGroup Title="Cài đặt" Icon="@Icons.Material.Filled.Settings" IconColor="Color.Dark" Expanded="true">
-                        @foreach (var item in chuongInfo)
-                        {
-                            linkC = $"c/{item.Id}";
+    <MudPaper Width="250px" Class="py-1" Elevation="0">
+        <MudNavMenu Rounded="true" Margin="Margin.Dense" Color="Color.Info">
+            <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard" IconColor="Color.Dark" Match="NavLinkMatch.All">Giám sát</MudNavLink>
+            <MudNavGroup Title="Cài đặt" Icon="@Icons.Material.Filled.Settings" IconColor="Color.Dark" Expanded="true">
+                @foreach (var item in chuongInfo)
+                {
+                    linkC = $"c/{item.Id}";
 
-                            <MudNavLink Href=@linkC Icon="@Icons.Material.Filled.Label" IconColor="Color.Success" Match="NavLinkMatch.Prefix">@item.TenChuong</MudNavLink>
-                        }
-                        @*  <MudNavLink Href=@linkC1 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c1.TenChuong</MudNavLink>
-                    <MudNavLink Href=@linkC2 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c2.TenChuong</MudNavLink>
-                    <MudNavLink Href=@linkC3 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c3.TenChuong</MudNavLink>
-                    <MudNavLink Href=@linkC4 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c4.TenChuong</MudNavLink> *@
-                    </MudNavGroup>
-                    <MudNavLink Href="/trend" Icon="@Icons.Material.Filled.StackedLineChart" IconColor="Color.Dark" Match="NavLinkMatch.Prefix">Biểu đồ</MudNavLink>
-                    <MudNavLink Href="/report" Icon="@Icons.Material.Filled.Description" IconColor="Color.Dark" Match="NavLinkMatch.Prefix">Báo cáo</MudNavLink>
-                    <MudNavLink Href="/contact" Icon="@Icons.Material.Filled.ContactPage" IconColor="Color.Dark" Match="NavLinkMatch.Prefix">Liên hệ</MudNavLink>
-                </MudNavMenu>
-            </div>
-            <div Class="p-2">
-                <MudButton OnClick="@OnclickLogout"
-                           Target="_blank"
-                           Variant="Variant.Text"
-                           EndIcon="@Icons.Material.Filled.Logout"
-                           Color="Color.Secondary"
-                           Style="text-transform:none">
-                    Logout
-                </MudButton>
-            </div>
-        </div>
+                    <MudNavLink Href=@linkC Icon="@Icons.Material.Filled.Label" IconColor="Color.Success" Match="NavLinkMatch.Prefix">@item.TenChuong</MudNavLink>
+                }
+                @*  <MudNavLink Href=@linkC1 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c1.TenChuong</MudNavLink>
+            <MudNavLink Href=@linkC2 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c2.TenChuong</MudNavLink>
+            <MudNavLink Href=@linkC3 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c3.TenChuong</MudNavLink>
+            <MudNavLink Href=@linkC4 Icon="@Icons.Material.Filled.Label" Match="NavLinkMatch.Prefix">@c4.TenChuong</MudNavLink> *@
+            </MudNavGroup>
+            <MudNavLink Href="/trend" Icon="@Icons.Material.Filled.StackedLineChart" IconColor="Color.Dark" Match="NavLinkMatch.Prefix">Biểu đồ</MudNavLink>
+            <MudNavLink Href="/report" Icon="@Icons.Material.Filled.Description" IconColor="Color.Dark" Match="NavLinkMatch.Prefix">Báo cáo</MudNavLink>
+            <MudNavLink Href="/contact" Icon="@Icons.Material.Filled.ContactPage" IconColor="Color.Dark" Match="NavLinkMatch.Prefix">Liên hệ</MudNavLink>
+        </MudNavMenu>
+        <MudButton OnClick="@OnclickLogout"
+                   Target="_blank"
+                   Variant="Variant.Text"
+                   EndIcon="@Icons.Material.Filled.Logout"
+                   Color="Color.Secondary"
+                   Style="text-transform:none">
+            Logout
+        </MudButton>
     </MudPaper>
 }

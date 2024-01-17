@@ -770,29 +770,55 @@
         }
       }
     },
-    "/api/DataLog/test": {
+    "/api/DataLog/GetByName/{from}/{to}/{tenChuong}": {
       "get": {
         "tags": [
           "DataLog"
         ],
-        "operationId": "DataLog_TestApi",
+        "operationId": "DataLog_GetFromToByName",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tenChuong",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Result"
+                  "$ref": "#/components/schemas/DataLogModelListResult"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Result"
+                  "$ref": "#/components/schemas/DataLogModelListResult"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Result"
+                  "$ref": "#/components/schemas/DataLogModelListResult"
                 }
               }
             }
@@ -2217,10 +2243,6 @@
             "type": "number",
             "format": "double"
           },
-          "data": {
-            "type": "string",
-            "nullable": true
-          },
           "createdDate": {
             "type": "string",
             "format": "date-time"
@@ -2741,22 +2763,6 @@
           "message": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Result": {
-        "type": "object",
-        "properties": {
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "succeeded": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false

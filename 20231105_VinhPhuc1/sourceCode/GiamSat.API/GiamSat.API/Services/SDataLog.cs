@@ -1,5 +1,7 @@
 ﻿using GiamSat.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.EntityFrameworkCore;
 using RestEase;
 using System;
 using System.Collections.Generic;
@@ -44,6 +46,27 @@ namespace GiamSat.API
             }
         }
 
+        public async Task<Result<List<DataLogModel>>> GetFromToByName([Path] string from, string to, string tenChuong)
+        {
+            try
+            {
+                if (from == null || from == "" || to == null || to == "")
+                {
+                    return await Result<List<DataLogModel>>.FailAsync("Vui lòng chọn khoảng thời gian cần truy vấn dữ liệu.");
+                }
+
+                var d = await _dbContex.DataLogModel
+                            .Where<DataLogModel>(x => x.TenChuong == tenChuong && x.CreatedDate >= Convert.ToDateTime(from)
+                                && x.CreatedDate <= Convert.ToDateTime(to)).OrderBy(x=>x.CreatedDate).ToListAsync();
+
+                return await Result<List<DataLogModel>>.SuccessAsync(d);
+            }
+            catch (Exception ex)
+            {
+                return await Result<List<DataLogModel>>.FailAsync(ex.Message);
+            }
+        }
+
         public async Task<Result<DataLogModel>> Insert([Body] DataLogModel model)
         {
             try
@@ -56,18 +79,6 @@ namespace GiamSat.API
             catch (Exception ex)
             {
                 return await Result<DataLogModel>.FailAsync(ex.Message);
-            }
-        }
-
-        public async Task<Result> TestApi()
-        {
-            try
-            {
-                return await Result.SuccessAsync("Test successfull");
-            }
-            catch (Exception ex)
-            {
-                return await Result.FailAsync(ex.Message);
             }
         }
 

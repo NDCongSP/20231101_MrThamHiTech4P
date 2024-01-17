@@ -11,54 +11,49 @@ else
 {
     <MudPaper Class="ma-2 mt-5 p-2" Elevation="3">
         <MudGrid Spacing="2" Class="p-1">
-            <MudItem xs="12" sm="3">
-                <MudDatePicker Label="Từ ngày" @bind-Date="date" />
-            </MudItem>
-            <MudItem xs="12" sm="3">
-                <MudDatePicker Label="Từ ngày" @bind-Date="date" />
-            </MudItem>
-            <MudItem xs="12" sm="3">
-                <MudSelect @bind-Value="enumValue" Label="Chọn chuồng"
-                           SelectedValuesChanged="(IEnumerable<StepRun>e)=>OnSelectedValuesChanged(e)"
-                           OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
-                    @foreach (StepRun item in Enum.GetValues(typeof(StepRun)))
-                    {
-                        <MudSelectItem Value="@item">@item</MudSelectItem>
-                    }
-                </MudSelect>
-            </MudItem>
-            <MudItem xs="12" sm="3" Class=" d-flex flex-row justify-content-center">
-                <MudButton class="rounded mx-auto d-block" Variant="Variant.Filled" Color="Color.Primary">Truy vấn</MudButton>
-                <MudButton class="rounded mx-auto d-block" Variant="Variant.Filled" Color="Color.Primary">Tải excel</MudButton>
+            <MudItem xs="12">
+                <MudCard Elevation="25" Class="rounded-lg pb-4 border border-warning" Style="height: 100%;">
+                    <MudCardContent Class="d-inline-flex align-content-center">
+                        <MudItem xs="12" sm="3" Class="pa-4 mr-16">
+                            <MudDatePicker Label="Từ ngày" @bind-Date="date" Elevation="10" />
+                        </MudItem>
+                        <MudItem xs="12" sm="3" Class="pa-4 mr-16">
+                            <MudDatePicker Label="Từ ngày" @bind-Date="date" Elevation="10" />
+                        </MudItem>
+                        <MudItem xs="12" sm="3" Class="pa-4 mr-16">
+                            <MudSelect @bind-Value="enumValue" Label="Chọn chuồng"
+                                       SelectedValuesChanged="(IEnumerable<StepRun>e)=>OnSelectedValuesChanged(e)"
+                                       OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
+                                @foreach (StepRun item in Enum.GetValues(typeof(StepRun)))
+                                {
+                                    <MudSelectItem Value="@item">@item</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudButton Class="pa-4 mr-16" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Refresh" OnClick="OnQueryClick"
+                                   Style="background-color: yellowgreen; color: white; width: 200px; height: 60px;">
+                            Truy vấn
+                        </MudButton>
+                        <MudButton Class="pa-4 mr-16" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Download" OnClick="OnExportExcelClick"
+                                   Style="background-color: yellowgreen; color: white; width: 200px; height: 60px;">
+                            Tải excel
+                        </MudButton>
+                    </MudCardContent>
+                </MudCard>
             </MudItem>
             <MudItem xs="12">
-                <MudTable Items="@Elements" Hover="true" Dense="true" Striped="true" Bordered="true" FixedHeader="true" Breakpoint="Breakpoint.Sm"
-                          Loading="@_loading" LoadingProgressColor="Color.Info" 
-                          Filter="new Func<APIClient.DataLogModel,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
-                    <ToolBarContent>
-                        <MudText Typo="Typo.h6">Tìm kiếm</MudText>
-                        <MudSpacer />
-                        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" 
-                            AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
-                    </ToolBarContent>
-                    <HeaderContent>
-                        <MudTh>Thời gian</MudTh>
-                        <MudTh>Tên chuồng</MudTh>
-                        <MudTh>Nhiệt độ (oC)</MudTh>
-                        <MudTh>Độ ẩm (%)</MudTh>
-                        <MudTh>Tần số (Hz)</MudTh>
-                    </HeaderContent>
-                    <RowTemplate>
-                        <MudTd DataLabel="Thời gian">@context.CreatedDate</MudTd>
-                        <MudTd DataLabel="Tên chuồng">@context.TenChuong</MudTd>
-                        <MudTd DataLabel="Nhiệt độ (oC)">@context.NhietDo</MudTd>
-                        <MudTd DataLabel="Độ ẩm (%)">@context.DoAm</MudTd>
-                        <MudTd DataLabel="Tần số (Hz)">@context.Frequency</MudTd>
-                    </RowTemplate>
+                <MudDataGrid Items="@Elements" Filterable="true" FilterMode="DataGridFilterMode.ColumnFilterMenu" FilterCaseSensitivity="DataGridFilterCaseSensitivity.CaseInsensitive">
+                    <Columns>
+                        <PropertyColumn Property="x => x.CreatedDate" Title="Thời gian" />
+                        <PropertyColumn Property="x => x.TenChuong" Title="Tên chuồng" />
+                        <PropertyColumn Property="x => x.NhietDo" Title="Nhiệt độ (oC)" />
+                        <PropertyColumn Property="x => x.DoAm" Title="Độ ẩm (%)" />
+                        <PropertyColumn Property="x => x.Frequency" Title="Tần số (Hz)" />
+                    </Columns>
                     <PagerContent>
-                        <MudTablePager />
+                        <MudDataGridPager T="APIClient.DataLogModel" />
                     </PagerContent>
-                </MudTable>
+                </MudDataGrid>
             </MudItem>
         </MudGrid>
     </MudPaper>

@@ -42,7 +42,7 @@ namespace GiamSat.Models
         public static class DataLog
         {
             public const string BasePath = "api/DataLog";
-            public const string Test = "test";
+            public const string GetFromToByName = "GetByName/{from}/{to}/{tenChuong}";
         }
 
         public static class ChuongInfo

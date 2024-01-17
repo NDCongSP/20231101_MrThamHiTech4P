@@ -18,6 +18,7 @@ namespace BlazorApp3.Pages
         {
             if (firstRender)
             {
+                //await RadzenChart.Resize(width:100, height: 200);
                 _timer.Interval = 1000;
                 _timer.Elapsed += Refresh;
 

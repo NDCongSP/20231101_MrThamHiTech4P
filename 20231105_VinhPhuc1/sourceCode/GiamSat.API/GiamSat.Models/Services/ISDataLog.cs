@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace GiamSat.Models
 {
     [BasePath(ApiRoutes.DataLog.BasePath)]
-    public interface ISDataLog: IRepository<Guid,DataLogModel>
+    public interface ISDataLog : IRepository<Guid, DataLogModel>
     {
-        [Get(ApiRoutes.DataLog.Test)]
-        Task<Result> TestApi();
+        [Get(ApiRoutes.DataLog.GetFromToByName)]
+        Task<Result<List<DataLogModel>>> GetFromToByName([Path] string from,string to, string tenChuong);
     }
 }

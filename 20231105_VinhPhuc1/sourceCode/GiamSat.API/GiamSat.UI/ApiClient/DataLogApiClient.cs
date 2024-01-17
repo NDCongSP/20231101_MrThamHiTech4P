@@ -41,12 +41,12 @@ namespace GiamSat.UI
             throw new NotImplementedException();
         }
 
-        public Task<Result> TestApi()
+        public Task<Result<DataLogModel>> Update([Body] DataLogModel model)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Result<DataLogModel>> Update([Body] DataLogModel model)
+        public Task<Result<List<DataLogModel>>> GetFromToByName([Path] string from, string to, string tenChuong)
         {
             throw new NotImplementedException();
         }

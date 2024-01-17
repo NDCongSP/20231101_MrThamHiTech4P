@@ -13,7 +13,7 @@ namespace GiamSat.UI.Pages
         //tạo các biến dùng cho tạo select chọn giai doạn
         private string stringValue { get; set; }
         private StepRun enumValue { get; set; } = StepRun.Chuong1;
-        public enum StepRun { Chuong1 = 1, Chuong2 = 2, Chuong3 = 3, Chuong4 = 4 }
+        public enum StepRun { Chuong1 = 1, Chuong2 = 2, Chuong3 = 3, Chuong4 = 4, All = 5 }
 
         DateTime? date = DateTime.Today;
 
@@ -41,8 +41,10 @@ namespace GiamSat.UI.Pages
         private void OnSelectedValuesChanged(IEnumerable<StepRun> values)
         {
             Console.WriteLine(string.Join("SELECTED value:\n", values));
-            
+
             var step = values.FirstOrDefault();
+
+            var s = enumValue;
 
             StateHasChanged();
         }
@@ -53,9 +55,33 @@ namespace GiamSat.UI.Pages
         {
             if (string.IsNullOrWhiteSpace(searchString))
                 return true;
-            if (element.TenChuong.Contains(searchString,StringComparison.OrdinalIgnoreCase))
+            if (element.TenChuong.Contains(searchString, StringComparison.OrdinalIgnoreCase))
                 return true;
             return false;
+        }
+
+        private async void OnQueryClick()
+        {
+            try
+            {
+                var res = await _dataLogClient.GetAllAsync();
+                if (res.Succeeded)
+                {
+                    Elements = res.Data.OrderByDescending(x => x.CreatedDate).ToList();
+                }
+
+                StateHasChanged() ;
+            }
+            catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
+        }
+
+        private async void OnExportExcelClick()
+        {
+            try
+            {
+               
+            }
+            catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
         }
     }
 }

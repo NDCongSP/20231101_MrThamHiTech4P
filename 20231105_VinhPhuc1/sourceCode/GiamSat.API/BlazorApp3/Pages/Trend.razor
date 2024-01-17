@@ -21,9 +21,15 @@
                     <RadzenMarkers Visible="@showMarkers" MarkerType="MarkerType.Circle"/>
                     <RadzenSeriesDataLabels Visible="@showDataLabels" />
                 </RadzenLineSeries>
-                <RadzenCategoryAxis Padding="20" Formatter="@FormatAsMonth" >
+
+                <RadzenCategoryAxis Padding="20" Formatter="@FormatAsMonth">
                     <RadzenGridLines Visible="true" />
                     <RadzenAxisTitle Text="Date 1" />
+                    <RadzenTicks>
+                        <Template>
+                            <text class="rz-tick-text" style="text-anchor: start; transform: translate(@(context.X)px, @(context.Y + 100)px) rotate(-45deg); font-size:small">@context.Value</text>
+                        </Template>
+                    </RadzenTicks>
                 </RadzenCategoryAxis>
                 <RadzenValueAxis Formatter="@FormatAsUSD">
                     <RadzenGridLines Visible="true" />

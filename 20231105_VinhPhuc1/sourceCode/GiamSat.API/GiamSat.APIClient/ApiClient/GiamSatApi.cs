@@ -2123,12 +2123,12 @@ namespace GiamSat.APIClient
     {
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Result> TestApiAsync();
+        System.Threading.Tasks.Task<DataLogModelListResult> GetFromToByNameAsync(string from, string to, string tenChuong);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Result> TestApiAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DataLogModelListResult> GetFromToByNameAsync(string from, string to, string tenChuong, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -2197,18 +2197,30 @@ namespace GiamSat.APIClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Result> TestApiAsync()
+        public virtual System.Threading.Tasks.Task<DataLogModelListResult> GetFromToByNameAsync(string from, string to, string tenChuong)
         {
-            return TestApiAsync(System.Threading.CancellationToken.None);
+            return GetFromToByNameAsync(from, to, tenChuong, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Result> TestApiAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DataLogModelListResult> GetFromToByNameAsync(string from, string to, string tenChuong, System.Threading.CancellationToken cancellationToken)
         {
+            if (from == null)
+                throw new System.ArgumentNullException("from");
+
+            if (to == null)
+                throw new System.ArgumentNullException("to");
+
+            if (tenChuong == null)
+                throw new System.ArgumentNullException("tenChuong");
+
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("api/DataLog/test");
+            urlBuilder_.Append("api/DataLog/GetByName/{from}/{to}/{tenChuong}");
+            urlBuilder_.Replace("{from}", System.Uri.EscapeDataString(ConvertToString(from, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{to}", System.Uri.EscapeDataString(ConvertToString(to, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{tenChuong}", System.Uri.EscapeDataString(ConvertToString(tenChuong, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2242,7 +2254,7 @@ namespace GiamSat.APIClient
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Result>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DataLogModelListResult>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5994,11 +6006,6 @@ namespace GiamSat.APIClient
         [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
         public double Frequency { get; set; } = default!;
 
-        [System.Text.Json.Serialization.JsonPropertyName("data")]
-
-        [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
-        public string? Data { get; set; } = default!;
-
         [System.Text.Json.Serialization.JsonPropertyName("createdDate")]
 
         [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
@@ -6555,22 +6562,6 @@ namespace GiamSat.APIClient
 
         [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
         public string? Message { get; set; } = default!;
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v12.0.0.0))")]
-    public partial class Result
-    {
-
-        [System.Text.Json.Serialization.JsonPropertyName("messages")]
-
-        [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
-        public System.Collections.Generic.ICollection<string>? Messages { get; set; } = default!;
-
-        [System.Text.Json.Serialization.JsonPropertyName("succeeded")]
-
-        [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault)]   
-        public bool Succeeded { get; set; } = default!;
 
     }
 
