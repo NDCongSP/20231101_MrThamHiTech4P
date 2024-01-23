@@ -92,6 +92,8 @@ namespace GiamSat.API
             services.AddTransient<ISRealtimeDisplay,SRealtimeDisplay>();
             services.AddTransient<ISFT100, SFT100>();
             services.AddTransient<ISFT101, SFT101>();
+            services.AddTransient<ISAlarmLog, SAlarmLog>();
+            services.AddTransient<ISAlarmSettings, SAlarmSettings>();
 
             services.AddScoped<SCommon>();
 

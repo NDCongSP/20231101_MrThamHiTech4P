@@ -136,7 +136,42 @@ namespace GiamSat.API.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
- 
+
+        [HttpPost]
+        [Route("updatePass")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Response))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(Response))]
+        public async Task<IActionResult> UpdatePass([FromBody] UpdateModel model)
+        {
+            var userExists = await _userManager.FindByNameAsync(model.Username);
+
+            if (userExists == null)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not found!" });
+
+            if (model.OldPassword!= userExists.PasswordHash)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "The old password is wrong." });
+            }
+
+            if (model.NewPassword != model.ReNewPassword)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "New password does not match." });
+            }
+
+            //IdentityUser user = new()
+            //{
+            //    Email = model.Email,
+            //    SecurityStamp = Guid.NewGuid().ToString(),
+            //    UserName = model.Username
+            //};
+
+            //if (!result.Succeeded)
+            //    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+
+            return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+        }
+
+
 
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {

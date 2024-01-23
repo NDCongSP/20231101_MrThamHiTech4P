@@ -39,6 +39,11 @@ namespace GiamSat.Scada
 
         private Task _task;
 
+        #region Email
+        private Email _email=new Email();
+        AlarmSetting _alarmSetting=new AlarmSetting();
+        #endregion
+
         public Form1()
         {
             InitializeComponent();

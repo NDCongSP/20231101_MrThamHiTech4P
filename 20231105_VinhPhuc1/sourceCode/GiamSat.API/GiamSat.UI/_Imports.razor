@@ -28,6 +28,9 @@
 @inject NavigationManager _navigation
 @*@inject Common _common*@
 
+@inject IHttpInterceptorManager _interceptor
+@inject HttpClient _httpClient 
+
 @*inject cac service vao de dung*@
 @* @inject ISDisplayRealtime _displayRealtimeApiClient *@
 @inject ISChuongInfo _chuongInfoApiClient
@@ -40,5 +43,5 @@
 @inject IFT100Client _ft100Client
 @inject IFT101Client _ft101Client
 
-@inject IHttpInterceptorManager _interceptor
-@inject HttpClient _httpClient 
+@inject IAlarmSettingsClient _alarmSettingsClient
+@inject IAlarmLogClient _alarmLogClient

@@ -99,3 +99,11 @@ a, .btn-link {
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
+
+.chart > svg {
+    height: 125% !important;
+}
+
+.chart .rz-category-axis .rz-axis-title > text {
+    transform: translateY(65px);
+}

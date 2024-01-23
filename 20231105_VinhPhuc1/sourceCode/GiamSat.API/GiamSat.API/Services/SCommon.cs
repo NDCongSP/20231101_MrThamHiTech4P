@@ -17,7 +17,11 @@ namespace GiamSat.API
         public ISFT100 SFT100 { get; private set; }
         public ISFT101 SFT101 { get; private set; }
 
-        public SCommon(ISDisplayRealtime sDisplayRealtime, ISDataLog sDataLog, ISChuongInfo sChuongInfo, ISRealtimeDisplay sRealtimeDisplay = null, ISFT100 sFT100 = null, ISFT101 sFT101 = null)
+        public ISAlarmLog SAlarmLog { get; private set; }
+        public ISAlarmSettings SAlarmSettings { get; private set; }
+
+        public SCommon(ISDisplayRealtime sDisplayRealtime, ISDataLog sDataLog, ISChuongInfo sChuongInfo, ISRealtimeDisplay sRealtimeDisplay = null
+            , ISFT100 sFT100 = null, ISFT101 sFT101 = null, ISAlarmLog sAlarmLog = null, ISAlarmSettings sAlarmSettings = null)
         {
             SDisplayRealtime = sDisplayRealtime;
             SDataLog = sDataLog;
@@ -25,6 +29,8 @@ namespace GiamSat.API
             SRealtimeDisplay = sRealtimeDisplay;
             SFT100 = sFT100;
             SFT101 = sFT101;
+            SAlarmLog = sAlarmLog;
+            SAlarmSettings = sAlarmSettings;
         }
     }
 }

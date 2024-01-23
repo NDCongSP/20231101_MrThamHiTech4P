@@ -13,31 +13,38 @@ else
         <MudGrid Spacing="2" Class="p-1">
             <MudItem xs="12">
                 <MudCard Elevation="25" Class="rounded-lg pb-4 border border-warning" Style="height: 100%;">
-                    <MudCardContent Class="d-inline-flex align-content-center">
-                        <MudItem xs="12" sm="3" Class="pa-4 mr-16">
-                            <MudDatePicker Label="Từ ngày" @bind-Date="date" Elevation="10" />
-                        </MudItem>
-                        <MudItem xs="12" sm="3" Class="pa-4 mr-16">
-                            <MudDatePicker Label="Từ ngày" @bind-Date="date" Elevation="10" />
-                        </MudItem>
-                        <MudItem xs="12" sm="3" Class="pa-4 mr-16">
-                            <MudSelect @bind-Value="enumValue" Label="Chọn chuồng"
-                                       SelectedValuesChanged="(IEnumerable<StepRun>e)=>OnSelectedValuesChanged(e)"
-                                       OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
-                                @foreach (StepRun item in Enum.GetValues(typeof(StepRun)))
-                                {
-                                    <MudSelectItem Value="@item">@item</MudSelectItem>
-                                }
-                            </MudSelect>
-                        </MudItem>
-                        <MudButton Class="pa-4 mr-16" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Refresh" OnClick="OnQueryClick"
-                                   Style="background-color: yellowgreen; color: white; width: 200px; height: 60px;">
-                            Truy vấn
-                        </MudButton>
-                        <MudButton Class="pa-4 mr-16" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Download" OnClick="OnExportExcelClick"
-                                   Style="background-color: yellowgreen; color: white; width: 200px; height: 60px;">
-                            Tải excel
-                        </MudButton>
+                    <MudCardContent Class="align-content-center">
+                        <MudGrid Spacing="2">
+                            <MudItem xs="12" sm="4">
+                                <MudDatePicker Label="Từ ngày" @bind-Date="date" Elevation="10" Class="pa-4" />
+                            </MudItem>
+                            <MudItem xs="12" sm="4">
+                                <MudDatePicker Label="Từ ngày" @bind-Date="date" Elevation="10" Class="pa-4" />
+                            </MudItem>
+                            <MudItem xs="12" sm="4" Class="pa-4">
+                                <MudSelect @bind-Value="enumValue" Label="Chọn chuồng" Class="pa-4"
+                                           SelectedValuesChanged="(IEnumerable<StepRun>e)=>OnSelectedValuesChanged(e)"
+                                           OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
+                                    @foreach (StepRun item in Enum.GetValues(typeof(StepRun)))
+                                    {
+                                        <MudSelectItem Value="@item">@item</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <MudButton Class="pa-4" FullWidth=true Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Refresh" OnClick="OnQueryClick"
+                                           Style="background-color: yellowgreen; color: white;">
+                                    Truy vấn
+                                </MudButton>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <MudButton Class="pa-4" Variant="Variant.Filled" FullWidth=true StartIcon="@Icons.Material.Filled.Download" OnClick="OnExportExcelClick"
+                                           Style="background-color: yellowgreen; color: white;">
+                                    Tải excel
+                                </MudButton>
+                            </MudItem>
+                        </MudGrid>
                     </MudCardContent>
                 </MudCard>
             </MudItem>

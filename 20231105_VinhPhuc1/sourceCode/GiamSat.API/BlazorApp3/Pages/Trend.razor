@@ -12,7 +12,7 @@
                 <RadzenCheckBox @bind-Value="@showMarkers" Name="markers"></RadzenCheckBox>
                 <RadzenLabel Text="Show Markers" Component="markers" />
             </RadzenCard>
-            <RadzenChart @ref="RadzenChart">
+            <RadzenChart @ref="RadzenChart" class="chart">
                 <RadzenLineSeries Smooth="@smooth" Data="@revenue2019" CategoryProperty="Date" Title="2019" LineType="LineType.Dashed" ValueProperty="Revenue">
                     <RadzenMarkers Visible="@showMarkers" MarkerType="MarkerType.Diamond" />
                     <RadzenSeriesDataLabels Visible="@showDataLabels" />

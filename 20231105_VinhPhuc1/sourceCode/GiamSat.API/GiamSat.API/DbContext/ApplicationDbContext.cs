@@ -22,6 +22,8 @@ namespace GiamSat.API
             builder.Entity<RealtimeDisplayModel>();
             builder.Entity<FT100>();
             builder.Entity<FT101>();
+            builder.Entity<AlarmLogModel>();
+            builder.Entity<AlarmSettingsModel>();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -35,5 +37,7 @@ namespace GiamSat.API
         public DbSet<GiamSat.Models.RealtimeDisplayModel> RealTimeDisplayModel { get; set; }
         public DbSet<GiamSat.Models.FT100> FT100 { get; set; }
         public DbSet<GiamSat.Models.FT101> FT101 { get; set; }
+        public DbSet<GiamSat.Models.AlarmLogModel> AlarmLogModel { get; set; }
+        public DbSet<GiamSat.Models.AlarmSettingsModel> AlarmSettingsModel { get; set; }
     }
 }

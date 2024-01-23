@@ -59,5 +59,15 @@ namespace GiamSat.Models
         {
             public const string BasePath = "api/FT101";
         }
+
+        public static class AlarmSettings
+        {
+            public const string BasePath = "api/AlarmSettings";
+        }
+
+        public static class AlarmLog
+        {
+            public const string BasePath = "api/AlarmLog";
+        }
     }
 }

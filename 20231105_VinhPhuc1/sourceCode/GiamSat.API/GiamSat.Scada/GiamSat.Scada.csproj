@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Email.cs" />
     <Compile Include="EncodeMD5.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
