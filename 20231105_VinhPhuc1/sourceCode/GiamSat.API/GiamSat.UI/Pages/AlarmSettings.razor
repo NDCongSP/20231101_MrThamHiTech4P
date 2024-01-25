@@ -8,6 +8,8 @@
 else
 {
     <MudPaper Class="ma-2 mt-5 p-3" Elevation="3">
+        <MudChip Style="@($"color:{_theme.Palette.White}; background:{_theme.Palette.DarkDarken};")" Class="d-flex">Cài email nhận cảnh báo</MudChip>
+        <MudDivider></MudDivider>
         <EditForm Model="_alarmSettings" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
             <DataAnnotationsValidator />
 
