@@ -4,6 +4,8 @@ using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components;
 using GiamSat.APIClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using ClosedXML.Excel;
+
 
 namespace GiamSat.UI.Pages
 {
@@ -114,7 +116,8 @@ namespace GiamSat.UI.Pages
         {
             try
             {
-
+                var xls = new Excel();
+                await xls.GenerateExcel(_js, Elements, "export.xlsx");
             }
             catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
         }
