@@ -1,8 +1,9 @@
 ﻿using MudBlazor;
 using static MudBlazor.CategoryTypes;
 using System.Net.Http.Json;
-using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components;
+using GiamSat.APIClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GiamSat.UI.Pages
 {
@@ -12,10 +13,11 @@ namespace GiamSat.UI.Pages
 
         //tạo các biến dùng cho tạo select chọn giai doạn
         private string stringValue { get; set; }
-        private StepRun enumValue { get; set; } = StepRun.Chuong1;
-        public enum StepRun { Chuong1 = 1, Chuong2 = 2, Chuong3 = 3, Chuong4 = 4, All = 5 }
+        private ChuongEnum enumValue { get; set; } = ChuongEnum.All;
+        public enum ChuongEnum { Chuong1 = 1, Chuong2 = 2, Chuong3 = 3, Chuong4 = 4, All = 5 }
 
-        DateTime? date = DateTime.Today;
+        DateTime? _dateFrom = DateTime.Today;
+        DateTime? _dateTo = DateTime.Today;
 
 
         private bool _loading = true;
@@ -23,11 +25,13 @@ namespace GiamSat.UI.Pages
         private APIClient.DataLogModel selectedItem1 = null;
         private List<APIClient.DataLogModel> Elements;
 
+        private string _tenChuong = "All";
+
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                var res = await _dataLogClient.GetAllAsync();
+                var res = await _dataLogClient.GetFromToByNameAsync(DateTime.Now.ToString("yyyy-MM-dd 00:00:00"), DateTime.Now.ToString("yyyy-MM-dd 23:59:59"), "All");
                 if (res.Succeeded)
                 {
                     Elements = res.Data.OrderByDescending(x => x.CreatedDate).ToList();
@@ -38,13 +42,42 @@ namespace GiamSat.UI.Pages
             catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
         }
 
-        private void OnSelectedValuesChanged(IEnumerable<StepRun> values)
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                _loading = false;
+            }
+        }
+
+        private void OnSelectedValuesChanged(IEnumerable<ChuongEnum> values)
         {
             Console.WriteLine(string.Join("SELECTED value:\n", values));
 
-            var step = values.FirstOrDefault();
+            var chuong = values.FirstOrDefault();
 
-            var s = enumValue;
+            if (chuong.ToString() == "Chuong1")
+            {
+                _tenChuong = "Chuồng 1";
+            }
+            else if (chuong.ToString() == "Chuong2")
+            {
+                _tenChuong = "Chuồng 2";
+            }
+            else if (chuong.ToString() == "Chuong3")
+            {
+                _tenChuong = "Chuồng 3";
+            }
+            else if (chuong.ToString() == "Chuong4")
+            {
+                _tenChuong = "Chuồng 4";
+            }
+            else
+            {
+                _tenChuong = "All";
+            }
+
+            //var s = enumValue;
 
             StateHasChanged();
         }
@@ -64,13 +97,15 @@ namespace GiamSat.UI.Pages
         {
             try
             {
-                var res = await _dataLogClient.GetAllAsync();
+                //var Chuong = enumValue.ToString();
+
+                var res = await _dataLogClient.GetFromToByNameAsync(_dateFrom?.ToString("yyyy-MM-dd 00:00:00"), _dateTo?.ToString("yyyy-MM-dd 23:59:59"), _tenChuong);
                 if (res.Succeeded)
                 {
                     Elements = res.Data.OrderByDescending(x => x.CreatedDate).ToList();
                 }
 
-                StateHasChanged() ;
+                StateHasChanged();
             }
             catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
         }
@@ -79,7 +114,7 @@ namespace GiamSat.UI.Pages
         {
             try
             {
-               
+
             }
             catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
         }

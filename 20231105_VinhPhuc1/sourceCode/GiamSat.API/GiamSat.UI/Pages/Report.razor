@@ -2,7 +2,7 @@
 @attribute [Authorize]
 
 
-@if (Elements == null)
+@if (Elements == null && _loading == true)
 {
     @*<MudText>Loading....</MudText>*@
     <div class="spinner center-div"></div>
@@ -16,16 +16,16 @@ else
                     <MudCardContent Class="align-content-center">
                         <MudGrid Spacing="2">
                             <MudItem xs="12" sm="4">
-                                <MudDatePicker Label="Từ ngày" @bind-Date="date" Elevation="10" Class="pa-4" />
+                                <MudDatePicker Label="Từ ngày" @bind-Date="_dateFrom" Elevation="10" Class="pa-4" />
                             </MudItem>
                             <MudItem xs="12" sm="4">
-                                <MudDatePicker Label="Từ ngày" @bind-Date="date" Elevation="10" Class="pa-4" />
+                                <MudDatePicker Label="Đến ngày" @bind-Date="_dateTo" Elevation="10" Class="pa-4" />
                             </MudItem>
                             <MudItem xs="12" sm="4" Class="pa-4">
                                 <MudSelect @bind-Value="enumValue" Label="Chọn chuồng" Class="pa-4"
-                                           SelectedValuesChanged="(IEnumerable<StepRun>e)=>OnSelectedValuesChanged(e)"
+                                           SelectedValuesChanged="(IEnumerable<ChuongEnum>e)=>OnSelectedValuesChanged(e)"
                                            OpenIcon="@Icons.Material.Filled.LocalDrink" AdornmentColor="Color.Secondary" Variant="Variant.Outlined">
-                                    @foreach (StepRun item in Enum.GetValues(typeof(StepRun)))
+                                    @foreach (ChuongEnum item in Enum.GetValues(typeof(ChuongEnum)))
                                     {
                                         <MudSelectItem Value="@item">@item</MudSelectItem>
                                     }

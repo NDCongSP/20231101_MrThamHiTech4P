@@ -50,16 +50,27 @@ namespace GiamSat.API
         {
             try
             {
-                if (from == null || from == "" || to == null || to == "")
+                if (from == null || to == null || tenChuong == "")
                 {
                     return await Result<List<DataLogModel>>.FailAsync("Vui lòng chọn khoảng thời gian cần truy vấn dữ liệu.");
                 }
 
-                var d = await _dbContex.DataLogModel
-                            .Where<DataLogModel>(x => x.TenChuong == tenChuong && x.CreatedDate >= Convert.ToDateTime(from)
-                                && x.CreatedDate <= Convert.ToDateTime(to)).OrderBy(x=>x.CreatedDate).ToListAsync();
+                if (tenChuong == "All")
+                {
+                    var d = await _dbContex.DataLogModel
+                           .Where<DataLogModel>(x => x.CreatedDate >= Convert.ToDateTime(from)
+                               && x.CreatedDate <= Convert.ToDateTime(to)).OrderBy(x => x.CreatedDate).ToListAsync();
 
-                return await Result<List<DataLogModel>>.SuccessAsync(d);
+                    return await Result<List<DataLogModel>>.SuccessAsync(d);
+                }
+                else
+                {
+                    var d = await _dbContex.DataLogModel
+                           .Where<DataLogModel>(x => x.TenChuong == tenChuong && x.CreatedDate >= Convert.ToDateTime(from)
+                               && x.CreatedDate <= Convert.ToDateTime(to)).OrderBy(x => x.CreatedDate).ToListAsync();
+
+                    return await Result<List<DataLogModel>>.SuccessAsync(d);
+                }
             }
             catch (Exception ex)
             {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserMgr>
+	<User ID="1" UserName="admin">
+		<Name LaIndexID="adminadminadminadminadminadminadminadmin" />
+		<Description LaIndexID="user0user0user0user0user0user0user0user0" />
+	</User>
+	<User ID="2" UserName="user1">
+		<Name LaIndexID="user1user1user1user1user1user1user1user1" />
+		<Description LaIndexID="user1user1user1user1user1user1user1user1" />
+	</User>
+	<User ID="3" UserName="user2">
+		<Name LaIndexID="user2user2user2user2user2user2user2user2" />
+		<Description LaIndexID="user2user2user2user2user2user2user2user2" />
+	</User>
+	<User ID="4" UserName="user3">
+		<Name LaIndexID="user3user3user3user3user3user3user3user3" />
+		<Description LaIndexID="user3user3user3user3user3user3user3user3" />
+	</User>
+</UserMgr>

@@ -1,0 +1,19 @@
+{
+	"0":	{
+		"name":	"eth0",
+		"type":	"ETH",
+		"enable":	"yes",
+		"dhcp":	"no",
+		"secmode":	"WIFI_NET_SEC_NONE",
+		"keytype":	"WIFI_KEY_TYPE_NOKEY",
+		"ssid":	"",
+		"passwd":	"",
+		"mac":	"",
+		"ipAddr":	"192.168.1.253",
+		"subnetMask":	"255.255.255.0",
+		"gateway":	"192.168.1.1",
+		"dns":	"",
+		"prefDns":	"",
+		"alterDns":	""
+	}
+}
