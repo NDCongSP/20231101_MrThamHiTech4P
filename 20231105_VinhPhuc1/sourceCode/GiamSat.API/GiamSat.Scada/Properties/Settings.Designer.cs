@@ -25,8 +25,8 @@ namespace GiamSat.Scada.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("6uYjIe3oXDqJRKsw6NeEsI/BY/T4qF8gAZK3T/xLTyYjoF2fq/Jo9eq08TK3YvN8W5mDmmbB0mWs1RTcD" +
-            "H9gjTKcjMeCJfpNXn8xCgA7cNmg1Gvk14wCzJwtyVLEN0hj")]
+        [global::System.Configuration.DefaultSettingValueAttribute("qFgsKRXrOBXrpXLXV/PyMGuUw2HscP3Q/TloIHzSy61oxi8xaZPrO9puwtsmkH2XUU8nhsJpCGd9Sn2of" +
+            "JJViGStu1FZ1/AlQmYIkOezl+NefzEKADtw2aDUa+TXjALMnC3JUsQ3SGM=")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));

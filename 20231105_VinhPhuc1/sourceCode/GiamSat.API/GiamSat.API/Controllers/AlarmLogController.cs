@@ -6,7 +6,7 @@ using System;
 
 namespace GiamSat.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AlarmLogController : BaseController<Guid, AlarmLogModel>, ISAlarmLog

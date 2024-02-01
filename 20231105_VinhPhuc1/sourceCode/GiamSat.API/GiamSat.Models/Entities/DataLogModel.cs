@@ -20,7 +20,7 @@ namespace GiamSat.Models
         public double NhietDo { get; set; }
         public double DoAm { get; set; }
         public double Frequency { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:#,##0.##}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}")]
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public bool IsActive { get; set; }
 

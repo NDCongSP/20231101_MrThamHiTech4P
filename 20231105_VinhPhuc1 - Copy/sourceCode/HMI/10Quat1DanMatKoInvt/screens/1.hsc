@@ -327,7 +327,7 @@
 		<Label Status="3" Bold="0" CharSize="1616161616161616" LaFrnColor="0x0 0" Pattern="1" FrnColor="0xfdf0c4 0" BgColor="0xfdf0c4 0" svgfile="Fan\Fan9-3.svg" dark="0x0 0" light="0xffcc00 0" hlight="0x0 0" shadow="0x0 0" shape="0xffda82 0" gstartcolor="0xffffff 0" gmidcolor="0x0 0" gendcolor="0xffd92e 0" keyValue="3" />
 	</PartInfo>
 	<PartInfo PartType="WordShow" PartName="WL_8" PartClassifyType="Switch" PartID="0_WL_8">
-		<General Desc="WL_0" Area="516 310 595 370" WordAddr="HDW1008" DataFormat="105" Const="0" Limit="-1" BmpIndex="132" LaStartPt="39 30" IsIndirectR="0" IsManyTypeShow="1" Fast="0" StatusCovType="1" StatusFreq="1" AnimaReturn="0" ByAddr="0" Trigger="1" TriggAddrWordShow="HDX24.0" isNautomatic="0" UseClickTime="0" ClickTime="2000" isReturn="0" ReturnNum="0" IsControl="1" ControlNum="4" NewLabelNum="0" FigureFile="" BorderColor="0xf7e7ad 0" WSShowErrorState="1" WSErrorState="0" TextAlign="0" TextArea="0 0" Locking="0" />
+		<General Desc="WL_0" Area="516 310 595 370" WordAddr="HDW1008" DataFormat="105" Const="0" Limit="-1" BmpIndex="132" LaStartPt="39 30" IsIndirectR="0" IsManyTypeShow="1" Fast="0" StatusCovType="1" StatusFreq="1" AnimaReturn="0" ByAddr="0" Trigger="1" TriggAddrWordShow="HDX8.0" isNautomatic="0" UseClickTime="0" ClickTime="2000" isReturn="0" ReturnNum="0" IsControl="1" ControlNum="4" NewLabelNum="0" FigureFile="" BorderColor="0xf7e7ad 0" WSShowErrorState="1" WSErrorState="0" TextAlign="0" TextArea="0 0" Locking="0" />
 		<Extension TouchState="1" Buzzer="1" IsCheck="0" AckTime="0" />
 		<MoveZoom DataFormatMZ="0" MutipleMZ="1.000000000000000" />
 		<TrigHide UseShowHide="0" HideType="0" IsHideAllTime="0" />

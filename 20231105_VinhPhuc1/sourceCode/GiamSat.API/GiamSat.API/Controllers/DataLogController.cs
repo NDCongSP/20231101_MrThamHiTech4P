@@ -12,8 +12,8 @@ namespace GiamSat.API.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
-    //[ApiController]
-    [AllowAnonymous]//khong can authorize
+    [ApiController]
+    //[AllowAnonymous]//khong can authorize
     public class DataLogController : BaseController<Guid, DataLogModel>, ISDataLog
     {
         readonly SCommon _sCommon;

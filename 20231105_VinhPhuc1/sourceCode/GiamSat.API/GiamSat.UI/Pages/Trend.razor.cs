@@ -40,7 +40,7 @@ namespace GiamSat.UI.Pages
                 //await lineChart.InitializeAsync(chartData: chartData, chartOptions: lineChartOptions, plugins: new string[] { "ChartDataLabels" });
 
                 #region Timer refresh data
-                _timer = new System.Timers.Timer(5000);
+                _timer = new System.Timers.Timer(GlobalVariable.ChartRefreshInterval);
                 _timer.Elapsed += RefreshData;
                 _timer.Enabled = true;
                 #endregion
@@ -245,7 +245,7 @@ namespace GiamSat.UI.Pages
                                     {
                                         var count = lineChartDataset.Data.Count;
 
-                                        if (count > 10)
+                                        if (count > GlobalVariable.ChartPointNum)
                                         {
                                             lineChartDataset.Data.RemoveAt(0);
                                         }
@@ -281,7 +281,7 @@ namespace GiamSat.UI.Pages
                     //    }
                     //}
 
-                    if (chartData.Labels.Count > 10)
+                    if (chartData.Labels.Count > GlobalVariable.ChartPointNum)
                     {
                         chartData.Labels.RemoveAt(0);
 

@@ -20,6 +20,10 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 var config = builder.Configuration;
 
+GlobalVariable.RefreshInterval = int.TryParse(config["AppSettings:RefreshInterval"].ToString(),out int value) ? value : 1000;
+GlobalVariable.ChartRefreshInterval = int.TryParse(config["AppSettings:ChartRefreshInterval"].ToString(),out value) ? value : 1000;
+GlobalVariable.ChartPointNum = int.TryParse(config["AppSettings:ChartPointNum"].ToString(),out value) ? value : 10;
+
 builder.Services.AddMudServices();
 builder.Services.AddBlazorBootstrap();
 
@@ -42,6 +46,14 @@ builder.Services.AddScoped<AuthenticationStateProvider, JwtAuthenticationService
     .AddScoped<JwtAuthenticationHeaderHandler>();
 
 builder.Services.AddScoped<IHttpInterceptorManager, HttpInterceptorManager>();
+
+//add them client local
+builder.Services.AddHttpClient("local", client =>
+{
+    client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+});
+
+//add client API
 builder.Services.AddHttpClient("GiamSatAPI", (sp, client) =>
 {
     client.DefaultRequestHeaders.AcceptLanguage.Clear();

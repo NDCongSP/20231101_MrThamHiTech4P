@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Components;
 using GiamSat.APIClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using ClosedXML.Excel;
+using static System.Net.WebRequestMethods;
+using System;
+using System.Net.Http;
 
 
 namespace GiamSat.UI.Pages
@@ -112,12 +115,21 @@ namespace GiamSat.UI.Pages
             catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
         }
 
+        //inject theo ten.
+        [Inject]
+        public IHttpClientFactory _client { get; set; }
+
         private async void OnExportExcelClick()
         {
             try
             {
                 var xls = new Excel();
-                await xls.GenerateExcel(_js, Elements, "export.xlsx");
+                //await xls.GenerateExcel(_js, Elements, "export.xlsx");
+                
+                //Stream streamTemplate = await _client.CreateClient("local").GetStreamAsync("templateXLS/TemplateReport.xlsx");
+
+                //await xls.UseTemplate(_js, streamTemplate, Elements, "BaoCao.xlsx");
+                await xls.TemplateOnExistingFileAsync(_client,_js, Elements, @"templateXLS\TemplateReport.xlsx",$"{_dateFrom} đến {_dateTo}");
             }
             catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
         }
