@@ -36,4 +36,5 @@ IP address:
  Server 192.168.1.254-LAN; 192.168.1.248-Wifi
 
  ---------------------------------------------------------------------
- http://localhost:64665/swagger/index.html
+ http://localhost:8686/swagger/index.html
+ http://localhost:6868/

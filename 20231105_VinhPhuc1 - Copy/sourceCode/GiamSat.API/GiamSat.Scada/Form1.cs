@@ -448,252 +448,252 @@ namespace GiamSat.Scada
             #endregion
 
             #region Chuong 2
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto").QualityChanged += Chuong2Status_QualityChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto").QualityChanged += Chuong2Status_QualityChanged;
                                                                     
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto").ValueChanged += InAutoChuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan").ValueChanged += InManChuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai").ValueChanged += InQuaTaiChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto").ValueChanged += InAutoChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan").ValueChanged += InManChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai").ValueChanged += InQuaTaiChuong2_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong2_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo").ValueChanged += NhietDoChuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm").ValueChanged += DoAmChuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo").ValueChanged += TanSoChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo").ValueChanged += NhietDoChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm").ValueChanged += DoAmChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo").ValueChanged += TanSoChuong2_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong2_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong2_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong2_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong2_ValueChanged;
 
-            Chuong2Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto")
-              , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto")
-              , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto").Quality));
+            //Chuong2Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto")
+            //  , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto")
+            //  , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/OutQ1Auto").Quality));
 
-            NhietDoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo").Value));
-            DoAmChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm").Value));
-            TanSoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo").Value));
+            //NhietDoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NhietDo").Value));
+            //DoAmChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/DoAm").Value));
+            //TanSoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/TanSo").Value));
 
-            InAutoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto").Value));
-            InManChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan").Value));
-            InChayDuPhongChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong").Value));
-            InQuaTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai").Value));
+            //InAutoChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InAuto").Value));
+            //InManChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InMan").Value));
+            //InChayDuPhongChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InChayDuPhong").Value));
+            //InQuaTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InQuaTai").Value));
 
-            InStatusQ1Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1").Value));
-            InStatusQ2Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2").Value));
-            InStatusQ3Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3").Value));
-            InStatusQ4Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4").Value));
-            InStatusDanMatChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat").Value));
+            //InStatusQ1Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ1").Value));
+            //InStatusQ2Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ2").Value));
+            //InStatusQ3Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ3").Value));
+            //InStatusQ4Chuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusQ4").Value));
+            //InStatusDanMatChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/InStatusDanMat").Value));
 
-            NgayHienTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai").Value));
-            GiaiDoanHienTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai").Value));
+            //NgayHienTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/NgayHienTai").Value));
+            //GiaiDoanHienTaiChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/GiaiDoanHienTai").Value));
 
-            HmiThayDoiCaiDatChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat").Value));
+            //HmiThayDoiCaiDatChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/HmiThayDoiCaiDat").Value));
 
-            KhoiLuongSiloChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo").Value));
+            //KhoiLuongSiloChuong2_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong2/Device1/KhoiLuongSilo").Value));
             #endregion
 
             #region Chuong 3
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto").QualityChanged += Chuong3Status_QualityChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto").QualityChanged += Chuong3Status_QualityChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto").ValueChanged += InAutoChuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan").ValueChanged += InManChuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai").ValueChanged += InQuaTaiChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto").ValueChanged += InAutoChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan").ValueChanged += InManChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai").ValueChanged += InQuaTaiChuong3_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong3_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo").ValueChanged += NhietDoChuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm").ValueChanged += DoAmChuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo").ValueChanged += TanSoChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo").ValueChanged += NhietDoChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm").ValueChanged += DoAmChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo").ValueChanged += TanSoChuong3_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong3_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong3_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong3_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong3_ValueChanged;
 
-            Chuong3Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto")
-              , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto")
-              , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto").Quality));
+            //Chuong3Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto")
+            //  , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto")
+            //  , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/OutQ1Auto").Quality));
 
-            NhietDoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo").Value));
-            DoAmChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm").Value));
-            TanSoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo").Value));
+            //NhietDoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NhietDo").Value));
+            //DoAmChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/DoAm").Value));
+            //TanSoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/TanSo").Value));
 
-            InAutoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto").Value));
-            InManChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan").Value));
-            InChayDuPhongChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong").Value));
-            InQuaTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai").Value));
+            //InAutoChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InAuto").Value));
+            //InManChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InMan").Value));
+            //InChayDuPhongChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InChayDuPhong").Value));
+            //InQuaTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InQuaTai").Value));
 
-            InStatusQ1Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1").Value));
-            InStatusQ2Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2").Value));
-            InStatusQ3Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3").Value));
-            InStatusQ4Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4").Value));
-            InStatusDanMatChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat").Value));
+            //InStatusQ1Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ1").Value));
+            //InStatusQ2Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ2").Value));
+            //InStatusQ3Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ3").Value));
+            //InStatusQ4Chuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusQ4").Value));
+            //InStatusDanMatChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/InStatusDanMat").Value));
 
-            NgayHienTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai").Value));
-            GiaiDoanHienTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai").Value));
+            //NgayHienTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/NgayHienTai").Value));
+            //GiaiDoanHienTaiChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/GiaiDoanHienTai").Value));
 
-            HmiThayDoiCaiDatChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat").Value));
+            //HmiThayDoiCaiDatChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/HmiThayDoiCaiDat").Value));
 
-            KhoiLuongSiloChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo").Value));
+            //KhoiLuongSiloChuong3_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong3/Device1/KhoiLuongSilo").Value));
             #endregion
 
             #region Chuong 4
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto").QualityChanged += Chuong4Status_QualityChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto").QualityChanged += Chuong4Status_QualityChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto").ValueChanged += InAutoChuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan").ValueChanged += InManChuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai").ValueChanged += InQuaTaiChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto").ValueChanged += InAutoChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan").ValueChanged += InManChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong").ValueChanged += InChayDuPhongChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai").ValueChanged += InQuaTaiChuong4_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1").ValueChanged += InStatusQ1Chuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2").ValueChanged += InStatusQ2Chuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3").ValueChanged += InStatusQ3Chuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4").ValueChanged += InStatusQ4Chuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat").ValueChanged += InStatusDanMatChuong4_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo").ValueChanged += NhietDoChuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm").ValueChanged += DoAmChuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo").ValueChanged += TanSoChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo").ValueChanged += NhietDoChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm").ValueChanged += DoAmChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo").ValueChanged += TanSoChuong4_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai").ValueChanged += NgayHienTaiChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai").ValueChanged += GiaiDoanHienTaiChuong4_ValueChanged;
 
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong4_ValueChanged;
-            easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat").ValueChanged += HmiThayDoiCaiDatChuong4_ValueChanged;
+            //easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo").ValueChanged += KhoiLuongSiloChuong4_ValueChanged;
 
-            Chuong4Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto")
-              , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto")
-              , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto").Quality));
+            //Chuong4Status_QualityChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto")
+            //  , new TagQualityChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto")
+            //  , Quality.Uncertain, easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/OutQ1Auto").Quality));
 
-            NhietDoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo").Value));
-            DoAmChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm").Value));
-            TanSoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo")
-                , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo")
-                , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo").Value));
+            //NhietDoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NhietDo").Value));
+            //DoAmChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/DoAm").Value));
+            //TanSoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo")
+            //    , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo")
+            //    , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/TanSo").Value));
 
-            InAutoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto").Value));
-            InManChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan").Value));
-            InChayDuPhongChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong").Value));
-            InQuaTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai").Value));
+            //InAutoChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InAuto").Value));
+            //InManChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InMan").Value));
+            //InChayDuPhongChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InChayDuPhong").Value));
+            //InQuaTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InQuaTai").Value));
 
-            InStatusQ1Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1").Value));
-            InStatusQ2Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2").Value));
-            InStatusQ3Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3").Value));
-            InStatusQ4Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4").Value));
-            InStatusDanMatChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat")
-               , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat")
-               , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat").Value));
+            //InStatusQ1Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ1").Value));
+            //InStatusQ2Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ2").Value));
+            //InStatusQ3Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ3").Value));
+            //InStatusQ4Chuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusQ4").Value));
+            //InStatusDanMatChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat")
+            //   , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat")
+            //   , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/InStatusDanMat").Value));
 
-            NgayHienTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai").Value));
-            GiaiDoanHienTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai").Value));
+            //NgayHienTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/NgayHienTai").Value));
+            //GiaiDoanHienTaiChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/GiaiDoanHienTai").Value));
 
-            HmiThayDoiCaiDatChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat").Value));
+            //HmiThayDoiCaiDatChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/HmiThayDoiCaiDat").Value));
 
-            KhoiLuongSiloChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo")
-              , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo")
-              , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo").Value));
+            //KhoiLuongSiloChuong4_ValueChanged(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo")
+            //  , new TagValueChangedEventArgs(easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo")
+            //  , "", easyDriverConnector1.GetTag("Local Station/ChannelChuong4/Device1/KhoiLuongSilo").Value));
             #endregion
 
             if (_pnStatus.InvokeRequired)

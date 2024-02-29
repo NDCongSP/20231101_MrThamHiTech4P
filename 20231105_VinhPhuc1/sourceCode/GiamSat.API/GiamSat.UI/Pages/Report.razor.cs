@@ -125,11 +125,11 @@ namespace GiamSat.UI.Pages
             {
                 var xls = new Excel();
                 //await xls.GenerateExcel(_js, Elements, "export.xlsx");
-                
-                //Stream streamTemplate = await _client.CreateClient("local").GetStreamAsync("templateXLS/TemplateReport.xlsx");
 
+                //Stream streamTemplate = await _client.CreateClient("local").GetStreamAsync("templateXLS/TemplateReport.xlsx");
                 //await xls.UseTemplate(_js, streamTemplate, Elements, "BaoCao.xlsx");
-                await xls.TemplateOnExistingFileAsync(_client,_js, Elements, @"templateXLS\TemplateReport.xlsx",$"{_dateFrom} đến {_dateTo}");
+
+                await xls.TemplateOnExistingFileAsync(_client, _js, Elements, @"templateXLS\TemplateReport.xlsx", $"{_dateFrom} đến {_dateTo}");
             }
             catch (Exception ex) { _snackBar.Add(ex.Message, Severity.Error); }
         }

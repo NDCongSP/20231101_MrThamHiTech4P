@@ -83,7 +83,6 @@ namespace GiamSat.UI
             MemoryStream XLSStream = new();
             template.SaveAs(XLSStream);
 
-
             return XLSStream.ToArray();
         }
 
@@ -128,7 +127,6 @@ namespace GiamSat.UI
 
             MemoryStream XLSStream = new();
             wb.SaveAs(XLSStream);
-
 
             return XLSStream.ToArray();
         }

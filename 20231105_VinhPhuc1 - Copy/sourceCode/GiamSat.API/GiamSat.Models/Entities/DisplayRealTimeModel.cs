@@ -21,6 +21,11 @@ namespace GiamSat.Models
         public int Fan2Status { get; set; }
         public int Fan3Status { get; set; }
         public int Fan4Status { get; set; }
+        public int Fan5Status { get; set; }
+        public int Fan6Status { get; set; }
+        public int Fan7Status { get; set; }
+        public int Fan8Status { get; set; }
+        public int Fan9Status { get; set; }
         public int CoollerStatus { get; set; }
         /// <summary>
         /// Báo trạng thái kết nối đến tủ.

@@ -18,7 +18,7 @@ namespace GiamSat.API
             builder.Entity<DataLogModel>();
             builder.Entity<ChuongInfoModel>();
             //builder.Entity<DisplayRealTimeModel>().HasNoKey();//table không sử dụng khóa chính
-            builder.Entity<DisplayRealTimeModel>();
+            //builder.Entity<DisplayRealTimeModel>();
             builder.Entity<RealtimeDisplayModel>();
             builder.Entity<FT100>();
             builder.Entity<FT101>();
