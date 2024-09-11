@@ -68,9 +68,9 @@ namespace GiamSat.UI.Pages
                 }
 
                 #region Timer refresh data
-                //_timer = new System.Timers.Timer(GlobalVariable.RefreshInterval);
-                //_timer.Elapsed += RefreshData;
-                //_timer.Enabled = true;
+                _timer = new System.Timers.Timer(GlobalVariable.RefreshInterval);
+                _timer.Elapsed += RefreshData;
+                _timer.Enabled = true;
                 #endregion
             }
             catch { }
