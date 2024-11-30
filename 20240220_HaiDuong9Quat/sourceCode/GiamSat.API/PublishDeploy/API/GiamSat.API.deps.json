@@ -3010,7 +3010,10 @@
           "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
-          "GiamSat.Models.dll": {}
+          "GiamSat.Models.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

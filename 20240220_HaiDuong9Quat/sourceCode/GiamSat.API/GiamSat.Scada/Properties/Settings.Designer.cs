@@ -12,7 +12,7 @@ namespace GiamSat.Scada.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,8 +25,9 @@ namespace GiamSat.Scada.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("qFgsKRXrOBXrpXLXV/PyMGuUw2HscP3Q/TloIHzSy61oxi8xaZPrO9puwtsmkH2XUU8nhsJpCGd9Sn2of" +
-            "JJViGStu1FZ1/AlQmYIkOezl+NefzEKADtw2aDUa+TXjALMnC3JUsQ3SGM=")]
+        [global::System.Configuration.DefaultSettingValueAttribute("qFgsKRXrOBXrpXLXV/PyMFO7mb5cO4JdX3SDES5OjfCesUw1ESTbQD6u2uKlFJM/LW7aneh36zg/QXoXf" +
+            "goPGTdHErGPuWkWjAwDyKztABp9Sn2ofJJViGStu1FZ1/AlQmYIkOezl+NefzEKADtw2aDUa+TXjALMn" +
+            "C3JUsQ3SGM=")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
