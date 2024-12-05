@@ -6,3 +6,9 @@ thong tin ultra view:
 78 088 727
 Hitech4P
 
+port chay API: 31679
+port chay UI: 6543
+
+user login web: admin
+pass: Admin123$%^789
+
